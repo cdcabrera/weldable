@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`dotenv should attempt to load and instantiate the dotenv-webpack package: setupWebpackDotenvFile 1`] = `
+Dotenv {
+  "config": {
+    "path": "./.env",
+    "prefix": "process.env.",
+    "silent": true,
+    "systemvars": true,
+  },
+}
+`;
+
+exports[`dotenv should attempt to load dotenv files for webpack configuration: setupWebpackDotenvFilesForEnv 1`] = `
+[
+  {
+    "path": ".env.development.local",
+    "prefix": "process.env.",
+    "silent": true,
+    "systemvars": true,
+  },
+  {
+    "path": ".env.development",
+    "prefix": "process.env.",
+    "silent": true,
+    "systemvars": true,
+  },
+  {
+    "path": ".env.local",
+    "prefix": "process.env.",
+    "silent": true,
+    "systemvars": true,
+  },
+  {
+    "path": ".env",
+    "prefix": "process.env.",
+    "silent": true,
+    "systemvars": true,
+  },
+]
+`;
+
+exports[`dotenv should return specific properties: specific properties 1`] = `
+{
+  "dotenv": {
+    "setupDotenvFilesForEnv": [Function],
+    "setupWebpackDotenvFilesForEnv": [Function],
+  },
+  "setupDotenvFile": [Function],
+  "setupDotenvFilesForEnv": [Function],
+  "setupWebpackDotenvFile": [Function],
+  "setupWebpackDotenvFilesForEnv": [Function],
+}
+`;

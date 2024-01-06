@@ -1,0 +1,107 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Typescript should create a basic tsconfig: basic 1`] = `
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "noEmit": false,
+    "outDir": "dist",
+  },
+}
+`;
+
+exports[`Typescript should create a tsconfig with a base template: base template 1`] = `
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "jsx": "react-jsx",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext",
+    ],
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "noEmit": true,
+    "noFallthroughCasesInSwitch": true,
+    "outDir": "dist",
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "target": "es2015",
+  },
+}
+`;
+
+exports[`Typescript should return specific properties: specific properties 1`] = `
+{
+  "createTsConfig": [Function],
+}
+`;
+
+exports[`Typescript should update a tsconfig with a subsequent merge: merged template 1`] = `
+{
+  "merged": {
+    "compilerOptions": {
+      "allowJs": true,
+      "allowSyntheticDefaultImports": true,
+      "allowUnreachableCode": false,
+      "allowUnusedLabels": false,
+      "checkJs": true,
+      "esModuleInterop": true,
+      "exactOptionalPropertyTypes": true,
+      "forceConsistentCasingInFileNames": true,
+      "isolatedModules": true,
+      "jsx": "react-jsx",
+      "lib": [
+        "dom",
+        "dom.iterable",
+        "esnext",
+      ],
+      "module": "esnext",
+      "moduleResolution": "bundler",
+      "noEmit": true,
+      "noFallthroughCasesInSwitch": true,
+      "noImplicitOverride": true,
+      "noImplicitReturns": true,
+      "noPropertyAccessFromIndexSignature": true,
+      "noUncheckedIndexedAccess": true,
+      "noUnusedLocals": true,
+      "noUnusedParameters": true,
+      "outDir": "dist",
+      "resolveJsonModule": true,
+      "skipLibCheck": true,
+      "strict": true,
+      "target": "es2015",
+    },
+  },
+  "original": {
+    "compilerOptions": {
+      "allowJs": true,
+      "allowSyntheticDefaultImports": true,
+      "esModuleInterop": true,
+      "forceConsistentCasingInFileNames": true,
+      "isolatedModules": true,
+      "jsx": "react-jsx",
+      "lib": [
+        "dom",
+        "dom.iterable",
+        "esnext",
+      ],
+      "module": "esnext",
+      "moduleResolution": "bundler",
+      "noEmit": true,
+      "noFallthroughCasesInSwitch": true,
+      "outDir": "dist",
+      "resolveJsonModule": true,
+      "skipLibCheck": true,
+      "strict": true,
+      "target": "es2015",
+    },
+  },
+}
+`;

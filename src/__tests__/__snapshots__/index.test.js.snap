@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`weldable should return specific properties: specific properties 1`] = `
+{
+  "OPTIONS": {
+    "_set": undefined,
+    "contextPath": "../__fixtures__",
+  },
+  "weldable": [Function],
+}
+`;

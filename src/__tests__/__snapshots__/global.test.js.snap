@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Global should create a file from a string: createFile 1`] = `
+{
+  "contents": "lorem ipsum",
+  "dir": "./.fixtures/createFile",
+  "file": "80a751fde577028640c419000e33eba6.txt",
+}
+`;
+
+exports[`Global should handle errors in multiple formats: errorLikeObj 1`] = `
+"one: Custom error string
+two: Error: Custom error object"
+`;
+
+exports[`Global should handle errors in multiple formats: errorLikeStr 1`] = `"Custom error string"`;
+
+exports[`Global should handle errors in multiple formats: errorList 1`] = `
+[
+  "Custom error string",
+  "Custom error object",
+  "one: Custom error string
+two: Error: Custom error object",
+]
+`;
+
+exports[`Global should handle errors in multiple formats: errorObj 1`] = `"Custom error object"`;
+
+exports[`Global should return specific properties: specific properties 1`] = `
+{
+  "OPTIONS": {
+    "_set": undefined,
+    "contextPath": "../__fixtures__",
+  },
+  "contextPath": "../__fixtures__",
+  "createFile": [Function],
+  "dynamicImport": [Function],
+  "errorMessageHandler": [Function],
+  "isPromise": [Function],
+}
+`;
+
+exports[`Global should set a one-time mutable OPTIONS object: immutable 1`] = `
+{
+  "OPTIONS": {
+    "contextPath": "../__fixtures__",
+    "dolor": "magna",
+    "lorem": "ipsum",
+    "sit": "function test ../__fixtures__",
+  },
+  "isFrozen": true,
+}
+`;

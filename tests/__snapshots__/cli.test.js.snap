@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CLI should use custom options: custom 1`] = `"<execSync>["node ./bin/cli.js -e development -x ./webpack.custom.js -x ./webpack.other.js"]</execSync>"`;
+
+exports[`CLI should use default options: defaults 1`] = `"<execSync>["node ./bin/cli.js"]</execSync>"`;
