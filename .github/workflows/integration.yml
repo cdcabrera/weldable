@@ -1,0 +1,34 @@
+name: Build
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+env:
+  COV_NODE_VERSION: 18
+
+jobs:
+  Integration-checks:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x]
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: npm
+      - name: Node.js modules cache
+        uses: actions/cache@v3
+        id: modules-cache
+        with:
+          path: ${{ github.workspace }}/node_modules
+          key: ${{ runner.os }}-${{ matrix.node-version }}-modules-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-${{ matrix.node-version }}-modules
+      - name: Install Node.js packages
+        if: ${{ steps.modules-cache.outputs.cache-hit != 'true' }}
+        run: npm install
+      - name: Lint and test
+        run: npm test
