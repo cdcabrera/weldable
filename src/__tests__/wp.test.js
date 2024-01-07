@@ -15,6 +15,13 @@ describe('webpack', () => {
     }
   };
 
+  /**
+   * Provide a consistent way of processing configs.
+   *
+   * @param {object} obj
+   * @param {boolean} isHash
+   * @returns {string}
+   */
   const cleanConfig = (obj, isHash) => {
     const contents = JSON.stringify(obj, null, 2).replace(/"[a-z0-9/-_.,*()\s]*\/weldable\//gi, '"./');
     if (isHash) {
@@ -45,6 +52,27 @@ describe('webpack', () => {
       dev: cleanConfig(dev),
       prod: cleanConfig(prod)
     }).toMatchSnapshot('basic configurations');
+    mockClear();
+  });
+
+  it('should create a webpack config with language', async () => {
+    const { mockClear } = mockObjectProperty(OPTIONS, {
+      dotenv: {
+        ...baseOptions.dotenv
+      },
+      loader: 'js'
+    });
+
+    const dev = await wp.createWpConfig({
+      nodeEnv: 'development'
+    });
+
+    const prod = await wp.createWpConfig();
+
+    expect({
+      dev: cleanConfig(dev),
+      prod: cleanConfig(prod)
+    }).toMatchSnapshot('language configurations');
     mockClear();
   });
 

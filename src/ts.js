@@ -15,19 +15,27 @@ const { consoleMessage } = require('./logger');
  * @param {object} options
  * @param {string} options.baseTsConfig
  * @param {string} options.contextPath
+ * @param {boolean} options.isCreateTsConfig
  * @param {boolean} options.isMergeTsConfig
  * @param {boolean} options.isRegenTsConfig
- * @param {string} options.language
+ * @param {object} settings
+ * @param {string} settings.configFilename
  * @returns {undefined|{compilerOptions: {noEmit: boolean, allowJs: boolean, outDir: string}}}
  */
 const createTsConfig = (
   { _BUILD_DIST_DIR: DIST_DIR } = OPTIONS.dotenv || {},
-  { baseTsConfig, contextPath, isMergeTsConfig, isRegenTsConfig, language } = OPTIONS
+  { baseTsConfig, contextPath, isCreateTsConfig, isMergeTsConfig, isRegenTsConfig } = OPTIONS,
+  { configFilename = 'tsconfig.json' } = {}
 ) => {
-  const currentConfigPath = path.join(contextPath, 'tsconfig.json');
+  const currentConfigPath = path.join(contextPath, configFilename);
   const isCurrentConfig = fs.existsSync(currentConfigPath);
 
-  if (language !== 'ts' || (isCurrentConfig && !isRegenTsConfig && !isMergeTsConfig)) {
+  if (isCurrentConfig) {
+    consoleMessage.warn(`Current ${configFilename} found: ${currentConfigPath}`);
+  }
+
+  if (!isCreateTsConfig) {
+    consoleMessage.warn(`Ignoring ${configFilename}`);
     return undefined;
   }
 
@@ -39,16 +47,16 @@ const createTsConfig = (
       // eslint-disable-next-line global-require
       currentConfig = require(currentConfigPath);
     } catch (e) {
-      consoleMessage.warn(`No current tsconfig.`);
+      consoleMessage.warn(`No ${configFilename} found.`);
     }
   }
 
   if (baseTsConfig) {
     try {
       // eslint-disable-next-line global-require
-      presetConfig = require(`@tsconfig/${baseTsConfig}/tsconfig.json`);
+      presetConfig = require(`@tsconfig/${baseTsConfig}/${configFilename}`);
     } catch (e) {
-      consoleMessage.warn(`No base tsconfig specified, using basic properties only.`);
+      consoleMessage.warn(`No preset ${configFilename} specified, using basic properties only.`);
     }
   }
 
@@ -66,8 +74,17 @@ const createTsConfig = (
 
   createFile(`${JSON.stringify(customTsConfig, null, 2)}\n`, {
     dir: contextPath,
-    filename: 'tsconfig.json'
+    filename: configFilename
   });
+
+  if (isCreateTsConfig) {
+    consoleMessage.success(
+      `${(isMergeTsConfig && 'Merged') || (isRegenTsConfig && 'Regenerated') || 'Created'} config: ${path.join(
+        contextPath,
+        configFilename
+      )}`
+    );
+  }
 
   return customTsConfig;
 };

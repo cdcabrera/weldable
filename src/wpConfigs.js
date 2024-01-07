@@ -16,6 +16,50 @@ const { setupWebpackDotenvFilesForEnv } = require('./dotenv');
  */
 
 /**
+ * Assumption based preprocess loader
+ *
+ * @param {object} dotenv
+ * @param {string} dotenv._BUILD_SRC_DIR
+ * @param {object} options
+ * @param {string} options.loader
+ * @returns {{module: {rules: Array}}}
+ */
+const preprocessLoader = ({ _BUILD_SRC_DIR: SRC_DIR = '' } = OPTIONS.dotenv || {}, { loader } = OPTIONS) => ({
+  module: {
+    rules: (() => {
+      switch (loader) {
+        case 'js':
+          return [
+            {
+              test: /\.(jsx|js)?$/,
+              include: [SRC_DIR],
+              use: [
+                {
+                  loader: 'babel-loader'
+                }
+              ]
+            }
+          ];
+        case 'ts':
+          return [
+            {
+              test: /\.(tsx|ts|js)?$/,
+              include: [SRC_DIR],
+              use: [
+                {
+                  loader: 'ts-loader'
+                }
+              ]
+            }
+          ];
+        default:
+          return [];
+      }
+    })()
+  }
+});
+
+/**
  * Common webpack settings between environments.
  *
  * @param {object} dotenv
@@ -26,7 +70,7 @@ const { setupWebpackDotenvFilesForEnv } = require('./dotenv');
  * @param {string} dotenv._BUILD_STATIC_DIR
  * @param {string} dotenv._BUILD_UI_NAME
  * @param {object} options
- * @param {string} options.language
+ * @param {string} options.loader
  * @returns {{output: {path: string, filename: string, publicPath: string, clean: boolean}, entry: {app: string},
  *     resolve: {cacheWithContext: boolean, symlinks: boolean}, plugins: any[], module: {rules: Array}}}
  */
@@ -39,7 +83,7 @@ const common = (
     _BUILD_STATIC_DIR: STATIC_DIR = '',
     _BUILD_UI_NAME: UI_NAME
   } = OPTIONS.dotenv || {},
-  { language } = OPTIONS
+  { loader } = OPTIONS
 ) => ({
   context: RELATIVE_DIRNAME,
   entry: {
@@ -49,13 +93,13 @@ const common = (
         const entryFilesSet = new Set([
           path.join(SRC_DIR, `index.js`),
           path.join(SRC_DIR, `index.jsx`),
-          path.join(SRC_DIR, `index.${language}`),
-          path.join(SRC_DIR, `index.${language}x`)
+          path.join(SRC_DIR, `index.${loader}`),
+          path.join(SRC_DIR, `index.${loader}x`)
         ]);
         entryFiles = Array.from(entryFilesSet).filter(file => fs.existsSync(file));
 
         if (!entryFiles.length) {
-          consoleMessage.warn(`webpack app entry file error: Missing entry/app file. Expected index.(js|ts|x)`);
+          consoleMessage.warn(`webpack app entry file error: Missing entry/app file. Expected index.(${loader}|x)`);
         }
       } catch (e) {
         consoleMessage.error(`webpack app entry file error: ${e.message}`);
@@ -72,15 +116,6 @@ const common = (
   },
   module: {
     rules: [
-      {
-        test: (language === 'ts' && /\.(tsx|ts|jsx|js)?$/) || /\.(jsx|js)?$/,
-        include: [SRC_DIR],
-        use: [
-          {
-            loader: (language === 'ts' && 'ts-loader') || 'babel-loader'
-          }
-        ]
-      },
       {
         test: /\.(svg|ttf|eot|woff|woff2)$/,
         include: input => input.indexOf('fonts') > -1 || input.indexOf('icon') > -1,
@@ -293,5 +328,6 @@ const production = ({ NODE_ENV: MODE, _BUILD_RELATIVE_DIRNAME: RELATIVE_DIRNAME 
 module.exports = {
   common,
   development,
+  preprocessLoader,
   production
 };

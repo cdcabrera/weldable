@@ -5,15 +5,17 @@
 
 Default webpack development and production configuration.
 
-The goal of `weldable` was to make it easier to install `webpack` build packages and be up and running with a basic
-`development` or `production` server with minimal preferences.
+The goal of `weldable` is to make it easier to install `webpack` build packages and be up and running with a basic
+`development` or `production` build with minimal preferences.
 
 `weldable` is intended...
 
-- To be used for basic webpack development and production builds.
+- To be quickly used for basic webpack development and production builds.
 - To purposefully not include webpack configurations for linting and styling aspects beyond basic webpack capabilities.
 - To be designed with the expectation that you can expand on the `weldable` base using the CLI extend option. `-x ./webpack.exampleConfig.js`.
-- To be used as a build resource with exposed webpack plugins/addons. And without the need to reinstall available webpack packages (or at least the ones `weldable` uses).
+- To be used as a single build resource with exposed webpack plugins/addons. And without the need to reinstall available webpack packages (or at least the ones `weldable` uses).
+
+[If weldable doesn't work for you, you can always go back to the `webpack` project `init` command](https://webpack.js.org/configuration/#set-up-a-new-webpack-project) 
 
 ## Requirements
 The basic requirements:
@@ -50,11 +52,12 @@ For in-depth use of `weldable` see our [DOCS](./DOCS.md).
   Options:
   -e, --env           Use a default configuration type if NODE_ENV is not set to the available choices.
                                                                [string] [choices: "development", "production"] [default: "production"]
-  -l, --lang          Codebase language, JS or TS                                       [string] [choices: "js", "ts"] [default: "js"]
+  -l, --loader        Preprocess loader, use the classic JS (babel-loader), TS (ts-loader), or "none" to use webpack defaults, or a
+                      different loader.                                         [string] [choices: "none", "js", "ts"] [default: "js"]
   -s, --stats         Output JSON webpack bundle stats. Use the default, or a relative project path and filename [./stats.json]
                                                                                                                               [string]
       --tsconfig      Generate a base tsconfig from NPM @tsconfig/[base]. An existing tsconfig.json will override this option, see
-                      tsconfig-opt.
+                      tsconfig-opt. This option can be run without running webpack.
                             [string] [choices: "", "create-react-app", "node18", "node20", "react-native", "recommended", "strictest"]
       --tsconfig-opt  Regenerate or merge a tsconfig                           [string] [choices: "merge", "regen"] [default: "regen"]
   -x, --extend        Extend, or override, the default configs with your own relative path webpack configs using webpack merge.[array]
