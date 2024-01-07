@@ -237,10 +237,24 @@ Start `weldable`
 
 <a name="module_Init..weldable"></a>
 
-### Init~weldable() ⇒ <code>Promise.&lt;void&gt;</code>
+### Init~weldable(options) ⇒ <code>Promise.&lt;void&gt;</code>
 Organize package functionality.
 
 **Kind**: inner method of [<code>Init</code>](#module_Init)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>options</td><td><code>object</code></td>
+    </tr><tr>
+    <td>options.isCreateTsConfigOnly</td><td><code>boolean</code></td>
+    </tr>  </tbody>
+</table>
+
 <a name="module_Logger"></a>
 
 ## Logger
@@ -266,7 +280,7 @@ Convenience wrapper for preset console messaging and colors.
 ## Typescript
 <a name="module_Typescript..createTsConfig"></a>
 
-### Typescript~createTsConfig(dotenv, options) ⇒ <code>undefined</code> \| <code>Object</code>
+### Typescript~createTsConfig(dotenv, options, settings) ⇒ <code>undefined</code> \| <code>Object</code>
 Create, or merge, a tsconfig file.
 
 **Kind**: inner method of [<code>Typescript</code>](#module_Typescript)  
@@ -288,11 +302,15 @@ Create, or merge, a tsconfig file.
     </tr><tr>
     <td>options.contextPath</td><td><code>string</code></td>
     </tr><tr>
+    <td>options.isCreateTsConfig</td><td><code>boolean</code></td>
+    </tr><tr>
     <td>options.isMergeTsConfig</td><td><code>boolean</code></td>
     </tr><tr>
     <td>options.isRegenTsConfig</td><td><code>boolean</code></td>
     </tr><tr>
-    <td>options.language</td><td><code>string</code></td>
+    <td>settings</td><td><code>object</code></td>
+    </tr><tr>
+    <td>settings.configFilename</td><td><code>string</code></td>
     </tr>  </tbody>
 </table>
 
@@ -411,9 +429,34 @@ Start webpack development or production.
 ## webpackConfigs
 
 * [webpackConfigs](#module_webpackConfigs)
+    * [~preprocessLoader(dotenv, options)](#module_webpackConfigs..preprocessLoader) ⇒ <code>Object</code>
     * [~common(dotenv, options)](#module_webpackConfigs..common) ⇒ <code>Object</code>
     * [~development(dotenv)](#module_webpackConfigs..development) ⇒ <code>Object</code>
     * [~production(dotenv)](#module_webpackConfigs..production) ⇒ <code>Object</code>
+
+<a name="module_webpackConfigs..preprocessLoader"></a>
+
+### webpackConfigs~preprocessLoader(dotenv, options) ⇒ <code>Object</code>
+Assumption based preprocess loader
+
+**Kind**: inner method of [<code>webpackConfigs</code>](#module_webpackConfigs)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>dotenv</td><td><code>object</code></td>
+    </tr><tr>
+    <td>dotenv._BUILD_SRC_DIR</td><td><code>string</code></td>
+    </tr><tr>
+    <td>options</td><td><code>object</code></td>
+    </tr><tr>
+    <td>options.loader</td><td><code>string</code></td>
+    </tr>  </tbody>
+</table>
 
 <a name="module_webpackConfigs..common"></a>
 
@@ -445,7 +488,7 @@ Common webpack settings between environments.
     </tr><tr>
     <td>options</td><td><code>object</code></td>
     </tr><tr>
-    <td>options.language</td><td><code>string</code></td>
+    <td>options.loader</td><td><code>string</code></td>
     </tr>  </tbody>
 </table>
 

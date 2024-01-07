@@ -5,7 +5,7 @@ const { rimrafSync } = require('rimraf');
 const { merge } = require('webpack-merge');
 const { createFile, dynamicImport, errorMessageHandler, isPromise, OPTIONS } = require('./global');
 const { consoleMessage } = require('./logger');
-const { common, development, production } = require('./wpConfigs');
+const { common, development, preprocessLoader, production } = require('./wpConfigs');
 
 /**
  * @module webpack
@@ -21,6 +21,7 @@ const cleanDist = ({ _BUILD_DIST_DIR: DIST_DIR } = OPTIONS.dotenv || {}) => {
   rimrafSync(path.join(DIST_DIR, '*'), { glob: true });
 };
 
+// ToDo: review allowing mergeWithCustom
 /**
  * Webpack merge base configuration files. If available merge extended configuration files.
  *
@@ -31,7 +32,7 @@ const cleanDist = ({ _BUILD_DIST_DIR: DIST_DIR } = OPTIONS.dotenv || {}) => {
  * @returns {Promise<object>}
  */
 const createWpConfig = async ({ nodeEnv, dotenv = {}, extendedConfigs } = OPTIONS) => {
-  const baseConfigs = [common(), (nodeEnv === 'development' && development()) || production()];
+  const baseConfigs = [common(), preprocessLoader(), (nodeEnv === 'development' && development()) || production()];
   const extended = [];
 
   if (Array.isArray(extendedConfigs) && extendedConfigs?.length) {
@@ -164,7 +165,6 @@ const startWp = async (
 module.exports = {
   cleanDist,
   createWpConfig,
-  merge,
   startWp,
   startWpErrorStatsHandler
 };

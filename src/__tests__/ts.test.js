@@ -10,7 +10,7 @@ describe('Typescript', () => {
   it('should create a basic tsconfig', () => {
     const results = ts.createTsConfig(
       { _BUILD_DIST_DIR: path.join(contextPath, 'dist') },
-      { language: 'ts', contextPath: tempFixturePath, isRegenTsConfig: true }
+      { loader: 'ts', contextPath: tempFixturePath, isCreateTsConfig: true, isRegenTsConfig: true }
     );
 
     expect(results).toMatchSnapshot('basic');
@@ -19,7 +19,13 @@ describe('Typescript', () => {
   it('should create a tsconfig with a base template', () => {
     const results = ts.createTsConfig(
       { _BUILD_DIST_DIR: path.join(contextPath, 'dist') },
-      { baseTsConfig: 'create-react-app', language: 'ts', contextPath: tempFixturePath, isRegenTsConfig: true }
+      {
+        baseTsConfig: 'create-react-app',
+        loader: 'ts',
+        contextPath: tempFixturePath,
+        isCreateTsConfig: true,
+        isRegenTsConfig: true
+      }
     );
 
     expect(results).toMatchSnapshot('base template');
@@ -31,8 +37,9 @@ describe('Typescript', () => {
       { _BUILD_DIST_DIR },
       {
         baseTsConfig: 'create-react-app',
-        language: 'ts',
+        loader: 'ts',
         contextPath: tempFixturePath,
+        isCreateTsConfig: true,
         isRegenTsConfig: true
       }
     );
@@ -41,8 +48,9 @@ describe('Typescript', () => {
       { _BUILD_DIST_DIR },
       {
         baseTsConfig: 'strictest',
-        language: 'ts',
+        loader: 'ts',
         contextPath: tempFixturePath,
+        isCreateTsConfig: true,
         isMergeTsConfig: true
       }
     );

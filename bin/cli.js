@@ -12,7 +12,7 @@ const { setupDotenvFilesForEnv } = require('../src/dotenv');
 const {
   env: nodeEnv,
   extend: extendedConfigs,
-  lang: language,
+  loader,
   stats: statsFile,
   tsconfig: baseTsConfig,
   'tsconfig-opt': tsConfigOptions
@@ -31,10 +31,11 @@ const {
     default: 'production'
   })
   .option('l', {
-    alias: 'lang',
-    describe: 'Codebase language, JS or TS',
+    alias: 'loader',
+    describe:
+      'Preprocess loader, use the classic JS (babel-loader), TS (ts-loader), or "none" to use webpack defaults, or a different loader.',
     type: 'string',
-    choices: ['js', 'ts'],
+    choices: ['none', 'js', 'ts'],
     default: 'js'
   })
   .option('s', {
@@ -46,7 +47,7 @@ const {
   })
   .option('tsconfig', {
     describe:
-      'Generate a base tsconfig from NPM @tsconfig/[base]. An existing tsconfig.json will override this option, see tsconfig-opt.',
+      'Generate a base tsconfig from NPM @tsconfig/[base]. An existing tsconfig.json will override this option, see tsconfig-opt. This option can be run without running webpack.',
     type: 'string',
     choices: ['', 'create-react-app', 'node18', 'node20', 'react-native', 'recommended', 'strictest']
   })
@@ -54,7 +55,8 @@ const {
     describe: 'Regenerate or merge a tsconfig',
     type: 'string',
     choices: ['merge', 'regen'],
-    default: 'regen'
+    implies: 'tsconfig',
+    coerce: args => (!args && 'regen') || args
   })
   .option('x', {
     alias: 'extend',
@@ -68,9 +70,9 @@ const {
 /**
  * Set global OPTIONS
  *
- * @type {{statsFile: string, dotenv: object, isRegenTsConfig: boolean, baseTsConfig: string,
- *     extendedConfigs: Array<string>, isMergeTsConfig: boolean, language: string, statsPath: string,
- *     nodeEnv: string}}
+ * @type {{statsFile: string, dotenv: object, isRegenTsConfig: boolean, isCreateTsConfig: boolean,
+ *     loader: string, isCreateTsConfigOnly: boolean, baseTsConfig: string, extendedConfigs: Array<string>,
+ *     isMergeTsConfig: boolean, statsPath: string, nodeEnv: string}}
  * @private
  */
 OPTIONS._set = {
@@ -88,13 +90,21 @@ OPTIONS._set = {
 
     return setupDotenvFilesForEnv({ env: process.env.NODE_ENV, relativePath: this.contextPath, isMessaging: true });
   },
+  isCreateTsConfig: function () {
+    const isBaseTsConfig = typeof baseTsConfig === 'string';
+    return (loader === 'ts' && isBaseTsConfig) || isBaseTsConfig;
+  },
+  isCreateTsConfigOnly: function () {
+    const isBaseTsConfig = typeof baseTsConfig === 'string';
+    return (loader !== 'ts' && isBaseTsConfig) || false;
+  },
   isMergeTsConfig: function () {
     return tsConfigOptions === 'merge';
   },
   isRegenTsConfig: function () {
     return tsConfigOptions === 'regen';
   },
-  language,
+  loader,
   statsFile: function () {
     return (statsFile && path.basename(statsFile)) || undefined;
   },

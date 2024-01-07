@@ -15,6 +15,13 @@ describe('webpackConfigs', () => {
     }
   };
 
+  /**
+   * Provide a consistent way of processing configs.
+   *
+   * @param {object} obj
+   * @param {boolean} isHash
+   * @returns {string}
+   */
   const cleanConfig = (obj, isHash) => {
     const contents = JSON.stringify(obj, null, 2).replace(/"[a-z0-9/-_.,*()\s]*\/weldable\//gi, '"./');
     if (isHash) {
@@ -24,91 +31,78 @@ describe('webpackConfigs', () => {
     return contents;
   };
 
+  /**
+   * Test multiple configurations consistently
+   *
+   * @param {Function} method
+   * @param {string} loader
+   * @returns {{prodHash: string, isEqual: boolean, loader, devHash: string}}
+   */
+  const processConfigIntoHashes = (method, loader = 'none') => {
+    const { mockClear: mockDevClear } = mockObjectProperty(OPTIONS, {
+      dotenv: {
+        ...baseOptions.dotenv
+      },
+      loader
+    });
+
+    expect(cleanConfig(method())).toMatchSnapshot(`${method.name} dev: ${loader}`);
+    const devHash = cleanConfig(method(), true);
+    mockDevClear();
+
+    const { mockClear: mockProdClear } = mockObjectProperty(OPTIONS, {
+      dotenv: {
+        ...baseOptions.dotenv,
+        NODE_ENV: 'production'
+      },
+      loader
+    });
+
+    const prodHash = cleanConfig(method(), true);
+    mockProdClear();
+
+    return {
+      loader,
+      isEqual: devHash === prodHash,
+      devHash,
+      prodHash
+    };
+  };
+
   it('should return specific properties', () => {
     expect(wpConfigs).toMatchSnapshot('specific properties');
   });
 
+  it('should return a preprocessLoader configuration object', () => {
+    expect([
+      processConfigIntoHashes(wpConfigs.preprocessLoader, 'js'),
+      processConfigIntoHashes(wpConfigs.preprocessLoader, 'ts'),
+      processConfigIntoHashes(wpConfigs.preprocessLoader)
+    ]).toMatchSnapshot('language dev, prod hashes');
+  });
+
   it('should return a common configuration object', () => {
-    const { mockClear: mockDevClear } = mockObjectProperty(OPTIONS, {
-      dotenv: {
-        ...baseOptions.dotenv
-      }
-    });
-
-    expect(cleanConfig(wpConfigs.common())).toMatchSnapshot('common dev');
-    const devHash = cleanConfig(wpConfigs.common(), true);
-    mockDevClear();
-
-    const { mockClear: mockProdClear } = mockObjectProperty(OPTIONS, {
-      dotenv: {
-        ...baseOptions.dotenv,
-        NODE_ENV: 'production'
-      }
-    });
-
-    const prodHash = cleanConfig(wpConfigs.common(), true);
-
-    expect({
-      isEqual: devHash === prodHash,
-      devHash,
-      prodHash
-    }).toMatchSnapshot('common dev, prod hashes');
-    mockProdClear();
+    expect([
+      processConfigIntoHashes(wpConfigs.common, 'js'),
+      processConfigIntoHashes(wpConfigs.common, 'ts'),
+      processConfigIntoHashes(wpConfigs.common)
+    ]).toMatchSnapshot('common dev, prod hashes');
   });
 
   it('should return a development configuration object', () => {
-    const { mockClear: mockDevClear } = mockObjectProperty(OPTIONS, {
-      dotenv: {
-        ...baseOptions.dotenv
-      }
-    });
-
-    expect(cleanConfig(wpConfigs.development())).toMatchSnapshot('development dev');
-    const devHash = cleanConfig(wpConfigs.development(), true);
-    mockDevClear();
-
-    const { mockClear: mockProdClear } = mockObjectProperty(OPTIONS, {
-      dotenv: {
-        ...baseOptions.dotenv,
-        NODE_ENV: 'production'
-      }
-    });
-
-    const prodHash = cleanConfig(wpConfigs.development(), true);
-
-    expect({
-      isEqual: devHash === prodHash,
-      devHash,
-      prodHash
-    }).toMatchSnapshot('development dev, prod hashes');
-    mockProdClear();
+    expect([
+      processConfigIntoHashes(wpConfigs.development, 'js'),
+      processConfigIntoHashes(wpConfigs.development, 'ts'),
+      processConfigIntoHashes(wpConfigs.development)
+    ]).toMatchSnapshot('development dev, prod hashes');
   });
 
   it('should return a production configuration object', () => {
-    const { mockClear: mockProdClear } = mockObjectProperty(OPTIONS, {
-      dotenv: {
-        ...baseOptions.dotenv,
-        NODE_ENV: 'production'
-      }
-    });
-
-    expect(cleanConfig(wpConfigs.production())).toMatchSnapshot('production prod');
-    const prodHash = cleanConfig(wpConfigs.production(), true);
-    mockProdClear();
-
-    const { mockClear: mockDevClear } = mockObjectProperty(OPTIONS, {
-      dotenv: {
-        ...baseOptions.dotenv
-      }
-    });
-
-    const devHash = cleanConfig(wpConfigs.production(), true);
-
-    expect({
-      isEqual: devHash === prodHash,
-      devHash,
-      prodHash
-    }).toMatchSnapshot('production dev, prod hashes');
-    mockDevClear();
+    // This is expected to be false for result hashes, NODE_ENV is displayed in the obj
+    expect([
+      processConfigIntoHashes(wpConfigs.production, 'js'),
+      processConfigIntoHashes(wpConfigs.production, 'ts'),
+      processConfigIntoHashes(wpConfigs.production)
+    ]).toMatchSnapshot('production dev, prod hashes');
   });
 });
