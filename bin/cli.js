@@ -88,7 +88,12 @@ OPTIONS._set = {
       process.env.NODE_ENV = nodeEnv;
     }
 
-    return setupDotenvFilesForEnv({ env: process.env.NODE_ENV, relativePath: this.contextPath, isMessaging: true });
+    return setupDotenvFilesForEnv({
+      env: process.env.NODE_ENV,
+      relativePath: this.contextPath,
+      isMessaging: true,
+      setExposedParams: true
+    });
   },
   isCreateTsConfig: function () {
     const isBaseTsConfig = typeof baseTsConfig === 'string';

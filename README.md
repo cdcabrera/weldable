@@ -29,13 +29,13 @@ The basic requirements:
 NPM install...
 
   ```shell
-    $ npm i weldable
+    $ npm i weldable --save-dev
   ```
 
 or Yarn
 
   ```shell
-    $ yarn add weldable
+    $ yarn add weldable --dev
   ```
 
 ## How to use

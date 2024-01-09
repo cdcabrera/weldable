@@ -27,6 +27,7 @@
     * [~setupWebpackDotenvFile(filePath)](#module_dotenv..setupWebpackDotenvFile) ⇒ <code>undefined</code> \| <code>\*</code>
     * [~setupWebpackDotenvFilesForEnv(params)](#module_dotenv..setupWebpackDotenvFilesForEnv) ⇒ <code>Array</code>
     * [~setupDotenvFile(filePath)](#module_dotenv..setupDotenvFile) ⇒ <code>void</code>
+    * [~setDotenvParam(params)](#module_dotenv..setDotenvParam)
     * [~setupDotenvFilesForEnv(params)](#module_dotenv..setupDotenvFilesForEnv) ⇒ <code>object</code>
 
 <a name="module_dotenv..dotenv"></a>
@@ -93,11 +94,10 @@ Set up, and access, a dotenv file and the related set of parameters.
     </tr>  </tbody>
 </table>
 
-<a name="module_dotenv..setupDotenvFilesForEnv"></a>
+<a name="module_dotenv..setDotenvParam"></a>
 
-### dotenv~setupDotenvFilesForEnv(params) ⇒ <code>object</code>
-A function for use with non-webpack configurations. Set up and access local and specific dotenv file parameters.
-Failed or missing parameters return an empty string.
+### dotenv~setDotenvParam(params)
+Set an array of dotenv params
 
 **Kind**: inner method of [<code>dotenv</code>](#module_dotenv)  
 <table>
@@ -108,17 +108,40 @@ Failed or missing parameters return an empty string.
   </thead>
   <tbody>
 <tr>
-    <td>params</td><td><code>object</code></td>
+    <td>params</td><td><code>Array.&lt;{param: string, value: string, ignoreIfSet: boolean}&gt;</code></td>
+    </tr>  </tbody>
+</table>
+
+<a name="module_dotenv..setupDotenvFilesForEnv"></a>
+
+### dotenv~setupDotenvFilesForEnv(params) ⇒ <code>object</code>
+A function for use with non-webpack configurations. Set up and access local and specific dotenv file parameters.
+dotenv parameters are string based, failed or missing dotenv parameters return an empty string.
+
+**Kind**: inner method of [<code>dotenv</code>](#module_dotenv)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th><th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>params</td><td><code>object</code></td><td></td>
     </tr><tr>
-    <td>params.env</td><td><code>string</code></td>
+    <td>params.env</td><td><code>string</code></td><td></td>
     </tr><tr>
-    <td>params.relativePath</td><td><code>string</code></td>
+    <td>params.relativePath</td><td><code>string</code></td><td></td>
     </tr><tr>
-    <td>params.dotenvNamePrefix</td><td><code>string</code></td>
+    <td>params.dotenvNamePrefix</td><td><code>string</code></td><td><p>Add an internal prefix to dotenv parameters used for configuration to avoid overlap.</p>
+</td>
     </tr><tr>
-    <td>params.setBuildDefaults</td><td><code>boolean</code></td>
+    <td>params.setBuildDefaults</td><td><code>boolean</code></td><td></td>
     </tr><tr>
-    <td>params.isMessaging</td><td><code>boolean</code></td>
+    <td>params.isMessaging</td><td><code>boolean</code></td><td></td>
+    </tr><tr>
+    <td>params.setExposedParams</td><td><code>boolean</code></td><td><p>Ignore the potential for dotenv parameter overlap and attempt to set non-prefixed configuration parameters if not already set.</p>
+</td>
     </tr>  </tbody>
 </table>
 
@@ -474,7 +497,11 @@ Common webpack settings between environments.
 <tr>
     <td>dotenv</td><td><code>object</code></td>
     </tr><tr>
+    <td>dotenv._BUILD_APP_INDEX_PREFIX</td><td><code>string</code></td>
+    </tr><tr>
     <td>dotenv._BUILD_DIST_DIR</td><td><code>string</code></td>
+    </tr><tr>
+    <td>dotenv._BUILD_HTML_INDEX_DIR</td><td><code>string</code></td>
     </tr><tr>
     <td>dotenv._BUILD_PUBLIC_PATH</td><td><code>string</code></td>
     </tr><tr>

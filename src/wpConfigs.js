@@ -63,7 +63,9 @@ const preprocessLoader = ({ _BUILD_SRC_DIR: SRC_DIR = '' } = OPTIONS.dotenv || {
  * Common webpack settings between environments.
  *
  * @param {object} dotenv
+ * @param {string} dotenv._BUILD_APP_INDEX_PREFIX
  * @param {string} dotenv._BUILD_DIST_DIR
+ * @param {string} dotenv._BUILD_HTML_INDEX_DIR
  * @param {string} dotenv._BUILD_PUBLIC_PATH
  * @param {string} dotenv._BUILD_RELATIVE_DIRNAME
  * @param {string} dotenv._BUILD_SRC_DIR
@@ -76,7 +78,9 @@ const preprocessLoader = ({ _BUILD_SRC_DIR: SRC_DIR = '' } = OPTIONS.dotenv || {
  */
 const common = (
   {
+    _BUILD_APP_INDEX_PREFIX: APP_INDEX_PREFIX,
     _BUILD_DIST_DIR: DIST_DIR,
+    _BUILD_HTML_INDEX_DIR: HTML_INDEX_DIR = '',
     _BUILD_PUBLIC_PATH: PUBLIC_PATH,
     _BUILD_RELATIVE_DIRNAME: RELATIVE_DIRNAME,
     _BUILD_SRC_DIR: SRC_DIR = '',
@@ -91,15 +95,17 @@ const common = (
       let entryFiles;
       try {
         const entryFilesSet = new Set([
-          path.join(SRC_DIR, `index.js`),
-          path.join(SRC_DIR, `index.jsx`),
-          path.join(SRC_DIR, `index.${loader}`),
-          path.join(SRC_DIR, `index.${loader}x`)
+          path.join(SRC_DIR, `${APP_INDEX_PREFIX}.js`),
+          path.join(SRC_DIR, `${APP_INDEX_PREFIX}.jsx`),
+          path.join(SRC_DIR, `${APP_INDEX_PREFIX}.${loader}`),
+          path.join(SRC_DIR, `${APP_INDEX_PREFIX}.${loader}x`)
         ]);
         entryFiles = Array.from(entryFilesSet).filter(file => fs.existsSync(file));
 
         if (!entryFiles.length) {
-          consoleMessage.warn(`webpack app entry file error: Missing entry/app file. Expected index.(${loader}|x)`);
+          consoleMessage.warn(
+            `webpack app entry file error: Missing entry/app file. Expected ${APP_INDEX_PREFIX}.(${loader}|x)`
+          );
         }
       } catch (e) {
         consoleMessage.error(`webpack app entry file error: ${e.message}`);
@@ -157,7 +163,7 @@ const common = (
       directory: RELATIVE_DIRNAME
     }),
     ...(() => {
-      const staticFile = path.join(STATIC_DIR, 'index.html');
+      const staticFile = path.join(HTML_INDEX_DIR, 'index.html');
       if (fs.existsSync(staticFile)) {
         return [
           new HtmlWebpackPlugin({
