@@ -7,6 +7,7 @@ describe('webpack', () => {
   const baseOptions = {
     dotenv: {
       NODE_ENV: 'development',
+      _BUILD_APP_INDEX_PREFIX: 'index',
       _BUILD_DIST_DIR: path.join(fixturePath, 'dist'),
       _BUILD_HOST: 'localhost',
       _BUILD_PORT: 3000,

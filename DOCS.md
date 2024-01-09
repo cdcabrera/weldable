@@ -3,7 +3,7 @@
 <details>
 <summary><h3 style="display: inline-block">Tooling requirements</h3></summary>
 
-The basic requirements:
+The basic use requirements:
 * [NodeJS version 18+](https://nodejs.org/)
 * NPM
   > There appear to be dependency mapping issues with `Yarn` v1.x.x lock files, `Typescript` and `webpack`, and specific dependencies
@@ -11,51 +11,98 @@ The basic requirements:
 </details>
 
 <details>
-<summary><h3 style="display: inline-block">CLI use</h3></summary>
+<summary><h3 style="display: inline-block">Setup a project</h3></summary>
 
-Basic CLI functionality can also be viewed under a simple terminal command
-```shell
-$ weldable -h
-```
+`weldable` makes assumptions on project structure in order to be up and moving. Many of these assumptions can be
+overridden, or ignored, to fit your own preferences.
 
-#### Options
-| CLI OPTION     | DESCRIPTION                                                                                                                                                                                       | CHOICES                                                                | DEFAULT      |
-|----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------|--------------|
-| -e, --env      | Use a default configuration type if NODE_ENV is not set to the available choices of "development" and "production"                                                                                | development, production                                                | production   |
-| -l, --loader   | Preprocess loader, use the classic JS (babel-loader), TS (ts-loader), or "none" to use webpack defaults, or a different loader.                                                                   | js, ts, none                                                           | js           |
-| -s, --stats    | Output JSON webpack bundle stats for use with "webpack-bundle-analyzer". Use the default or enter a relative path and filename                                                                    |                                                                        | ./stats.json |
-| --tsconfig     | Generate a base tsconfig from one of the available NPM @tsconfig/[base]. An existing tsconfig.json will override this option, see "tsconfig-opt". This option can be run without running webpack. | create-react-app, node18, node20, react-native, recommended, strictest |              |
-| --tsconfig-opt | Regenerate or merge a tsconfig. Useful if a tsconfig already exists. Requires the use of "tsconfig" option                                                                                        | merge, regen                                                           | regen        |
-| -x, --extend   | Extend, or override, the default configs with your own relative path webpack configs using webpack merge.                                                                                         |                                                                        |              |
-| -h, --help     |                                                                                                                                                                                                   |                                                                        |              |
-| -v, --version  |                                                                                                                                                                                                   |                                                                        |              |
+Assumptions `weldable` presets...
+- `src` project directory, `Your project -> src -> your work`
+- `index.(js|jsx|ts|tsx)` application prefix and possible extensions located in `src`, `Your project -> src -> index.(js|jsx|ts|tsx)` 
+- `dist` directory for webpack bundle output, `Your project -> dist`
+- `localhost` host name
+- `port` default of `3000`
 
-#### NPM script use
-CLI usage can be placed under NPM scripts
+> To alter these presets see [`dotenv`](#dotenv-use) use.
 
-A basic development start, and production build, using your own op
+#### Setup
+> All setup directions are based on a MacOS experience. If Linux, or Windows, is used and
+you feel the directions could be updated please open a pull request to update documentation.
 
-   ```js
-   "scripts": {
-     "start": "weldable -e development",
-     "build": "weldable"
-   }
+**For those with experience**, to get up and running quickly...
+
+1. Confirm you installed the correct version of [NodeJS](https://nodejs.org)
+1. Confirm you added `weldable` as a `dependency` to your project
+1. Make sure you have a `src` directory with at least an `index.(js|jsx|ts|tsx)`
+1. Create NPM scripts that reference the `weldable` CLI
    ```
-
-A development start, and production build, using your own webpack configurations merged with the defaults.
-
-   ```js
    "scripts": {
-     "start": "weldable -e development -x ./webpack.yourCustomBuild.js -x ./webpack.developmentBuild.js",
-     "build": "weldable -x ./webpack.yourCustomBuild.js -x ./webpack.productionBuild.js"
-   }
+    "build": "weldable",
+    "start": "weldable -e development"
+   },
    ```
+1. Run the NPM scripts and that's it, customize away!
 
-#### dotenv use
+**And for those with less experience**, directions for all...
+
+1. Confirm you installed the correct version of [NodeJS](https://nodejs.org/). The current minimum NodeJS version is noted on the main [README.md](./README.md)
+1. Create a new directory, open your terminal and change directories into it
+   ```
+   $ cd ./[new_directory]
+   ```
+1. Create your `package.json` file. You can use the terminal to initialize the project, you'll be asked questions (there are defaults, just hit enter or fill them out)...
+   ```
+   $ npm init
+   ```
+1. After creating `package.json`. Add `weldable` as a `devDependency` via the terminal
+   ```
+   $ npm i weldable --save-dev
+   ```
+1. Next, add a `src` directory to your new directory, like `new_directory -> src`
+1. Next, add an `index.js` file to `src`, like `new_directory -> src -> index.js`
+1. Add the following contents to `index.js`
+   ```
+   const body = document.querySelector('BODY');
+   const div = document.createElement('div');
+   div.innerText = `hello world`;
+   body.appendChild(div);
+   ```
+1. To get everything running, we need to add some NPM scripts inside the `package.json` `scripts` section
+   ```
+   "scripts": {
+    "build": "weldable",
+    "start": "weldable -e development"
+   },
+   ```
+1. Next, in the terminal, lets run the development mode.
+   ```
+   $ npm start
+   ```
+   > If everything is working correctly you should see messaging telling you where files are running.
+   >
+   > If everything did NOT work, you may receive messaging from `weldable`, or `webpack`, explaining what the issue is.
+   > If you receive no error messaging a standard practice is to reconfirm you have the correct tooling installed and walk
+   > back through the previous steps.
+1. Finally, in the terminal, we'll create our bundle
+   ```
+   $ npm run build
+   ```
+   > If everything is working correctly you should see messaging telling you basic bundle stats and a successful completion message.
+   > You can access your bundle under the `dist` directory.
+   >
+   > If things are NOT working, `weldable` and `webpack` should provide messaging to help you
+   > debug why your bundle isn't being compiled 
+
+
+</details>
+
+<details>
+<summary><h3 style="display: inline-block">dotenv use</h3></summary>
+
 `weldable` makes use of dotenv parameters for aspects of webpack configuration overrides.
 > Instead of dotenv files you can choose to export parameters via the terminal
 
-**dotenv via terminal**
+#### dotenv via terminal
 Using the terminal to handle dotenv parameters
 Set a parameter
 ```shell
@@ -66,8 +113,8 @@ Unset a parameter
 unset YOUR_DOTENV_PARAM; echo $YOUR_DOTENV_PARAM
 ```
 
-**dotenv via files**
-dotenv files are structured to cascade each additional dotenv file settings from a root `.env` file.
+#### dotenv via files
+dotenv files are structured to cascade, similar to stylesheets. Each additional dotenv file builds settings from a root `.env` file.
 
 ```
  .env = base dotenv file settings
@@ -91,21 +138,67 @@ This allows you to have both local settings that are NOT checked in, and setting
 
 **Available dotenv parameters**
 
-| dotenv parameter                      | definition                                                                                                       | default value |
-|---------------------------------------|------------------------------------------------------------------------------------------------------------------|---------------|
-| _BUILD_RELATIVE_DIRNAME (*read only*) | A dynamically build populated string reference for the root context path                                         |               |
-| DIST_DIR                              | A static string for the webpack build output directory                                                           | ./dist        |
-| HOST                                  | A static string for the webpack dev server host                                                                  | localhost     |
-| NODE_ENV                              |                                                                                                                  |               |
-| PORT                                  | A static number for the webpack dev server port                                                                  | 3000          |
-| OPEN_PATH                             | A static string for the webpack dev server browser open path                                                     |               |
-| PUBLIC_PATH                           | A static string for the webpack output base expected path of your application                                    | /             |
-| PUBLIC_URL                            | A static string alias for PUBLIC_PATH                                                                            | /             |
-| SRC_DIR                               | A static string for application source directory                                                                 | ./src         |
-| STATIC_DIR                            | A static string associated with the directory containing static build assets                                     | ./public      |
-| UI_NAME                               | A static string title for `index.html`. `index.html` being a file you, or webpack, creates within the STATIC_DIR |               |
+`weldable` makes use of exposed dotenv parameters to handle webpack configuration settings...
 
+| dotenv parameter               | definition                                                                                                                                                                                                                                                                                                                                                       | default value |
+|--------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|
+| RELATIVE_DIRNAME (*read only*) | A dynamically build populated string reference for the root context path                                                                                                                                                                                                                                                                                         |               |
+| APP_INDEX_PREFIX               | A static string for the webpack application entry file `[APP_INDEX_PREFIX].[ext]`                                                                                                                                                                                                                                                                                | index         |
+| DIST_DIR                       | A static string for the webpack build output directory                                                                                                                                                                                                                                                                                                           | ./dist        |
+| HOST                           | A static string for the webpack dev server host                                                                                                                                                                                                                                                                                                                  | localhost     |
+| HTML_INDEX_DIR                 | A static string referencing what directory your `index.html` file is located. If there is no `index.html`, webpack is nice, it'll create one for you.                                                                                                                                                                                                            | ./src         |
+| NODE_ENV                       |                                                                                                                                                                                                                                                                                                                                                                  |               |
+| PORT                           | A static number for the webpack dev server port                                                                                                                                                                                                                                                                                                                  | 3000          |
+| OPEN_PATH                      | A static string for the webpack dev server browser open path                                                                                                                                                                                                                                                                                                     |               |
+| PUBLIC_PATH                    | A static string for the webpack output base expected path of your application                                                                                                                                                                                                                                                                                    | /             |
+| PUBLIC_URL                     | A static string alias for PUBLIC_PATH                                                                                                                                                                                                                                                                                                                            | /             |
+| SRC_DIR                        | A static string for application source directory                                                                                                                                                                                                                                                                                                                 | ./src         |
+| STATIC_DIR                     | A static string associated with the directory containing static build assets. We've generally used this directory for files included directly in `index.html`, and resources included with XHR. **Warning: importing, or requiring, assets from this directory to within the `SRC_DIR` WILL cause webpack to attempt bundling the asset along with copying it!** |               |
+| UI_NAME                        | A static string title for `index.html`. `index.html` being a file you, or webpack, creates within the STATIC_DIR                                                                                                                                                                                                                                                 |               |
 
+> Technically all dotenv parameters are strings. When consuming them it is important to cast them accordingly.
+</details>
+
+<details>
+<summary><h3 style="display: inline-block">CLI use</h3></summary>
+
+Basic CLI functionality can also be viewed under a simple terminal command
+```shell
+$ weldable -h
+```
+
+#### Options
+| CLI OPTION     | DESCRIPTION                                                                                                                                                                                                                                         | CHOICES                                                                | DEFAULT      |
+|----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------|--------------|
+| -e, --env      | Use a default configuration type if NODE_ENV is not set to the available choices of "development" and "production"                                                                                                                                  | development, production                                                | production   |
+| -l, --loader   | Preprocess loader, use the classic JS (babel-loader), TS (ts-loader), or "none" to use webpack defaults, or a different loader.                                                                                                                     | js, ts, none                                                           | js           |
+| -s, --stats    | Output JSON webpack bundle stats for use with "webpack-bundle-analyzer". Use the default or enter a relative path and filename                                                                                                                      |                                                                        | ./stats.json |
+| --tsconfig     | Generate a base tsconfig from one of the available NPM @tsconfig/[base]. An existing tsconfig.json will override this option, see "tsconfig-opt". This option can be run without running webpack.                                                   | create-react-app, node18, node20, react-native, recommended, strictest |              |
+| --tsconfig-opt | Regenerate or merge a tsconfig. Useful if a tsconfig already exists. Requires the use of "tsconfig" option                                                                                                                                          | merge, regen                                                           | regen        |
+| -x, --extend   | Extend, or override, the default configs with your own relative path webpack configs using webpack merge. Configuration can be a callback that returns a webpack config object, available dotenv parameters are returned as the callback parameter. |                                                                        |              |
+| -h, --help     |                                                                                                                                                                                                                                                     |                                                                        |              |
+| -v, --version  |                                                                                                                                                                                                                                                     |                                                                        |              |
+
+#### Use the CLI with NPM scripts
+CLI usage can be placed under NPM scripts
+
+A basic development start, and production build, using your own scripts
+
+   ```js
+   "scripts": {
+     "start": "weldable -e development",
+     "build": "weldable"
+   }
+   ```
+
+A development start, and production build, using your own webpack configurations merged with the defaults.
+
+   ```js
+   "scripts": {
+     "start": "weldable -e development -x ./webpack.yourCustomBuild.js -x ./webpack.developmentBuild.js",
+     "build": "weldable -x ./webpack.yourCustomBuild.js -x ./webpack.productionBuild.js"
+   }
+   ```
 </details>
 
 <details>
@@ -208,7 +301,7 @@ const { setupDotenvFilesForEnv, setupWebpackDotenvFilesForEnv } = dotenv;
 process.env.NODE_ENV='development';
 
 const {
-  _BUILD_RELATIVE_DIRNAME,
+  RELATIVE_DIRNAME,
   DIST_DIR
   HOST
   NODE_ENV

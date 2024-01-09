@@ -46,6 +46,7 @@ exports[`dotenv should return specific properties: specific properties 1`] = `
     "setupDotenvFilesForEnv": [Function],
     "setupWebpackDotenvFilesForEnv": [Function],
   },
+  "setDotenvParam": [Function],
   "setupDotenvFile": [Function],
   "setupDotenvFilesForEnv": [Function],
   "setupWebpackDotenvFile": [Function],
