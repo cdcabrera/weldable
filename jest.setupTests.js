@@ -22,6 +22,26 @@ global.fixturePath = resolve(__dirname, '__fixtures__');
 global.tempFixturePath = resolve(__dirname, '.fixtures');
 
 /**
+ * Clean up a fixture
+ *
+ * @param {string} file
+ * @param {object} options
+ * @param {boolean} options.useExistingFixturePaths Including a file+path set this to false
+ */
+const removeFixture = (file, { useExistingFixturePaths = true } = {}) => {
+  const tempFixture = (useExistingFixturePaths && join(tempFixturePath, file)) || file;
+  const fixture = (useExistingFixturePaths && join(fixturePath, file)) || file;
+
+  if (existsSync(tempFixture)) {
+    rmSync(tempFixture);
+  } else if (existsSync(fixture)) {
+    rmSync(fixture);
+  }
+};
+
+global.removeFixture = removeFixture;
+
+/**
  * Generate a fixture from string literals.
  *
  * @param {string} contents
@@ -39,7 +59,7 @@ const generateFixture = (
 ) => {
   const updatedFileName = filename || crypto.createHash('md5').update(contents).digest('hex');
   const file = extname(updatedFileName) ? updatedFileName : `${updatedFileName}${ext}`;
-  const path = join(dir, file);
+  const path = resolve(dir, file);
 
   if (resetDir && existsSync(dir)) {
     rmSync(dir, { recursive: true });
@@ -52,7 +72,7 @@ const generateFixture = (
   writeFileSync(path, contents, { encoding });
   const updatedContents = readFileSync(path, { encoding });
 
-  return { dir, file, path, contents: updatedContents };
+  return { dir, file, path, contents: updatedContents, removeFixture: (p = file) => removeFixture(p) };
 };
 
 global.generateFixture = generateFixture;

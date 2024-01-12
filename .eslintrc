@@ -26,6 +26,7 @@
     "fixturePath": "readonly",
     "generateFixture": "readonly",
     "mockObjectProperty": "readonly",
+    "removeFixture": "readonly",
     "setMockResourceFunctions": "readonly",
     "tempFixturePath": "readonly"
   },

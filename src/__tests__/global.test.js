@@ -25,9 +25,10 @@ describe('Global', () => {
 
   it('should create a file from a string', () => {
     const { contents, dir, file } = global.createFile('lorem ipsum', {
-      dir: './.fixtures/createFile'
+      dir: './.fixtures'
     });
     expect({ contents, dir, file }).toMatchSnapshot('createFile');
+    removeFixture(file);
   });
 
   it('should set a one-time mutable OPTIONS object', () => {

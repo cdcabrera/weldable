@@ -3,6 +3,10 @@ const ts = require('../ts');
 const { contextPath } = require('../global');
 
 describe('Typescript', () => {
+  afterEach(() => {
+    removeFixture('tsconfig.json');
+  });
+
   it('should return specific properties', () => {
     expect(ts).toMatchSnapshot('specific properties');
   });

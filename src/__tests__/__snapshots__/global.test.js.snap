@@ -3,7 +3,7 @@
 exports[`Global should create a file from a string: createFile 1`] = `
 {
   "contents": "lorem ipsum",
-  "dir": "./.fixtures/createFile",
+  "dir": "./.fixtures",
   "file": "80a751fde577028640c419000e33eba6.txt",
 }
 `;

@@ -158,5 +158,6 @@ describe('webpack', () => {
 
     errorSpy.mockClear();
     logSpy.mockClear();
+    removeFixture('testJson.txt');
   });
 });
