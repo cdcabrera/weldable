@@ -225,9 +225,12 @@ const common = (
  * @param {string} dotenv.NODE_ENV
  * @param {string} dotenv._BUILD_DIST_DIR
  * @param {string} dotenv._BUILD_HOST
+ * @param {string} dotenv._BUILD_HTML_INDEX_DIR
  * @param {string} dotenv._BUILD_OPEN_PATH
  * @param {string} dotenv._BUILD_RELATIVE_DIRNAME
  * @param {string} dotenv._BUILD_PORT
+ * @param {string} dotenv._BUILD_SRC_DIR
+ * @param {string} dotenv._BUILD_STATIC_DIR
  * @returns {{mode: string, devtool: string, devServer: {historyApiFallback: boolean, static: {directory: string},
  *     port: string, compress: boolean, host: string, devMiddleware: {writeToDisk: boolean, stats: string|object},
  *     client: {overlay: boolean, progress: boolean}, hot: boolean, watchFiles: {paths: string[]}}, plugins: any[]}}
@@ -237,9 +240,12 @@ const development = (
     NODE_ENV: MODE,
     _BUILD_DIST_DIR: DIST_DIR,
     _BUILD_HOST: HOST,
+    _BUILD_HTML_INDEX_DIR: HTML_INDEX_DIR,
     _BUILD_OPEN_PATH: OPEN_PATH,
     _BUILD_RELATIVE_DIRNAME: RELATIVE_DIRNAME,
-    _BUILD_PORT: PORT
+    _BUILD_PORT: PORT,
+    _BUILD_SRC_DIR: SRC_DIR,
+    _BUILD_STATIC_DIR: STATIC_DIR
   } = OPTIONS.dotenv || {}
 ) => ({
   mode: MODE,
@@ -263,7 +269,21 @@ const development = (
       directory: DIST_DIR
     },
     watchFiles: {
-      paths: ['src/**/*', 'public/**/*']
+      paths: (() => {
+        const updatedPaths = new Set();
+        if (SRC_DIR) {
+          updatedPaths.add(path.basename(SRC_DIR));
+        }
+
+        if (HTML_INDEX_DIR) {
+          updatedPaths.add(path.basename(HTML_INDEX_DIR));
+        }
+
+        if (STATIC_DIR) {
+          updatedPaths.add(path.basename(STATIC_DIR));
+        }
+        return Array.from(updatedPaths).map(value => path.join(value, '**', '*'));
+      })()
     }
   },
   plugins: [

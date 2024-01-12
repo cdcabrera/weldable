@@ -168,8 +168,7 @@ exports[`webpack should create a basic webpack config: basic configurations 1`] 
     },
     "watchFiles": {
       "paths": [
-        "src/**/*",
-        "public/**/*"
+        "src/**/*"
       ]
     }
   }
@@ -546,8 +545,7 @@ exports[`webpack should create a webpack config with language: language configur
     },
     "watchFiles": {
       "paths": [
-        "src/**/*",
-        "public/**/*"
+        "src/**/*"
       ]
     }
   }
@@ -924,8 +922,7 @@ exports[`webpack should extend a basic webpack config using commonJS resources: 
     },
     "watchFiles": {
       "paths": [
-        "src/**/*",
-        "public/**/*"
+        "src/**/*"
       ]
     }
   }
