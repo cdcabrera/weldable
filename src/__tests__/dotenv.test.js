@@ -27,18 +27,20 @@ describe('dotenv', () => {
   it('should attempt to load dotenv files standalone and apply to process.env', () => {
     const dotenvParamName = 'DOTENV_TEST';
     const content = crypto.randomBytes(20).toString('hex');
-    const { path: filePath } = generateFixture(`${dotenvParamName}=${content}`);
+    const { path: filePath, removeFixture } = generateFixture(`${dotenvParamName}=${content}`);
 
     dotenv.setupDotenvFile(filePath);
     expect(process.env[dotenvParamName]).toBe(content);
+    removeFixture();
   });
 
   it('should attempt to load dotenv files as part of a working env and apply to process.env', () => {
     const dotenvParamName = 'DOTENV_TEST_ENV';
     const content = crypto.randomBytes(20).toString('hex');
-    const { dir } = generateFixture(`${dotenvParamName}=${content}`, { filename: '.env.test', ext: '' });
+    const { dir, removeFixture } = generateFixture(`${dotenvParamName}=${content}`, { filename: '.env.test', ext: '' });
 
     const result = dotenv.setupDotenvFilesForEnv({ env: 'test', relativePath: dir });
     expect(result[dotenvParamName]).toBe(content);
+    removeFixture();
   });
 });
