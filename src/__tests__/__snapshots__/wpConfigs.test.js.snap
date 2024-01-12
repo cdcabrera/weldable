@@ -341,22 +341,22 @@ exports[`webpackConfigs should return a common configuration object: common dev:
 exports[`webpackConfigs should return a development configuration object: development dev, prod hashes 1`] = `
 [
   {
-    "devHash": "f055fd71c64003ac9128c4107231e879",
+    "devHash": "1513dc6a6f52f8e842db469aef46217a",
     "isEqual": false,
     "loader": "js",
-    "prodHash": "6f31daec8d4bfba244448cfbc2f4edcf",
+    "prodHash": "224f0decf8a5de38b60d8e7efc30a6a1",
   },
   {
-    "devHash": "f055fd71c64003ac9128c4107231e879",
+    "devHash": "1513dc6a6f52f8e842db469aef46217a",
     "isEqual": false,
     "loader": "ts",
-    "prodHash": "6f31daec8d4bfba244448cfbc2f4edcf",
+    "prodHash": "224f0decf8a5de38b60d8e7efc30a6a1",
   },
   {
-    "devHash": "f055fd71c64003ac9128c4107231e879",
+    "devHash": "1513dc6a6f52f8e842db469aef46217a",
     "isEqual": false,
     "loader": "none",
-    "prodHash": "6f31daec8d4bfba244448cfbc2f4edcf",
+    "prodHash": "224f0decf8a5de38b60d8e7efc30a6a1",
   },
 ]
 `;
@@ -384,8 +384,7 @@ exports[`webpackConfigs should return a development configuration object: develo
     },
     "watchFiles": {
       "paths": [
-        "src/**/*",
-        "public/**/*"
+        "src/**/*"
       ]
     }
   },
@@ -461,8 +460,7 @@ exports[`webpackConfigs should return a development configuration object: develo
     },
     "watchFiles": {
       "paths": [
-        "src/**/*",
-        "public/**/*"
+        "src/**/*"
       ]
     }
   },
@@ -538,8 +536,7 @@ exports[`webpackConfigs should return a development configuration object: develo
     },
     "watchFiles": {
       "paths": [
-        "src/**/*",
-        "public/**/*"
+        "src/**/*"
       ]
     }
   },
