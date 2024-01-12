@@ -2,6 +2,7 @@ const path = require('path');
 const setupDotenv = require('dotenv');
 const { expand: dotenvExpand } = require('dotenv-expand');
 const { consoleMessage } = require('./logger');
+const { contextPath } = require('./global');
 
 /**
  * @module dotenv
@@ -38,20 +39,24 @@ const setupWebpackDotenvFile = filePath => {
  * For use with webpack configurations. Set up multiple webpack dotenv file parameters.
  *
  * @param {object} params
- * @param {string} params.directory
+ * @param {string} [params.directory=<contextPath>]
  * @param {string} params.env
  * @returns {Array}
  */
-const setupWebpackDotenvFilesForEnv = ({ directory = '', env } = {}) => {
+const setupWebpackDotenvFilesForEnv = ({ directory = contextPath, env } = {}) => {
   const dotenvWebpackSettings = [];
 
-  if (env) {
-    dotenvWebpackSettings.push(setupWebpackDotenvFile(path.resolve(directory, `.env.${env}.local`)));
-    dotenvWebpackSettings.push(setupWebpackDotenvFile(path.resolve(directory, `.env.${env}`)));
-  }
+  try {
+    if (env) {
+      dotenvWebpackSettings.push(setupWebpackDotenvFile(path.resolve(directory, `.env.${env}.local`)));
+      dotenvWebpackSettings.push(setupWebpackDotenvFile(path.resolve(directory, `.env.${env}`)));
+    }
 
-  dotenvWebpackSettings.push(setupWebpackDotenvFile(path.resolve(directory, '.env.local')));
-  dotenvWebpackSettings.push(setupWebpackDotenvFile(path.resolve(directory, '.env')));
+    dotenvWebpackSettings.push(setupWebpackDotenvFile(path.resolve(directory, '.env.local')));
+    dotenvWebpackSettings.push(setupWebpackDotenvFile(path.resolve(directory, '.env')));
+  } catch (e) {
+    consoleMessage.warn(`setupWebpackDotenvFilesForEnv: ${e.message}`);
+  }
 
   return dotenvWebpackSettings;
 };
@@ -88,16 +93,16 @@ const setDotenvParam = (params = []) => {
  *
  * @param {object} params
  * @param {string} params.env
- * @param {string} params.relativePath
- * @param {string} params.dotenvNamePrefix Add an internal prefix to dotenv parameters used for configuration to avoid overlap.
- * @param {boolean} params.setBuildDefaults
- * @param {boolean} params.isMessaging
- * @param {boolean} params.setExposedParams Ignore the potential for dotenv parameter overlap and attempt to set non-prefixed configuration parameters if not already set.
+ * @param {string} [params.relativePath=<contextPath>]
+ * @param {string} [params.dotenvNamePrefix=BUILD] Add an internal prefix to dotenv parameters used for configuration to avoid overlap.
+ * @param {boolean} [params.setBuildDefaults=true]
+ * @param {boolean} [params.isMessaging=false]
+ * @param {boolean} [params.setExposedParams=false] Ignore the potential for dotenv parameter overlap and attempt to set non-prefixed configuration parameters if not already set.
  * @returns {object}
  */
 const setupDotenvFilesForEnv = ({
   env,
-  relativePath,
+  relativePath = contextPath,
   dotenvNamePrefix = 'BUILD',
   setBuildDefaults = true,
   isMessaging = false,
@@ -107,13 +112,17 @@ const setupDotenvFilesForEnv = ({
     consoleMessage.info(`Parsing dotenv files at: ${relativePath}`);
   }
 
-  if (env) {
-    setupDotenvFile(path.resolve(relativePath, `.env.${env}.local`));
-    setupDotenvFile(path.resolve(relativePath, `.env.${env}`));
-  }
+  try {
+    if (env) {
+      setupDotenvFile(path.resolve(relativePath, `.env.${env}.local`));
+      setupDotenvFile(path.resolve(relativePath, `.env.${env}`));
+    }
 
-  setupDotenvFile(path.resolve(relativePath, '.env.local'));
-  setupDotenvFile(path.resolve(relativePath, '.env'));
+    setupDotenvFile(path.resolve(relativePath, '.env.local'));
+    setupDotenvFile(path.resolve(relativePath, '.env'));
+  } catch (e) {
+    consoleMessage.warn(`setupDotenvFilesForEnv: ${e.message}`);
+  }
 
   if (setBuildDefaults) {
     // Core Build
