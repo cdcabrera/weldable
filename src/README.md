@@ -63,16 +63,16 @@ For use with webpack configurations. Set up multiple webpack dotenv file paramet
 <table>
   <thead>
     <tr>
-      <th>Param</th><th>Type</th>
+      <th>Param</th><th>Type</th><th>Default</th>
     </tr>
   </thead>
   <tbody>
 <tr>
-    <td>params</td><td><code>object</code></td>
+    <td>params</td><td><code>object</code></td><td></td>
     </tr><tr>
-    <td>params.directory</td><td><code>string</code></td>
+    <td>[params.directory]</td><td><code>string</code></td><td><code>&quot;&lt;contextPath&gt;&quot;</code></td>
     </tr><tr>
-    <td>params.env</td><td><code>string</code></td>
+    <td>params.env</td><td><code>string</code></td><td></td>
     </tr>  </tbody>
 </table>
 
@@ -122,25 +122,25 @@ dotenv parameters are string based, failed or missing dotenv parameters return a
 <table>
   <thead>
     <tr>
-      <th>Param</th><th>Type</th><th>Description</th>
+      <th>Param</th><th>Type</th><th>Default</th><th>Description</th>
     </tr>
   </thead>
   <tbody>
 <tr>
-    <td>params</td><td><code>object</code></td><td></td>
+    <td>params</td><td><code>object</code></td><td></td><td></td>
     </tr><tr>
-    <td>params.env</td><td><code>string</code></td><td></td>
+    <td>params.env</td><td><code>string</code></td><td></td><td></td>
     </tr><tr>
-    <td>params.relativePath</td><td><code>string</code></td><td></td>
+    <td>[params.relativePath]</td><td><code>string</code></td><td><code>&quot;&lt;contextPath&gt;&quot;</code></td><td></td>
     </tr><tr>
-    <td>params.dotenvNamePrefix</td><td><code>string</code></td><td><p>Add an internal prefix to dotenv parameters used for configuration to avoid overlap.</p>
+    <td>[params.dotenvNamePrefix]</td><td><code>string</code></td><td><code>&quot;BUILD&quot;</code></td><td><p>Add an internal prefix to dotenv parameters used for configuration to avoid overlap.</p>
 </td>
     </tr><tr>
-    <td>params.setBuildDefaults</td><td><code>boolean</code></td><td></td>
+    <td>[params.setBuildDefaults]</td><td><code>boolean</code></td><td><code>true</code></td><td></td>
     </tr><tr>
-    <td>params.isMessaging</td><td><code>boolean</code></td><td></td>
+    <td>[params.isMessaging]</td><td><code>boolean</code></td><td><code>false</code></td><td></td>
     </tr><tr>
-    <td>params.setExposedParams</td><td><code>boolean</code></td><td><p>Ignore the potential for dotenv parameter overlap and attempt to set non-prefixed configuration parameters if not already set.</p>
+    <td>[params.setExposedParams]</td><td><code>boolean</code></td><td><code>false</code></td><td><p>Ignore the potential for dotenv parameter overlap and attempt to set non-prefixed configuration parameters if not already set.</p>
 </td>
     </tr>  </tbody>
 </table>
@@ -541,11 +541,17 @@ Development webpack configuration.
     </tr><tr>
     <td>dotenv._BUILD_HOST</td><td><code>string</code></td>
     </tr><tr>
+    <td>dotenv._BUILD_HTML_INDEX_DIR</td><td><code>string</code></td>
+    </tr><tr>
     <td>dotenv._BUILD_OPEN_PATH</td><td><code>string</code></td>
     </tr><tr>
     <td>dotenv._BUILD_RELATIVE_DIRNAME</td><td><code>string</code></td>
     </tr><tr>
     <td>dotenv._BUILD_PORT</td><td><code>string</code></td>
+    </tr><tr>
+    <td>dotenv._BUILD_SRC_DIR</td><td><code>string</code></td>
+    </tr><tr>
+    <td>dotenv._BUILD_STATIC_DIR</td><td><code>string</code></td>
     </tr>  </tbody>
 </table>
 
