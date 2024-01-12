@@ -245,7 +245,7 @@ const development = (
   mode: MODE,
   devtool: 'eval-source-map',
   devServer: {
-    ...((OPEN_PATH && { open: [OPEN_PATH] }) || {}),
+    ...((OPEN_PATH && { open: OPEN_PATH }) || {}),
     host: HOST,
     port: PORT,
     compress: true,
