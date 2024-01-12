@@ -206,26 +206,29 @@ A development start, and production build, using your own webpack configurations
 
 The `lib` aspect of `weldable` is exported as CommonJS and is intended to be run as part of your build process without the need to install many additional packages.
 
-#### Use within build files
-**CommonJS...**
-```
-const { packages, dotenv } = require('weldable');
+Two primary things are exposed through `weldable`...
+- packages, such as `webpack-merge`
+- and `weldable` "helper" functions
 
-const aPackage = packages.[PACKAGE_NAME];
-const dotenvFunc = dotenv.[FUNC];
+Example use within build files...
 ```
+const { dotenv } = require('weldable');
 
-**ES Module...**
-```
-import { packages, dotenv } from 'weldable';
-
-const aPackage = packages.[PACKAGE_NAME];
 const dotenvFunc = dotenv.[FUNC];
 ```
 
 #### Exposed packages
 See our [package.json](./package.json) `dependencies` for exposed packages.
 
+You can also use the `weldable` namespace, or you can always call the package directly...
+```
+const packages = require('weldable/lib/packages');
+
+const aPackage = packages.[PACKAGE_NAME];
+```
+
+**Heads up**
+- Packages is kept separated from `weldable` functions due to ES module loading. Certain packages do but others don't provide modules which can cause issues with tooling, such as `Jest`.
 - We do not provide package use documentation. For package use review associated package.
 - All packages retain their respective license. It is your responsibility to use said packages accordingly.
 
@@ -272,6 +275,13 @@ See our [package.json](./package.json) `dependencies` for exposed packages.
 
 `weldable` exposes limited helper functions
 
+You can access the functions like so...
+```
+const { dotenv } = require('weldable');
+
+const dotenvFunc = dotenv.[FUNC];
+```
+
 | HELPER                                                                                               | EXPOSED NAME                         | DESCRIPTION                                                                                                                                                                     |
 |------------------------------------------------------------------------------------------------------|--------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [dotenv](./src/README.md#module_dotenv)                                                              | dotenv                               | An object group of helper functions designed to consume dotenv files. Useful for implementing your own dotenv parameters used during testing, or for a standalone webpack build |
@@ -312,14 +322,15 @@ const {
   SRC_DIR
   STATIC_DIR
 } = setupDotenvFilesForEnv({
-  env: 'loremIpsum'
+  env: 'loremIpsum',
+  relativePath: process.cwd()
 });
 
 const webpackProduction = {
 ...
   plugins: [
     ...setupWebpackDotenvFilesForEnv({
-      directory: _BUILD_RELATIVE_DIRNAME,
+      directory: RELATIVE_DIRNAME,
       env: NODE_ENV
     }),
 ...

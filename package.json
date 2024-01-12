@@ -27,14 +27,8 @@
   "bin": {
     "weldable": "./bin/cli.js"
   },
-  "main": "./lib/cjs/index.js",
-  "module": "./lib/mjs/index.js",
-  "exports": {
-    ".": {
-      "import": "./lib/mjs/index.js",
-      "require": "./lib/cjs/index.js"
-    }
-  },
+  "type": "commonjs",
+  "main": "./lib/index.js",
   "scripts": {
     "build:packages-lib": "node ./scripts/generatePackagesLib.js",
     "build:deps": "bash ./scripts/dependencies.sh --doctor -u --doctorTest \"npm run test:deps\"",
