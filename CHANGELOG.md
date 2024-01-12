@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.3.0](https://github.com/cdcabrera/weldable/compare/f2c7ef593066cda845236e185938a41a5065d323...13f8c99d824b92c45689a809ff23fb6ba662b7a4) (2024-01-12)
+
+
+### Builds
+* **deps** npm updates  ([13f8c99](https://github.com/cdcabrera/weldable/commit/13f8c99d824b92c45689a809ff23fb6ba662b7a4))
+* **scripts** avoid commit on release, allow package-lock  ([36e6553](https://github.com/cdcabrera/weldable/commit/36e6553812521bfad44988cfa67e328096b77d85))
+
 ## [0.2.0](https://github.com/cdcabrera/weldable/compare/6d966d1d80ca1c7c8242942f0368aa31b794ac46...8bbde6db1282cc441679f7e99f39126933d7f44b) (2024-01-12)
 
 
