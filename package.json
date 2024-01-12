@@ -34,7 +34,7 @@
     "build:deps": "bash ./scripts/dependencies.sh --doctor -u --doctorTest \"npm run test:deps\"",
     "build:docs": "run-s -l test:docs docs:md",
     "docs:md": "node ./scripts/readme.docs.js",
-    "release": "changelog",
+    "release": "changelog --commit=false",
     "start": "export _WELDABLE_DEV=true; ./bin/cli.js",
     "test": "run-s -l test:lint test:spell* test:ci",
     "test:ci": "export CI=true; export _WELDABLE_TEST=true; jest --collectCoverage",
