@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.4.0](https://github.com/cdcabrera/weldable/compare/e7e3dc6a1b02bb7cbcb8748db30a76d3416ade26...380c00c05edd939e8309fe22722d17519692adcb) (2024-01-13)
+
+
+### Features
+* **lib** packages, provide a require resolve ([#9](https://github.com/cdcabrera/weldable/pull/9)) ([380c00c](https://github.com/cdcabrera/weldable/commit/380c00c05edd939e8309fe22722d17519692adcb))
+
 ## [0.3.0](https://github.com/cdcabrera/weldable/compare/f2c7ef593066cda845236e185938a41a5065d323...13f8c99d824b92c45689a809ff23fb6ba662b7a4) (2024-01-12)
 
 
