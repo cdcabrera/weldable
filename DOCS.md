@@ -229,47 +229,65 @@ const aPackage = packages.[PACKAGE_NAME];
 
 **Heads up**
 - Packages is kept separated from `weldable` functions due to ES module loading. Certain packages do but others don't provide modules which can cause issues with tooling, such as `Jest`.
+- Every package has 2 exported aspects, the `required` package and a `require.resolve`
 - We do not provide package use documentation. For package use review associated package.
 - All packages retain their respective license. It is your responsibility to use said packages accordingly.
 
 > The `weldable` lib bundles a [`txt` resource](./lib/packagesLicenses.txt) containing available license materials.
 
-| PACKAGES                     | EXPOSED NAME         |
-|------------------------------|----------------------|
-| @babel/core                  | babelCore            |
-| @tsconfig/create-react-app   | N/A                  |
-| @tsconfig/node18             | N/A                  |
-| @tsconfig/node20             | N/A                  |
-| @tsconfig/react-native       | N/A                  |
-| @tsconfig/recommended        | N/A                  |
-| @tsconfig/strictest          | N/A                  |
-| babel-loader                 | babelLoader          |
-| copy-webpack-plugin          | CopyWebpackPlugin    |
-| css-loader                   | cssLoader            |
-| css-minimizer-webpack-plugin | CssMinimizerWebpackPlugin |
-| dotenv                       | dotenv               |
-| dotenv-expand                | dotenvExpand         |
-| dotenv-webpack               | dotenvWebpack        |
-| eslint-webpack-plugin        | EslintWebpackPlugin  |
-| html-replace-webpack-plugin  | htmlReplaceWebpackPlugin |
-| html-webpack-plugin          | HtmlWebpackPlugin    |
-| less                         | less                 | 
-| less-loader                  | lessLoader           |
-| mini-css-extract-plugin      | MiniCssExtractPlugin |
-| mini-svg-data-uri            | miniSvgDataUri       |
-| rimraf                       | rimraf               |
-| sass                         | sass                 |
-| sass-loader                  | sassLoader           |
-| style-loader                 | styleLoader          |
-| terser-webpack-plugin        | TerserWebpackPlugin  |
-| ts-loader                    | tsLoader             |
-| tslib                        | tslib                |
-| typescript                   | typescript           |
-| webpack                      | webpack              |
-| webpack-bundle-analyzer      | webpackBundleAnalyzer |
-| webpack-cli                  | WebpackCli           |
-| webpack-dev-server           | WebpackDevServer     |
-| webpack-merge                | webpackMerge         |
+| PACKAGES                     | EXPOSED NAME                                                |
+|------------------------------|-------------------------------------------------------------|
+| @babel/core                  | babelCore, babelCoreResolve                                 |
+| @tsconfig/create-react-app   | N/A                                                         |
+| @tsconfig/node18             | N/A                                                         |
+| @tsconfig/node20             | N/A                                                         |
+| @tsconfig/react-native       | N/A                                                         |
+| @tsconfig/recommended        | N/A                                                         |
+| @tsconfig/strictest          | N/A                                                         |
+| babel-loader                 | babelLoader, babelLoaderResolve                             |
+| copy-webpack-plugin          | CopyWebpackPlugin, CopyWebpackPluginResolve                 |
+| css-loader                   | cssLoader, cssLoaderResolve                                 |
+| css-minimizer-webpack-plugin | CssMinimizerWebpackPlugin, CssMinimizerWebpackPluginResolve |
+| dotenv                       | dotenv, dotenvResolve                                       |
+| dotenv-expand                | dotenvExpand, dotenvExpandResolve                           |
+| dotenv-webpack               | dotenvWebpack, dotenvWebpackResolve                         |
+| eslint-webpack-plugin        | EslintWebpackPlugin, EslintWebpackPluginResolve             |
+| html-replace-webpack-plugin  | htmlReplaceWebpackPlugin, htmlReplaceWebpackPluginResolve   |
+| html-webpack-plugin          | HtmlWebpackPlugin, HtmlWebpackPluginResolve                 |
+| less                         | less, lessResolve                                           | 
+| less-loader                  | lessLoader, lessLoaderResolve                               |
+| mini-css-extract-plugin      | MiniCssExtractPlugin, MiniCssExtractPluginResolve           |
+| mini-svg-data-uri            | miniSvgDataUri, miniSvgDataUriResolve                       |
+| rimraf                       | rimraf, rimrafResolve                                       |
+| sass                         | sass, sassResolve                                           |
+| sass-loader                  | sassLoader, sassLoaderResolve                               |
+| style-loader                 | styleLoader, styleLoaderResolve                             |
+| terser-webpack-plugin        | TerserWebpackPlugin, TerserWebpackPluginResolve             |
+| ts-loader                    | tsLoader, tsLoaderResolve                                   |
+| tslib                        | tslib, tslibResolve                                         |
+| typescript                   | typescript, typescriptResolve                               |
+| webpack                      | webpack, webpackResolve                                     |
+| webpack-bundle-analyzer      | webpackBundleAnalyzer, webpackBundleAnalyzerResolve         |
+| webpack-cli                  | WebpackCli, WebpackCliResolve                               |
+| webpack-dev-server           | WebpackDevServer, WebpackDevServerResolve                   |
+| webpack-merge                | webpackMerge, webpackMergeResolve                           |
+
+An example webpack config rules loader using the provided `require.resolve`...
+```
+const { cssLoaderResolve, MiniCssExtractPlugin, sassLoaderResolve } = require('weldable/lib/packages');
+
+module.exports = ({ SRC_DIR } = {}) => ({
+  module: {
+    rules: [
+      {
+        test: /\.(sa|sc)ss$/i,
+        use: [MiniCssExtractPlugin.loader, cssLoaderResolve, sassLoaderResolve]
+      }
+    ]
+  }
+});
+```
+
 
 #### Exposed weldable functions
 

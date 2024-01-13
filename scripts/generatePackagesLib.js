@@ -69,19 +69,20 @@ const createPackagesExport = async () => {
       const defaultOrValue = value?.default || value || undefined;
 
       const updatedKey = _camelCase(key);
+      const updatedResolve = _camelCase(`${key}_Resolve`);
+      const keyDefaults = {
+        key,
+        license,
+        resolve: updatedResolve
+      };
+
       if (defaultOrValue) {
         if (typeof defaultOrValue === 'object') {
-          updatedPackages[updatedKey] = {
-            key,
-            license
-          };
+          updatedPackages[updatedKey] = keyDefaults;
         } else {
           const isPossiblyClassButWhoReallyCares = /^class/i.test(defaultOrValue.toString());
 
-          updatedPackages[(isPossiblyClassButWhoReallyCares && _upperFirst(updatedKey)) || updatedKey] = {
-            key,
-            license
-          };
+          updatedPackages[(isPossiblyClassButWhoReallyCares && _upperFirst(updatedKey)) || updatedKey] = keyDefaults;
         }
       } else {
         consoleMessage.info(`No exported value or default found, skipping package: ${updatedKey}`);
@@ -91,11 +92,18 @@ const createPackagesExport = async () => {
 
   // Create package js file
   const str = [];
-  Object.entries(updatedPackages).forEach(([key, { key: value }]) => {
-    str.push(`const ${key} = require('${value}');\nexports.${key} = ${key};`);
+  Object.entries(updatedPackages).forEach(([key, { key: value, resolve }]) => {
+    str.push(
+      `const ${resolve} = require.resolve('${value}');`,
+      `exports.${resolve} = ${resolve};`,
+      '',
+      `const ${key} = require('${value}');`,
+      `exports.${key} = ${key};`,
+      ''
+    );
   });
 
-  createFile(str.join('\n\n') + '\n', {
+  createFile(str.join('\n'), {
     dir: path.join(__dirname, '..', 'lib'),
     filename: 'packages.js'
   });
