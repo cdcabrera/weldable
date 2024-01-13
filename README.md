@@ -86,20 +86,24 @@ A development start, and production build, using your own webpack configurations
    ```
 
 #### Basic lib use
-The `lib` aspect of `weldable` is exported as CommonJS and is intended to be run as part of a build process.
+The `lib` aspect of `weldable` is exported as CommonJS and is intended to be run as part of your build process without the need to install many additional packages.
 
-CommonJS...
+Two primary things are exposed through `weldable`...
+- packages, such as `webpack-merge`
+- and `weldable` "helper" functions
+
+Example packages use...
 ```
-const { packages } = require('weldable');
+const packages = require('weldable/lib/packages');
 
 const aPackage = packages.[PACKAGE_NAME];
 ```
 
-ES Module...
+Example helper function use...
 ```
-import { packages } from 'weldable';
+const { dotenv } = require('weldable');
 
-const aPackage = packages.[PACKAGE_NAME];
+const dotenvFunc = dotenv.[FUNC];
 ```
 
 A listing of exposed packages and weldable functions can be found under our [DOCS](./DOCS.md) or
