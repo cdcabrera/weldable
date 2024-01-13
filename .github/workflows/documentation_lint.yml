@@ -41,8 +41,12 @@ jobs:
         uses: actions/github-script@v7
         with:
           script: |
-            const actionCommit = require(`${process.env.GITHUB_WORKSPACE}/scripts/actions.documentation.js`)
-            const { resultsArray, resultsString } = actionCommit(process.env.GIT_MODIFIED)
+            const action = require(`${process.env.GITHUB_WORKSPACE}/scripts/actions.fileDiffs.js`)
+            const options = {
+              rexp: /README\.md$/,
+              message: "Update README with '$ npm run build:docs'"
+            };
+            const { resultsArray, resultsString } = action(process.env.GIT_MODIFIED, options)
             if (resultsArray.length) {
               core.setFailed(resultsString)
             }
