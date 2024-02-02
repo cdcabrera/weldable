@@ -75,7 +75,7 @@
     "@tsconfig/create-react-app": "^2.0.1",
     "@tsconfig/node18": "^18.2.2",
     "@tsconfig/node20": "^20.1.2",
-    "@tsconfig/react-native": "^3.0.2",
+    "@tsconfig/react-native": "^3.0.3",
     "@tsconfig/recommended": "^1.0.3",
     "@tsconfig/strictest": "^2.0.2",
     "babel-loader": "^9.1.3",
