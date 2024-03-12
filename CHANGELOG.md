@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.5.0](https://github.com/cdcabrera/weldable/compare/cfcc6cfab057ad64a4d4131f5a8a2cf6c845b357...ec6d75de15eac5ada0741481d7bdf690c2985ea5) (2024-03-12)
+
+
+### Builds
+* **deps** 4 npm updates ([#29](https://github.com/cdcabrera/weldable/pull/29)) ([ec6d75d](https://github.com/cdcabrera/weldable/commit/ec6d75de15eac5ada0741481d7bdf690c2985ea5))
+* **deps-dev** 7 npm updates ([#28](https://github.com/cdcabrera/weldable/pull/28)) ([dd70bc7](https://github.com/cdcabrera/weldable/commit/dd70bc72dd01b4541fd740bfde398bb71387be53))
+* **deps** dependabot groups ([#27](https://github.com/cdcabrera/weldable/pull/27)) ([90129ea](https://github.com/cdcabrera/weldable/commit/90129ea782856aa93a4ce66ba988eb64391dec95))
+* **coverage** move from codecov to pages ([#26](https://github.com/cdcabrera/weldable/pull/26)) ([3aceb90](https://github.com/cdcabrera/weldable/commit/3aceb906d8753b0afbe888f6a366a4e8e2053003))
+* **actions** commit syntax parser ([#25](https://github.com/cdcabrera/weldable/pull/25)) ([808b081](https://github.com/cdcabrera/weldable/commit/808b081032de11a146fc5a8fc17718e6894787f1))
+* **deps** @tsconfig/strictest from 2.0.2 to 2.0.3 ([#21](https://github.com/cdcabrera/weldable/pull/21)) ([0ca8cfd](https://github.com/cdcabrera/weldable/commit/0ca8cfd630df5bc75f86f1e00e86e6d103afc321))
+* **deps** dotenv from 16.3.1 to 16.4.1 ([#14](https://github.com/cdcabrera/weldable/pull/14)) ([b8431db](https://github.com/cdcabrera/weldable/commit/b8431db053c2f6b160a9ba3a7bcaaf086cdd4a0d))
+* **deps** @tsconfig/react-native from 3.0.2 to 3.0.3 ([#12](https://github.com/cdcabrera/weldable/pull/12)) ([a98ab5e](https://github.com/cdcabrera/weldable/commit/a98ab5e08dfc37612a4d9ffa2586a3a8e0da7980))
+* **deps** sass-loader from 13.3.3 to 14.1.0 ([#11](https://github.com/cdcabrera/weldable/pull/11)) ([23fba91](https://github.com/cdcabrera/weldable/commit/23fba918e6de790995d8a9bc0b0c125d67d26813))
+* **deps-dev** npm-check-updates from 16.14.12 to 16.14.14 ([#15](https://github.com/cdcabrera/weldable/pull/15)) ([15a0319](https://github.com/cdcabrera/weldable/commit/15a0319ed9708d13bb244d3a21f9ca63557bca98))
+* **deps** bump actions/cache from 3 to 4 ([#16](https://github.com/cdcabrera/weldable/pull/16)) ([db03b5b](https://github.com/cdcabrera/weldable/commit/db03b5b56b07cf19a9ed4b2fa0e0a2a12e8940fd))
+* **deps** bump actions/checkout from 3 to 4 ([#17](https://github.com/cdcabrera/weldable/pull/17)) ([f546c3c](https://github.com/cdcabrera/weldable/commit/f546c3c695405a5f077cb590ebdda875736a2184))
+* **template** pr, yarn to npm copy ([#10](https://github.com/cdcabrera/weldable/pull/10)) ([6a3ee9a](https://github.com/cdcabrera/weldable/commit/6a3ee9ab96aef675e762a16f5439a588bc1cf81f))
+* **actions** align fileDiff checks ([#10](https://github.com/cdcabrera/weldable/pull/10)) ([aec944b](https://github.com/cdcabrera/weldable/commit/aec944b612205fc11a6f63f2185f224edd782d3d))
+
 ## [0.4.0](https://github.com/cdcabrera/weldable/compare/e7e3dc6a1b02bb7cbcb8748db30a76d3416ade26...380c00c05edd939e8309fe22722d17519692adcb) (2024-01-13)
 
 
