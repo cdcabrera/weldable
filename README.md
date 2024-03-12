@@ -1,6 +1,6 @@
 # weldable
 [![Build](https://github.com/cdcabrera/weldable/actions/workflows/integration.yml/badge.svg?branch=main)](https://github.com/cdcabrera/weldable/actions/workflows/integration.yml)
-[![codecov](https://codecov.io/gh/cdcabrera/weldable/graph/badge.svg)](https://codecov.io/gh/cdcabrera/weldable)
+[![coverage](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fcdcabrera.github.io%2Fweldable%2Fsummary.json&query=%24.coverage.pct&suffix=%25&label=coverage&color=9F3FC0)](https://cdcabrera.github.io/weldable/)
 [![License](https://img.shields.io/github/license/cdcabrera/weldable.svg)](https://github.com/cdcabrera/weldable/blob/main/LICENSE)
 
 Default webpack development and production configuration.
