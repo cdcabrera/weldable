@@ -73,7 +73,7 @@
     ]
   },
   "dependencies": {
-    "@babel/core": "7.23.7",
+    "@babel/core": "7.24.0",
     "@tsconfig/create-react-app": "^2.0.2",
     "@tsconfig/node18": "^18.2.2",
     "@tsconfig/node20": "^20.1.2",
