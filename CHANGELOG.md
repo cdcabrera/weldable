@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.5.1](https://github.com/cdcabrera/weldable/compare/ec6924fe2fd37d6ce75232929c8477abab1d15f6...9c3d953c33afb13f4585330bcb91fd4523e21f3f) (2024-03-21)
+
+
+### Chores
+* **lib** package license  ([9c3d953](https://github.com/cdcabrera/weldable/commit/9c3d953c33afb13f4585330bcb91fd4523e21f3f))
+
+### Builds
+* **deps** bump @babel/core from 7.23.7 to 7.24.3 ([#32](https://github.com/cdcabrera/weldable/pull/32)) ([2cad535](https://github.com/cdcabrera/weldable/commit/2cad535e8c2d2d3e0e1b935a58746932ebdf6762))
+* **deps** mini-css-extract-plugin from 2.7.7 to 2.8.1 ([#20](https://github.com/cdcabrera/weldable/pull/20)) ([0cfbcec](https://github.com/cdcabrera/weldable/commit/0cfbcecf5b355a7d7d4e57dbc767e742a5a92571))
+* **deps** bump sass from 1.69.7 to 1.72.0 ([#31](https://github.com/cdcabrera/weldable/pull/31)) ([67d068d](https://github.com/cdcabrera/weldable/commit/67d068dfd67bf23c3056f6d134277539122128ee))
+* **deps** webpack from 5.89.0 to 5.90.3 ([#23](https://github.com/cdcabrera/weldable/pull/23)) ([526cd7c](https://github.com/cdcabrera/weldable/commit/526cd7cdebf47928526ced4900fcbe442e939ef0))
+
 ## [0.5.0](https://github.com/cdcabrera/weldable/compare/cfcc6cfab057ad64a4d4131f5a8a2cf6c845b357...ec6d75de15eac5ada0741481d7bdf690c2985ea5) (2024-03-12)
 
 
