@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.5.2](https://github.com/cdcabrera/weldable/compare/1cedc9f4c5cf53b99a33cf1571192d0cb5a2e63a...ea2dc24d778610cd1a3440bbb21b7755f445a621) (2024-04-21)
+
+
+### Chores
+* **config** remove unused codecov ([#42](https://github.com/cdcabrera/weldable/pull/42)) ([ea2dc24](https://github.com/cdcabrera/weldable/commit/ea2dc24d778610cd1a3440bbb21b7755f445a621))
+
+### Builds
+* **deps** bump group with 7 updates ([#41](https://github.com/cdcabrera/weldable/pull/41)) ([fba8222](https://github.com/cdcabrera/weldable/commit/fba822205fa32fa30ffcd87c223b2adb7dfd6a95))
+* **deps-dev** bump group with 3 updates ([#39](https://github.com/cdcabrera/weldable/pull/39)) ([7ac454f](https://github.com/cdcabrera/weldable/commit/7ac454faa6e230151ed60c5e614b507c9c032ce8))
+* **deps** bump actions/configure-pages from 4 to 5 ([#33](https://github.com/cdcabrera/weldable/pull/33)) ([24ed097](https://github.com/cdcabrera/weldable/commit/24ed097b4d4886e9ef800ff6451f27951033050b))
+
 ## [0.5.1](https://github.com/cdcabrera/weldable/compare/ec6924fe2fd37d6ce75232929c8477abab1d15f6...9c3d953c33afb13f4585330bcb91fd4523e21f3f) (2024-03-21)
 
 
