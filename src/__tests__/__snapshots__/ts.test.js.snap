@@ -16,7 +16,6 @@ exports[`Typescript should create a tsconfig with a base template: base template
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
     "jsx": "react-jsx",
     "lib": [
@@ -54,7 +53,6 @@ exports[`Typescript should update a tsconfig with a subsequent merge: merged tem
       "checkJs": true,
       "esModuleInterop": true,
       "exactOptionalPropertyTypes": true,
-      "forceConsistentCasingInFileNames": true,
       "isolatedModules": true,
       "jsx": "react-jsx",
       "lib": [
@@ -84,7 +82,6 @@ exports[`Typescript should update a tsconfig with a subsequent merge: merged tem
       "allowJs": true,
       "allowSyntheticDefaultImports": true,
       "esModuleInterop": true,
-      "forceConsistentCasingInFileNames": true,
       "isolatedModules": true,
       "jsx": "react-jsx",
       "lib": [
