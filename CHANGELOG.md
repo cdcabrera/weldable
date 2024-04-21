@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.0](https://github.com/cdcabrera/weldable/compare/373c0c7b65e2e7970bd5216e7130829cf42bd600...c9c91b27afcfaa39dd7817ca2b04dda1049d0148) (2024-04-21)
+⚠ BREAKING CHANGES
+
+Minimum NodeJS version is 18.12.0. Review webpack related package commits for additional breaking changes.
+
+### Builds
+* **deps-dev** changelog-light from 0.6.1 to 1.2.0  ([c9c91b2](https://github.com/cdcabrera/weldable/commit/c9c91b27afcfaa39dd7817ca2b04dda1049d0148))
+* ⚠ **deps** bump css-loader from 6.9.0 to 7.1.1 ([#40](https://github.com/cdcabrera/weldable/pull/40)) ([5826f69](https://github.com/cdcabrera/weldable/commit/5826f6977138bd33b02abbbbfbeb7cda59c52931))
+* **deps** css-minimizer-webpack-plugin from 5.0.1 to 6.0.0 ([#38](https://github.com/cdcabrera/weldable/pull/38)) ([61849f8](https://github.com/cdcabrera/weldable/commit/61849f8f0e519d98169e26a822808375b026a664))
+* ⚠ **deps** webpack-dev-server from 4.15.1 to 5.0.4 ([#36](https://github.com/cdcabrera/weldable/pull/36)) ([0e47f6f](https://github.com/cdcabrera/weldable/commit/0e47f6f27ac986a16027fc359434f332bbbb2269))
+* ⚠ **nodejs** minimum engine 18.12.x, migrate checks to 20.x ([#43](https://github.com/cdcabrera/weldable/pull/43)) ([10d1bf3](https://github.com/cdcabrera/weldable/commit/10d1bf3dbc5466f8ec5c69081e5af2721d8f6cde))
+
 ## [0.5.2](https://github.com/cdcabrera/weldable/compare/1cedc9f4c5cf53b99a33cf1571192d0cb5a2e63a...ea2dc24d778610cd1a3440bbb21b7755f445a621) (2024-04-21)
 
 
