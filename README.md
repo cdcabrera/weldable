@@ -19,7 +19,7 @@ The goal of `weldable` is to make it easier to install `webpack` build packages 
 
 ## Requirements
 The basic requirements:
- * [NodeJS version 18+](https://nodejs.org/)
+ * [NodeJS version 18.12.0+](https://nodejs.org/)
  * NPM
    > There appear to be dependency mapping issues with `Yarn` v1.x.x lock files, `Typescript` and `webpack`, and specific dependencies
    > using ES modules. If you do decide to use [Yarn](https://yarnpkg.com) use the latest version.
