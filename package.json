@@ -34,7 +34,7 @@
     "build:deps": "bash ./scripts/dependencies.sh --doctor -u --doctorTest \"npm run test:deps\"",
     "build:docs": "run-s -l test:docs docs:md",
     "docs:md": "node ./scripts/readme.docs.js",
-    "release": "changelog --commit=false",
+    "release": "changelog",
     "start": "export _WELDABLE_DEV=true; ./bin/cli.js",
     "test": "run-s -l test:lint test:spell* test:ci",
     "test:ci": "export CI=true; export _WELDABLE_TEST=true; jest --collectCoverage --coverageReporters=\"lcov\" --coverageReporters=\"json-summary\"",
@@ -110,7 +110,7 @@
     "yargs": "^17.7.2"
   },
   "devDependencies": {
-    "changelog-light": "^0.6.1",
+    "changelog-light": "^1.2.0",
     "cspell": "^8.7.0",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
