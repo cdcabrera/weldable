@@ -73,7 +73,7 @@
     ]
   },
   "dependencies": {
-    "@babel/core": "7.24.4",
+    "@babel/core": "7.24.5",
     "@tsconfig/create-react-app": "^2.0.4",
     "@tsconfig/node18": "^18.2.4",
     "@tsconfig/node20": "^20.1.4",
@@ -94,7 +94,7 @@
     "less-loader": "^11.1.4",
     "mini-css-extract-plugin": "^2.8.1",
     "mini-svg-data-uri": "^1.4.4",
-    "rimraf": "^5.0.5",
+    "rimraf": "^5.0.7",
     "sass": "^1.72.0",
     "sass-loader": "^14.1.1",
     "style-loader": "^3.3.4",
@@ -103,7 +103,7 @@
     "tslib": "^2.6.2",
     "typescript": "^5.3.3",
     "webpack": "^5.90.3",
-    "webpack-bundle-analyzer": "^4.10.1",
+    "webpack-bundle-analyzer": "^4.10.2",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^5.0.4",
     "webpack-merge": "^5.10.0",
