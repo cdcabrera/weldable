@@ -425,9 +425,22 @@ exports[`webpack should create a webpack config with language: language configur
         "include": [
           "./__fixtures__/src"
         ],
+        "resolve": {
+          "extensions": [
+            ".js",
+            ".jsx",
+            ".mjs",
+            ".cjs"
+          ]
+        },
         "use": [
           {
-            "loader": "babel-loader"
+            "loader": "babel-loader",
+            "options": {
+              "presets": [
+                "@babel/preset-env"
+              ]
+            }
           }
         ]
       }
@@ -608,9 +621,22 @@ exports[`webpack should create a webpack config with language: language configur
         "include": [
           "./__fixtures__/src"
         ],
+        "resolve": {
+          "extensions": [
+            ".js",
+            ".jsx",
+            ".mjs",
+            ".cjs"
+          ]
+        },
         "use": [
           {
-            "loader": "babel-loader"
+            "loader": "babel-loader",
+            "options": {
+              "presets": [
+                "@babel/preset-env"
+              ]
+            }
           }
         ]
       }

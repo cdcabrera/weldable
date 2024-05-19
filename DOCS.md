@@ -11,21 +11,21 @@ The basic use requirements:
 </details>
 
 <details>
-<summary><h3 style="display: inline-block">Setup a project</h3></summary>
+<summary><h3 style="display: inline-block">Set up a project</h3></summary>
 
 `weldable` makes assumptions on project structure in order to be up and moving. Many of these assumptions can be
 overridden, or ignored, to fit your own preferences.
 
 Assumptions `weldable` presets...
 - `src` project directory, `Your project -> src -> your work`
-- `index.(js|jsx|ts|tsx)` application prefix and possible extensions located in `src`, `Your project -> src -> index.(js|jsx|ts|tsx)` 
+- `index.(js|mjs|cjs|jsx|ts|mts|cts|tsx)` application prefix and possible extensions located in `src`, `Your project -> src -> index.(js|mjs|cjs|jsx|ts|mts|cts|tsx)` 
 - `dist` directory for webpack bundle output, `Your project -> dist`
 - `localhost` host name
 - `port` default of `3000`
 
 > To alter these presets see [`dotenv`](#dotenv-use) use.
 
-#### Setup
+#### Basic setup
 > All setup directions are based on a MacOS experience. If Linux, or Windows, is used and
 you feel the directions could be updated please open a pull request to update documentation.
 
@@ -33,7 +33,7 @@ you feel the directions could be updated please open a pull request to update do
 
 1. Confirm you installed the correct version of [NodeJS](https://nodejs.org)
 1. Confirm you added `weldable` as a `dependency` to your project
-1. Make sure you have a `src` directory with at least an `index.(js|jsx|ts|tsx)`
+1. Make sure you have a `src` directory with at least an `index.(js|ts)`
 1. Create NPM scripts that reference the `weldable` CLI
    ```
    "scripts": {
@@ -93,6 +93,113 @@ you feel the directions could be updated please open a pull request to update do
    > If things are NOT working, `weldable` and `webpack` should provide messaging to help you
    > debug why your bundle isn't being compiled 
 
+#### Set up a JS framework, like React
+At its most basic `weldable` does not work out of the box with frameworks, like React, unless a loader we've included happens to support 
+said framework, such as `ts-loader` and `React`.
+
+What that means is you may have to modify and use your own webpack configuration loader.
+
+**Set up a React project with `ts-loader`**
+
+1. Confirm you installed the correct version of [NodeJS](https://nodejs.org)
+1. Confirm you added [`weldable`](https://www.npmjs.com/package/weldable) as a `dependency` to your project
+1. Confirm you added [`react`](https://www.npmjs.com/package/react) and [`react-dom`](https://www.npmjs.com/package/react-dom) as `dependencies` for your project
+1. Create a basic `tsconfig.json` in the root of your project directory with the following content. After everything is working modify as needed.
+   ```
+     {
+       "compilerOptions": {
+         "allowJs": true,
+         "allowSyntheticDefaultImports": true,
+         "jsx": "react",
+         "module": "esnext",
+         "moduleResolution": "node"
+       }
+     }
+   ```
+
+1. Make sure you have a `src` directory with at least an `index.tsx`, and the following content.
+   ```
+     import React from 'react';
+     import { createRoot } from 'react-dom/client';
+
+     const body = document.querySelector('BODY');
+     const div = document.createElement('div');
+     body?.appendChild(div);
+   
+     const App = () => <>hello world</>; 
+   
+     const root = createRoot(div);
+     root.render(<App />);
+    
+   ```
+1. Create NPM scripts that reference the `weldable` CLI
+   ```
+     "scripts": {
+      "build": "weldable -l ts",
+      "start": "weldable -e development -l ts"
+     }
+   ```
+1. Run the NPM scripts and that's it. You should see `hello world`, when you run `$ npm start`, displayed in a browser window.
+   > If the browser failed to open you can find the content at http://localhost:3000/
+
+
+**Set up a React project with `babel-loader`**
+
+1. Confirm you installed the correct version of [NodeJS](https://nodejs.org)
+1. Confirm you added [`weldable`](https://www.npmjs.com/package/weldable) as a `dependency` to your project
+1. Confirm you added [`react`](https://www.npmjs.com/package/react) and [`react-dom`](https://www.npmjs.com/package/react-dom) as `dependencies` for your project
+1. Create a basic `babel.config.js` file with the following content
+   ```
+     module.exports = {};
+   ```
+1. Create a basic `webpack.config.js` in the root of your project directory with the following content. After everything working modify as needed.
+   ```
+     const { babelLoaderResolve, babelPresetEnvResolve, babelPresetReactResolve } = require('weldable/lib/packages');
+
+     module.exports = ({ SRC_DIR } = {}) => ({
+       module: {
+         rules: [
+           {
+             test: /\.(jsx|js)?$/,
+             include: [SRC_DIR],
+             use: [
+               {
+                 loader: babelLoaderResolve,
+                 options: {
+                   presets: [babelPresetEnvResolve, babelPresetReactResolve]
+                 }
+               }
+             ]
+           }
+         ]
+       }
+     });
+   ```
+
+1. Make sure you have a `src` directory with at least an `index.js`, and the following content.
+   ```
+     import React from 'react';
+     import { createRoot } from 'react-dom/client';
+
+     const body = document.querySelector('BODY');
+     const div = document.createElement('div');
+     body?.appendChild(div);
+   
+     const App = () => <>hello world</>; 
+   
+     const root = createRoot(div);
+     root.render(<App />);
+    
+   ```
+1. Create NPM scripts that reference the `weldable` CLI
+   ```
+     "scripts": {
+      "build": "weldable -x ./webpack.config.js",
+      "start": "weldable -e development -x ./webpack.config.js"
+     }
+   ```
+1. Run the NPM scripts and that's it. You should see `hello world`, when you run `$ npm start`, displayed in a browser window.
+   > If the browser failed to open you can find the content at http://localhost:3000/
 
 </details>
 

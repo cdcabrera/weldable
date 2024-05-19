@@ -592,16 +592,16 @@ exports[`webpackConfigs should return a development configuration object: develo
 exports[`webpackConfigs should return a preprocessLoader configuration object: language dev, prod hashes 1`] = `
 [
   {
-    "devHash": "622840d4852c749c1df5e7325bca73a1",
+    "devHash": "b1a27bfb44b6063a2a599931989a64f8",
     "isEqual": true,
     "loader": "js",
-    "prodHash": "622840d4852c749c1df5e7325bca73a1",
+    "prodHash": "b1a27bfb44b6063a2a599931989a64f8",
   },
   {
-    "devHash": "7149a7a85fe5bc99f81782452e2c0ced",
+    "devHash": "6cf8d288bb31e0a6e6c97b9d54e0c192",
     "isEqual": true,
     "loader": "ts",
-    "prodHash": "7149a7a85fe5bc99f81782452e2c0ced",
+    "prodHash": "6cf8d288bb31e0a6e6c97b9d54e0c192",
   },
   {
     "devHash": "49e595be76828acf4f2a3617fea9a378",
@@ -621,9 +621,22 @@ exports[`webpackConfigs should return a preprocessLoader configuration object: p
         "include": [
           "./__fixtures__/src"
         ],
+        "resolve": {
+          "extensions": [
+            ".js",
+            ".jsx",
+            ".mjs",
+            ".cjs"
+          ]
+        },
         "use": [
           {
-            "loader": "babel-loader"
+            "loader": "babel-loader",
+            "options": {
+              "presets": [
+                "@babel/preset-env"
+              ]
+            }
           }
         ]
       }
@@ -649,6 +662,18 @@ exports[`webpackConfigs should return a preprocessLoader configuration object: p
         "include": [
           "./__fixtures__/src"
         ],
+        "resolve": {
+          "extensions": [
+            ".ts",
+            ".tsx",
+            ".mts",
+            ".cts",
+            ".js",
+            ".jsx",
+            ".mjs",
+            ".cjs"
+          ]
+        },
         "use": [
           {
             "loader": "ts-loader"

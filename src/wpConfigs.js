@@ -7,8 +7,8 @@ const HtmlReplaceWebpackPlugin = require('html-replace-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const SvgToMiniDataURI = require('mini-svg-data-uri');
 const TerserJSPlugin = require('terser-webpack-plugin');
-const { babelLoaderResolve, cssLoaderResolve, tsLoaderResolve } = require('../lib/packages');
-const { OPTIONS } = require('./global');
+const { babelLoaderResolve, babelPresetEnvResolve, cssLoaderResolve, tsLoaderResolve } = require('../lib/packages');
+const { jsFileExtensions, OPTIONS, tsFileExtensions } = require('./global');
 const { consoleMessage } = require('./logger');
 const { setupWebpackDotenvFilesForEnv } = require('./dotenv');
 
@@ -32,11 +32,18 @@ const preprocessLoader = ({ _BUILD_SRC_DIR: SRC_DIR = '' } = OPTIONS.dotenv || {
         case 'js':
           return [
             {
-              test: /\.(jsx|js)?$/,
+              test: new RegExp(`\\.(${jsFileExtensions.join('|')})?$`),
               include: [SRC_DIR],
+              resolve: {
+                // Dependent on loader resolutions this may, or may not, be necessary
+                extensions: jsFileExtensions.map(ext => `.${ext}`)
+              },
               use: [
                 {
-                  loader: babelLoaderResolve
+                  loader: babelLoaderResolve,
+                  options: {
+                    presets: [babelPresetEnvResolve]
+                  }
                 }
               ]
             }
@@ -44,8 +51,12 @@ const preprocessLoader = ({ _BUILD_SRC_DIR: SRC_DIR = '' } = OPTIONS.dotenv || {
         case 'ts':
           return [
             {
-              test: /\.(tsx|ts|js)?$/,
+              test: new RegExp(`\\.(${[...tsFileExtensions, ...jsFileExtensions].join('|')})?$`),
               include: [SRC_DIR],
+              resolve: {
+                // Dependent on loader resolutions this may, or may not, be necessary
+                extensions: [...tsFileExtensions, ...jsFileExtensions].map(ext => `.${ext}`)
+              },
               use: [
                 {
                   loader: tsLoaderResolve
@@ -72,8 +83,6 @@ const preprocessLoader = ({ _BUILD_SRC_DIR: SRC_DIR = '' } = OPTIONS.dotenv || {
  * @param {string} dotenv._BUILD_SRC_DIR
  * @param {string} dotenv._BUILD_STATIC_DIR
  * @param {string} dotenv._BUILD_UI_NAME
- * @param {object} options
- * @param {string} options.loader
  * @returns {{output: {path: string, filename: string, publicPath: string, clean: boolean}, entry: {app: string},
  *     resolve: {cacheWithContext: boolean, symlinks: boolean}, plugins: any[], module: {rules: Array}}}
  */
@@ -87,25 +96,20 @@ const common = (
     _BUILD_SRC_DIR: SRC_DIR = '',
     _BUILD_STATIC_DIR: STATIC_DIR = '',
     _BUILD_UI_NAME: UI_NAME
-  } = OPTIONS.dotenv || {},
-  { loader } = OPTIONS
+  } = OPTIONS.dotenv || {}
 ) => ({
   context: RELATIVE_DIRNAME,
   entry: {
     app: (() => {
       let entryFiles;
       try {
-        const entryFilesSet = new Set([
-          path.join(SRC_DIR, `${APP_INDEX_PREFIX}.js`),
-          path.join(SRC_DIR, `${APP_INDEX_PREFIX}.jsx`),
-          path.join(SRC_DIR, `${APP_INDEX_PREFIX}.${loader}`),
-          path.join(SRC_DIR, `${APP_INDEX_PREFIX}.${loader}x`)
-        ]);
+        const fileExtensions = [...tsFileExtensions, ...jsFileExtensions];
+        const entryFilesSet = new Set([...fileExtensions.map(ext => path.join(SRC_DIR, `${APP_INDEX_PREFIX}.${ext}`))]);
         entryFiles = Array.from(entryFilesSet).filter(file => fs.existsSync(file));
 
         if (!entryFiles.length) {
           consoleMessage.warn(
-            `webpack app entry file error: Missing entry/app file. Expected ${APP_INDEX_PREFIX}.(${loader}|x)`
+            `webpack app entry file error: Missing entry/app file. Expected an index file! ${APP_INDEX_PREFIX}.(${fileExtensions.join('|')})`
           );
         }
       } catch (e) {

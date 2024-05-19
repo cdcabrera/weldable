@@ -37,6 +37,18 @@ exports[`Global should return specific properties: specific properties 1`] = `
   "dynamicImport": [Function],
   "errorMessageHandler": [Function],
   "isPromise": [Function],
+  "jsFileExtensions": [
+    "js",
+    "jsx",
+    "mjs",
+    "cjs",
+  ],
+  "tsFileExtensions": [
+    "ts",
+    "tsx",
+    "mts",
+    "cts",
+  ],
 }
 `;
 

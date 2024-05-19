@@ -8,6 +8,20 @@ const { consoleMessage } = require('./logger');
  */
 
 /**
+ * JS file extensions
+ *
+ * @type {string[]}
+ */
+const jsFileExtensions = ['js', 'jsx', 'mjs', 'cjs'];
+
+/**
+ * TS file extensions
+ *
+ * @type {string[]}
+ */
+const tsFileExtensions = ['ts', 'tsx', 'mts', 'cts'];
+
+/**
  * Handle a variety of error types consistently.
  *
  * @param {string|Array|object|any} errors
@@ -153,4 +167,13 @@ const OPTIONS = {
   }
 };
 
-module.exports = { contextPath, createFile, dynamicImport, errorMessageHandler, isPromise, OPTIONS };
+module.exports = {
+  contextPath,
+  createFile,
+  dynamicImport,
+  errorMessageHandler,
+  jsFileExtensions,
+  isPromise,
+  OPTIONS,
+  tsFileExtensions
+};
