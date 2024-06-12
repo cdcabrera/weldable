@@ -7,6 +7,7 @@ const HtmlReplaceWebpackPlugin = require('html-replace-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const SvgToMiniDataURI = require('mini-svg-data-uri');
 const TerserJSPlugin = require('terser-webpack-plugin');
+const { babelLoaderResolve, cssLoaderResolve, tsLoaderResolve } = require('../lib/packages');
 const { OPTIONS } = require('./global');
 const { consoleMessage } = require('./logger');
 const { setupWebpackDotenvFilesForEnv } = require('./dotenv');
@@ -35,7 +36,7 @@ const preprocessLoader = ({ _BUILD_SRC_DIR: SRC_DIR = '' } = OPTIONS.dotenv || {
               include: [SRC_DIR],
               use: [
                 {
-                  loader: 'babel-loader'
+                  loader: babelLoaderResolve
                 }
               ]
             }
@@ -47,7 +48,7 @@ const preprocessLoader = ({ _BUILD_SRC_DIR: SRC_DIR = '' } = OPTIONS.dotenv || {
               include: [SRC_DIR],
               use: [
                 {
-                  loader: 'ts-loader'
+                  loader: tsLoaderResolve
                 }
               ]
             }
@@ -154,7 +155,7 @@ const common = (
       },
       {
         test: /\.css$/i,
-        use: [MiniCssExtractPlugin.loader, 'css-loader']
+        use: [MiniCssExtractPlugin.loader, cssLoaderResolve]
       }
     ]
   },
