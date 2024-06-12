@@ -8,6 +8,16 @@ jest.mock('child_process', () => ({
 }));
 
 /**
+ * Note: Mock the packages export and avoid Jest module loading issues.
+ * At least 1 of the packages we're exporting creates an issue for Jest.
+ */
+jest.mock('./lib/packages', () => ({
+  babelLoaderResolve: 'babel-loader',
+  cssLoaderResolve: 'css-loader',
+  tsLoaderResolve: 'ts-loader'
+}));
+
+/**
  * A testing and development checked in fixture path
  *
  * @type {string}
