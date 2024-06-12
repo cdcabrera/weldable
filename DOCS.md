@@ -235,42 +235,45 @@ const aPackage = packages.[PACKAGE_NAME];
 
 > The `weldable` lib bundles a [`txt` resource](./lib/packagesLicenses.txt) containing available license materials.
 
-| PACKAGES                     | EXPOSED NAME                                                |
-|------------------------------|-------------------------------------------------------------|
-| @babel/core                  | babelCore, babelCoreResolve                                 |
-| @tsconfig/create-react-app   | N/A                                                         |
-| @tsconfig/node18             | N/A                                                         |
-| @tsconfig/node20             | N/A                                                         |
-| @tsconfig/react-native       | N/A                                                         |
-| @tsconfig/recommended        | N/A                                                         |
-| @tsconfig/strictest          | N/A                                                         |
-| babel-loader                 | babelLoader, babelLoaderResolve                             |
-| copy-webpack-plugin          | CopyWebpackPlugin, CopyWebpackPluginResolve                 |
-| css-loader                   | cssLoader, cssLoaderResolve                                 |
-| css-minimizer-webpack-plugin | CssMinimizerWebpackPlugin, CssMinimizerWebpackPluginResolve |
-| dotenv                       | dotenv, dotenvResolve                                       |
-| dotenv-expand                | dotenvExpand, dotenvExpandResolve                           |
-| dotenv-webpack               | dotenvWebpack, dotenvWebpackResolve                         |
-| eslint-webpack-plugin        | EslintWebpackPlugin, EslintWebpackPluginResolve             |
-| html-replace-webpack-plugin  | htmlReplaceWebpackPlugin, htmlReplaceWebpackPluginResolve   |
-| html-webpack-plugin          | HtmlWebpackPlugin, HtmlWebpackPluginResolve                 |
-| less                         | less, lessResolve                                           | 
-| less-loader                  | lessLoader, lessLoaderResolve                               |
-| mini-css-extract-plugin      | MiniCssExtractPlugin, MiniCssExtractPluginResolve           |
-| mini-svg-data-uri            | miniSvgDataUri, miniSvgDataUriResolve                       |
-| rimraf                       | rimraf, rimrafResolve                                       |
-| sass                         | sass, sassResolve                                           |
-| sass-loader                  | sassLoader, sassLoaderResolve                               |
-| style-loader                 | styleLoader, styleLoaderResolve                             |
-| terser-webpack-plugin        | TerserWebpackPlugin, TerserWebpackPluginResolve             |
-| ts-loader                    | tsLoader, tsLoaderResolve                                   |
-| tslib                        | tslib, tslibResolve                                         |
-| typescript                   | typescript, typescriptResolve                               |
-| webpack                      | webpack, webpackResolve                                     |
-| webpack-bundle-analyzer      | webpackBundleAnalyzer, webpackBundleAnalyzerResolve         |
-| webpack-cli                  | WebpackCli, WebpackCliResolve                               |
-| webpack-dev-server           | WebpackDevServer, WebpackDevServerResolve                   |
-| webpack-merge                | webpackMerge, webpackMergeResolve                           |
+| PACKAGES                        | EXPOSED NAME                                                    |
+|---------------------------------|-----------------------------------------------------------------|
+| @babel/core                     | babelCore, babelCoreResolve                                     |
+| @babel/plugin-transform-runtime | babelPluginTransformRuntime, babelPluginTransformRuntimeResolve |
+| @babel/preset-env               | babelPresetEnv, babelPresetEnvResolve                           |
+| @babel/preset-react             | babelPresetReact, babelPresetReactResolve                       |
+| @tsconfig/create-react-app      | N/A                                                             |
+| @tsconfig/node18                | N/A                                                             |
+| @tsconfig/node20                | N/A                                                             |
+| @tsconfig/react-native          | N/A                                                             |
+| @tsconfig/recommended           | N/A                                                             |
+| @tsconfig/strictest             | N/A                                                             |
+| babel-loader                    | babelLoader, babelLoaderResolve                                 |
+| copy-webpack-plugin             | CopyWebpackPlugin, CopyWebpackPluginResolve                     |
+| css-loader                      | cssLoader, cssLoaderResolve                                     |
+| css-minimizer-webpack-plugin    | CssMinimizerWebpackPlugin, CssMinimizerWebpackPluginResolve     |
+| dotenv                          | dotenv, dotenvResolve                                           |
+| dotenv-expand                   | dotenvExpand, dotenvExpandResolve                               |
+| dotenv-webpack                  | dotenvWebpack, dotenvWebpackResolve                             |
+| eslint-webpack-plugin           | EslintWebpackPlugin, EslintWebpackPluginResolve                 |
+| html-replace-webpack-plugin     | htmlReplaceWebpackPlugin, htmlReplaceWebpackPluginResolve       |
+| html-webpack-plugin             | HtmlWebpackPlugin, HtmlWebpackPluginResolve                     |
+| less                            | less, lessResolve                                               | 
+| less-loader                     | lessLoader, lessLoaderResolve                                   |
+| mini-css-extract-plugin         | MiniCssExtractPlugin, MiniCssExtractPluginResolve               |
+| mini-svg-data-uri               | miniSvgDataUri, miniSvgDataUriResolve                           |
+| rimraf                          | rimraf, rimrafResolve                                           |
+| sass                            | sass, sassResolve                                               |
+| sass-loader                     | sassLoader, sassLoaderResolve                                   |
+| style-loader                    | styleLoader, styleLoaderResolve                                 |
+| terser-webpack-plugin           | TerserWebpackPlugin, TerserWebpackPluginResolve                 |
+| ts-loader                       | tsLoader, tsLoaderResolve                                       |
+| tslib                           | tslib, tslibResolve                                             |
+| typescript                      | typescript, typescriptResolve                                   |
+| webpack                         | webpack, webpackResolve                                         |
+| webpack-bundle-analyzer         | webpackBundleAnalyzer, webpackBundleAnalyzerResolve             |
+| webpack-cli                     | WebpackCli, WebpackCliResolve                                   |
+| webpack-dev-server              | WebpackDevServer, WebpackDevServerResolve                       |
+| webpack-merge                   | webpackMerge, webpackMergeResolve                               |
 
 An example webpack config rules loader using the provided `require.resolve`...
 ```
