@@ -13,6 +13,7 @@ jest.mock('child_process', () => ({
  */
 jest.mock('./lib/packages', () => ({
   babelLoaderResolve: 'babel-loader',
+  babelPresetEnvResolve: '@babel/preset-env',
   cssLoaderResolve: 'css-loader',
   tsLoaderResolve: 'ts-loader'
 }));

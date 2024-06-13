@@ -150,6 +150,8 @@ dotenv parameters are string based, failed or missing dotenv parameters return a
 ## Global
 
 * [Global](#module_Global)
+    * [~jsFileExtensions](#module_Global..jsFileExtensions) : <code>Array.&lt;string&gt;</code>
+    * [~tsFileExtensions](#module_Global..tsFileExtensions) : <code>Array.&lt;string&gt;</code>
     * [~contextPath](#module_Global..contextPath) : <code>string</code>
     * [~OPTIONS](#module_Global..OPTIONS) : <code>Object</code>
     * [~errorMessageHandler(errors)](#module_Global..errorMessageHandler) ⇒ <code>string</code> \| <code>any</code> \| <code>Array.&lt;any&gt;</code>
@@ -157,6 +159,18 @@ dotenv parameters are string based, failed or missing dotenv parameters return a
     * [~dynamicImport(file)](#module_Global..dynamicImport) ⇒ <code>Promise.&lt;any&gt;</code>
     * [~createFile(contents, options)](#module_Global..createFile) ⇒ <code>Object</code>
 
+<a name="module_Global..jsFileExtensions"></a>
+
+### Global~jsFileExtensions : <code>Array.&lt;string&gt;</code>
+JS file extensions
+
+**Kind**: inner constant of [<code>Global</code>](#module_Global)  
+<a name="module_Global..tsFileExtensions"></a>
+
+### Global~tsFileExtensions : <code>Array.&lt;string&gt;</code>
+TS file extensions
+
+**Kind**: inner constant of [<code>Global</code>](#module_Global)  
 <a name="module_Global..contextPath"></a>
 
 ### Global~contextPath : <code>string</code>
@@ -453,7 +467,7 @@ Start webpack development or production.
 
 * [webpackConfigs](#module_webpackConfigs)
     * [~preprocessLoader(dotenv, options)](#module_webpackConfigs..preprocessLoader) ⇒ <code>Object</code>
-    * [~common(dotenv, options)](#module_webpackConfigs..common) ⇒ <code>Object</code>
+    * [~common(dotenv)](#module_webpackConfigs..common) ⇒ <code>Object</code>
     * [~development(dotenv)](#module_webpackConfigs..development) ⇒ <code>Object</code>
     * [~production(dotenv)](#module_webpackConfigs..production) ⇒ <code>Object</code>
 
@@ -483,7 +497,7 @@ Assumption based preprocess loader
 
 <a name="module_webpackConfigs..common"></a>
 
-### webpackConfigs~common(dotenv, options) ⇒ <code>Object</code>
+### webpackConfigs~common(dotenv) ⇒ <code>Object</code>
 Common webpack settings between environments.
 
 **Kind**: inner method of [<code>webpackConfigs</code>](#module_webpackConfigs)  
@@ -512,10 +526,6 @@ Common webpack settings between environments.
     <td>dotenv._BUILD_STATIC_DIR</td><td><code>string</code></td>
     </tr><tr>
     <td>dotenv._BUILD_UI_NAME</td><td><code>string</code></td>
-    </tr><tr>
-    <td>options</td><td><code>object</code></td>
-    </tr><tr>
-    <td>options.loader</td><td><code>string</code></td>
     </tr>  </tbody>
 </table>
 

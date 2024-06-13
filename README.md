@@ -11,6 +11,7 @@ The goal of `weldable` is to make it easier to install `webpack` build packages 
 `weldable` is intended...
 
 - To be quickly used for basic webpack development and production builds.
+- To purposefully not include webpack configurations for JS frameworks beyond basic JS and exposing basic related NPM loader packages.
 - To purposefully not include webpack configurations for linting and styling aspects beyond basic webpack capabilities.
 - To be designed with the expectation that you can expand on the `weldable` base using the CLI extend option. `-x ./webpack.exampleConfig.js`.
 - To be used as a single build resource with exposed webpack plugins/addons. And without the need to reinstall available webpack packages (or at least the ones `weldable` uses).
