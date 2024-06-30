@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.2.0](https://github.com/cdcabrera/weldable/compare/ecc94892af7832a70a28b0ecb3490879d72c678d...3534261821b72a312306678cfcb7856a594ab97d) (2024-06-30)
+
+
+### Code Refactoring
+*  expand js extensions for webpack ([#57](https://github.com/cdcabrera/weldable/pull/57)) ([96bfc22](https://github.com/cdcabrera/weldable/commit/96bfc225218cfa835617698e5c9c55c23056514c))
+
+### Builds
+* **deps** bump group with 6 updates ([#61](https://github.com/cdcabrera/weldable/pull/61)) ([3534261](https://github.com/cdcabrera/weldable/commit/3534261821b72a312306678cfcb7856a594ab97d))
+* **deps** bump group with 10 updates ([#60](https://github.com/cdcabrera/weldable/pull/60)) ([9503438](https://github.com/cdcabrera/weldable/commit/950343845c2d8953c5df8d370386b592a050957c))
+* **deps-dev** bump group with 4 updates ([#59](https://github.com/cdcabrera/weldable/pull/59)) ([f72eee7](https://github.com/cdcabrera/weldable/commit/f72eee7ea58b686d947af6f877201e13927e1973))
+
 ## [1.1.0](https://github.com/cdcabrera/weldable/compare/c71349f6c97636a846cb1ae849cebdb7a1a03643...c64fdf98d4394d2c068ea11783582c9b83301293) (2024-06-12)
 
 
