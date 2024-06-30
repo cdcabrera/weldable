@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.0.0](https://github.com/cdcabrera/weldable/compare/24b96d119bf39c4d636faedc1a086f84ba6232d6...e8fb47b89cbb704fa4b284a5fde5a5ba4a893e48) (2024-06-30)
+⚠ BREAKING CHANGES
+
+### Features
+* **lib** add webpack plugin, tsconfig-paths-webpack-plugin ([#65](https://github.com/cdcabrera/weldable/pull/65)) ([21c81e4](https://github.com/cdcabrera/weldable/commit/21c81e4e29b04cddf049bdb95832b0294121410f))
+
+### Builds
+* ⚠ **deps** css-minimizer-webpack-plugin from 6.0.0 to 7.0.0 ([#53](https://github.com/cdcabrera/weldable/pull/53)) ([e8fb47b](https://github.com/cdcabrera/weldable/commit/e8fb47b89cbb704fa4b284a5fde5a5ba4a893e48))
+
 ## [1.3.0](https://github.com/cdcabrera/weldable/compare/de9feb333606f36071329b76c59d5dd4b5947920...a654bf798dee9a7fb768188ba6021a099a0940ee) (2024-06-30)
 
 
