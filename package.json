@@ -6,7 +6,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/cdcabrera/weldable"
+    "url": "git+https://github.com/cdcabrera/weldable.git"
   },
   "bugs": {
     "url": "https://github.com/cdcabrera/weldable/issues"
@@ -25,7 +25,7 @@
     "src/*js"
   ],
   "bin": {
-    "weldable": "./bin/cli.js"
+    "weldable": "bin/cli.js"
   },
   "type": "commonjs",
   "main": "./lib/index.js",
