@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.3.0](https://github.com/cdcabrera/weldable/compare/de9feb333606f36071329b76c59d5dd4b5947920...a654bf798dee9a7fb768188ba6021a099a0940ee) (2024-06-30)
+
+
+### Builds
+*  rebuild package-lock ([#64](https://github.com/cdcabrera/weldable/pull/64)) ([a654bf7](https://github.com/cdcabrera/weldable/commit/a654bf798dee9a7fb768188ba6021a099a0940ee))
+* **deps** bump typescript from 5.4.5 to 5.5.2 ([#63](https://github.com/cdcabrera/weldable/pull/63)) ([e20535e](https://github.com/cdcabrera/weldable/commit/e20535e720c1236e9c51d201e367d201682d58b3))
+*  minor package adjustments ([#62](https://github.com/cdcabrera/weldable/pull/62)) ([664a81d](https://github.com/cdcabrera/weldable/commit/664a81d83adb95ee62d6e19930cf936fe7e652fa))
+
 ## [1.2.0](https://github.com/cdcabrera/weldable/compare/ecc94892af7832a70a28b0ecb3490879d72c678d...3534261821b72a312306678cfcb7856a594ab97d) (2024-06-30)
 
 
