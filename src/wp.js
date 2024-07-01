@@ -4,7 +4,7 @@ const WebpackDevServer = require('webpack-dev-server');
 const { rimrafSync } = require('rimraf');
 const { merge } = require('webpack-merge');
 const { createFile, dynamicImport, errorMessageHandler, isPromise, OPTIONS } = require('./global');
-const { consoleMessage } = require('./logger');
+const { color, consoleMessage } = require('./logger');
 const { common, development, preprocessLoader, production } = require('./wpConfigs');
 
 /**
@@ -85,17 +85,18 @@ const createWpConfig = async ({ nodeEnv, dotenv = {}, extendedConfigs } = OPTION
  * @param {*} err
  * @param {*} stats
  * @param {object} options
+ * @param {undefined|string} options.stats
  * @param {undefined|string} options.statsFile
  * @param {undefined|string} options.statsPath
  */
-const startWpErrorStatsHandler = (err, stats, { statsFile, statsPath } = OPTIONS) => {
+const startWpErrorStatsHandler = (err, stats, { stats: statsLevel, statsFile, statsPath } = OPTIONS) => {
   if (err) {
     consoleMessage.error('Production build errors...', errorMessageHandler(err));
     return;
   }
 
   if (stats?.toJson && statsFile && statsPath) {
-    createFile(JSON.stringify(stats.toJson(), null, 2), {
+    createFile(JSON.stringify(stats.toJson(statsLevel), null, 2), {
       dir: statsPath,
       filename: statsFile
     });
@@ -113,13 +114,15 @@ const startWpErrorStatsHandler = (err, stats, { statsFile, statsPath } = OPTIONS
   }
 
   if (stats?.toString) {
+    const formattedStats = stats
+      .toString(statsLevel)
+      .split('\n')
+      .map(v => (!/^\s*/.test(v) && ` * ${v}`) || `  ${v}`)
+      .join('\n');
+
     consoleMessage.log(
-      'Stats...',
-      stats
-        .toString()
-        .split('\n')
-        .map(v => (!/^\s/.test(v) && ` * ${v}`) || `  ${v}`)
-        .join('\n')
+      `Stats level ${color.YELLOW}${statsLevel}${color.NOCOLOR}...`,
+      (formattedStats.trim() === '' && '  No stats output') || formattedStats
     );
   }
 

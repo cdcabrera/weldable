@@ -973,8 +973,8 @@ compile error[0m",
       "[32mStats file created[0m",
     ],
     [
-      "[0mStats...
- * lorem: ipsum[0m",
+      "[0mStats level [33mundefined[0m...
+  lorem: ipsum[0m",
     ],
     [
       "[32mBuild completed[0m",

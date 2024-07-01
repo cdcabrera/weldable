@@ -13,7 +13,8 @@ const {
   env: nodeEnv,
   extend: extendedConfigs,
   loader,
-  stats: statsFile,
+  stats,
+  statsFile,
   tsconfig: baseTsConfig,
   'tsconfig-opt': tsConfigOptions
 } = yargs
@@ -40,6 +41,12 @@ const {
   })
   .option('s', {
     alias: 'stats',
+    describe: 'Stats output level for NodeJS API',
+    type: 'string',
+    choices: ['errors-only', 'errors-warnings', 'minimal', 'none', 'normal', 'verbose', 'detailed', 'summary'],
+    default: 'normal'
+  })
+  .option('statsFile', {
     describe:
       'Output JSON webpack bundle stats. Use the default, or a relative project path and filename [./stats.json]',
     type: 'string',
@@ -71,7 +78,7 @@ const {
  * Set global OPTIONS
  *
  * @type {{statsFile: string, dotenv: object, isRegenTsConfig: boolean, isCreateTsConfig: boolean,
- *     loader: string, isCreateTsConfigOnly: boolean, baseTsConfig: string, extendedConfigs: Array<string>,
+ *     stats: string, loader: string, isCreateTsConfigOnly: boolean, baseTsConfig: string, extendedConfigs: Array<string>,
  *     isMergeTsConfig: boolean, statsPath: string, nodeEnv: string}}
  * @private
  */
@@ -110,6 +117,7 @@ OPTIONS._set = {
     return tsConfigOptions === 'regen';
   },
   loader,
+  stats,
   statsFile: function () {
     return (statsFile && path.basename(statsFile)) || undefined;
   },
