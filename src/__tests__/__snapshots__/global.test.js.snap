@@ -1,5 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Global should attempt to run commands: createFile 1`] = `"<execSync>["echo \\"lorem ipsum\\""]</execSync>"`;
+
 exports[`Global should create a file from a string: createFile 1`] = `
 {
   "contents": "lorem ipsum",
@@ -43,6 +45,7 @@ exports[`Global should return specific properties: specific properties 1`] = `
     "mjs",
     "cjs",
   ],
+  "runCmd": [Function],
   "tsFileExtensions": [
     "ts",
     "tsx",

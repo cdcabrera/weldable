@@ -1,6 +1,7 @@
 const { OPTIONS } = require('./global');
 const { cleanDist, createWpConfig, startWp } = require('./wp');
 const { createTsConfig } = require('./ts');
+const { standalone } = require('./standalone');
 
 /**
  * Start `weldable`
@@ -13,9 +14,15 @@ const { createTsConfig } = require('./ts');
  *
  * @param {object} options
  * @param {boolean} options.isCreateTsConfigOnly
+ * @param {boolean} options.isStandalone
  * @returns {Promise<void>}
  */
-const weldable = async ({ isCreateTsConfigOnly } = OPTIONS) => {
+const weldable = async ({ isCreateTsConfigOnly, isStandalone } = OPTIONS) => {
+  if (isStandalone) {
+    standalone();
+    return;
+  }
+
   createTsConfig();
 
   if (isCreateTsConfigOnly) {

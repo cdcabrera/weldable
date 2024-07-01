@@ -1,3 +1,4 @@
+const { execSync } = require('child_process');
 const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
@@ -147,6 +148,26 @@ const createFile = (
 };
 
 /**
+ * Execute a command
+ *
+ * @param {string} cmd
+ * @param {object} settings
+ * @param {string} settings.errorMessage
+ * @returns {string}
+ */
+const runCmd = (cmd, { errorMessage = 'Skipping... {0}' } = {}) => {
+  let stdout = '';
+
+  try {
+    stdout = execSync(cmd);
+  } catch (e) {
+    consoleMessage.error(errorMessage.replace('{0}', e.message));
+  }
+
+  return stdout.toString();
+};
+
+/**
  * Global options/settings. One time _set, then freeze.
  *
  * @type {{contextPath: string, _set: *}}
@@ -175,5 +196,6 @@ module.exports = {
   jsFileExtensions,
   isPromise,
   OPTIONS,
+  runCmd,
   tsFileExtensions
 };
