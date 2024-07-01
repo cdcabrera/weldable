@@ -425,6 +425,8 @@ webpack callback error and stats handler. Separated for testing.
     </tr><tr>
     <td>options</td><td><code>object</code></td>
     </tr><tr>
+    <td>options.stats</td><td><code>undefined</code> | <code>string</code></td>
+    </tr><tr>
     <td>options.statsFile</td><td><code>undefined</code> | <code>string</code></td>
     </tr><tr>
     <td>options.statsPath</td><td><code>undefined</code> | <code>string</code></td>

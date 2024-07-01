@@ -52,18 +52,18 @@ For in-depth use of `weldable` see our [DOCS](./DOCS.md).
 
   Options:
   -e, --env           Use a default configuration type if NODE_ENV is not set to the available choices.
-                                                               [string] [choices: "development", "production"] [default: "production"]
-  -l, --loader        Preprocess loader, use the classic JS (babel-loader), TS (ts-loader), or "none" to use webpack defaults, or a
-                      different loader.                                         [string] [choices: "none", "js", "ts"] [default: "js"]
-  -s, --stats         Output JSON webpack bundle stats. Use the default, or a relative project path and filename [./stats.json]
-                                                                                                                              [string]
-      --tsconfig      Generate a base tsconfig from NPM @tsconfig/[base]. An existing tsconfig.json will override this option, see
-                      tsconfig-opt. This option can be run without running webpack.
-                            [string] [choices: "", "create-react-app", "node18", "node20", "react-native", "recommended", "strictest"]
-      --tsconfig-opt  Regenerate or merge a tsconfig                           [string] [choices: "merge", "regen"] [default: "regen"]
-  -x, --extend        Extend, or override, the default configs with your own relative path webpack configs using webpack merge.[array]
-  -h, --help          Show help                                                                                              [boolean]
-  -v, --version       Show version number                                                                                    [boolean]
+                                                                                          [string] [choices: "development", "production"] [default: "production"]
+  -l, --loader        Preprocess loader, use the classic JS (babel-loader), TS (ts-loader), or "none" to use webpack defaults, or a different loader.
+                                                                                                           [string] [choices: "none", "js", "ts"] [default: "js"]
+  -s, --stats         Stats output level for NodeJS API
+                          [string] [choices: "errors-only", "errors-warnings", "minimal", "none", "normal", "verbose", "detailed", "summary"] [default: "normal"]
+      --statsFile     Output JSON webpack bundle stats. Use the default, or a relative project path and filename [./stats.json]                          [string]
+      --tsconfig      Generate a base tsconfig from NPM @tsconfig/[base]. An existing tsconfig.json will override this option, see tsconfig-opt. This option can
+                      be run without running webpack.  [string] [choices: "", "create-react-app", "node18", "node20", "react-native", "recommended", "strictest"]
+      --tsconfig-opt  Regenerate or merge a tsconfig                                                                         [string] [choices: "merge", "regen"]
+  -x, --extend        Extend, or override, the default configs with your own relative path webpack configs using webpack merge.                           [array]
+  -h, --help          Show help                                                                                                                         [boolean]
+  -v, --version       Show version number                                                                                                               [boolean]
 ```
 
 Example NPM scripts
