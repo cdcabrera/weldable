@@ -375,6 +375,7 @@ const aPackage = packages.[PACKAGE_NAME];
 | style-loader                    | styleLoader, styleLoaderResolve                                 |
 | terser-webpack-plugin           | TerserWebpackPlugin, TerserWebpackPluginResolve                 |
 | ts-loader                       | tsLoader, tsLoaderResolve                                       |
+| tsconfig-paths-webpack-plugin   | tsconfigPathsWebpackPlugin, tsconfigPathsWebpackPluginResolve   |
 | tslib                           | tslib, tslibResolve                                             |
 | typescript                      | typescript, typescriptResolve                                   |
 | webpack                         | webpack, webpackResolve                                         |
