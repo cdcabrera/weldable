@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.0.0](https://github.com/cdcabrera/weldable/compare/90b34b2eca838b46cbb5435693ea23a1b8a90220...714388c6235b5903a01b346f86d0c2ad1e3915cc) (2024-07-01)
+⚠ BREAKING CHANGES
+
+### Features
+* ⚠ **cli** add stats output level, rename option ([#66](https://github.com/cdcabrera/weldable/pull/66)) ([c5250ea](https://github.com/cdcabrera/weldable/commit/c5250ea9c9f3eed8c3eaf9d0843c3577a58ff6af))
+
+### Documentation
+*  tsconfig-paths-webpack-plugin to exposed listing ([#67](https://github.com/cdcabrera/weldable/pull/67)) ([714388c](https://github.com/cdcabrera/weldable/commit/714388c6235b5903a01b346f86d0c2ad1e3915cc))
+
 ## [2.0.0](https://github.com/cdcabrera/weldable/compare/24b96d119bf39c4d636faedc1a086f84ba6232d6...e8fb47b89cbb704fa4b284a5fde5a5ba4a893e48) (2024-06-30)
 ⚠ BREAKING CHANGES
 
