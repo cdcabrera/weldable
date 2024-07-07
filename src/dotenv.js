@@ -2,7 +2,7 @@ const path = require('path');
 const setupDotenv = require('dotenv');
 const { expand: dotenvExpand } = require('dotenv-expand');
 const { consoleMessage } = require('./logger');
-const { contextPath } = require('./global');
+const { OPTIONS } = require('./global');
 
 /**
  * @module dotenv
@@ -25,7 +25,7 @@ const setupWebpackDotenvFile = filePath => {
   }
 
   try {
-    // eslint-disable-next-line global-require
+    // eslint-disable-next-line
     const DotEnv = require('dotenv-webpack');
     return new DotEnv(settings);
   } catch (e) {
@@ -39,11 +39,11 @@ const setupWebpackDotenvFile = filePath => {
  * For use with webpack configurations. Set up multiple webpack dotenv file parameters.
  *
  * @param {object} params
- * @param {string} [params.directory=<contextPath>]
+ * @param {string} [params.directory=<OPTIONS.contextPath>]
  * @param {string} params.env
  * @returns {Array}
  */
-const setupWebpackDotenvFilesForEnv = ({ directory = contextPath, env } = {}) => {
+const setupWebpackDotenvFilesForEnv = ({ directory = OPTIONS.contextPath, env } = {}) => {
   const dotenvWebpackSettings = [];
 
   try {
@@ -93,7 +93,7 @@ const setDotenvParam = (params = []) => {
  *
  * @param {object} params
  * @param {string} params.env
- * @param {string} [params.relativePath=<contextPath>]
+ * @param {string} [params.relativePath=<OPTIONS.contextPath>]
  * @param {string} [params.dotenvNamePrefix=BUILD] Add an internal prefix to dotenv parameters used for configuration to avoid overlap.
  * @param {boolean} [params.setBuildDefaults=true]
  * @param {boolean} [params.isMessaging=false]
@@ -102,7 +102,7 @@ const setDotenvParam = (params = []) => {
  */
 const setupDotenvFilesForEnv = ({
   env,
-  relativePath = contextPath,
+  relativePath = OPTIONS.contextPath,
   dotenvNamePrefix = 'BUILD',
   setBuildDefaults = true,
   isMessaging = false,

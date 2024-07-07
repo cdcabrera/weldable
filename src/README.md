@@ -70,7 +70,7 @@ For use with webpack configurations. Set up multiple webpack dotenv file paramet
 <tr>
     <td>params</td><td><code>object</code></td><td></td>
     </tr><tr>
-    <td>[params.directory]</td><td><code>string</code></td><td><code>&quot;&lt;contextPath&gt;&quot;</code></td>
+    <td>[params.directory]</td><td><code>string</code></td><td><code>&quot;&lt;OPTIONS.contextPath&gt;&quot;</code></td>
     </tr><tr>
     <td>params.env</td><td><code>string</code></td><td></td>
     </tr>  </tbody>
@@ -131,7 +131,7 @@ dotenv parameters are string based, failed or missing dotenv parameters return a
     </tr><tr>
     <td>params.env</td><td><code>string</code></td><td></td><td></td>
     </tr><tr>
-    <td>[params.relativePath]</td><td><code>string</code></td><td><code>&quot;&lt;contextPath&gt;&quot;</code></td><td></td>
+    <td>[params.relativePath]</td><td><code>string</code></td><td><code>&quot;&lt;OPTIONS.contextPath&gt;&quot;</code></td><td></td>
     </tr><tr>
     <td>[params.dotenvNamePrefix]</td><td><code>string</code></td><td><code>&quot;BUILD&quot;</code></td><td><p>Add an internal prefix to dotenv parameters used for configuration to avoid overlap.</p>
 </td>
@@ -324,30 +324,33 @@ Create, or merge, a tsconfig file.
 <table>
   <thead>
     <tr>
-      <th>Param</th><th>Type</th>
+      <th>Param</th><th>Type</th><th>Description</th>
     </tr>
   </thead>
   <tbody>
 <tr>
-    <td>dotenv</td><td><code>object</code></td>
+    <td>dotenv</td><td><code>object</code></td><td></td>
     </tr><tr>
-    <td>dotenv._BUILD_DIST_DIR</td><td><code>string</code></td>
+    <td>dotenv._BUILD_DIST_DIR</td><td><code>string</code></td><td></td>
     </tr><tr>
-    <td>options</td><td><code>object</code></td>
+    <td>options</td><td><code>object</code></td><td></td>
     </tr><tr>
-    <td>options.baseTsConfig</td><td><code>string</code></td>
+    <td>options.baseTsConfig</td><td><code>string</code></td><td></td>
     </tr><tr>
-    <td>options.contextPath</td><td><code>string</code></td>
+    <td>options.contextPath</td><td><code>string</code></td><td></td>
     </tr><tr>
-    <td>options.isCreateTsConfig</td><td><code>boolean</code></td>
+    <td>options.isCreateTsConfig</td><td><code>boolean</code></td><td></td>
     </tr><tr>
-    <td>options.isMergeTsConfig</td><td><code>boolean</code></td>
+    <td>options.isMergeTsConfig</td><td><code>boolean</code></td><td></td>
     </tr><tr>
-    <td>options.isRegenTsConfig</td><td><code>boolean</code></td>
+    <td>options.isRegenTsConfig</td><td><code>boolean</code></td><td></td>
     </tr><tr>
-    <td>settings</td><td><code>object</code></td>
+    <td>settings</td><td><code>object</code></td><td></td>
     </tr><tr>
-    <td>settings.configFilename</td><td><code>string</code></td>
+    <td>settings.configFilename</td><td><code>string</code></td><td></td>
+    </tr><tr>
+    <td>settings.isMessaging</td><td><code>boolean</code></td><td><p>Helps with standalone configuration</p>
+</td>
     </tr>  </tbody>
 </table>
 
@@ -468,15 +471,18 @@ Start webpack development or production.
 ## webpackConfigs
 
 * [webpackConfigs](#module_webpackConfigs)
-    * [~preprocessLoader(dotenv, options)](#module_webpackConfigs..preprocessLoader) ⇒ <code>Object</code>
+    * [~preprocessLoaderJs(dotenv)](#module_webpackConfigs..preprocessLoaderJs) ⇒ <code>Object</code>
+    * [~preprocessLoaderTs(dotenv)](#module_webpackConfigs..preprocessLoaderTs) ⇒ <code>Object</code>
+    * [~preprocessLoaderNone()](#module_webpackConfigs..preprocessLoaderNone) ⇒ <code>Object</code>
+    * [~preprocessLoader(options)](#module_webpackConfigs..preprocessLoader) ⇒ <code>Object</code>
     * [~common(dotenv)](#module_webpackConfigs..common) ⇒ <code>Object</code>
     * [~development(dotenv)](#module_webpackConfigs..development) ⇒ <code>Object</code>
     * [~production(dotenv)](#module_webpackConfigs..production) ⇒ <code>Object</code>
 
-<a name="module_webpackConfigs..preprocessLoader"></a>
+<a name="module_webpackConfigs..preprocessLoaderJs"></a>
 
-### webpackConfigs~preprocessLoader(dotenv, options) ⇒ <code>Object</code>
-Assumption based preprocess loader
+### webpackConfigs~preprocessLoaderJs(dotenv) ⇒ <code>Object</code>
+Assumption based preprocess loader for JS
 
 **Kind**: inner method of [<code>webpackConfigs</code>](#module_webpackConfigs)  
 <table>
@@ -490,7 +496,49 @@ Assumption based preprocess loader
     <td>dotenv</td><td><code>object</code></td>
     </tr><tr>
     <td>dotenv._BUILD_SRC_DIR</td><td><code>string</code></td>
+    </tr>  </tbody>
+</table>
+
+<a name="module_webpackConfigs..preprocessLoaderTs"></a>
+
+### webpackConfigs~preprocessLoaderTs(dotenv) ⇒ <code>Object</code>
+Assumption based preprocess loader for Typescript
+
+**Kind**: inner method of [<code>webpackConfigs</code>](#module_webpackConfigs)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>dotenv</td><td><code>object</code></td>
     </tr><tr>
+    <td>dotenv._BUILD_SRC_DIR</td><td><code>string</code></td>
+    </tr>  </tbody>
+</table>
+
+<a name="module_webpackConfigs..preprocessLoaderNone"></a>
+
+### webpackConfigs~preprocessLoaderNone() ⇒ <code>Object</code>
+Assumption based preprocess loader for none
+
+**Kind**: inner method of [<code>webpackConfigs</code>](#module_webpackConfigs)  
+<a name="module_webpackConfigs..preprocessLoader"></a>
+
+### webpackConfigs~preprocessLoader(options) ⇒ <code>Object</code>
+Assumption based preprocess loader
+
+**Kind**: inner method of [<code>webpackConfigs</code>](#module_webpackConfigs)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
     <td>options</td><td><code>object</code></td>
     </tr><tr>
     <td>options.loader</td><td><code>string</code></td>
