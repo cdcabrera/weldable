@@ -36,6 +36,14 @@ exports[`Typescript should create a tsconfig with a base template: base template
 }
 `;
 
+exports[`Typescript should ignore creating a config on condition: ignore 1`] = `
+[
+  [
+    "Ignoring tsconfig.json",
+  ],
+]
+`;
+
 exports[`Typescript should return specific properties: specific properties 1`] = `
 {
   "createTsConfig": [Function],

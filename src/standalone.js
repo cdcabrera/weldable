@@ -18,11 +18,18 @@ const { consoleMessage } = require('./logger');
  * @param {object} aliasOptions
  * @param {boolean} aliasOptions.isCreateTsConfig
  * @param {string} aliasOptions.loader
- * @param {Function} CreateTsConfig
+ * @param {object} settings
+ * @param {string} settings.configFilename
+ * @param {object} settings.consoleMessage
+ * @param {Function} settings.createTsConfig
  */
 const createStandaloneTsConfig = (
   aliasOptions = OPTIONS,
-  { configFilename = 'tsconfig.json', createTsConfig: aliasCreateTsConfig = createTsConfig } = {}
+  {
+    configFilename = 'tsconfig.json',
+    consoleMessage: aliasConsoleMessage = consoleMessage,
+    createTsConfig: aliasCreateTsConfig = createTsConfig
+  } = {}
 ) => {
   const { contextPath, loader } = aliasOptions;
 
@@ -30,10 +37,10 @@ const createStandaloneTsConfig = (
     return;
   }
 
-  consoleMessage.info(`  Adding ${configFilename}...`);
+  aliasConsoleMessage.info(`  Adding ${configFilename}...`);
 
   if (fs.existsSync(path.join(contextPath, configFilename))) {
-    consoleMessage.warn(`    ${configFilename} already exists, ignoring`);
+    aliasConsoleMessage.warn(`    ${configFilename} already exists, ignoring`);
     return;
   }
 
@@ -62,28 +69,37 @@ const outputStandaloneSrcIndexFile = () => `
  * @param {string} options.loader
  * @param {object} settings
  * @param {string} settings.filename
+ * @param {object} settings.consoleMessage
  * @param {Function} settings.createFile
+ * @param {Array<string>} settings.jsFileExtensions
+ * @param {Array<string>} settings.tsFileExtensions
  * @param {Function} settings.outputStandaloneSrcIndexFile
  */
 const createStandaloneSrcIndexFile = (
   { contextPath, loader } = OPTIONS,
   {
     filename = 'index',
+    consoleMessage: aliasConsoleMessage = consoleMessage,
     createFile: aliasCreateFile = createFile,
-    outputStandaloneSrcIndexFile: aliasOutputStandaloneSrcIndexFile = outputStandaloneSrcIndexFile
+    jsFileExtensions: aliasJsFileExtensions = jsFileExtensions,
+    outputStandaloneSrcIndexFile: aliasOutputStandaloneSrcIndexFile = outputStandaloneSrcIndexFile,
+    tsFileExtensions: aliasTsFileExtensions = tsFileExtensions
   } = {}
 ) => {
   const updatedFileName = `${filename}.${(loader === 'ts' && 'ts') || 'js'}`;
   const contextSrcPath = path.join(contextPath, 'src');
 
-  consoleMessage.info(`  Adding src/${updatedFileName}...`);
+  aliasConsoleMessage.info(`  Adding src/${updatedFileName}...`);
 
-  const allExistingIndexFiles = [...tsFileExtensions, ...jsFileExtensions]
+  const allExistingIndexFiles = [...aliasTsFileExtensions, ...aliasJsFileExtensions]
     .map(ext => `${filename}.${ext}`)
     .filter(file => fs.existsSync(path.join(contextSrcPath, file)));
 
   if (allExistingIndexFiles.length) {
-    consoleMessage.warn(`    Existing ${filename} exists, ignoring`, `    * ${allExistingIndexFiles.join('\n    * ')}`);
+    aliasConsoleMessage.warn(
+      `    Existing ${filename} exists, ignoring`,
+      `    * ${allExistingIndexFiles.join('\n    * ')}`
+    );
     return;
   }
 
@@ -110,6 +126,8 @@ const createStandaloneSrcIndexFile = (
  * @param {Function} settings.setupWebpackDotenvFilesForEnv
  * @param {Function} settings.setupDotenvFile
  * @param {Function} settings.setupDotenvFilesForEnv
+ * @param {Array<string>} settings.jsFileExtensions
+ * @param {Array<string>} settings.tsFileExtensions
  * @returns {string}
  */
 const outputStandaloneWebpackConfig = (
@@ -125,7 +143,9 @@ const outputStandaloneWebpackConfig = (
     setupWebpackDotenvFile,
     setupWebpackDotenvFilesForEnv,
     setupDotenvFile,
-    setupDotenvFilesForEnv
+    setupDotenvFilesForEnv,
+    jsFileExtensions: aliasJsFileExtensions = jsFileExtensions,
+    tsFileExtensions: aliasTsFileExtensions = tsFileExtensions
   } = { ...dotenvFile, ...wpConfigsFile }
 ) => `
 const fs = require('fs');
@@ -149,8 +169,8 @@ ${(loader === 'js' && `const babelPresetEnvResolve = require.resolve('@babel/pre
 const contextPath = process.cwd();
 const loader = '${loader}';
 const consoleMessage = console;
-const jsFileExtensions = ['${jsFileExtensions.join("', '")}'];
-const tsFileExtensions = ['${tsFileExtensions.join("', '")}'];
+const jsFileExtensions = ['${aliasJsFileExtensions.join("', '")}'];
+const tsFileExtensions = ['${aliasTsFileExtensions.join("', '")}'];
 
 /**
  * Set dependency injected options
@@ -223,6 +243,7 @@ module.exports = merge(
  * @param {string} options.contextPath
  * @param {object} settings
  * @param {string} settings.filename
+ * @param {object} settings.consoleMessage
  * @param {Function} settings.createFile
  * @param {Function} settings.outputStandaloneWebpackConfig
  */
@@ -230,15 +251,16 @@ const createStandaloneWebpackConfig = (
   { contextPath } = OPTIONS,
   {
     filename = 'webpack.config.js',
-    outputStandaloneWebpackConfig: aliasOutputStandaloneWebpackConfig = outputStandaloneWebpackConfig,
-    createFile: aliasCreateFile = createFile
+    consoleMessage: aliasConsoleMessage = consoleMessage,
+    createFile: aliasCreateFile = createFile,
+    outputStandaloneWebpackConfig: aliasOutputStandaloneWebpackConfig = outputStandaloneWebpackConfig
   } = {}
 ) => {
   const filePath = path.join(contextPath, filename);
-  consoleMessage.info('  Adding webpack configuration...');
+  aliasConsoleMessage.info('  Adding webpack configuration...');
 
   if (fs.existsSync(filePath)) {
-    consoleMessage.warn(
+    aliasConsoleMessage.warn(
       `    ${filename} already exists, ignoring`,
       "    If you want weldable to create a webpack config you'll need to remove/rename the file and rerun the option"
     );
@@ -270,6 +292,7 @@ const outputStandalonePackageJson = () => `
  * @param {string} options.contextPath
  * @param {string} options.loader
  * @param {object} settings
+ * @param {object} settings.consoleMessage
  * @param {Function} settings.createFile
  * @param {string} settings.packageFileName
  * @param {Function} settings.outputStandalonePackageJson
@@ -279,6 +302,7 @@ const outputStandalonePackageJson = () => `
 const createStandalonePackageJson = (
   { contextPath, loader } = OPTIONS,
   {
+    consoleMessage: aliasConsoleMessage = consoleMessage,
     createFile: aliasCreateFile = createFile,
     packageFileName = 'package.json',
     outputStandalonePackageJson: aliasOutputStandalonePackageJson = outputStandalonePackageJson,
@@ -308,10 +332,10 @@ const createStandalonePackageJson = (
   ];
 
   // Create basic package.json if it doesn't exist
-  consoleMessage.info(`  Adding ${packageFileName}...`);
+  aliasConsoleMessage.info(`  Adding ${packageFileName}...`);
 
   if (fs.existsSync(consumerPackageJsonPath)) {
-    consoleMessage.warn(`    ${packageFileName} already exists, ignoring`);
+    aliasConsoleMessage.warn(`    ${packageFileName} already exists, ignoring`);
   } else {
     aliasCreateFile(aliasOutputStandalonePackageJson(), {
       filename: packageFileName
@@ -319,7 +343,7 @@ const createStandalonePackageJson = (
   }
 
   // Create basic build and start scripts
-  consoleMessage.info(`  Adding ${packageFileName} scripts...`);
+  aliasConsoleMessage.info(`  Adding ${packageFileName} scripts...`);
 
   const consumerPackageJson = JSON.parse(fs.readFileSync(consumerPackageJsonPath, 'utf-8'));
   consumerPackageJson.scripts ??= {};
@@ -329,15 +353,15 @@ const createStandalonePackageJson = (
 
   aliasCreateFile(`${JSON.stringify(consumerPackageJson, null, 2)}\n`, { filename: packageFileName });
 
-  consoleMessage.info('    $ npm run standalone:build');
-  consoleMessage.info('    $ npm run standalone:start');
+  aliasConsoleMessage.info('    $ npm run standalone:build');
+  aliasConsoleMessage.info('    $ npm run standalone:start');
 
   // Install package versions used in Weldable
-  consoleMessage.info(`  Adding ${packageFileName} developer dependencies...`);
+  aliasConsoleMessage.info(`  Adding ${packageFileName} developer dependencies...`);
 
   [...webpackResources, ...preprocessLoaderResources, ...baseConfigResources].forEach(resource => {
     if (dependencies[resource]) {
-      consoleMessage.info(`    * ${resource}@${dependencies[resource]}`);
+      aliasConsoleMessage.info(`    * ${resource}@${dependencies[resource]}`);
       aliasRunCmd(`cd ${contextPath} && npm install ${resource}@${dependencies[resource]} --save-dev`);
     }
   });
@@ -357,6 +381,7 @@ const outputStandaloneBabelConfig = () => `module.exports = {};\n`;
  * @param {string} options.contextPath
  * @param {string} options.loader
  * @param {object} settings
+ * @param {object} settings.consoleMessage
  * @param {Function} settings.createFile
  * @param {string} settings.filename
  * @param {Function} settings.outputStandaloneBabelConfig
@@ -364,6 +389,7 @@ const outputStandaloneBabelConfig = () => `module.exports = {};\n`;
 const createStandaloneBabelConfig = (
   { contextPath, loader } = OPTIONS,
   {
+    consoleMessage: aliasConsoleMessage = consoleMessage,
     createFile: aliasCreateFile = createFile,
     filename = 'babel.config.js',
     outputStandaloneBabelConfig: aliasOutputStandaloneBabelConfig = outputStandaloneBabelConfig
@@ -373,10 +399,10 @@ const createStandaloneBabelConfig = (
     return;
   }
 
-  consoleMessage.info('  Adding babel configuration...');
+  aliasConsoleMessage.info('  Adding babel configuration...');
 
   if (fs.existsSync(path.join(contextPath, filename))) {
-    consoleMessage.warn(`    ${filename} already exists, ignoring`);
+    aliasConsoleMessage.warn(`    ${filename} already exists, ignoring`);
     return;
   }
 
@@ -389,6 +415,7 @@ const createStandaloneBabelConfig = (
  * Organize and output a basic webpack configuration.
  *
  * @param {object} settings
+ * @param {object} settings.consoleMessage
  * @param {Function} settings.createStandaloneBabelConfig
  * @param {Function} settings.createStandaloneSrcIndexFile
  * @param {Function} settings.createStandaloneTsConfig
@@ -396,13 +423,14 @@ const createStandaloneBabelConfig = (
  * @param {Function} settings.createStandaloneWebpackConfig
  */
 const standalone = ({
+  consoleMessage: aliasConsoleMessage = consoleMessage,
   createStandaloneBabelConfig: aliasCreateStandaloneBabelConfig = createStandaloneBabelConfig,
   createStandaloneSrcIndexFile: aliasCreateStandaloneSrcIndexFile = createStandaloneSrcIndexFile,
   createStandaloneTsConfig: aliasCreateStandaloneTsConfig = createStandaloneTsConfig,
   createStandalonePackageJson: aliasCreateStandalonePackageJson = createStandalonePackageJson,
   createStandaloneWebpackConfig: aliasCreateStandaloneWebpackConfig = createStandaloneWebpackConfig
 } = {}) => {
-  consoleMessage.warn('Creating weldable standalone updates...');
+  aliasConsoleMessage.warn('Creating weldable standalone updates...');
 
   aliasCreateStandaloneWebpackConfig();
   aliasCreateStandaloneBabelConfig();
@@ -410,7 +438,7 @@ const standalone = ({
   aliasCreateStandaloneTsConfig();
   aliasCreateStandalonePackageJson();
 
-  consoleMessage.warn('Completed.');
+  aliasConsoleMessage.warn('Completed.');
 };
 
 module.exports = {

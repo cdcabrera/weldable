@@ -20,24 +20,31 @@ const { consoleMessage } = require('./logger');
  * @param {boolean} options.isRegenTsConfig
  * @param {object} settings
  * @param {string} settings.configFilename
+ * @param {object} settings.consoleMessage
+ * @param {Function} settings.createFile
  * @param {boolean} settings.isMessaging Helps with standalone configuration
  * @returns {undefined|{compilerOptions: {noEmit: boolean, allowJs: boolean, outDir: string}}}
  */
 const createTsConfig = (
   { _BUILD_DIST_DIR: DIST_DIR } = OPTIONS.dotenv || {},
   { baseTsConfig, contextPath, isCreateTsConfig, isMergeTsConfig, isRegenTsConfig } = OPTIONS,
-  { configFilename = 'tsconfig.json', isMessaging = true } = {}
+  {
+    configFilename = 'tsconfig.json',
+    consoleMessage: aliasConsoleMessage = consoleMessage,
+    createFile: aliasCreateFile = createFile,
+    isMessaging = true
+  } = {}
 ) => {
   const currentConfigPath = path.join(contextPath, configFilename);
   const isCurrentConfig = fs.existsSync(currentConfigPath);
 
   if (isCurrentConfig && isMessaging) {
-    consoleMessage.info(`Current ${configFilename} found: ${currentConfigPath}`);
+    aliasConsoleMessage.info(`Current ${configFilename} found: ${currentConfigPath}`);
   }
 
   if (!isCreateTsConfig) {
     if (isMessaging) {
-      consoleMessage.info(`Ignoring ${configFilename}`);
+      aliasConsoleMessage.info(`Ignoring ${configFilename}`);
     }
     return undefined;
   }
@@ -51,7 +58,7 @@ const createTsConfig = (
       currentConfig = require(currentConfigPath);
     } catch (e) {
       if (isMessaging) {
-        consoleMessage.warn(`No ${configFilename} found.`);
+        aliasConsoleMessage.warn(`No ${configFilename} found.`);
       }
     }
   }
@@ -62,7 +69,7 @@ const createTsConfig = (
       presetConfig = require(`@tsconfig/${baseTsConfig}/${configFilename}`);
     } catch (e) {
       if (isMessaging) {
-        consoleMessage.warn(`No preset ${configFilename} specified, using basic properties only.`);
+        aliasConsoleMessage.warn(`No preset ${configFilename} specified, using basic properties only.`);
       }
     }
   }
@@ -79,13 +86,13 @@ const createTsConfig = (
     }
   };
 
-  createFile(`${JSON.stringify(customTsConfig, null, 2)}\n`, {
+  aliasCreateFile(`${JSON.stringify(customTsConfig, null, 2)}\n`, {
     dir: contextPath,
     filename: configFilename
   });
 
   if (isCreateTsConfig && isMessaging) {
-    consoleMessage.success(
+    aliasConsoleMessage.success(
       `${(isMergeTsConfig && 'Merged') || (isRegenTsConfig && 'Regenerated') || 'Created'} config: ${path.join(
         contextPath,
         configFilename

@@ -15,23 +15,38 @@ const { standalone } = require('./standalone');
  * @param {object} options
  * @param {boolean} options.isCreateTsConfigOnly
  * @param {boolean} options.isStandalone
+ * @param {object} settings
+ * @param {Function} settings.cleanDist
+ * @param {Function} settings.createTsConfig
+ * @param {Function} settings.createWpConfig
+ * @param {Function} settings.standalone
+ * @param {Function} settings.startWp
  * @returns {Promise<void>}
  */
-const weldable = async ({ isCreateTsConfigOnly, isStandalone } = OPTIONS) => {
+const weldable = async (
+  { isCreateTsConfigOnly, isStandalone } = OPTIONS,
+  {
+    cleanDist: aliasCleanDist = cleanDist,
+    createTsConfig: aliasCreateTsConfig = createTsConfig,
+    createWpConfig: aliasCreateWpConfig = createWpConfig,
+    standalone: aliasStandalone = standalone,
+    startWp: aliasStartWp = startWp
+  } = {}
+) => {
   if (isStandalone) {
-    standalone();
+    aliasStandalone();
     return;
   }
 
-  createTsConfig();
+  aliasCreateTsConfig();
 
   if (isCreateTsConfigOnly) {
     return;
   }
 
-  const webpackConfig = await createWpConfig();
-  cleanDist();
-  await startWp(webpackConfig);
+  const webpackConfig = await aliasCreateWpConfig();
+  aliasCleanDist();
+  await aliasStartWp(webpackConfig);
 };
 
 module.exports = { weldable, OPTIONS };

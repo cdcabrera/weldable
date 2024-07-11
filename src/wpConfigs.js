@@ -21,17 +21,22 @@ const { setupWebpackDotenvFilesForEnv } = require('./dotenv');
  *
  * @param {object} dotenv
  * @param {string} dotenv._BUILD_SRC_DIR
+ * @param {object} settings
+ * @param {Array<string>} settings.jsFileExtensions
  * @returns {{module: {rules: Array}}}
  */
-const preprocessLoaderJs = ({ _BUILD_SRC_DIR: SRC_DIR = '' } = OPTIONS.dotenv || {}) => ({
+const preprocessLoaderJs = (
+  { _BUILD_SRC_DIR: SRC_DIR = '' } = OPTIONS.dotenv || {},
+  { jsFileExtensions: aliasJsFileExtensions = jsFileExtensions } = {}
+) => ({
   module: {
     rules: [
       {
-        test: new RegExp(`\\.(${jsFileExtensions.join('|')})?$`),
+        test: new RegExp(`\\.(${aliasJsFileExtensions.join('|')})?$`),
         include: [SRC_DIR],
         resolve: {
           // Dependent on loader resolutions this may, or may not, be necessary
-          extensions: jsFileExtensions.map(ext => `.${ext}`)
+          extensions: aliasJsFileExtensions.map(ext => `.${ext}`)
         },
         use: [
           {
@@ -51,17 +56,26 @@ const preprocessLoaderJs = ({ _BUILD_SRC_DIR: SRC_DIR = '' } = OPTIONS.dotenv ||
  *
  * @param {object} dotenv
  * @param {string} dotenv._BUILD_SRC_DIR
+ * @param {object} settings
+ * @param {Array<string>} settings.jsFileExtensions
+ * @param {Array<string>} settings.tsFileExtensions
  * @returns {{module: {rules: Array}}}
  */
-const preprocessLoaderTs = ({ _BUILD_SRC_DIR: SRC_DIR = '' } = OPTIONS.dotenv || {}) => ({
+const preprocessLoaderTs = (
+  { _BUILD_SRC_DIR: SRC_DIR = '' } = OPTIONS.dotenv || {},
+  {
+    jsFileExtensions: aliasJsFileExtensions = jsFileExtensions,
+    tsFileExtensions: aliasTsFileExtensions = tsFileExtensions
+  } = {}
+) => ({
   module: {
     rules: [
       {
-        test: new RegExp(`\\.(${[...tsFileExtensions, ...jsFileExtensions].join('|')})?$`),
+        test: new RegExp(`\\.(${[...aliasTsFileExtensions, ...aliasJsFileExtensions].join('|')})?$`),
         include: [SRC_DIR],
         resolve: {
           // Dependent on loader resolutions this may, or may not, be necessary
-          extensions: [...tsFileExtensions, ...jsFileExtensions].map(ext => `.${ext}`)
+          extensions: [...aliasTsFileExtensions, ...aliasJsFileExtensions].map(ext => `.${ext}`)
         },
         use: [
           {
@@ -114,6 +128,11 @@ const preprocessLoader = ({ loader } = OPTIONS) => {
  * @param {string} dotenv._BUILD_SRC_DIR
  * @param {string} dotenv._BUILD_STATIC_DIR
  * @param {string} dotenv._BUILD_UI_NAME
+ * @param {object} settings
+ * @param {object} settings.consoleMessage
+ * @param {Array<string>} settings.jsFileExtensions
+ * @param {Function} settings.setupWebpackDotenvFilesForEnv
+ * @param {Array<string>} settings.tsFileExtensions
  * @returns {{output: {path: string, filename: string, publicPath: string, clean: boolean}, entry: {app: string},
  *     resolve: {cacheWithContext: boolean, symlinks: boolean}, plugins: any[], module: {rules: Array}}}
  */
@@ -127,24 +146,30 @@ const common = (
     _BUILD_SRC_DIR: SRC_DIR = '',
     _BUILD_STATIC_DIR: STATIC_DIR = '',
     _BUILD_UI_NAME: UI_NAME
-  } = OPTIONS.dotenv || {}
+  } = OPTIONS.dotenv || {},
+  {
+    consoleMessage: aliasConsoleMessage = consoleMessage,
+    jsFileExtensions: aliasJsFileExtensions = jsFileExtensions,
+    setupWebpackDotenvFilesForEnv: aliasSetupWebpackDotenvFilesForEnv = setupWebpackDotenvFilesForEnv,
+    tsFileExtensions: aliasTsFileExtensions = tsFileExtensions
+  } = {}
 ) => ({
   context: RELATIVE_DIRNAME,
   entry: {
     app: (() => {
       let entryFiles;
       try {
-        const fileExtensions = [...tsFileExtensions, ...jsFileExtensions];
+        const fileExtensions = [...aliasTsFileExtensions, ...aliasJsFileExtensions];
         const entryFilesSet = new Set([...fileExtensions.map(ext => path.join(SRC_DIR, `${APP_INDEX_PREFIX}.${ext}`))]);
         entryFiles = Array.from(entryFilesSet).filter(file => fs.existsSync(file));
 
         if (!entryFiles.length) {
-          consoleMessage.warn(
+          aliasConsoleMessage.warn(
             `webpack app entry file error: Missing entry/app file. Expected an index file! ${APP_INDEX_PREFIX}.(${fileExtensions.join('|')})`
           );
         }
       } catch (e) {
-        consoleMessage.error(`webpack app entry file error: ${e.message}`);
+        aliasConsoleMessage.error(`webpack app entry file error: ${e.message}`);
       }
 
       return entryFiles;
@@ -195,7 +220,7 @@ const common = (
     ]
   },
   plugins: [
-    ...setupWebpackDotenvFilesForEnv({
+    ...aliasSetupWebpackDotenvFilesForEnv({
       directory: RELATIVE_DIRNAME
     }),
     ...(() => {
@@ -243,7 +268,7 @@ const common = (
           []
         );
       } catch (e) {
-        consoleMessage.error(`webpack.common.js copy plugin error: ${e.message}`);
+        aliasConsoleMessage.error(`webpack.common.js copy plugin error: ${e.message}`);
         return [];
       }
     })()
@@ -267,6 +292,8 @@ const common = (
  * @param {string} dotenv._BUILD_PORT
  * @param {string} dotenv._BUILD_SRC_DIR
  * @param {string} dotenv._BUILD_STATIC_DIR
+ * @param {object} settings
+ * @param {Function} settings.setupWebpackDotenvFilesForEnv
  * @returns {{mode: string, devtool: string, devServer: {historyApiFallback: boolean, static: {directory: string},
  *     port: string, compress: boolean, host: string, devMiddleware: {writeToDisk: boolean, stats: string|object},
  *     client: {overlay: boolean, progress: boolean}, hot: boolean, watchFiles: {paths: string[]}}, plugins: any[]}}
@@ -282,7 +309,8 @@ const development = (
     _BUILD_PORT: PORT,
     _BUILD_SRC_DIR: SRC_DIR,
     _BUILD_STATIC_DIR: STATIC_DIR
-  } = OPTIONS.dotenv || {}
+  } = OPTIONS.dotenv || {},
+  { setupWebpackDotenvFilesForEnv: aliasSetupWebpackDotenvFilesForEnv = setupWebpackDotenvFilesForEnv } = {}
 ) => ({
   mode: MODE,
   devtool: 'eval-source-map',
@@ -323,7 +351,7 @@ const development = (
     }
   },
   plugins: [
-    ...setupWebpackDotenvFilesForEnv({
+    ...aliasSetupWebpackDotenvFilesForEnv({
       directory: RELATIVE_DIRNAME,
       env: MODE
     }),
@@ -339,12 +367,17 @@ const development = (
  * @param {object} dotenv
  * @param {string} dotenv.NODE_ENV
  * @param {string} dotenv._BUILD_RELATIVE_DIRNAME
+ * @param {object} settings
+ * @param {Function} settings.setupWebpackDotenvFilesForEnv
  * @returns {{mode: string, devtool: undefined, output: {chunkFilename: string, filename: string},
  *     optimization: {minimize: boolean, runtimeChunk: string, minimizer: Array<any|CssMinimizerPlugin>,
  *     splitChunks: {chunks: string, cacheGroups: {vendor: {test: RegExp, chunks: string, name: string}}}},
  *     plugins: Array}}
  */
-const production = ({ NODE_ENV: MODE, _BUILD_RELATIVE_DIRNAME: RELATIVE_DIRNAME } = OPTIONS.dotenv || {}) => ({
+const production = (
+  { NODE_ENV: MODE, _BUILD_RELATIVE_DIRNAME: RELATIVE_DIRNAME } = OPTIONS.dotenv || {},
+  { setupWebpackDotenvFilesForEnv: aliasSetupWebpackDotenvFilesForEnv = setupWebpackDotenvFilesForEnv } = {}
+) => ({
   mode: MODE,
   devtool: undefined,
   output: {
@@ -376,7 +409,7 @@ const production = ({ NODE_ENV: MODE, _BUILD_RELATIVE_DIRNAME: RELATIVE_DIRNAME 
     }
   },
   plugins: [
-    ...setupWebpackDotenvFilesForEnv({
+    ...aliasSetupWebpackDotenvFilesForEnv({
       directory: RELATIVE_DIRNAME,
       env: MODE
     }),

@@ -12,12 +12,51 @@ describe('Typescript', () => {
   });
 
   it('should create a basic tsconfig', () => {
+    const mockConsoleMessageMethod = jest.fn();
+    const mockConsoleMessage = {
+      success: mockConsoleMessageMethod
+    };
+
     const results = ts.createTsConfig(
       { _BUILD_DIST_DIR: path.join(contextPath, 'dist') },
-      { loader: 'ts', contextPath: tempFixturePath, isCreateTsConfig: true, isRegenTsConfig: true }
+      { loader: 'ts', contextPath: tempFixturePath, isCreateTsConfig: true, isRegenTsConfig: true },
+      { consoleMessage: mockConsoleMessage }
     );
 
     expect(results).toMatchSnapshot('basic');
+    expect(mockConsoleMessageMethod).toHaveBeenCalledTimes(1);
+  });
+
+  it('should disable tsconfig messaging', () => {
+    const mockConsoleMessageMethod = jest.fn();
+    const mockConsoleMessage = {
+      info: mockConsoleMessageMethod,
+      warn: mockConsoleMessageMethod,
+      success: mockConsoleMessageMethod
+    };
+
+    ts.createTsConfig(
+      { _BUILD_DIST_DIR: path.join(contextPath, 'dist') },
+      { loader: 'ts', contextPath: tempFixturePath, isCreateTsConfig: true, isRegenTsConfig: true },
+      { isMessaging: false, consoleMessage: mockConsoleMessage }
+    );
+
+    expect(mockConsoleMessageMethod).toHaveBeenCalledTimes(0);
+  });
+
+  it('should ignore creating a config on condition', () => {
+    const mockConsoleMessageMethod = jest.fn();
+    const mockConsoleMessage = {
+      info: mockConsoleMessageMethod
+    };
+
+    ts.createTsConfig(
+      { _BUILD_DIST_DIR: path.join(contextPath, 'dist') },
+      { loader: 'ts', contextPath: tempFixturePath, isCreateTsConfig: false },
+      { consoleMessage: mockConsoleMessage }
+    );
+
+    expect(mockConsoleMessageMethod.mock.calls).toMatchSnapshot('ignore');
   });
 
   it('should create a tsconfig with a base template', () => {
