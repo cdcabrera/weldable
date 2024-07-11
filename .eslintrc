@@ -23,6 +23,7 @@
     "ecmaVersion": 2022
   },
   "globals": {
+    "cleanConfigurationPaths": "readonly",
     "fixturePath": "readonly",
     "generateFixture": "readonly",
     "mockObjectProperty": "readonly",

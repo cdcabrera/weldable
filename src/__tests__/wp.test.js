@@ -1,5 +1,4 @@
 const path = require('path');
-const crypto = require('crypto');
 const wp = require('../wp');
 const { OPTIONS } = require('../global');
 
@@ -16,22 +15,6 @@ describe('webpack', () => {
     }
   };
 
-  /**
-   * Provide a consistent way of processing configs.
-   *
-   * @param {object} obj
-   * @param {boolean} isHash
-   * @returns {string}
-   */
-  const cleanConfig = (obj, isHash) => {
-    const contents = JSON.stringify(obj, null, 2).replace(/"[a-z0-9/-_.,*()\s]*\/weldable\//gi, '"./');
-    if (isHash) {
-      return crypto.createHash('md5').update(contents).digest('hex');
-    }
-
-    return contents;
-  };
-
   it('should return specific properties', () => {
     expect(wp).toMatchSnapshot('specific properties');
   });
@@ -43,55 +26,56 @@ describe('webpack', () => {
       }
     });
 
-    const dev = await wp.createWpConfig({
-      nodeEnv: 'development'
-    });
-
+    const dev = await wp.createWpConfig({ nodeEnv: 'development' });
     const prod = await wp.createWpConfig();
 
     expect({
-      dev: cleanConfig(dev),
-      prod: cleanConfig(prod)
+      dev: cleanConfigurationPaths(dev),
+      prod: cleanConfigurationPaths(prod)
     }).toMatchSnapshot('basic configurations');
     mockClear();
   });
 
   it('should create a webpack config with language', async () => {
-    const { mockClear } = mockObjectProperty(OPTIONS, {
+    const { mockClear: mockClearJs } = mockObjectProperty(OPTIONS, {
       dotenv: {
         ...baseOptions.dotenv
       },
       loader: 'js'
     });
 
-    const dev = await wp.createWpConfig({
-      nodeEnv: 'development'
+    const js = await wp.createWpConfig({ nodeEnv: 'development' });
+    mockClearJs();
+
+    const { mockClear: mockClearTs } = mockObjectProperty(OPTIONS, {
+      dotenv: {
+        ...baseOptions.dotenv
+      },
+      loader: 'ts'
     });
 
-    const prod = await wp.createWpConfig();
+    const ts = await wp.createWpConfig({ nodeEnv: 'development' });
+    mockClearTs();
 
     expect({
-      dev: cleanConfig(dev),
-      prod: cleanConfig(prod)
+      js: cleanConfigurationPaths(js.module),
+      ts: cleanConfigurationPaths(ts.module)
     }).toMatchSnapshot('language configurations');
-    mockClear();
   });
 
-  it('should extend a basic webpack config using commonJS resources', async () => {
+  it('should extend a basic webpack config using external resources', async () => {
     const { mockClear } = mockObjectProperty(OPTIONS, {
       dotenv: {
         ...baseOptions.dotenv
       }
     });
 
-    const commonDev = await wp.createWpConfig({
+    const externalDev = await wp.createWpConfig({
       nodeEnv: 'development',
       extendedConfigs: [path.resolve(fixturePath, 'webpack.customConfigDev.js')]
     });
 
-    expect({
-      common: cleanConfig(commonDev)
-    }).toMatchSnapshot('configurations');
+    expect(cleanConfigurationPaths(externalDev.devServer)).toMatchSnapshot('custom configurations');
     mockClear();
   });
 

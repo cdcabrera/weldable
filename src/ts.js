@@ -20,22 +20,25 @@ const { consoleMessage } = require('./logger');
  * @param {boolean} options.isRegenTsConfig
  * @param {object} settings
  * @param {string} settings.configFilename
+ * @param {boolean} settings.isMessaging Helps with standalone configuration
  * @returns {undefined|{compilerOptions: {noEmit: boolean, allowJs: boolean, outDir: string}}}
  */
 const createTsConfig = (
   { _BUILD_DIST_DIR: DIST_DIR } = OPTIONS.dotenv || {},
   { baseTsConfig, contextPath, isCreateTsConfig, isMergeTsConfig, isRegenTsConfig } = OPTIONS,
-  { configFilename = 'tsconfig.json' } = {}
+  { configFilename = 'tsconfig.json', isMessaging = true } = {}
 ) => {
   const currentConfigPath = path.join(contextPath, configFilename);
   const isCurrentConfig = fs.existsSync(currentConfigPath);
 
-  if (isCurrentConfig) {
-    consoleMessage.warn(`Current ${configFilename} found: ${currentConfigPath}`);
+  if (isCurrentConfig && isMessaging) {
+    consoleMessage.info(`Current ${configFilename} found: ${currentConfigPath}`);
   }
 
   if (!isCreateTsConfig) {
-    consoleMessage.warn(`Ignoring ${configFilename}`);
+    if (isMessaging) {
+      consoleMessage.info(`Ignoring ${configFilename}`);
+    }
     return undefined;
   }
 
@@ -47,7 +50,9 @@ const createTsConfig = (
       // eslint-disable-next-line global-require
       currentConfig = require(currentConfigPath);
     } catch (e) {
-      consoleMessage.warn(`No ${configFilename} found.`);
+      if (isMessaging) {
+        consoleMessage.warn(`No ${configFilename} found.`);
+      }
     }
   }
 
@@ -56,7 +61,9 @@ const createTsConfig = (
       // eslint-disable-next-line global-require
       presetConfig = require(`@tsconfig/${baseTsConfig}/${configFilename}`);
     } catch (e) {
-      consoleMessage.warn(`No preset ${configFilename} specified, using basic properties only.`);
+      if (isMessaging) {
+        consoleMessage.warn(`No preset ${configFilename} specified, using basic properties only.`);
+      }
     }
   }
 
@@ -77,7 +84,7 @@ const createTsConfig = (
     filename: configFilename
   });
 
-  if (isCreateTsConfig) {
+  if (isCreateTsConfig && isMessaging) {
     consoleMessage.success(
       `${(isMergeTsConfig && 'Merged') || (isRegenTsConfig && 'Regenerated') || 'Created'} config: ${path.join(
         contextPath,

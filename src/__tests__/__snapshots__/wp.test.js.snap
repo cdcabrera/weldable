@@ -2,385 +2,378 @@
 
 exports[`webpack should create a basic webpack config: basic configurations 1`] = `
 {
-  "dev": "{
-  "context": "./__fixtures__",
-  "entry": {
-    "app": [
-      "./__fixtures__/src/index.js"
-    ]
-  },
-  "output": {
-    "filename": "[name].bundle.js",
-    "path": "./__fixtures__/dist",
-    "clean": true
-  },
-  "module": {
-    "rules": [
-      {
-        "test": {},
-        "type": "asset/resource",
-        "generator": {
-          "filename": "fonts/[hash][ext][query]"
-        }
-      },
-      {
-        "test": {},
-        "type": "asset",
-        "parser": {
-          "dataUrlCondition": {
-            "maxSize": 5000
-          }
-        },
-        "generator": {
-          "filename": "images/[hash][ext][query]"
-        }
-      },
-      {
-        "test": {},
-        "type": "asset",
-        "parser": {
-          "dataUrlCondition": {
-            "maxSize": 5000
-          }
-        },
-        "generator": {
-          "filename": "images/[hash][ext][query]"
-        }
-      },
-      {
-        "test": {},
-        "use": [
-          "./node_modules/mini-css-extract-plugin/dist/loader.js",
-          "css-loader"
-        ]
-      }
-    ]
-  },
-  "plugins": [
-    {
-      "config": {
-        "path": "./__fixtures__/.env.local",
-        "prefix": "process.env.",
-        "systemvars": true,
-        "silent": true
-      }
-    },
-    {
-      "config": {
-        "path": "./__fixtures__/.env",
-        "prefix": "process.env.",
-        "systemvars": true,
-        "silent": true
-      }
-    },
-    {
-      "userOptions": {},
-      "version": 5,
-      "options": {
-        "template": "auto",
-        "templateContent": false,
-        "filename": "index.html",
-        "publicPath": "auto",
-        "hash": false,
-        "inject": "head",
-        "scriptLoading": "defer",
-        "compile": true,
-        "favicon": false,
-        "minify": "auto",
-        "cache": true,
-        "showErrors": true,
-        "chunks": "all",
-        "excludeChunks": [],
-        "chunksSortMode": "auto",
-        "meta": {},
-        "base": false,
-        "title": "Webpack App",
-        "xhtml": false
-      }
-    },
-    {
-      "config": {
-        "path": "./__fixtures__/.env.development.local",
-        "prefix": "process.env.",
-        "systemvars": true,
-        "silent": true
-      }
-    },
-    {
-      "config": {
-        "path": "./__fixtures__/.env.development",
-        "prefix": "process.env.",
-        "systemvars": true,
-        "silent": true
-      }
-    },
-    {
-      "config": {
-        "path": "./__fixtures__/.env.local",
-        "prefix": "process.env.",
-        "systemvars": true,
-        "silent": true
-      }
-    },
-    {
-      "config": {
-        "path": "./__fixtures__/.env",
-        "prefix": "process.env.",
-        "systemvars": true,
-        "silent": true
-      }
-    },
-    {
-      "_sortedModulesCache": {},
-      "options": {
-        "filename": "[name].bundle.css",
-        "ignoreOrder": false,
-        "runtime": true,
-        "chunkFilename": "[name].bundle.css"
-      },
-      "runtimeOptions": {
-        "linkType": "text/css"
-      }
-    }
-  ],
-  "resolve": {
-    "symlinks": false,
-    "cacheWithContext": false
-  },
-  "mode": "development",
-  "devtool": "eval-source-map",
-  "devServer": {
-    "host": "localhost",
-    "port": 3000,
-    "compress": true,
-    "historyApiFallback": true,
-    "hot": true,
-    "devMiddleware": {
-      "stats": "errors-warnings",
-      "writeToDisk": false
-    },
-    "client": {
-      "overlay": false,
-      "progress": true
-    },
-    "static": {
-      "directory": "./__fixtures__/dist"
-    },
-    "watchFiles": {
-      "paths": [
-        "src/**/*"
+  "dev": "[
+  {
+    "context": "./__fixtures__",
+    "entry": {
+      "app": [
+        "./__fixtures__/src/index.js"
       ]
-    }
-  }
-}",
-  "prod": "{
-  "context": "./__fixtures__",
-  "entry": {
-    "app": [
-      "./__fixtures__/src/index.js"
-    ]
-  },
-  "output": {
-    "filename": "[name].[contenthash:8].js",
-    "path": "./__fixtures__/dist",
-    "clean": true,
-    "chunkFilename": "[name].[contenthash:8].chunk.js"
-  },
-  "module": {
-    "rules": [
-      {
-        "test": {},
-        "type": "asset/resource",
-        "generator": {
-          "filename": "fonts/[hash][ext][query]"
-        }
-      },
-      {
-        "test": {},
-        "type": "asset",
-        "parser": {
-          "dataUrlCondition": {
-            "maxSize": 5000
+    },
+    "output": {
+      "filename": "[name].bundle.js",
+      "path": "./__fixtures__/dist",
+      "clean": true
+    },
+    "module": {
+      "rules": [
+        {
+          "test": {},
+          "type": "asset/resource",
+          "generator": {
+            "filename": "fonts/[hash][ext][query]"
           }
         },
-        "generator": {
-          "filename": "images/[hash][ext][query]"
-        }
-      },
-      {
-        "test": {},
-        "type": "asset",
-        "parser": {
-          "dataUrlCondition": {
-            "maxSize": 5000
-          }
-        },
-        "generator": {
-          "filename": "images/[hash][ext][query]"
-        }
-      },
-      {
-        "test": {},
-        "use": [
-          "./node_modules/mini-css-extract-plugin/dist/loader.js",
-          "css-loader"
-        ]
-      }
-    ]
-  },
-  "plugins": [
-    {
-      "config": {
-        "path": "./__fixtures__/.env.local",
-        "prefix": "process.env.",
-        "systemvars": true,
-        "silent": true
-      }
-    },
-    {
-      "config": {
-        "path": "./__fixtures__/.env",
-        "prefix": "process.env.",
-        "systemvars": true,
-        "silent": true
-      }
-    },
-    {
-      "userOptions": {},
-      "version": 5,
-      "options": {
-        "template": "auto",
-        "templateContent": false,
-        "filename": "index.html",
-        "publicPath": "auto",
-        "hash": false,
-        "inject": "head",
-        "scriptLoading": "defer",
-        "compile": true,
-        "favicon": false,
-        "minify": "auto",
-        "cache": true,
-        "showErrors": true,
-        "chunks": "all",
-        "excludeChunks": [],
-        "chunksSortMode": "auto",
-        "meta": {},
-        "base": false,
-        "title": "Webpack App",
-        "xhtml": false
-      }
-    },
-    {
-      "config": {
-        "path": "./__fixtures__/.env.development.local",
-        "prefix": "process.env.",
-        "systemvars": true,
-        "silent": true
-      }
-    },
-    {
-      "config": {
-        "path": "./__fixtures__/.env.development",
-        "prefix": "process.env.",
-        "systemvars": true,
-        "silent": true
-      }
-    },
-    {
-      "config": {
-        "path": "./__fixtures__/.env.local",
-        "prefix": "process.env.",
-        "systemvars": true,
-        "silent": true
-      }
-    },
-    {
-      "config": {
-        "path": "./__fixtures__/.env",
-        "prefix": "process.env.",
-        "systemvars": true,
-        "silent": true
-      }
-    },
-    {
-      "_sortedModulesCache": {},
-      "options": {
-        "filename": "[name].[contenthash:8].css",
-        "ignoreOrder": false,
-        "runtime": true,
-        "chunkFilename": "[name].[contenthash:8].chunk.css"
-      },
-      "runtimeOptions": {
-        "linkType": "text/css"
-      }
-    }
-  ],
-  "resolve": {
-    "symlinks": false,
-    "cacheWithContext": false
-  },
-  "mode": "development",
-  "optimization": {
-    "minimize": true,
-    "minimizer": [
-      {
-        "options": {
+        {
           "test": {},
-          "extractComments": true,
-          "parallel": true,
-          "minimizer": {
-            "options": {}
-          }
-        }
-      },
-      {
-        "options": {
-          "test": {},
-          "parallel": true,
-          "minimizer": {
-            "options": {
-              "preset": [
-                "default",
-                {
-                  "mergeLonghand": false
-                }
-              ]
+          "type": "asset",
+          "parser": {
+            "dataUrlCondition": {
+              "maxSize": 5000
             }
+          },
+          "generator": {
+            "filename": "images/[hash][ext][query]"
           }
+        },
+        {
+          "test": {},
+          "type": "asset",
+          "parser": {
+            "dataUrlCondition": {
+              "maxSize": 5000
+            }
+          },
+          "generator": {
+            "filename": "images/[hash][ext][query]"
+          }
+        },
+        {
+          "test": {},
+          "use": [
+            "./node_modules/mini-css-extract-plugin/dist/loader.js",
+            "css-loader"
+          ]
+        }
+      ]
+    },
+    "plugins": [
+      {
+        "config": {
+          "path": "./__fixtures__/.env.local",
+          "prefix": "process.env.",
+          "systemvars": true,
+          "silent": true
+        }
+      },
+      {
+        "config": {
+          "path": "./__fixtures__/.env",
+          "prefix": "process.env.",
+          "systemvars": true,
+          "silent": true
+        }
+      },
+      {
+        "userOptions": {},
+        "version": 5,
+        "options": {
+          "template": "auto",
+          "templateContent": false,
+          "filename": "index.html",
+          "publicPath": "auto",
+          "hash": false,
+          "inject": "head",
+          "scriptLoading": "defer",
+          "compile": true,
+          "favicon": false,
+          "minify": "auto",
+          "cache": true,
+          "showErrors": true,
+          "chunks": "all",
+          "excludeChunks": [],
+          "chunksSortMode": "auto",
+          "meta": {},
+          "base": false,
+          "title": "Webpack App",
+          "xhtml": false
+        }
+      },
+      {
+        "config": {
+          "path": "./__fixtures__/.env.development.local",
+          "prefix": "process.env.",
+          "systemvars": true,
+          "silent": true
+        }
+      },
+      {
+        "config": {
+          "path": "./__fixtures__/.env.development",
+          "prefix": "process.env.",
+          "systemvars": true,
+          "silent": true
+        }
+      },
+      {
+        "config": {
+          "path": "./__fixtures__/.env.local",
+          "prefix": "process.env.",
+          "systemvars": true,
+          "silent": true
+        }
+      },
+      {
+        "config": {
+          "path": "./__fixtures__/.env",
+          "prefix": "process.env.",
+          "systemvars": true,
+          "silent": true
+        }
+      },
+      {
+        "_sortedModulesCache": {},
+        "options": {
+          "filename": "[name].bundle.css",
+          "ignoreOrder": false,
+          "runtime": true,
+          "chunkFilename": "[name].bundle.css"
+        },
+        "runtimeOptions": {
+          "linkType": "text/css"
         }
       }
     ],
-    "runtimeChunk": "single",
-    "splitChunks": {
-      "chunks": "all",
-      "cacheGroups": {
-        "vendor": {
+    "resolve": {
+      "symlinks": false,
+      "cacheWithContext": false
+    },
+    "mode": "development",
+    "devtool": "eval-source-map",
+    "devServer": {
+      "host": "localhost",
+      "port": 3000,
+      "compress": true,
+      "historyApiFallback": true,
+      "hot": true,
+      "devMiddleware": {
+        "stats": "errors-warnings",
+        "writeToDisk": false
+      },
+      "client": {
+        "overlay": false,
+        "progress": true
+      },
+      "static": {
+        "directory": "./__fixtures__/dist"
+      },
+      "watchFiles": {
+        "paths": [
+          "src/**/*"
+        ]
+      }
+    }
+  }
+]",
+  "prod": "[
+  {
+    "context": "./__fixtures__",
+    "entry": {
+      "app": [
+        "./__fixtures__/src/index.js"
+      ]
+    },
+    "output": {
+      "filename": "[name].[contenthash:8].js",
+      "path": "./__fixtures__/dist",
+      "clean": true,
+      "chunkFilename": "[name].[contenthash:8].chunk.js"
+    },
+    "module": {
+      "rules": [
+        {
+          "test": {},
+          "type": "asset/resource",
+          "generator": {
+            "filename": "fonts/[hash][ext][query]"
+          }
+        },
+        {
+          "test": {},
+          "type": "asset",
+          "parser": {
+            "dataUrlCondition": {
+              "maxSize": 5000
+            }
+          },
+          "generator": {
+            "filename": "images/[hash][ext][query]"
+          }
+        },
+        {
+          "test": {},
+          "type": "asset",
+          "parser": {
+            "dataUrlCondition": {
+              "maxSize": 5000
+            }
+          },
+          "generator": {
+            "filename": "images/[hash][ext][query]"
+          }
+        },
+        {
+          "test": {},
+          "use": [
+            "./node_modules/mini-css-extract-plugin/dist/loader.js",
+            "css-loader"
+          ]
+        }
+      ]
+    },
+    "plugins": [
+      {
+        "config": {
+          "path": "./__fixtures__/.env.local",
+          "prefix": "process.env.",
+          "systemvars": true,
+          "silent": true
+        }
+      },
+      {
+        "config": {
+          "path": "./__fixtures__/.env",
+          "prefix": "process.env.",
+          "systemvars": true,
+          "silent": true
+        }
+      },
+      {
+        "userOptions": {},
+        "version": 5,
+        "options": {
+          "template": "auto",
+          "templateContent": false,
+          "filename": "index.html",
+          "publicPath": "auto",
+          "hash": false,
+          "inject": "head",
+          "scriptLoading": "defer",
+          "compile": true,
+          "favicon": false,
+          "minify": "auto",
+          "cache": true,
+          "showErrors": true,
           "chunks": "all",
-          "name": "vendor",
-          "test": {}
+          "excludeChunks": [],
+          "chunksSortMode": "auto",
+          "meta": {},
+          "base": false,
+          "title": "Webpack App",
+          "xhtml": false
+        }
+      },
+      {
+        "config": {
+          "path": "./__fixtures__/.env.development.local",
+          "prefix": "process.env.",
+          "systemvars": true,
+          "silent": true
+        }
+      },
+      {
+        "config": {
+          "path": "./__fixtures__/.env.development",
+          "prefix": "process.env.",
+          "systemvars": true,
+          "silent": true
+        }
+      },
+      {
+        "config": {
+          "path": "./__fixtures__/.env.local",
+          "prefix": "process.env.",
+          "systemvars": true,
+          "silent": true
+        }
+      },
+      {
+        "config": {
+          "path": "./__fixtures__/.env",
+          "prefix": "process.env.",
+          "systemvars": true,
+          "silent": true
+        }
+      },
+      {
+        "_sortedModulesCache": {},
+        "options": {
+          "filename": "[name].[contenthash:8].css",
+          "ignoreOrder": false,
+          "runtime": true,
+          "chunkFilename": "[name].[contenthash:8].chunk.css"
+        },
+        "runtimeOptions": {
+          "linkType": "text/css"
+        }
+      }
+    ],
+    "resolve": {
+      "symlinks": false,
+      "cacheWithContext": false
+    },
+    "mode": "development",
+    "optimization": {
+      "minimize": true,
+      "minimizer": [
+        {
+          "options": {
+            "test": {},
+            "extractComments": true,
+            "parallel": true,
+            "minimizer": {
+              "options": {}
+            }
+          }
+        },
+        {
+          "options": {
+            "test": {},
+            "parallel": true,
+            "minimizer": {
+              "options": {
+                "preset": [
+                  "default",
+                  {
+                    "mergeLonghand": false
+                  }
+                ]
+              }
+            }
+          }
+        }
+      ],
+      "runtimeChunk": "single",
+      "splitChunks": {
+        "chunks": "all",
+        "cacheGroups": {
+          "vendor": {
+            "chunks": "all",
+            "name": "vendor",
+            "test": {}
+          }
         }
       }
     }
   }
-}",
+]",
 }
 `;
 
 exports[`webpack should create a webpack config with language: language configurations 1`] = `
 {
-  "dev": "{
-  "context": "./__fixtures__",
-  "entry": {
-    "app": [
-      "./__fixtures__/src/index.js"
-    ]
-  },
-  "output": {
-    "filename": "[name].bundle.js",
-    "path": "./__fixtures__/dist",
-    "clean": true
-  },
-  "module": {
+  "js": "[
+  {
     "rules": [
       {
         "test": {},
@@ -445,138 +438,10 @@ exports[`webpack should create a webpack config with language: language configur
         ]
       }
     ]
-  },
-  "plugins": [
-    {
-      "config": {
-        "path": "./__fixtures__/.env.local",
-        "prefix": "process.env.",
-        "systemvars": true,
-        "silent": true
-      }
-    },
-    {
-      "config": {
-        "path": "./__fixtures__/.env",
-        "prefix": "process.env.",
-        "systemvars": true,
-        "silent": true
-      }
-    },
-    {
-      "userOptions": {},
-      "version": 5,
-      "options": {
-        "template": "auto",
-        "templateContent": false,
-        "filename": "index.html",
-        "publicPath": "auto",
-        "hash": false,
-        "inject": "head",
-        "scriptLoading": "defer",
-        "compile": true,
-        "favicon": false,
-        "minify": "auto",
-        "cache": true,
-        "showErrors": true,
-        "chunks": "all",
-        "excludeChunks": [],
-        "chunksSortMode": "auto",
-        "meta": {},
-        "base": false,
-        "title": "Webpack App",
-        "xhtml": false
-      }
-    },
-    {
-      "config": {
-        "path": "./__fixtures__/.env.development.local",
-        "prefix": "process.env.",
-        "systemvars": true,
-        "silent": true
-      }
-    },
-    {
-      "config": {
-        "path": "./__fixtures__/.env.development",
-        "prefix": "process.env.",
-        "systemvars": true,
-        "silent": true
-      }
-    },
-    {
-      "config": {
-        "path": "./__fixtures__/.env.local",
-        "prefix": "process.env.",
-        "systemvars": true,
-        "silent": true
-      }
-    },
-    {
-      "config": {
-        "path": "./__fixtures__/.env",
-        "prefix": "process.env.",
-        "systemvars": true,
-        "silent": true
-      }
-    },
-    {
-      "_sortedModulesCache": {},
-      "options": {
-        "filename": "[name].bundle.css",
-        "ignoreOrder": false,
-        "runtime": true,
-        "chunkFilename": "[name].bundle.css"
-      },
-      "runtimeOptions": {
-        "linkType": "text/css"
-      }
-    }
-  ],
-  "resolve": {
-    "symlinks": false,
-    "cacheWithContext": false
-  },
-  "mode": "development",
-  "devtool": "eval-source-map",
-  "devServer": {
-    "host": "localhost",
-    "port": 3000,
-    "compress": true,
-    "historyApiFallback": true,
-    "hot": true,
-    "devMiddleware": {
-      "stats": "errors-warnings",
-      "writeToDisk": false
-    },
-    "client": {
-      "overlay": false,
-      "progress": true
-    },
-    "static": {
-      "directory": "./__fixtures__/dist"
-    },
-    "watchFiles": {
-      "paths": [
-        "src/**/*"
-      ]
-    }
   }
-}",
-  "prod": "{
-  "context": "./__fixtures__",
-  "entry": {
-    "app": [
-      "./__fixtures__/src/index.js"
-    ]
-  },
-  "output": {
-    "filename": "[name].[contenthash:8].js",
-    "path": "./__fixtures__/dist",
-    "clean": true,
-    "chunkFilename": "[name].[contenthash:8].chunk.js"
-  },
-  "module": {
+]",
+  "ts": "[
+  {
     "rules": [
       {
         "test": {},
@@ -623,6 +488,10 @@ exports[`webpack should create a webpack config with language: language configur
         ],
         "resolve": {
           "extensions": [
+            ".ts",
+            ".tsx",
+            ".mts",
+            ".cts",
             ".js",
             ".jsx",
             ".mjs",
@@ -631,305 +500,19 @@ exports[`webpack should create a webpack config with language: language configur
         },
         "use": [
           {
-            "loader": "babel-loader",
-            "options": {
-              "presets": [
-                "@babel/preset-env"
-              ]
-            }
+            "loader": "ts-loader"
           }
         ]
       }
     ]
-  },
-  "plugins": [
-    {
-      "config": {
-        "path": "./__fixtures__/.env.local",
-        "prefix": "process.env.",
-        "systemvars": true,
-        "silent": true
-      }
-    },
-    {
-      "config": {
-        "path": "./__fixtures__/.env",
-        "prefix": "process.env.",
-        "systemvars": true,
-        "silent": true
-      }
-    },
-    {
-      "userOptions": {},
-      "version": 5,
-      "options": {
-        "template": "auto",
-        "templateContent": false,
-        "filename": "index.html",
-        "publicPath": "auto",
-        "hash": false,
-        "inject": "head",
-        "scriptLoading": "defer",
-        "compile": true,
-        "favicon": false,
-        "minify": "auto",
-        "cache": true,
-        "showErrors": true,
-        "chunks": "all",
-        "excludeChunks": [],
-        "chunksSortMode": "auto",
-        "meta": {},
-        "base": false,
-        "title": "Webpack App",
-        "xhtml": false
-      }
-    },
-    {
-      "config": {
-        "path": "./__fixtures__/.env.development.local",
-        "prefix": "process.env.",
-        "systemvars": true,
-        "silent": true
-      }
-    },
-    {
-      "config": {
-        "path": "./__fixtures__/.env.development",
-        "prefix": "process.env.",
-        "systemvars": true,
-        "silent": true
-      }
-    },
-    {
-      "config": {
-        "path": "./__fixtures__/.env.local",
-        "prefix": "process.env.",
-        "systemvars": true,
-        "silent": true
-      }
-    },
-    {
-      "config": {
-        "path": "./__fixtures__/.env",
-        "prefix": "process.env.",
-        "systemvars": true,
-        "silent": true
-      }
-    },
-    {
-      "_sortedModulesCache": {},
-      "options": {
-        "filename": "[name].[contenthash:8].css",
-        "ignoreOrder": false,
-        "runtime": true,
-        "chunkFilename": "[name].[contenthash:8].chunk.css"
-      },
-      "runtimeOptions": {
-        "linkType": "text/css"
-      }
-    }
-  ],
-  "resolve": {
-    "symlinks": false,
-    "cacheWithContext": false
-  },
-  "mode": "development",
-  "optimization": {
-    "minimize": true,
-    "minimizer": [
-      {
-        "options": {
-          "test": {},
-          "extractComments": true,
-          "parallel": true,
-          "minimizer": {
-            "options": {}
-          }
-        }
-      },
-      {
-        "options": {
-          "test": {},
-          "parallel": true,
-          "minimizer": {
-            "options": {
-              "preset": [
-                "default",
-                {
-                  "mergeLonghand": false
-                }
-              ]
-            }
-          }
-        }
-      }
-    ],
-    "runtimeChunk": "single",
-    "splitChunks": {
-      "chunks": "all",
-      "cacheGroups": {
-        "vendor": {
-          "chunks": "all",
-          "name": "vendor",
-          "test": {}
-        }
-      }
-    }
   }
-}",
+]",
 }
 `;
 
-exports[`webpack should extend a basic webpack config using commonJS resources: configurations 1`] = `
-{
-  "common": "{
-  "context": "./__fixtures__",
-  "entry": {
-    "app": [
-      "./__fixtures__/src/index.js"
-    ]
-  },
-  "output": {
-    "filename": "[name].bundle.js",
-    "path": "./__fixtures__/dist",
-    "clean": true
-  },
-  "module": {
-    "rules": [
-      {
-        "test": {},
-        "type": "asset/resource",
-        "generator": {
-          "filename": "fonts/[hash][ext][query]"
-        }
-      },
-      {
-        "test": {},
-        "type": "asset",
-        "parser": {
-          "dataUrlCondition": {
-            "maxSize": 5000
-          }
-        },
-        "generator": {
-          "filename": "images/[hash][ext][query]"
-        }
-      },
-      {
-        "test": {},
-        "type": "asset",
-        "parser": {
-          "dataUrlCondition": {
-            "maxSize": 5000
-          }
-        },
-        "generator": {
-          "filename": "images/[hash][ext][query]"
-        }
-      },
-      {
-        "test": {},
-        "use": [
-          "./node_modules/mini-css-extract-plugin/dist/loader.js",
-          "css-loader"
-        ]
-      }
-    ]
-  },
-  "plugins": [
-    {
-      "config": {
-        "path": "./__fixtures__/.env.local",
-        "prefix": "process.env.",
-        "systemvars": true,
-        "silent": true
-      }
-    },
-    {
-      "config": {
-        "path": "./__fixtures__/.env",
-        "prefix": "process.env.",
-        "systemvars": true,
-        "silent": true
-      }
-    },
-    {
-      "userOptions": {},
-      "version": 5,
-      "options": {
-        "template": "auto",
-        "templateContent": false,
-        "filename": "index.html",
-        "publicPath": "auto",
-        "hash": false,
-        "inject": "head",
-        "scriptLoading": "defer",
-        "compile": true,
-        "favicon": false,
-        "minify": "auto",
-        "cache": true,
-        "showErrors": true,
-        "chunks": "all",
-        "excludeChunks": [],
-        "chunksSortMode": "auto",
-        "meta": {},
-        "base": false,
-        "title": "Webpack App",
-        "xhtml": false
-      }
-    },
-    {
-      "config": {
-        "path": "./__fixtures__/.env.development.local",
-        "prefix": "process.env.",
-        "systemvars": true,
-        "silent": true
-      }
-    },
-    {
-      "config": {
-        "path": "./__fixtures__/.env.development",
-        "prefix": "process.env.",
-        "systemvars": true,
-        "silent": true
-      }
-    },
-    {
-      "config": {
-        "path": "./__fixtures__/.env.local",
-        "prefix": "process.env.",
-        "systemvars": true,
-        "silent": true
-      }
-    },
-    {
-      "config": {
-        "path": "./__fixtures__/.env",
-        "prefix": "process.env.",
-        "systemvars": true,
-        "silent": true
-      }
-    },
-    {
-      "_sortedModulesCache": {},
-      "options": {
-        "filename": "[name].bundle.css",
-        "ignoreOrder": false,
-        "runtime": true,
-        "chunkFilename": "[name].bundle.css"
-      },
-      "runtimeOptions": {
-        "linkType": "text/css"
-      }
-    }
-  ],
-  "resolve": {
-    "symlinks": false,
-    "cacheWithContext": false
-  },
-  "mode": "development",
-  "devtool": "eval-source-map",
-  "devServer": {
+exports[`webpack should extend a basic webpack config using external resources: custom configurations 1`] = `
+"[
+  {
     "host": "localhost",
     "port": 3000,
     "compress": true,
@@ -952,8 +535,7 @@ exports[`webpack should extend a basic webpack config using commonJS resources: 
       ]
     }
   }
-}",
-}
+]"
 `;
 
 exports[`webpack should handle build output bundle errors, stats errors, and stat output: startWpErrorStatsHandler 1`] = `

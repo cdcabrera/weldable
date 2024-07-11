@@ -1,6 +1,7 @@
 const { existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } = require('fs');
 const crypto = require('crypto');
 const { extname, join, resolve } = require('path');
+const packageJson = require('./package.json');
 
 jest.mock('child_process', () => ({
   ...jest.requireActual('child_process'),
@@ -135,3 +136,26 @@ const mockObjectProperty = (object = {}, propertiesValues) => {
 };
 
 global.mockObjectProperty = mockObjectProperty;
+
+/**
+ * Provide a consistent way of processing configs.
+ *
+ * @param {*} value
+ * @param {object} options
+ * @param {boolean} options.isHash
+ * @param {string} options.projectName
+ * @returns {string}
+ */
+const cleanConfigurationPaths = (value, { isHash = false, projectName = packageJson.name } = {}) => {
+  const contents = JSON.stringify([(typeof value === 'function' && value.toString()) || value], null, 2).replace(
+    new RegExp(`"[a-z0-9/-_.,*()\\s]*\\/${projectName}\\/`, 'gi'),
+    '"./'
+  );
+  if (isHash) {
+    return crypto.createHash('md5').update(contents).digest('hex');
+  }
+
+  return contents;
+};
+
+global.cleanConfigurationPaths = cleanConfigurationPaths;

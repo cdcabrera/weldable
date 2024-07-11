@@ -17,59 +17,90 @@ const { setupWebpackDotenvFilesForEnv } = require('./dotenv');
  */
 
 /**
- * Assumption based preprocess loader
+ * Assumption based preprocess loader for JS
  *
  * @param {object} dotenv
  * @param {string} dotenv._BUILD_SRC_DIR
+ * @returns {{module: {rules: Array}}}
+ */
+const preprocessLoaderJs = ({ _BUILD_SRC_DIR: SRC_DIR = '' } = OPTIONS.dotenv || {}) => ({
+  module: {
+    rules: [
+      {
+        test: new RegExp(`\\.(${jsFileExtensions.join('|')})?$`),
+        include: [SRC_DIR],
+        resolve: {
+          // Dependent on loader resolutions this may, or may not, be necessary
+          extensions: jsFileExtensions.map(ext => `.${ext}`)
+        },
+        use: [
+          {
+            loader: babelLoaderResolve,
+            options: {
+              presets: [babelPresetEnvResolve]
+            }
+          }
+        ]
+      }
+    ]
+  }
+});
+
+/**
+ * Assumption based preprocess loader for Typescript
+ *
+ * @param {object} dotenv
+ * @param {string} dotenv._BUILD_SRC_DIR
+ * @returns {{module: {rules: Array}}}
+ */
+const preprocessLoaderTs = ({ _BUILD_SRC_DIR: SRC_DIR = '' } = OPTIONS.dotenv || {}) => ({
+  module: {
+    rules: [
+      {
+        test: new RegExp(`\\.(${[...tsFileExtensions, ...jsFileExtensions].join('|')})?$`),
+        include: [SRC_DIR],
+        resolve: {
+          // Dependent on loader resolutions this may, or may not, be necessary
+          extensions: [...tsFileExtensions, ...jsFileExtensions].map(ext => `.${ext}`)
+        },
+        use: [
+          {
+            loader: tsLoaderResolve
+          }
+        ]
+      }
+    ]
+  }
+});
+
+/**
+ * Assumption based preprocess loader for none
+ *
+ * @returns {{module: {rules: Array}}}
+ */
+const preprocessLoaderNone = () => ({
+  module: {
+    rules: []
+  }
+});
+
+/**
+ * Assumption based preprocess loader
+ *
  * @param {object} options
  * @param {string} options.loader
  * @returns {{module: {rules: Array}}}
  */
-const preprocessLoader = ({ _BUILD_SRC_DIR: SRC_DIR = '' } = OPTIONS.dotenv || {}, { loader } = OPTIONS) => ({
-  module: {
-    rules: (() => {
-      switch (loader) {
-        case 'js':
-          return [
-            {
-              test: new RegExp(`\\.(${jsFileExtensions.join('|')})?$`),
-              include: [SRC_DIR],
-              resolve: {
-                // Dependent on loader resolutions this may, or may not, be necessary
-                extensions: jsFileExtensions.map(ext => `.${ext}`)
-              },
-              use: [
-                {
-                  loader: babelLoaderResolve,
-                  options: {
-                    presets: [babelPresetEnvResolve]
-                  }
-                }
-              ]
-            }
-          ];
-        case 'ts':
-          return [
-            {
-              test: new RegExp(`\\.(${[...tsFileExtensions, ...jsFileExtensions].join('|')})?$`),
-              include: [SRC_DIR],
-              resolve: {
-                // Dependent on loader resolutions this may, or may not, be necessary
-                extensions: [...tsFileExtensions, ...jsFileExtensions].map(ext => `.${ext}`)
-              },
-              use: [
-                {
-                  loader: tsLoaderResolve
-                }
-              ]
-            }
-          ];
-        default:
-          return [];
-      }
-    })()
+const preprocessLoader = ({ loader } = OPTIONS) => {
+  switch (loader) {
+    case 'js':
+      return preprocessLoaderJs();
+    case 'ts':
+      return preprocessLoaderTs();
+    default:
+      return preprocessLoaderNone();
   }
-});
+};
 
 /**
  * Common webpack settings between environments.
@@ -360,5 +391,8 @@ module.exports = {
   common,
   development,
   preprocessLoader,
+  preprocessLoaderNone,
+  preprocessLoaderJs,
+  preprocessLoaderTs,
   production
 };

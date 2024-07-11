@@ -121,7 +121,7 @@ const startWpErrorStatsHandler = (err, stats, { stats: statsLevel, statsFile, st
       .join('\n');
 
     consoleMessage.log(
-      `Stats level ${color.YELLOW}${statsLevel}${color.NOCOLOR}...`,
+      `Stats level ${color.YELLOW || ''}${statsLevel}${color.NOCOLOR || ''}...`,
       (formattedStats.trim() === '' && '  No stats output') || formattedStats
     );
   }

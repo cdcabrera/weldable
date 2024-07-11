@@ -1,1005 +1,1345 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`webpackConfigs should return a common configuration object: common dev, prod hashes 1`] = `
+exports[`webpackConfigs should return a common configuration object: common dev and prod hashes, code snapshots 1`] = `
 [
   {
-    "devHash": "09dbe6c79e6e659a16607250a6517521",
-    "isEqual": true,
-    "loader": "js",
-    "prodHash": "09dbe6c79e6e659a16607250a6517521",
-  },
+    "devSnapshot": "[
   {
-    "devHash": "09dbe6c79e6e659a16607250a6517521",
-    "isEqual": true,
-    "loader": "ts",
-    "prodHash": "09dbe6c79e6e659a16607250a6517521",
-  },
-  {
-    "devHash": "09dbe6c79e6e659a16607250a6517521",
-    "isEqual": true,
-    "loader": "none",
-    "prodHash": "09dbe6c79e6e659a16607250a6517521",
-  },
-]
-`;
-
-exports[`webpackConfigs should return a common configuration object: common dev: js 1`] = `
-"{
-  "context": "./__fixtures__",
-  "entry": {
-    "app": [
-      "./__fixtures__/src/index.js"
-    ]
-  },
-  "output": {
-    "filename": "[name].bundle.js",
-    "path": "./__fixtures__/dist",
-    "clean": true
-  },
-  "module": {
-    "rules": [
-      {
-        "test": {},
-        "type": "asset/resource",
-        "generator": {
-          "filename": "fonts/[hash][ext][query]"
-        }
-      },
-      {
-        "test": {},
-        "type": "asset",
-        "parser": {
-          "dataUrlCondition": {
-            "maxSize": 5000
-          }
-        },
-        "generator": {
-          "filename": "images/[hash][ext][query]"
-        }
-      },
-      {
-        "test": {},
-        "type": "asset",
-        "parser": {
-          "dataUrlCondition": {
-            "maxSize": 5000
-          }
-        },
-        "generator": {
-          "filename": "images/[hash][ext][query]"
-        }
-      },
-      {
-        "test": {},
-        "use": [
-          "./node_modules/mini-css-extract-plugin/dist/loader.js",
-          "css-loader"
-        ]
-      }
-    ]
-  },
-  "plugins": [
-    {
-      "config": {
-        "path": "./__fixtures__/.env.local",
-        "prefix": "process.env.",
-        "systemvars": true,
-        "silent": true
-      }
-    },
-    {
-      "config": {
-        "path": "./__fixtures__/.env",
-        "prefix": "process.env.",
-        "systemvars": true,
-        "silent": true
-      }
-    },
-    {
-      "userOptions": {},
-      "version": 5,
-      "options": {
-        "template": "auto",
-        "templateContent": false,
-        "filename": "index.html",
-        "publicPath": "auto",
-        "hash": false,
-        "inject": "head",
-        "scriptLoading": "defer",
-        "compile": true,
-        "favicon": false,
-        "minify": "auto",
-        "cache": true,
-        "showErrors": true,
-        "chunks": "all",
-        "excludeChunks": [],
-        "chunksSortMode": "auto",
-        "meta": {},
-        "base": false,
-        "title": "Webpack App",
-        "xhtml": false
-      }
-    }
-  ],
-  "resolve": {
-    "symlinks": false,
-    "cacheWithContext": false
-  }
-}"
-`;
-
-exports[`webpackConfigs should return a common configuration object: common dev: none 1`] = `
-"{
-  "context": "./__fixtures__",
-  "entry": {
-    "app": [
-      "./__fixtures__/src/index.js"
-    ]
-  },
-  "output": {
-    "filename": "[name].bundle.js",
-    "path": "./__fixtures__/dist",
-    "clean": true
-  },
-  "module": {
-    "rules": [
-      {
-        "test": {},
-        "type": "asset/resource",
-        "generator": {
-          "filename": "fonts/[hash][ext][query]"
-        }
-      },
-      {
-        "test": {},
-        "type": "asset",
-        "parser": {
-          "dataUrlCondition": {
-            "maxSize": 5000
-          }
-        },
-        "generator": {
-          "filename": "images/[hash][ext][query]"
-        }
-      },
-      {
-        "test": {},
-        "type": "asset",
-        "parser": {
-          "dataUrlCondition": {
-            "maxSize": 5000
-          }
-        },
-        "generator": {
-          "filename": "images/[hash][ext][query]"
-        }
-      },
-      {
-        "test": {},
-        "use": [
-          "./node_modules/mini-css-extract-plugin/dist/loader.js",
-          "css-loader"
-        ]
-      }
-    ]
-  },
-  "plugins": [
-    {
-      "config": {
-        "path": "./__fixtures__/.env.local",
-        "prefix": "process.env.",
-        "systemvars": true,
-        "silent": true
-      }
-    },
-    {
-      "config": {
-        "path": "./__fixtures__/.env",
-        "prefix": "process.env.",
-        "systemvars": true,
-        "silent": true
-      }
-    },
-    {
-      "userOptions": {},
-      "version": 5,
-      "options": {
-        "template": "auto",
-        "templateContent": false,
-        "filename": "index.html",
-        "publicPath": "auto",
-        "hash": false,
-        "inject": "head",
-        "scriptLoading": "defer",
-        "compile": true,
-        "favicon": false,
-        "minify": "auto",
-        "cache": true,
-        "showErrors": true,
-        "chunks": "all",
-        "excludeChunks": [],
-        "chunksSortMode": "auto",
-        "meta": {},
-        "base": false,
-        "title": "Webpack App",
-        "xhtml": false
-      }
-    }
-  ],
-  "resolve": {
-    "symlinks": false,
-    "cacheWithContext": false
-  }
-}"
-`;
-
-exports[`webpackConfigs should return a common configuration object: common dev: ts 1`] = `
-"{
-  "context": "./__fixtures__",
-  "entry": {
-    "app": [
-      "./__fixtures__/src/index.js"
-    ]
-  },
-  "output": {
-    "filename": "[name].bundle.js",
-    "path": "./__fixtures__/dist",
-    "clean": true
-  },
-  "module": {
-    "rules": [
-      {
-        "test": {},
-        "type": "asset/resource",
-        "generator": {
-          "filename": "fonts/[hash][ext][query]"
-        }
-      },
-      {
-        "test": {},
-        "type": "asset",
-        "parser": {
-          "dataUrlCondition": {
-            "maxSize": 5000
-          }
-        },
-        "generator": {
-          "filename": "images/[hash][ext][query]"
-        }
-      },
-      {
-        "test": {},
-        "type": "asset",
-        "parser": {
-          "dataUrlCondition": {
-            "maxSize": 5000
-          }
-        },
-        "generator": {
-          "filename": "images/[hash][ext][query]"
-        }
-      },
-      {
-        "test": {},
-        "use": [
-          "./node_modules/mini-css-extract-plugin/dist/loader.js",
-          "css-loader"
-        ]
-      }
-    ]
-  },
-  "plugins": [
-    {
-      "config": {
-        "path": "./__fixtures__/.env.local",
-        "prefix": "process.env.",
-        "systemvars": true,
-        "silent": true
-      }
-    },
-    {
-      "config": {
-        "path": "./__fixtures__/.env",
-        "prefix": "process.env.",
-        "systemvars": true,
-        "silent": true
-      }
-    },
-    {
-      "userOptions": {},
-      "version": 5,
-      "options": {
-        "template": "auto",
-        "templateContent": false,
-        "filename": "index.html",
-        "publicPath": "auto",
-        "hash": false,
-        "inject": "head",
-        "scriptLoading": "defer",
-        "compile": true,
-        "favicon": false,
-        "minify": "auto",
-        "cache": true,
-        "showErrors": true,
-        "chunks": "all",
-        "excludeChunks": [],
-        "chunksSortMode": "auto",
-        "meta": {},
-        "base": false,
-        "title": "Webpack App",
-        "xhtml": false
-      }
-    }
-  ],
-  "resolve": {
-    "symlinks": false,
-    "cacheWithContext": false
-  }
-}"
-`;
-
-exports[`webpackConfigs should return a development configuration object: development dev, prod hashes 1`] = `
-[
-  {
-    "devHash": "1513dc6a6f52f8e842db469aef46217a",
-    "isEqual": false,
-    "loader": "js",
-    "prodHash": "224f0decf8a5de38b60d8e7efc30a6a1",
-  },
-  {
-    "devHash": "1513dc6a6f52f8e842db469aef46217a",
-    "isEqual": false,
-    "loader": "ts",
-    "prodHash": "224f0decf8a5de38b60d8e7efc30a6a1",
-  },
-  {
-    "devHash": "1513dc6a6f52f8e842db469aef46217a",
-    "isEqual": false,
-    "loader": "none",
-    "prodHash": "224f0decf8a5de38b60d8e7efc30a6a1",
-  },
-]
-`;
-
-exports[`webpackConfigs should return a development configuration object: development dev: js 1`] = `
-"{
-  "mode": "development",
-  "devtool": "eval-source-map",
-  "devServer": {
-    "host": "localhost",
-    "port": 3000,
-    "compress": true,
-    "historyApiFallback": true,
-    "hot": true,
-    "devMiddleware": {
-      "stats": "errors-warnings",
-      "writeToDisk": false
-    },
-    "client": {
-      "overlay": false,
-      "progress": true
-    },
-    "static": {
-      "directory": "./__fixtures__/dist"
-    },
-    "watchFiles": {
-      "paths": [
-        "src/**/*"
+    "context": "./__fixtures__",
+    "entry": {
+      "app": [
+        "./__fixtures__/src/index.js"
       ]
-    }
-  },
-  "plugins": [
-    {
-      "config": {
-        "path": "./__fixtures__/.env.development.local",
-        "prefix": "process.env.",
-        "systemvars": true,
-        "silent": true
-      }
     },
-    {
-      "config": {
-        "path": "./__fixtures__/.env.development",
-        "prefix": "process.env.",
-        "systemvars": true,
-        "silent": true
-      }
+    "output": {
+      "filename": "[name].bundle.js",
+      "path": "./__fixtures__/dist",
+      "clean": true
     },
-    {
-      "config": {
-        "path": "./__fixtures__/.env.local",
-        "prefix": "process.env.",
-        "systemvars": true,
-        "silent": true
-      }
-    },
-    {
-      "config": {
-        "path": "./__fixtures__/.env",
-        "prefix": "process.env.",
-        "systemvars": true,
-        "silent": true
-      }
-    },
-    {
-      "_sortedModulesCache": {},
-      "options": {
-        "filename": "[name].bundle.css",
-        "ignoreOrder": false,
-        "runtime": true,
-        "chunkFilename": "[name].bundle.css"
-      },
-      "runtimeOptions": {
-        "linkType": "text/css"
-      }
-    }
-  ]
-}"
-`;
-
-exports[`webpackConfigs should return a development configuration object: development dev: none 1`] = `
-"{
-  "mode": "development",
-  "devtool": "eval-source-map",
-  "devServer": {
-    "host": "localhost",
-    "port": 3000,
-    "compress": true,
-    "historyApiFallback": true,
-    "hot": true,
-    "devMiddleware": {
-      "stats": "errors-warnings",
-      "writeToDisk": false
-    },
-    "client": {
-      "overlay": false,
-      "progress": true
-    },
-    "static": {
-      "directory": "./__fixtures__/dist"
-    },
-    "watchFiles": {
-      "paths": [
-        "src/**/*"
-      ]
-    }
-  },
-  "plugins": [
-    {
-      "config": {
-        "path": "./__fixtures__/.env.development.local",
-        "prefix": "process.env.",
-        "systemvars": true,
-        "silent": true
-      }
-    },
-    {
-      "config": {
-        "path": "./__fixtures__/.env.development",
-        "prefix": "process.env.",
-        "systemvars": true,
-        "silent": true
-      }
-    },
-    {
-      "config": {
-        "path": "./__fixtures__/.env.local",
-        "prefix": "process.env.",
-        "systemvars": true,
-        "silent": true
-      }
-    },
-    {
-      "config": {
-        "path": "./__fixtures__/.env",
-        "prefix": "process.env.",
-        "systemvars": true,
-        "silent": true
-      }
-    },
-    {
-      "_sortedModulesCache": {},
-      "options": {
-        "filename": "[name].bundle.css",
-        "ignoreOrder": false,
-        "runtime": true,
-        "chunkFilename": "[name].bundle.css"
-      },
-      "runtimeOptions": {
-        "linkType": "text/css"
-      }
-    }
-  ]
-}"
-`;
-
-exports[`webpackConfigs should return a development configuration object: development dev: ts 1`] = `
-"{
-  "mode": "development",
-  "devtool": "eval-source-map",
-  "devServer": {
-    "host": "localhost",
-    "port": 3000,
-    "compress": true,
-    "historyApiFallback": true,
-    "hot": true,
-    "devMiddleware": {
-      "stats": "errors-warnings",
-      "writeToDisk": false
-    },
-    "client": {
-      "overlay": false,
-      "progress": true
-    },
-    "static": {
-      "directory": "./__fixtures__/dist"
-    },
-    "watchFiles": {
-      "paths": [
-        "src/**/*"
-      ]
-    }
-  },
-  "plugins": [
-    {
-      "config": {
-        "path": "./__fixtures__/.env.development.local",
-        "prefix": "process.env.",
-        "systemvars": true,
-        "silent": true
-      }
-    },
-    {
-      "config": {
-        "path": "./__fixtures__/.env.development",
-        "prefix": "process.env.",
-        "systemvars": true,
-        "silent": true
-      }
-    },
-    {
-      "config": {
-        "path": "./__fixtures__/.env.local",
-        "prefix": "process.env.",
-        "systemvars": true,
-        "silent": true
-      }
-    },
-    {
-      "config": {
-        "path": "./__fixtures__/.env",
-        "prefix": "process.env.",
-        "systemvars": true,
-        "silent": true
-      }
-    },
-    {
-      "_sortedModulesCache": {},
-      "options": {
-        "filename": "[name].bundle.css",
-        "ignoreOrder": false,
-        "runtime": true,
-        "chunkFilename": "[name].bundle.css"
-      },
-      "runtimeOptions": {
-        "linkType": "text/css"
-      }
-    }
-  ]
-}"
-`;
-
-exports[`webpackConfigs should return a preprocessLoader configuration object: language dev, prod hashes 1`] = `
-[
-  {
-    "devHash": "b1a27bfb44b6063a2a599931989a64f8",
-    "isEqual": true,
-    "loader": "js",
-    "prodHash": "b1a27bfb44b6063a2a599931989a64f8",
-  },
-  {
-    "devHash": "6cf8d288bb31e0a6e6c97b9d54e0c192",
-    "isEqual": true,
-    "loader": "ts",
-    "prodHash": "6cf8d288bb31e0a6e6c97b9d54e0c192",
-  },
-  {
-    "devHash": "49e595be76828acf4f2a3617fea9a378",
-    "isEqual": true,
-    "loader": "none",
-    "prodHash": "49e595be76828acf4f2a3617fea9a378",
-  },
-]
-`;
-
-exports[`webpackConfigs should return a preprocessLoader configuration object: preprocessLoader dev: js 1`] = `
-"{
-  "module": {
-    "rules": [
-      {
-        "test": {},
-        "include": [
-          "./__fixtures__/src"
-        ],
-        "resolve": {
-          "extensions": [
-            ".js",
-            ".jsx",
-            ".mjs",
-            ".cjs"
+    "module": {
+      "rules": [
+        {
+          "test": {},
+          "type": "asset/resource",
+          "generator": {
+            "filename": "fonts/[hash][ext][query]"
+          }
+        },
+        {
+          "test": {},
+          "type": "asset",
+          "parser": {
+            "dataUrlCondition": {
+              "maxSize": 5000
+            }
+          },
+          "generator": {
+            "filename": "images/[hash][ext][query]"
+          }
+        },
+        {
+          "test": {},
+          "type": "asset",
+          "parser": {
+            "dataUrlCondition": {
+              "maxSize": 5000
+            }
+          },
+          "generator": {
+            "filename": "images/[hash][ext][query]"
+          }
+        },
+        {
+          "test": {},
+          "use": [
+            "./node_modules/mini-css-extract-plugin/dist/loader.js",
+            "css-loader"
           ]
-        },
-        "use": [
-          {
-            "loader": "babel-loader",
-            "options": {
-              "presets": [
-                "@babel/preset-env"
-              ]
-            }
-          }
-        ]
-      }
-    ]
-  }
-}"
-`;
-
-exports[`webpackConfigs should return a preprocessLoader configuration object: preprocessLoader dev: none 1`] = `
-"{
-  "module": {
-    "rules": []
-  }
-}"
-`;
-
-exports[`webpackConfigs should return a preprocessLoader configuration object: preprocessLoader dev: ts 1`] = `
-"{
-  "module": {
-    "rules": [
+        }
+      ]
+    },
+    "plugins": [
       {
-        "test": {},
-        "include": [
-          "./__fixtures__/src"
-        ],
-        "resolve": {
-          "extensions": [
-            ".ts",
-            ".tsx",
-            ".mts",
-            ".cts",
-            ".js",
-            ".jsx",
-            ".mjs",
-            ".cjs"
-          ]
-        },
-        "use": [
-          {
-            "loader": "ts-loader"
-          }
-        ]
+        "config": {
+          "path": "./__fixtures__/.env.local",
+          "prefix": "process.env.",
+          "systemvars": true,
+          "silent": true
+        }
+      },
+      {
+        "config": {
+          "path": "./__fixtures__/.env",
+          "prefix": "process.env.",
+          "systemvars": true,
+          "silent": true
+        }
+      },
+      {
+        "userOptions": {},
+        "version": 5,
+        "options": {
+          "template": "auto",
+          "templateContent": false,
+          "filename": "index.html",
+          "publicPath": "auto",
+          "hash": false,
+          "inject": "head",
+          "scriptLoading": "defer",
+          "compile": true,
+          "favicon": false,
+          "minify": "auto",
+          "cache": true,
+          "showErrors": true,
+          "chunks": "all",
+          "excludeChunks": [],
+          "chunksSortMode": "auto",
+          "meta": {},
+          "base": false,
+          "title": "Webpack App",
+          "xhtml": false
+        }
       }
-    ]
+    ],
+    "resolve": {
+      "symlinks": false,
+      "cacheWithContext": false
+    }
   }
-}"
-`;
-
-exports[`webpackConfigs should return a production configuration object: production dev, prod hashes 1`] = `
-[
-  {
-    "devHash": "9538aadb737ec81df9a67275a1d4e93f",
-    "isEqual": false,
+]",
     "loader": "js",
-    "prodHash": "4635888960b8aaecc46599deb39c005e",
+    "prodSnapshot": "[
+  {
+    "context": "./__fixtures__",
+    "entry": {
+      "app": [
+        "./__fixtures__/src/index.js"
+      ]
+    },
+    "output": {
+      "filename": "[name].bundle.js",
+      "path": "./__fixtures__/dist",
+      "clean": true
+    },
+    "module": {
+      "rules": [
+        {
+          "test": {},
+          "type": "asset/resource",
+          "generator": {
+            "filename": "fonts/[hash][ext][query]"
+          }
+        },
+        {
+          "test": {},
+          "type": "asset",
+          "parser": {
+            "dataUrlCondition": {
+              "maxSize": 5000
+            }
+          },
+          "generator": {
+            "filename": "images/[hash][ext][query]"
+          }
+        },
+        {
+          "test": {},
+          "type": "asset",
+          "parser": {
+            "dataUrlCondition": {
+              "maxSize": 5000
+            }
+          },
+          "generator": {
+            "filename": "images/[hash][ext][query]"
+          }
+        },
+        {
+          "test": {},
+          "use": [
+            "./node_modules/mini-css-extract-plugin/dist/loader.js",
+            "css-loader"
+          ]
+        }
+      ]
+    },
+    "plugins": [
+      {
+        "config": {
+          "path": "./__fixtures__/.env.local",
+          "prefix": "process.env.",
+          "systemvars": true,
+          "silent": true
+        }
+      },
+      {
+        "config": {
+          "path": "./__fixtures__/.env",
+          "prefix": "process.env.",
+          "systemvars": true,
+          "silent": true
+        }
+      },
+      {
+        "userOptions": {},
+        "version": 5,
+        "options": {
+          "template": "auto",
+          "templateContent": false,
+          "filename": "index.html",
+          "publicPath": "auto",
+          "hash": false,
+          "inject": "head",
+          "scriptLoading": "defer",
+          "compile": true,
+          "favicon": false,
+          "minify": "auto",
+          "cache": true,
+          "showErrors": true,
+          "chunks": "all",
+          "excludeChunks": [],
+          "chunksSortMode": "auto",
+          "meta": {},
+          "base": false,
+          "title": "Webpack App",
+          "xhtml": false
+        }
+      }
+    ],
+    "resolve": {
+      "symlinks": false,
+      "cacheWithContext": false
+    }
+  }
+]",
   },
   {
-    "devHash": "9538aadb737ec81df9a67275a1d4e93f",
-    "isEqual": false,
+    "devSnapshot": "[
+  {
+    "context": "./__fixtures__",
+    "entry": {
+      "app": [
+        "./__fixtures__/src/index.js"
+      ]
+    },
+    "output": {
+      "filename": "[name].bundle.js",
+      "path": "./__fixtures__/dist",
+      "clean": true
+    },
+    "module": {
+      "rules": [
+        {
+          "test": {},
+          "type": "asset/resource",
+          "generator": {
+            "filename": "fonts/[hash][ext][query]"
+          }
+        },
+        {
+          "test": {},
+          "type": "asset",
+          "parser": {
+            "dataUrlCondition": {
+              "maxSize": 5000
+            }
+          },
+          "generator": {
+            "filename": "images/[hash][ext][query]"
+          }
+        },
+        {
+          "test": {},
+          "type": "asset",
+          "parser": {
+            "dataUrlCondition": {
+              "maxSize": 5000
+            }
+          },
+          "generator": {
+            "filename": "images/[hash][ext][query]"
+          }
+        },
+        {
+          "test": {},
+          "use": [
+            "./node_modules/mini-css-extract-plugin/dist/loader.js",
+            "css-loader"
+          ]
+        }
+      ]
+    },
+    "plugins": [
+      {
+        "config": {
+          "path": "./__fixtures__/.env.local",
+          "prefix": "process.env.",
+          "systemvars": true,
+          "silent": true
+        }
+      },
+      {
+        "config": {
+          "path": "./__fixtures__/.env",
+          "prefix": "process.env.",
+          "systemvars": true,
+          "silent": true
+        }
+      },
+      {
+        "userOptions": {},
+        "version": 5,
+        "options": {
+          "template": "auto",
+          "templateContent": false,
+          "filename": "index.html",
+          "publicPath": "auto",
+          "hash": false,
+          "inject": "head",
+          "scriptLoading": "defer",
+          "compile": true,
+          "favicon": false,
+          "minify": "auto",
+          "cache": true,
+          "showErrors": true,
+          "chunks": "all",
+          "excludeChunks": [],
+          "chunksSortMode": "auto",
+          "meta": {},
+          "base": false,
+          "title": "Webpack App",
+          "xhtml": false
+        }
+      }
+    ],
+    "resolve": {
+      "symlinks": false,
+      "cacheWithContext": false
+    }
+  }
+]",
     "loader": "ts",
-    "prodHash": "4635888960b8aaecc46599deb39c005e",
+    "prodSnapshot": "[
+  {
+    "context": "./__fixtures__",
+    "entry": {
+      "app": [
+        "./__fixtures__/src/index.js"
+      ]
+    },
+    "output": {
+      "filename": "[name].bundle.js",
+      "path": "./__fixtures__/dist",
+      "clean": true
+    },
+    "module": {
+      "rules": [
+        {
+          "test": {},
+          "type": "asset/resource",
+          "generator": {
+            "filename": "fonts/[hash][ext][query]"
+          }
+        },
+        {
+          "test": {},
+          "type": "asset",
+          "parser": {
+            "dataUrlCondition": {
+              "maxSize": 5000
+            }
+          },
+          "generator": {
+            "filename": "images/[hash][ext][query]"
+          }
+        },
+        {
+          "test": {},
+          "type": "asset",
+          "parser": {
+            "dataUrlCondition": {
+              "maxSize": 5000
+            }
+          },
+          "generator": {
+            "filename": "images/[hash][ext][query]"
+          }
+        },
+        {
+          "test": {},
+          "use": [
+            "./node_modules/mini-css-extract-plugin/dist/loader.js",
+            "css-loader"
+          ]
+        }
+      ]
+    },
+    "plugins": [
+      {
+        "config": {
+          "path": "./__fixtures__/.env.local",
+          "prefix": "process.env.",
+          "systemvars": true,
+          "silent": true
+        }
+      },
+      {
+        "config": {
+          "path": "./__fixtures__/.env",
+          "prefix": "process.env.",
+          "systemvars": true,
+          "silent": true
+        }
+      },
+      {
+        "userOptions": {},
+        "version": 5,
+        "options": {
+          "template": "auto",
+          "templateContent": false,
+          "filename": "index.html",
+          "publicPath": "auto",
+          "hash": false,
+          "inject": "head",
+          "scriptLoading": "defer",
+          "compile": true,
+          "favicon": false,
+          "minify": "auto",
+          "cache": true,
+          "showErrors": true,
+          "chunks": "all",
+          "excludeChunks": [],
+          "chunksSortMode": "auto",
+          "meta": {},
+          "base": false,
+          "title": "Webpack App",
+          "xhtml": false
+        }
+      }
+    ],
+    "resolve": {
+      "symlinks": false,
+      "cacheWithContext": false
+    }
+  }
+]",
   },
   {
-    "devHash": "9538aadb737ec81df9a67275a1d4e93f",
-    "isEqual": false,
+    "devSnapshot": "[
+  {
+    "context": "./__fixtures__",
+    "entry": {
+      "app": [
+        "./__fixtures__/src/index.js"
+      ]
+    },
+    "output": {
+      "filename": "[name].bundle.js",
+      "path": "./__fixtures__/dist",
+      "clean": true
+    },
+    "module": {
+      "rules": [
+        {
+          "test": {},
+          "type": "asset/resource",
+          "generator": {
+            "filename": "fonts/[hash][ext][query]"
+          }
+        },
+        {
+          "test": {},
+          "type": "asset",
+          "parser": {
+            "dataUrlCondition": {
+              "maxSize": 5000
+            }
+          },
+          "generator": {
+            "filename": "images/[hash][ext][query]"
+          }
+        },
+        {
+          "test": {},
+          "type": "asset",
+          "parser": {
+            "dataUrlCondition": {
+              "maxSize": 5000
+            }
+          },
+          "generator": {
+            "filename": "images/[hash][ext][query]"
+          }
+        },
+        {
+          "test": {},
+          "use": [
+            "./node_modules/mini-css-extract-plugin/dist/loader.js",
+            "css-loader"
+          ]
+        }
+      ]
+    },
+    "plugins": [
+      {
+        "config": {
+          "path": "./__fixtures__/.env.local",
+          "prefix": "process.env.",
+          "systemvars": true,
+          "silent": true
+        }
+      },
+      {
+        "config": {
+          "path": "./__fixtures__/.env",
+          "prefix": "process.env.",
+          "systemvars": true,
+          "silent": true
+        }
+      },
+      {
+        "userOptions": {},
+        "version": 5,
+        "options": {
+          "template": "auto",
+          "templateContent": false,
+          "filename": "index.html",
+          "publicPath": "auto",
+          "hash": false,
+          "inject": "head",
+          "scriptLoading": "defer",
+          "compile": true,
+          "favicon": false,
+          "minify": "auto",
+          "cache": true,
+          "showErrors": true,
+          "chunks": "all",
+          "excludeChunks": [],
+          "chunksSortMode": "auto",
+          "meta": {},
+          "base": false,
+          "title": "Webpack App",
+          "xhtml": false
+        }
+      }
+    ],
+    "resolve": {
+      "symlinks": false,
+      "cacheWithContext": false
+    }
+  }
+]",
     "loader": "none",
-    "prodHash": "4635888960b8aaecc46599deb39c005e",
+    "prodSnapshot": "[
+  {
+    "context": "./__fixtures__",
+    "entry": {
+      "app": [
+        "./__fixtures__/src/index.js"
+      ]
+    },
+    "output": {
+      "filename": "[name].bundle.js",
+      "path": "./__fixtures__/dist",
+      "clean": true
+    },
+    "module": {
+      "rules": [
+        {
+          "test": {},
+          "type": "asset/resource",
+          "generator": {
+            "filename": "fonts/[hash][ext][query]"
+          }
+        },
+        {
+          "test": {},
+          "type": "asset",
+          "parser": {
+            "dataUrlCondition": {
+              "maxSize": 5000
+            }
+          },
+          "generator": {
+            "filename": "images/[hash][ext][query]"
+          }
+        },
+        {
+          "test": {},
+          "type": "asset",
+          "parser": {
+            "dataUrlCondition": {
+              "maxSize": 5000
+            }
+          },
+          "generator": {
+            "filename": "images/[hash][ext][query]"
+          }
+        },
+        {
+          "test": {},
+          "use": [
+            "./node_modules/mini-css-extract-plugin/dist/loader.js",
+            "css-loader"
+          ]
+        }
+      ]
+    },
+    "plugins": [
+      {
+        "config": {
+          "path": "./__fixtures__/.env.local",
+          "prefix": "process.env.",
+          "systemvars": true,
+          "silent": true
+        }
+      },
+      {
+        "config": {
+          "path": "./__fixtures__/.env",
+          "prefix": "process.env.",
+          "systemvars": true,
+          "silent": true
+        }
+      },
+      {
+        "userOptions": {},
+        "version": 5,
+        "options": {
+          "template": "auto",
+          "templateContent": false,
+          "filename": "index.html",
+          "publicPath": "auto",
+          "hash": false,
+          "inject": "head",
+          "scriptLoading": "defer",
+          "compile": true,
+          "favicon": false,
+          "minify": "auto",
+          "cache": true,
+          "showErrors": true,
+          "chunks": "all",
+          "excludeChunks": [],
+          "chunksSortMode": "auto",
+          "meta": {},
+          "base": false,
+          "title": "Webpack App",
+          "xhtml": false
+        }
+      }
+    ],
+    "resolve": {
+      "symlinks": false,
+      "cacheWithContext": false
+    }
+  }
+]",
   },
 ]
 `;
 
-exports[`webpackConfigs should return a production configuration object: production dev: js 1`] = `
-"{
-  "mode": "development",
-  "output": {
-    "chunkFilename": "[name].[contenthash:8].chunk.js",
-    "filename": "[name].[contenthash:8].js"
-  },
-  "optimization": {
-    "minimize": true,
-    "minimizer": [
+exports[`webpackConfigs should return a development configuration object: development dev hashes, code snapshots 1`] = `
+[
+  {
+    "devSnapshot": "[
+  {
+    "mode": "development",
+    "devtool": "eval-source-map",
+    "devServer": {
+      "host": "localhost",
+      "port": 3000,
+      "compress": true,
+      "historyApiFallback": true,
+      "hot": true,
+      "devMiddleware": {
+        "stats": "errors-warnings",
+        "writeToDisk": false
+      },
+      "client": {
+        "overlay": false,
+        "progress": true
+      },
+      "static": {
+        "directory": "./__fixtures__/dist"
+      },
+      "watchFiles": {
+        "paths": [
+          "src/**/*"
+        ]
+      }
+    },
+    "plugins": [
       {
-        "options": {
-          "test": {},
-          "extractComments": true,
-          "parallel": true,
-          "minimizer": {
-            "options": {}
-          }
+        "config": {
+          "path": "./__fixtures__/.env.development.local",
+          "prefix": "process.env.",
+          "systemvars": true,
+          "silent": true
         }
       },
       {
-        "options": {
-          "test": {},
-          "parallel": true,
-          "minimizer": {
-            "options": {
-              "preset": [
-                "default",
-                {
-                  "mergeLonghand": false
-                }
-              ]
-            }
-          }
+        "config": {
+          "path": "./__fixtures__/.env.development",
+          "prefix": "process.env.",
+          "systemvars": true,
+          "silent": true
         }
-      }
-    ],
-    "runtimeChunk": "single",
-    "splitChunks": {
-      "chunks": "all",
-      "cacheGroups": {
-        "vendor": {
-          "chunks": "all",
-          "name": "vendor",
-          "test": {}
-        }
-      }
-    }
-  },
-  "plugins": [
-    {
-      "config": {
-        "path": "./__fixtures__/.env.development.local",
-        "prefix": "process.env.",
-        "systemvars": true,
-        "silent": true
-      }
-    },
-    {
-      "config": {
-        "path": "./__fixtures__/.env.development",
-        "prefix": "process.env.",
-        "systemvars": true,
-        "silent": true
-      }
-    },
-    {
-      "config": {
-        "path": "./__fixtures__/.env.local",
-        "prefix": "process.env.",
-        "systemvars": true,
-        "silent": true
-      }
-    },
-    {
-      "config": {
-        "path": "./__fixtures__/.env",
-        "prefix": "process.env.",
-        "systemvars": true,
-        "silent": true
-      }
-    },
-    {
-      "_sortedModulesCache": {},
-      "options": {
-        "filename": "[name].[contenthash:8].css",
-        "ignoreOrder": false,
-        "runtime": true,
-        "chunkFilename": "[name].[contenthash:8].chunk.css"
       },
-      "runtimeOptions": {
-        "linkType": "text/css"
+      {
+        "config": {
+          "path": "./__fixtures__/.env.local",
+          "prefix": "process.env.",
+          "systemvars": true,
+          "silent": true
+        }
+      },
+      {
+        "config": {
+          "path": "./__fixtures__/.env",
+          "prefix": "process.env.",
+          "systemvars": true,
+          "silent": true
+        }
+      },
+      {
+        "_sortedModulesCache": {},
+        "options": {
+          "filename": "[name].bundle.css",
+          "ignoreOrder": false,
+          "runtime": true,
+          "chunkFilename": "[name].bundle.css"
+        },
+        "runtimeOptions": {
+          "linkType": "text/css"
+        }
       }
-    }
-  ]
-}"
+    ]
+  }
+]",
+    "loader": "js",
+    "prodSnapshot": undefined,
+  },
+  {
+    "devSnapshot": "[
+  {
+    "mode": "development",
+    "devtool": "eval-source-map",
+    "devServer": {
+      "host": "localhost",
+      "port": 3000,
+      "compress": true,
+      "historyApiFallback": true,
+      "hot": true,
+      "devMiddleware": {
+        "stats": "errors-warnings",
+        "writeToDisk": false
+      },
+      "client": {
+        "overlay": false,
+        "progress": true
+      },
+      "static": {
+        "directory": "./__fixtures__/dist"
+      },
+      "watchFiles": {
+        "paths": [
+          "src/**/*"
+        ]
+      }
+    },
+    "plugins": [
+      {
+        "config": {
+          "path": "./__fixtures__/.env.development.local",
+          "prefix": "process.env.",
+          "systemvars": true,
+          "silent": true
+        }
+      },
+      {
+        "config": {
+          "path": "./__fixtures__/.env.development",
+          "prefix": "process.env.",
+          "systemvars": true,
+          "silent": true
+        }
+      },
+      {
+        "config": {
+          "path": "./__fixtures__/.env.local",
+          "prefix": "process.env.",
+          "systemvars": true,
+          "silent": true
+        }
+      },
+      {
+        "config": {
+          "path": "./__fixtures__/.env",
+          "prefix": "process.env.",
+          "systemvars": true,
+          "silent": true
+        }
+      },
+      {
+        "_sortedModulesCache": {},
+        "options": {
+          "filename": "[name].bundle.css",
+          "ignoreOrder": false,
+          "runtime": true,
+          "chunkFilename": "[name].bundle.css"
+        },
+        "runtimeOptions": {
+          "linkType": "text/css"
+        }
+      }
+    ]
+  }
+]",
+    "loader": "ts",
+    "prodSnapshot": undefined,
+  },
+  {
+    "devSnapshot": "[
+  {
+    "mode": "development",
+    "devtool": "eval-source-map",
+    "devServer": {
+      "host": "localhost",
+      "port": 3000,
+      "compress": true,
+      "historyApiFallback": true,
+      "hot": true,
+      "devMiddleware": {
+        "stats": "errors-warnings",
+        "writeToDisk": false
+      },
+      "client": {
+        "overlay": false,
+        "progress": true
+      },
+      "static": {
+        "directory": "./__fixtures__/dist"
+      },
+      "watchFiles": {
+        "paths": [
+          "src/**/*"
+        ]
+      }
+    },
+    "plugins": [
+      {
+        "config": {
+          "path": "./__fixtures__/.env.development.local",
+          "prefix": "process.env.",
+          "systemvars": true,
+          "silent": true
+        }
+      },
+      {
+        "config": {
+          "path": "./__fixtures__/.env.development",
+          "prefix": "process.env.",
+          "systemvars": true,
+          "silent": true
+        }
+      },
+      {
+        "config": {
+          "path": "./__fixtures__/.env.local",
+          "prefix": "process.env.",
+          "systemvars": true,
+          "silent": true
+        }
+      },
+      {
+        "config": {
+          "path": "./__fixtures__/.env",
+          "prefix": "process.env.",
+          "systemvars": true,
+          "silent": true
+        }
+      },
+      {
+        "_sortedModulesCache": {},
+        "options": {
+          "filename": "[name].bundle.css",
+          "ignoreOrder": false,
+          "runtime": true,
+          "chunkFilename": "[name].bundle.css"
+        },
+        "runtimeOptions": {
+          "linkType": "text/css"
+        }
+      }
+    ]
+  }
+]",
+    "loader": "none",
+    "prodSnapshot": undefined,
+  },
+]
 `;
 
-exports[`webpackConfigs should return a production configuration object: production dev: none 1`] = `
-"{
-  "mode": "development",
-  "output": {
-    "chunkFilename": "[name].[contenthash:8].chunk.js",
-    "filename": "[name].[contenthash:8].js"
-  },
-  "optimization": {
-    "minimize": true,
-    "minimizer": [
-      {
-        "options": {
+exports[`webpackConfigs should return a preprocessLoader configuration object: language dev and prod hashes, code snapshots 1`] = `
+[
+  {
+    "devSnapshot": "[
+  {
+    "module": {
+      "rules": [
+        {
           "test": {},
-          "extractComments": true,
-          "parallel": true,
-          "minimizer": {
-            "options": {}
-          }
-        }
-      },
-      {
-        "options": {
-          "test": {},
-          "parallel": true,
-          "minimizer": {
-            "options": {
-              "preset": [
-                "default",
-                {
-                  "mergeLonghand": false
-                }
-              ]
+          "include": [
+            "./__fixtures__/src"
+          ],
+          "resolve": {
+            "extensions": [
+              ".js",
+              ".jsx",
+              ".mjs",
+              ".cjs"
+            ]
+          },
+          "use": [
+            {
+              "loader": "babel-loader",
+              "options": {
+                "presets": [
+                  "@babel/preset-env"
+                ]
+              }
             }
-          }
+          ]
         }
-      }
-    ],
-    "runtimeChunk": "single",
-    "splitChunks": {
-      "chunks": "all",
-      "cacheGroups": {
-        "vendor": {
-          "chunks": "all",
-          "name": "vendor",
-          "test": {}
-        }
-      }
+      ]
     }
+  }
+]",
+    "loader": "js",
+    "prodSnapshot": "[
+  {
+    "module": {
+      "rules": [
+        {
+          "test": {},
+          "include": [
+            "./__fixtures__/src"
+          ],
+          "resolve": {
+            "extensions": [
+              ".js",
+              ".jsx",
+              ".mjs",
+              ".cjs"
+            ]
+          },
+          "use": [
+            {
+              "loader": "babel-loader",
+              "options": {
+                "presets": [
+                  "@babel/preset-env"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+]",
   },
-  "plugins": [
-    {
-      "config": {
-        "path": "./__fixtures__/.env.development.local",
-        "prefix": "process.env.",
-        "systemvars": true,
-        "silent": true
-      }
-    },
-    {
-      "config": {
-        "path": "./__fixtures__/.env.development",
-        "prefix": "process.env.",
-        "systemvars": true,
-        "silent": true
-      }
-    },
-    {
-      "config": {
-        "path": "./__fixtures__/.env.local",
-        "prefix": "process.env.",
-        "systemvars": true,
-        "silent": true
-      }
-    },
-    {
-      "config": {
-        "path": "./__fixtures__/.env",
-        "prefix": "process.env.",
-        "systemvars": true,
-        "silent": true
-      }
-    },
-    {
-      "_sortedModulesCache": {},
-      "options": {
-        "filename": "[name].[contenthash:8].css",
-        "ignoreOrder": false,
-        "runtime": true,
-        "chunkFilename": "[name].[contenthash:8].chunk.css"
-      },
-      "runtimeOptions": {
-        "linkType": "text/css"
-      }
+  {
+    "devSnapshot": "[
+  {
+    "module": {
+      "rules": [
+        {
+          "test": {},
+          "include": [
+            "./__fixtures__/src"
+          ],
+          "resolve": {
+            "extensions": [
+              ".ts",
+              ".tsx",
+              ".mts",
+              ".cts",
+              ".js",
+              ".jsx",
+              ".mjs",
+              ".cjs"
+            ]
+          },
+          "use": [
+            {
+              "loader": "ts-loader"
+            }
+          ]
+        }
+      ]
     }
-  ]
-}"
+  }
+]",
+    "loader": "ts",
+    "prodSnapshot": "[
+  {
+    "module": {
+      "rules": [
+        {
+          "test": {},
+          "include": [
+            "./__fixtures__/src"
+          ],
+          "resolve": {
+            "extensions": [
+              ".ts",
+              ".tsx",
+              ".mts",
+              ".cts",
+              ".js",
+              ".jsx",
+              ".mjs",
+              ".cjs"
+            ]
+          },
+          "use": [
+            {
+              "loader": "ts-loader"
+            }
+          ]
+        }
+      ]
+    }
+  }
+]",
+  },
+  {
+    "devSnapshot": "[
+  {
+    "module": {
+      "rules": []
+    }
+  }
+]",
+    "loader": "none",
+    "prodSnapshot": "[
+  {
+    "module": {
+      "rules": []
+    }
+  }
+]",
+  },
+]
 `;
 
-exports[`webpackConfigs should return a production configuration object: production dev: ts 1`] = `
-"{
-  "mode": "development",
-  "output": {
-    "chunkFilename": "[name].[contenthash:8].chunk.js",
-    "filename": "[name].[contenthash:8].js"
-  },
-  "optimization": {
-    "minimize": true,
-    "minimizer": [
-      {
-        "options": {
-          "test": {},
-          "extractComments": true,
-          "parallel": true,
-          "minimizer": {
-            "options": {}
+exports[`webpackConfigs should return a production configuration object: production prod hashes, code snapshots 1`] = `
+[
+  {
+    "devSnapshot": undefined,
+    "loader": "js",
+    "prodSnapshot": "[
+  {
+    "mode": "production",
+    "output": {
+      "chunkFilename": "[name].[contenthash:8].chunk.js",
+      "filename": "[name].[contenthash:8].js"
+    },
+    "optimization": {
+      "minimize": true,
+      "minimizer": [
+        {
+          "options": {
+            "test": {},
+            "extractComments": true,
+            "parallel": true,
+            "minimizer": {
+              "options": {}
+            }
           }
-        }
-      },
-      {
-        "options": {
-          "test": {},
-          "parallel": true,
-          "minimizer": {
-            "options": {
-              "preset": [
-                "default",
-                {
-                  "mergeLonghand": false
-                }
-              ]
+        },
+        {
+          "options": {
+            "test": {},
+            "parallel": true,
+            "minimizer": {
+              "options": {
+                "preset": [
+                  "default",
+                  {
+                    "mergeLonghand": false
+                  }
+                ]
+              }
             }
           }
         }
-      }
-    ],
-    "runtimeChunk": "single",
-    "splitChunks": {
-      "chunks": "all",
-      "cacheGroups": {
-        "vendor": {
-          "chunks": "all",
-          "name": "vendor",
-          "test": {}
+      ],
+      "runtimeChunk": "single",
+      "splitChunks": {
+        "chunks": "all",
+        "cacheGroups": {
+          "vendor": {
+            "chunks": "all",
+            "name": "vendor",
+            "test": {}
+          }
         }
       }
-    }
-  },
-  "plugins": [
-    {
-      "config": {
-        "path": "./__fixtures__/.env.development.local",
-        "prefix": "process.env.",
-        "systemvars": true,
-        "silent": true
-      }
     },
-    {
-      "config": {
-        "path": "./__fixtures__/.env.development",
-        "prefix": "process.env.",
-        "systemvars": true,
-        "silent": true
-      }
-    },
-    {
-      "config": {
-        "path": "./__fixtures__/.env.local",
-        "prefix": "process.env.",
-        "systemvars": true,
-        "silent": true
-      }
-    },
-    {
-      "config": {
-        "path": "./__fixtures__/.env",
-        "prefix": "process.env.",
-        "systemvars": true,
-        "silent": true
-      }
-    },
-    {
-      "_sortedModulesCache": {},
-      "options": {
-        "filename": "[name].[contenthash:8].css",
-        "ignoreOrder": false,
-        "runtime": true,
-        "chunkFilename": "[name].[contenthash:8].chunk.css"
+    "plugins": [
+      {
+        "config": {
+          "path": "./__fixtures__/.env.production.local",
+          "prefix": "process.env.",
+          "systemvars": true,
+          "silent": true
+        }
       },
-      "runtimeOptions": {
-        "linkType": "text/css"
+      {
+        "config": {
+          "path": "./__fixtures__/.env.production",
+          "prefix": "process.env.",
+          "systemvars": true,
+          "silent": true
+        }
+      },
+      {
+        "config": {
+          "path": "./__fixtures__/.env.local",
+          "prefix": "process.env.",
+          "systemvars": true,
+          "silent": true
+        }
+      },
+      {
+        "config": {
+          "path": "./__fixtures__/.env",
+          "prefix": "process.env.",
+          "systemvars": true,
+          "silent": true
+        }
+      },
+      {
+        "_sortedModulesCache": {},
+        "options": {
+          "filename": "[name].[contenthash:8].css",
+          "ignoreOrder": false,
+          "runtime": true,
+          "chunkFilename": "[name].[contenthash:8].chunk.css"
+        },
+        "runtimeOptions": {
+          "linkType": "text/css"
+        }
       }
-    }
-  ]
-}"
+    ]
+  }
+]",
+  },
+  {
+    "devSnapshot": undefined,
+    "loader": "ts",
+    "prodSnapshot": "[
+  {
+    "mode": "production",
+    "output": {
+      "chunkFilename": "[name].[contenthash:8].chunk.js",
+      "filename": "[name].[contenthash:8].js"
+    },
+    "optimization": {
+      "minimize": true,
+      "minimizer": [
+        {
+          "options": {
+            "test": {},
+            "extractComments": true,
+            "parallel": true,
+            "minimizer": {
+              "options": {}
+            }
+          }
+        },
+        {
+          "options": {
+            "test": {},
+            "parallel": true,
+            "minimizer": {
+              "options": {
+                "preset": [
+                  "default",
+                  {
+                    "mergeLonghand": false
+                  }
+                ]
+              }
+            }
+          }
+        }
+      ],
+      "runtimeChunk": "single",
+      "splitChunks": {
+        "chunks": "all",
+        "cacheGroups": {
+          "vendor": {
+            "chunks": "all",
+            "name": "vendor",
+            "test": {}
+          }
+        }
+      }
+    },
+    "plugins": [
+      {
+        "config": {
+          "path": "./__fixtures__/.env.production.local",
+          "prefix": "process.env.",
+          "systemvars": true,
+          "silent": true
+        }
+      },
+      {
+        "config": {
+          "path": "./__fixtures__/.env.production",
+          "prefix": "process.env.",
+          "systemvars": true,
+          "silent": true
+        }
+      },
+      {
+        "config": {
+          "path": "./__fixtures__/.env.local",
+          "prefix": "process.env.",
+          "systemvars": true,
+          "silent": true
+        }
+      },
+      {
+        "config": {
+          "path": "./__fixtures__/.env",
+          "prefix": "process.env.",
+          "systemvars": true,
+          "silent": true
+        }
+      },
+      {
+        "_sortedModulesCache": {},
+        "options": {
+          "filename": "[name].[contenthash:8].css",
+          "ignoreOrder": false,
+          "runtime": true,
+          "chunkFilename": "[name].[contenthash:8].chunk.css"
+        },
+        "runtimeOptions": {
+          "linkType": "text/css"
+        }
+      }
+    ]
+  }
+]",
+  },
+  {
+    "devSnapshot": undefined,
+    "loader": "none",
+    "prodSnapshot": "[
+  {
+    "mode": "production",
+    "output": {
+      "chunkFilename": "[name].[contenthash:8].chunk.js",
+      "filename": "[name].[contenthash:8].js"
+    },
+    "optimization": {
+      "minimize": true,
+      "minimizer": [
+        {
+          "options": {
+            "test": {},
+            "extractComments": true,
+            "parallel": true,
+            "minimizer": {
+              "options": {}
+            }
+          }
+        },
+        {
+          "options": {
+            "test": {},
+            "parallel": true,
+            "minimizer": {
+              "options": {
+                "preset": [
+                  "default",
+                  {
+                    "mergeLonghand": false
+                  }
+                ]
+              }
+            }
+          }
+        }
+      ],
+      "runtimeChunk": "single",
+      "splitChunks": {
+        "chunks": "all",
+        "cacheGroups": {
+          "vendor": {
+            "chunks": "all",
+            "name": "vendor",
+            "test": {}
+          }
+        }
+      }
+    },
+    "plugins": [
+      {
+        "config": {
+          "path": "./__fixtures__/.env.production.local",
+          "prefix": "process.env.",
+          "systemvars": true,
+          "silent": true
+        }
+      },
+      {
+        "config": {
+          "path": "./__fixtures__/.env.production",
+          "prefix": "process.env.",
+          "systemvars": true,
+          "silent": true
+        }
+      },
+      {
+        "config": {
+          "path": "./__fixtures__/.env.local",
+          "prefix": "process.env.",
+          "systemvars": true,
+          "silent": true
+        }
+      },
+      {
+        "config": {
+          "path": "./__fixtures__/.env",
+          "prefix": "process.env.",
+          "systemvars": true,
+          "silent": true
+        }
+      },
+      {
+        "_sortedModulesCache": {},
+        "options": {
+          "filename": "[name].[contenthash:8].css",
+          "ignoreOrder": false,
+          "runtime": true,
+          "chunkFilename": "[name].[contenthash:8].chunk.css"
+        },
+        "runtimeOptions": {
+          "linkType": "text/css"
+        }
+      }
+    ]
+  }
+]",
+  },
+]
 `;
 
 exports[`webpackConfigs should return specific properties: specific properties 1`] = `
@@ -1007,6 +1347,9 @@ exports[`webpackConfigs should return specific properties: specific properties 1
   "common": [Function],
   "development": [Function],
   "preprocessLoader": [Function],
+  "preprocessLoaderJs": [Function],
+  "preprocessLoaderNone": [Function],
+  "preprocessLoaderTs": [Function],
   "production": [Function],
 }
 `;
