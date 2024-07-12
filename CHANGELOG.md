@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.1.0](https://github.com/cdcabrera/weldable/compare/948ebec876bfea2a9f9528c3763bda42bfef5952...737359a0571097477770edb988848d20ce4cdc4d) (2024-07-12)
+
+
+### Features
+* **cli** standalone option, output webpack config ([#70](https://github.com/cdcabrera/weldable/pull/70)) ([6c7c7ac](https://github.com/cdcabrera/weldable/commit/6c7c7ac79fcca95b81f990178d297e9262831cb5))
+
+### Code Refactoring
+*  expand dep injection, testing ([#72](https://github.com/cdcabrera/weldable/pull/72)) ([f2e8301](https://github.com/cdcabrera/weldable/commit/f2e830125f389ac290840093345cb88261b1ed5e))
+* **standalone** allow functionality breakout ([#71](https://github.com/cdcabrera/weldable/pull/71)) ([1950199](https://github.com/cdcabrera/weldable/commit/1950199fb7c65d357ba4965d19d7d39e415e9c6c))
+
+### Builds
+* **deps** bump group with 7 updates ([#74](https://github.com/cdcabrera/weldable/pull/74)) ([737359a](https://github.com/cdcabrera/weldable/commit/737359a0571097477770edb988848d20ce4cdc4d))
+* **deps** bump typescript from 5.5.2 to 5.5.3 ([#68](https://github.com/cdcabrera/weldable/pull/68)) ([09c86ed](https://github.com/cdcabrera/weldable/commit/09c86ed8f4be309d815f6eb1a464c81f6a8e6b76))
+
 ## [3.0.0](https://github.com/cdcabrera/weldable/compare/90b34b2eca838b46cbb5435693ea23a1b8a90220...714388c6235b5903a01b346f86d0c2ad1e3915cc) (2024-07-01)
 ⚠ BREAKING CHANGES
 
