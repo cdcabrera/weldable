@@ -308,6 +308,36 @@ A development start, and production build, using your own webpack configurations
      "build": "weldable -x ./webpack.yourCustomBuild.js -x ./webpack.productionBuild.js"
    }
    ```
+
+#### Use weldable to generate a webpack configuration 
+You can output the `weldable` webpack and support configuration files, plus the associated NPM packages and scripts into an existing
+or new project. These resources are current to any modifications made to `weldable` itself.
+
+> You'll need to have `weldable` installed, locally, globally or use `npx`.
+> Similar to `Create React Apps` ability of generating and "ejecting", but without the doom and gloom. You can always go back to `weldable`.
+
+To get the output...
+- Run the `--standalone` option.
+   ```
+   $ cd [into a directory to generate the configuration in]
+   $ npx weldable --standalone
+   ```
+- And that's it. You should now have a basic webpack configuration setup. If this is a new project you should be able to immediately use the new NPM scripts like `$ npm run standalone:start`.
+
+  > Files that are created, or modified, generally vary when the `--loader` option is used, for example: `$ npx weldable --standalone --loader=ts`
+  
+Changes include... 
+- A `webpack.config.js` file is created
+- A modified, or basic, `package.json` is created
+   - 2 NPM scripts should be added, both are prefixed with `standalone:`
+     - `standalone:build`
+     - `standalone:start`
+   - multiple developer dependencies should be added
+- A basic `hello world` `./src/index.[js|ts]` file is created, if none exists
+- Additional configuration may also be generated. Console output should provide a listing of all skipped, modified, and added files.
+
+After everything is generated feel free to move and modify the files as needed since you'll no longer need `weldable`.
+
 </details>
 
 <details>
