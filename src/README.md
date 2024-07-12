@@ -26,11 +26,11 @@
 
 * [dotenv](#module_dotenv)
     * [~dotenv](#module_dotenv..dotenv) : <code>Object</code>
-    * [~setupWebpackDotenvFile(filePath)](#module_dotenv..setupWebpackDotenvFile) ⇒ <code>undefined</code> \| <code>\*</code>
-    * [~setupWebpackDotenvFilesForEnv(params)](#module_dotenv..setupWebpackDotenvFilesForEnv) ⇒ <code>Array</code>
+    * [~setupWebpackDotenvFile(filePath, settings)](#module_dotenv..setupWebpackDotenvFile) ⇒ <code>undefined</code> \| <code>\*</code>
+    * [~setupWebpackDotenvFilesForEnv(params, settings)](#module_dotenv..setupWebpackDotenvFilesForEnv) ⇒ <code>Array</code>
     * [~setupDotenvFile(filePath)](#module_dotenv..setupDotenvFile) ⇒ <code>void</code>
     * [~setDotenvParam(params)](#module_dotenv..setDotenvParam)
-    * [~setupDotenvFilesForEnv(params)](#module_dotenv..setupDotenvFilesForEnv) ⇒ <code>object</code>
+    * [~setupDotenvFilesForEnv(params, settings)](#module_dotenv..setupDotenvFilesForEnv) ⇒ <code>object</code>
 
 <a name="module_dotenv..dotenv"></a>
 
@@ -40,7 +40,7 @@ Package for lib
 **Kind**: inner constant of [<code>dotenv</code>](#module_dotenv)  
 <a name="module_dotenv..setupWebpackDotenvFile"></a>
 
-### dotenv~setupWebpackDotenvFile(filePath) ⇒ <code>undefined</code> \| <code>\*</code>
+### dotenv~setupWebpackDotenvFile(filePath, settings) ⇒ <code>undefined</code> \| <code>\*</code>
 Set up a webpack dotenv plugin config.
 
 **Kind**: inner method of [<code>dotenv</code>](#module_dotenv)  
@@ -53,12 +53,16 @@ Set up a webpack dotenv plugin config.
   <tbody>
 <tr>
     <td>filePath</td><td><code>string</code></td>
+    </tr><tr>
+    <td>settings</td><td><code>object</code></td>
+    </tr><tr>
+    <td>settings.consoleMessage</td><td><code>object</code></td>
     </tr>  </tbody>
 </table>
 
 <a name="module_dotenv..setupWebpackDotenvFilesForEnv"></a>
 
-### dotenv~setupWebpackDotenvFilesForEnv(params) ⇒ <code>Array</code>
+### dotenv~setupWebpackDotenvFilesForEnv(params, settings) ⇒ <code>Array</code>
 For use with webpack configurations. Set up multiple webpack dotenv file parameters.
 
 **Kind**: inner method of [<code>dotenv</code>](#module_dotenv)  
@@ -75,6 +79,12 @@ For use with webpack configurations. Set up multiple webpack dotenv file paramet
     <td>[params.directory]</td><td><code>string</code></td><td><code>&quot;&lt;OPTIONS.contextPath&gt;&quot;</code></td>
     </tr><tr>
     <td>params.env</td><td><code>string</code></td><td></td>
+    </tr><tr>
+    <td>settings</td><td><code>object</code></td><td></td>
+    </tr><tr>
+    <td>settings.consoleMessage</td><td><code>object</code></td><td></td>
+    </tr><tr>
+    <td>settings.setupWebpackDotenvFile</td><td><code>function</code></td><td></td>
     </tr>  </tbody>
 </table>
 
@@ -116,7 +126,7 @@ Set an array of dotenv params
 
 <a name="module_dotenv..setupDotenvFilesForEnv"></a>
 
-### dotenv~setupDotenvFilesForEnv(params) ⇒ <code>object</code>
+### dotenv~setupDotenvFilesForEnv(params, settings) ⇒ <code>object</code>
 A function for use with non-webpack configurations. Set up and access local and specific dotenv file parameters.
 dotenv parameters are string based, failed or missing dotenv parameters return an empty string.
 
@@ -144,6 +154,14 @@ dotenv parameters are string based, failed or missing dotenv parameters return a
     </tr><tr>
     <td>[params.setExposedParams]</td><td><code>boolean</code></td><td><code>false</code></td><td><p>Ignore the potential for dotenv parameter overlap and attempt to set non-prefixed configuration parameters if not already set.</p>
 </td>
+    </tr><tr>
+    <td>settings</td><td><code>object</code></td><td></td><td></td>
+    </tr><tr>
+    <td>settings.consoleMessage</td><td><code>object</code></td><td></td><td></td>
+    </tr><tr>
+    <td>settings.setDotenvParam</td><td><code>function</code></td><td></td><td></td>
+    </tr><tr>
+    <td>settings.setupDotenvFile</td><td><code>function</code></td><td></td><td></td>
     </tr>  </tbody>
 </table>
 
@@ -299,7 +317,7 @@ Start `weldable`
 
 <a name="module_Init..weldable"></a>
 
-### Init~weldable(options) ⇒ <code>Promise.&lt;void&gt;</code>
+### Init~weldable(options, settings) ⇒ <code>Promise.&lt;void&gt;</code>
 Organize package functionality.
 
 **Kind**: inner method of [<code>Init</code>](#module_Init)  
@@ -316,6 +334,18 @@ Organize package functionality.
     <td>options.isCreateTsConfigOnly</td><td><code>boolean</code></td>
     </tr><tr>
     <td>options.isStandalone</td><td><code>boolean</code></td>
+    </tr><tr>
+    <td>settings</td><td><code>object</code></td>
+    </tr><tr>
+    <td>settings.cleanDist</td><td><code>function</code></td>
+    </tr><tr>
+    <td>settings.createTsConfig</td><td><code>function</code></td>
+    </tr><tr>
+    <td>settings.createWpConfig</td><td><code>function</code></td>
+    </tr><tr>
+    <td>settings.standalone</td><td><code>function</code></td>
+    </tr><tr>
+    <td>settings.startWp</td><td><code>function</code></td>
     </tr>  </tbody>
 </table>
 
@@ -344,7 +374,7 @@ Convenience wrapper for preset console messaging and colors.
 ## standalone
 
 * [standalone](#module_standalone)
-    * [~createStandaloneTsConfig(aliasOptions, CreateTsConfig)](#module_standalone..createStandaloneTsConfig)
+    * [~createStandaloneTsConfig(aliasOptions, settings)](#module_standalone..createStandaloneTsConfig)
     * [~outputStandaloneSrcIndexFile()](#module_standalone..outputStandaloneSrcIndexFile) ⇒ <code>string</code>
     * [~createStandaloneSrcIndexFile(options, settings)](#module_standalone..createStandaloneSrcIndexFile)
     * [~outputStandaloneWebpackConfig(options, settings)](#module_standalone..outputStandaloneWebpackConfig) ⇒ <code>string</code>
@@ -357,7 +387,7 @@ Convenience wrapper for preset console messaging and colors.
 
 <a name="module_standalone..createStandaloneTsConfig"></a>
 
-### standalone~createStandaloneTsConfig(aliasOptions, CreateTsConfig)
+### standalone~createStandaloneTsConfig(aliasOptions, settings)
 Create a basic standalone tsconfig if isCreateTsConfig is false.
 This can be overridden with CLI options, or if a tsconfig already exists.
 
@@ -376,7 +406,13 @@ This can be overridden with CLI options, or if a tsconfig already exists.
     </tr><tr>
     <td>aliasOptions.loader</td><td><code>string</code></td>
     </tr><tr>
-    <td>CreateTsConfig</td><td><code>function</code></td>
+    <td>settings</td><td><code>object</code></td>
+    </tr><tr>
+    <td>settings.configFilename</td><td><code>string</code></td>
+    </tr><tr>
+    <td>settings.consoleMessage</td><td><code>object</code></td>
+    </tr><tr>
+    <td>settings.createTsConfig</td><td><code>function</code></td>
     </tr>  </tbody>
 </table>
 
@@ -410,7 +446,13 @@ Create a src/index file for webpack app entry.
     </tr><tr>
     <td>settings.filename</td><td><code>string</code></td>
     </tr><tr>
+    <td>settings.consoleMessage</td><td><code>object</code></td>
+    </tr><tr>
     <td>settings.createFile</td><td><code>function</code></td>
+    </tr><tr>
+    <td>settings.jsFileExtensions</td><td><code>Array.&lt;string&gt;</code></td>
+    </tr><tr>
+    <td>settings.tsFileExtensions</td><td><code>Array.&lt;string&gt;</code></td>
     </tr><tr>
     <td>settings.outputStandaloneSrcIndexFile</td><td><code>function</code></td>
     </tr>  </tbody>
@@ -457,6 +499,10 @@ Output a file complete webpack configuration
     <td>settings.setupDotenvFile</td><td><code>function</code></td>
     </tr><tr>
     <td>settings.setupDotenvFilesForEnv</td><td><code>function</code></td>
+    </tr><tr>
+    <td>settings.jsFileExtensions</td><td><code>Array.&lt;string&gt;</code></td>
+    </tr><tr>
+    <td>settings.tsFileExtensions</td><td><code>Array.&lt;string&gt;</code></td>
     </tr>  </tbody>
 </table>
 
@@ -481,6 +527,8 @@ Update package.json, and conditionally a babel config, in the consuming project 
     <td>settings</td><td><code>object</code></td>
     </tr><tr>
     <td>settings.filename</td><td><code>string</code></td>
+    </tr><tr>
+    <td>settings.consoleMessage</td><td><code>object</code></td>
     </tr><tr>
     <td>settings.createFile</td><td><code>function</code></td>
     </tr><tr>
@@ -515,6 +563,8 @@ Update package.json, and conditionally a babel config, in the consuming project 
     <td>options.loader</td><td><code>string</code></td>
     </tr><tr>
     <td>settings</td><td><code>object</code></td>
+    </tr><tr>
+    <td>settings.consoleMessage</td><td><code>object</code></td>
     </tr><tr>
     <td>settings.createFile</td><td><code>function</code></td>
     </tr><tr>
@@ -556,6 +606,8 @@ Create a basic babel config
     </tr><tr>
     <td>settings</td><td><code>object</code></td>
     </tr><tr>
+    <td>settings.consoleMessage</td><td><code>object</code></td>
+    </tr><tr>
     <td>settings.createFile</td><td><code>function</code></td>
     </tr><tr>
     <td>settings.filename</td><td><code>string</code></td>
@@ -579,6 +631,8 @@ Organize and output a basic webpack configuration.
   <tbody>
 <tr>
     <td>settings</td><td><code>object</code></td>
+    </tr><tr>
+    <td>settings.consoleMessage</td><td><code>object</code></td>
     </tr><tr>
     <td>settings.createStandaloneBabelConfig</td><td><code>function</code></td>
     </tr><tr>
@@ -629,6 +683,10 @@ Create, or merge, a tsconfig file.
     </tr><tr>
     <td>settings.configFilename</td><td><code>string</code></td><td></td>
     </tr><tr>
+    <td>settings.consoleMessage</td><td><code>object</code></td><td></td>
+    </tr><tr>
+    <td>settings.createFile</td><td><code>function</code></td><td></td>
+    </tr><tr>
     <td>settings.isMessaging</td><td><code>boolean</code></td><td><p>Helps with standalone configuration</p>
 </td>
     </tr>  </tbody>
@@ -640,8 +698,8 @@ Create, or merge, a tsconfig file.
 
 * [webpack](#module_webpack)
     * [~cleanDist(dotenv)](#module_webpack..cleanDist)
-    * [~createWpConfig(options)](#module_webpack..createWpConfig) ⇒ <code>Promise.&lt;object&gt;</code>
-    * [~startWpErrorStatsHandler(err, stats, options)](#module_webpack..startWpErrorStatsHandler)
+    * [~createWpConfig(options, settings)](#module_webpack..createWpConfig) ⇒ <code>Promise.&lt;object&gt;</code>
+    * [~startWpErrorStatsHandler(err, stats, options, settings)](#module_webpack..startWpErrorStatsHandler)
     * [~startWp(webpackConfig, options, settings)](#module_webpack..startWp) ⇒ <code>Promise.&lt;void&gt;</code>
 
 <a name="module_webpack..cleanDist"></a>
@@ -666,7 +724,7 @@ Clean the "distribution" directory. Compensate for Webpack not cleaning output o
 
 <a name="module_webpack..createWpConfig"></a>
 
-### webpack~createWpConfig(options) ⇒ <code>Promise.&lt;object&gt;</code>
+### webpack~createWpConfig(options, settings) ⇒ <code>Promise.&lt;object&gt;</code>
 Webpack merge base configuration files. If available merge extended configuration files.
 
 **Kind**: inner method of [<code>webpack</code>](#module_webpack)  
@@ -685,12 +743,28 @@ Webpack merge base configuration files. If available merge extended configuratio
     <td>options.dotenv</td><td><code>object</code></td>
     </tr><tr>
     <td>options.extendedConfigs</td><td><code>Array.&lt;string&gt;</code></td>
+    </tr><tr>
+    <td>settings</td><td><code>object</code></td>
+    </tr><tr>
+    <td>settings.consoleMessage</td><td><code>function</code></td>
+    </tr><tr>
+    <td>settings.dynamicImport</td><td><code>function</code></td>
+    </tr><tr>
+    <td>settings.isPromise</td><td><code>function</code></td>
+    </tr><tr>
+    <td>settings.webpackCommonConfig</td><td><code>function</code></td>
+    </tr><tr>
+    <td>settings.webpackDevelopmentConfig</td><td><code>function</code></td>
+    </tr><tr>
+    <td>settings.webpackPreprocessLoaderConfig</td><td><code>function</code></td>
+    </tr><tr>
+    <td>settings.webpackProductionConfig</td><td><code>function</code></td>
     </tr>  </tbody>
 </table>
 
 <a name="module_webpack..startWpErrorStatsHandler"></a>
 
-### webpack~startWpErrorStatsHandler(err, stats, options)
+### webpack~startWpErrorStatsHandler(err, stats, options, settings)
 webpack callback error and stats handler. Separated for testing.
 
 **Kind**: inner method of [<code>webpack</code>](#module_webpack)  
@@ -713,6 +787,16 @@ webpack callback error and stats handler. Separated for testing.
     <td>options.statsFile</td><td><code>undefined</code> | <code>string</code></td>
     </tr><tr>
     <td>options.statsPath</td><td><code>undefined</code> | <code>string</code></td>
+    </tr><tr>
+    <td>settings</td><td><code>object</code></td>
+    </tr><tr>
+    <td>settings.color</td><td><code>object</code></td>
+    </tr><tr>
+    <td>settings.consoleMessage</td><td><code>function</code></td>
+    </tr><tr>
+    <td>settings.createFile</td><td><code>function</code></td>
+    </tr><tr>
+    <td>settings.errorMessageHandler</td><td><code>function</code></td>
     </tr>  </tbody>
 </table>
 
@@ -738,6 +822,8 @@ Start webpack development or production.
     </tr><tr>
     <td>settings</td><td><code>object</code></td>
     </tr><tr>
+    <td>settings.consoleMessage</td><td><code>function</code></td>
+    </tr><tr>
     <td>settings.startWpErrorStatsHandler</td><td><code>function</code></td>
     </tr><tr>
     <td>settings.webpack</td><td><code>function</code></td>
@@ -751,17 +837,17 @@ Start webpack development or production.
 ## webpackConfigs
 
 * [webpackConfigs](#module_webpackConfigs)
-    * [~preprocessLoaderJs(dotenv)](#module_webpackConfigs..preprocessLoaderJs) ⇒ <code>Object</code>
-    * [~preprocessLoaderTs(dotenv)](#module_webpackConfigs..preprocessLoaderTs) ⇒ <code>Object</code>
+    * [~preprocessLoaderJs(dotenv, settings)](#module_webpackConfigs..preprocessLoaderJs) ⇒ <code>Object</code>
+    * [~preprocessLoaderTs(dotenv, settings)](#module_webpackConfigs..preprocessLoaderTs) ⇒ <code>Object</code>
     * [~preprocessLoaderNone()](#module_webpackConfigs..preprocessLoaderNone) ⇒ <code>Object</code>
     * [~preprocessLoader(options)](#module_webpackConfigs..preprocessLoader) ⇒ <code>Object</code>
-    * [~common(dotenv)](#module_webpackConfigs..common) ⇒ <code>Object</code>
-    * [~development(dotenv)](#module_webpackConfigs..development) ⇒ <code>Object</code>
-    * [~production(dotenv)](#module_webpackConfigs..production) ⇒ <code>Object</code>
+    * [~common(dotenv, settings)](#module_webpackConfigs..common) ⇒ <code>Object</code>
+    * [~development(dotenv, settings)](#module_webpackConfigs..development) ⇒ <code>Object</code>
+    * [~production(dotenv, settings)](#module_webpackConfigs..production) ⇒ <code>Object</code>
 
 <a name="module_webpackConfigs..preprocessLoaderJs"></a>
 
-### webpackConfigs~preprocessLoaderJs(dotenv) ⇒ <code>Object</code>
+### webpackConfigs~preprocessLoaderJs(dotenv, settings) ⇒ <code>Object</code>
 Assumption based preprocess loader for JS
 
 **Kind**: inner method of [<code>webpackConfigs</code>](#module_webpackConfigs)  
@@ -776,12 +862,16 @@ Assumption based preprocess loader for JS
     <td>dotenv</td><td><code>object</code></td>
     </tr><tr>
     <td>dotenv._BUILD_SRC_DIR</td><td><code>string</code></td>
+    </tr><tr>
+    <td>settings</td><td><code>object</code></td>
+    </tr><tr>
+    <td>settings.jsFileExtensions</td><td><code>Array.&lt;string&gt;</code></td>
     </tr>  </tbody>
 </table>
 
 <a name="module_webpackConfigs..preprocessLoaderTs"></a>
 
-### webpackConfigs~preprocessLoaderTs(dotenv) ⇒ <code>Object</code>
+### webpackConfigs~preprocessLoaderTs(dotenv, settings) ⇒ <code>Object</code>
 Assumption based preprocess loader for Typescript
 
 **Kind**: inner method of [<code>webpackConfigs</code>](#module_webpackConfigs)  
@@ -796,6 +886,12 @@ Assumption based preprocess loader for Typescript
     <td>dotenv</td><td><code>object</code></td>
     </tr><tr>
     <td>dotenv._BUILD_SRC_DIR</td><td><code>string</code></td>
+    </tr><tr>
+    <td>settings</td><td><code>object</code></td>
+    </tr><tr>
+    <td>settings.jsFileExtensions</td><td><code>Array.&lt;string&gt;</code></td>
+    </tr><tr>
+    <td>settings.tsFileExtensions</td><td><code>Array.&lt;string&gt;</code></td>
     </tr>  </tbody>
 </table>
 
@@ -827,7 +923,7 @@ Assumption based preprocess loader
 
 <a name="module_webpackConfigs..common"></a>
 
-### webpackConfigs~common(dotenv) ⇒ <code>Object</code>
+### webpackConfigs~common(dotenv, settings) ⇒ <code>Object</code>
 Common webpack settings between environments.
 
 **Kind**: inner method of [<code>webpackConfigs</code>](#module_webpackConfigs)  
@@ -856,12 +952,22 @@ Common webpack settings between environments.
     <td>dotenv._BUILD_STATIC_DIR</td><td><code>string</code></td>
     </tr><tr>
     <td>dotenv._BUILD_UI_NAME</td><td><code>string</code></td>
+    </tr><tr>
+    <td>settings</td><td><code>object</code></td>
+    </tr><tr>
+    <td>settings.consoleMessage</td><td><code>object</code></td>
+    </tr><tr>
+    <td>settings.jsFileExtensions</td><td><code>Array.&lt;string&gt;</code></td>
+    </tr><tr>
+    <td>settings.setupWebpackDotenvFilesForEnv</td><td><code>function</code></td>
+    </tr><tr>
+    <td>settings.tsFileExtensions</td><td><code>Array.&lt;string&gt;</code></td>
     </tr>  </tbody>
 </table>
 
 <a name="module_webpackConfigs..development"></a>
 
-### webpackConfigs~development(dotenv) ⇒ <code>Object</code>
+### webpackConfigs~development(dotenv, settings) ⇒ <code>Object</code>
 Development webpack configuration.
 
 **Kind**: inner method of [<code>webpackConfigs</code>](#module_webpackConfigs)  
@@ -892,12 +998,16 @@ Development webpack configuration.
     <td>dotenv._BUILD_SRC_DIR</td><td><code>string</code></td>
     </tr><tr>
     <td>dotenv._BUILD_STATIC_DIR</td><td><code>string</code></td>
+    </tr><tr>
+    <td>settings</td><td><code>object</code></td>
+    </tr><tr>
+    <td>settings.setupWebpackDotenvFilesForEnv</td><td><code>function</code></td>
     </tr>  </tbody>
 </table>
 
 <a name="module_webpackConfigs..production"></a>
 
-### webpackConfigs~production(dotenv) ⇒ <code>Object</code>
+### webpackConfigs~production(dotenv, settings) ⇒ <code>Object</code>
 Production webpack configuration.
 
 **Kind**: inner method of [<code>webpackConfigs</code>](#module_webpackConfigs)  
@@ -914,6 +1024,10 @@ Production webpack configuration.
     <td>dotenv.NODE_ENV</td><td><code>string</code></td>
     </tr><tr>
     <td>dotenv._BUILD_RELATIVE_DIRNAME</td><td><code>string</code></td>
+    </tr><tr>
+    <td>settings</td><td><code>object</code></td>
+    </tr><tr>
+    <td>settings.setupWebpackDotenvFilesForEnv</td><td><code>function</code></td>
     </tr>  </tbody>
 </table>
 

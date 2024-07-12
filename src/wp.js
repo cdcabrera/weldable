@@ -29,14 +29,37 @@ const cleanDist = ({ _BUILD_DIST_DIR: DIST_DIR } = OPTIONS.dotenv || {}) => {
  * @param {string} options.nodeEnv
  * @param {object} options.dotenv
  * @param {Array<string>} options.extendedConfigs
+ * @param {object} settings
+ * @param {Function} settings.consoleMessage
+ * @param {Function} settings.dynamicImport
+ * @param {Function} settings.isPromise
+ * @param {Function} settings.webpackCommonConfig
+ * @param {Function} settings.webpackDevelopmentConfig
+ * @param {Function} settings.webpackPreprocessLoaderConfig
+ * @param {Function} settings.webpackProductionConfig
  * @returns {Promise<object>}
  */
-const createWpConfig = async ({ nodeEnv, dotenv = {}, extendedConfigs } = OPTIONS) => {
-  const baseConfigs = [common(), preprocessLoader(), (nodeEnv === 'development' && development()) || production()];
+const createWpConfig = async (
+  { nodeEnv, dotenv = {}, extendedConfigs } = OPTIONS,
+  {
+    consoleMessage: aliasConsoleMessage = consoleMessage,
+    dynamicImport: aliasDynamicImport = dynamicImport,
+    isPromise: aliasIsPromise = isPromise,
+    webpackCommonConfig = common,
+    webpackDevelopmentConfig = development,
+    webpackPreprocessLoaderConfig = preprocessLoader,
+    webpackProductionConfig = production
+  } = {}
+) => {
+  const baseConfigs = [
+    webpackCommonConfig(),
+    webpackPreprocessLoaderConfig(),
+    (nodeEnv === 'development' && webpackDevelopmentConfig()) || webpackProductionConfig()
+  ];
   const extended = [];
 
   if (Array.isArray(extendedConfigs) && extendedConfigs?.length) {
-    const result = await Promise.allSettled(extendedConfigs.map(arg => dynamicImport(arg)));
+    const result = await Promise.allSettled(extendedConfigs.map(arg => aliasDynamicImport(arg)));
 
     // Filter initial file results for fulfilled and actual values
     const filteredResults = result.filter(({ status, value }, index) => {
@@ -44,7 +67,7 @@ const createWpConfig = async ({ nodeEnv, dotenv = {}, extendedConfigs } = OPTION
       const isValue = !!value;
 
       if (!isFulfilled || !isValue) {
-        consoleMessage.warn(`Error loading, ${extendedConfigs[index]}`);
+        aliasConsoleMessage.warn(`Error loading, ${extendedConfigs[index]}`);
       }
 
       return isFulfilled && isValue;
@@ -55,7 +78,7 @@ const createWpConfig = async ({ nodeEnv, dotenv = {}, extendedConfigs } = OPTION
       filteredResults.map(({ value }) => {
         const defaultValue = value?.default || value;
 
-        if (isPromise(defaultValue) || typeof defaultValue === 'function') {
+        if (aliasIsPromise(defaultValue) || typeof defaultValue === 'function') {
           return defaultValue(dotenv);
         }
 
@@ -88,25 +111,40 @@ const createWpConfig = async ({ nodeEnv, dotenv = {}, extendedConfigs } = OPTION
  * @param {undefined|string} options.stats
  * @param {undefined|string} options.statsFile
  * @param {undefined|string} options.statsPath
+ * @param {object} settings
+ * @param {object} settings.color
+ * @param {Function} settings.consoleMessage
+ * @param {Function} settings.createFile
+ * @param {Function} settings.errorMessageHandler
  */
-const startWpErrorStatsHandler = (err, stats, { stats: statsLevel, statsFile, statsPath } = OPTIONS) => {
+const startWpErrorStatsHandler = (
+  err,
+  stats,
+  { stats: statsLevel, statsFile, statsPath } = OPTIONS,
+  {
+    color: aliasColor = color,
+    consoleMessage: aliasConsoleMessage = consoleMessage,
+    createFile: aliasCreateFile = createFile,
+    errorMessageHandler: aliasErrorMessageHandler = errorMessageHandler
+  } = {}
+) => {
   if (err) {
-    consoleMessage.error('Production build errors...', errorMessageHandler(err));
+    aliasConsoleMessage.error('Production build errors...', aliasErrorMessageHandler(err));
     return;
   }
 
   if (stats?.toJson && statsFile && statsPath) {
-    createFile(JSON.stringify(stats.toJson(statsLevel), null, 2), {
+    aliasCreateFile(JSON.stringify(stats.toJson(statsLevel), null, 2), {
       dir: statsPath,
       filename: statsFile
     });
-    consoleMessage.success('Stats file created');
+    aliasConsoleMessage.success('Stats file created');
   }
 
   if (stats?.hasErrors && stats.hasErrors()) {
-    const compileErrors = errorMessageHandler(stats?.compilation?.errors);
+    const compileErrors = aliasErrorMessageHandler(stats?.compilation?.errors);
 
-    consoleMessage.error(
+    aliasConsoleMessage.error(
       'Production compile errors...',
       ...((Array.isArray(compileErrors) && compileErrors) || [compileErrors])
     );
@@ -120,13 +158,13 @@ const startWpErrorStatsHandler = (err, stats, { stats: statsLevel, statsFile, st
       .map(v => (!/^\s*/.test(v) && ` * ${v}`) || `  ${v}`)
       .join('\n');
 
-    consoleMessage.log(
-      `Stats level ${color.YELLOW || ''}${statsLevel}${color.NOCOLOR || ''}...`,
+    aliasConsoleMessage.log(
+      `Stats level ${aliasColor.YELLOW || ''}${statsLevel}${aliasColor.NOCOLOR || ''}...`,
       (formattedStats.trim() === '' && '  No stats output') || formattedStats
     );
   }
 
-  consoleMessage.success('Build completed');
+  aliasConsoleMessage.success('Build completed');
 };
 
 /**
@@ -136,6 +174,7 @@ const startWpErrorStatsHandler = (err, stats, { stats: statsLevel, statsFile, st
  * @param {object} options
  * @param {string} options.nodeEnv
  * @param {object} settings
+ * @param {Function} settings.consoleMessage
  * @param {Function} settings.startWpErrorStatsHandler
  * @param {Function} settings.webpack
  * @param {Function} settings.WebpackDevServer
@@ -145,20 +184,21 @@ const startWp = async (
   webpackConfig,
   { nodeEnv } = OPTIONS,
   {
+    consoleMessage: aliasConsoleMessage = consoleMessage,
     startWpErrorStatsHandler: aliasStartWpErrorStatsHandler = startWpErrorStatsHandler,
     webpack: aliasWebpack = webpack,
     WebpackDevServer: AliasWebpackDevServer = WebpackDevServer
   } = {}
 ) => {
   if (webpackConfig?.devServer && nodeEnv === 'development') {
-    consoleMessage.info('Development starting....');
+    aliasConsoleMessage.info('Development starting....');
     const compiler = aliasWebpack(webpackConfig);
     const server = new AliasWebpackDevServer(webpackConfig.devServer, compiler);
     await server.start();
     return;
   }
 
-  consoleMessage.info('Production build starting....');
+  aliasConsoleMessage.info('Production build starting....');
 
   aliasWebpack(webpackConfig, (err, stats) => {
     aliasStartWpErrorStatsHandler(err, stats);

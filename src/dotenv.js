@@ -12,9 +12,11 @@ const { OPTIONS } = require('./global');
  * Set up a webpack dotenv plugin config.
  *
  * @param {string} filePath
+ * @param {object} settings
+ * @param {object} settings.consoleMessage
  * @returns {undefined|*}
  */
-const setupWebpackDotenvFile = filePath => {
+const setupWebpackDotenvFile = (filePath, { consoleMessage: aliasConsoleMessage = consoleMessage } = {}) => {
   const settings = {
     systemvars: true,
     silent: true
@@ -29,7 +31,7 @@ const setupWebpackDotenvFile = filePath => {
     const DotEnv = require('dotenv-webpack');
     return new DotEnv(settings);
   } catch (e) {
-    consoleMessage.warn(`Failed loading dotenv-webpack package: ${e.message}`);
+    aliasConsoleMessage.warn(`Failed loading dotenv-webpack package: ${e.message}`);
   }
 
   return undefined;
@@ -41,21 +43,30 @@ const setupWebpackDotenvFile = filePath => {
  * @param {object} params
  * @param {string} [params.directory=<OPTIONS.contextPath>]
  * @param {string} params.env
+ * @param {object} settings
+ * @param {object} settings.consoleMessage
+ * @param {Function} settings.setupWebpackDotenvFile
  * @returns {Array}
  */
-const setupWebpackDotenvFilesForEnv = ({ directory = OPTIONS.contextPath, env } = {}) => {
+const setupWebpackDotenvFilesForEnv = (
+  { directory = OPTIONS.contextPath, env } = {},
+  {
+    consoleMessage: aliasConsoleMessage = consoleMessage,
+    setupWebpackDotenvFile: aliasSetupWebpackDotenvFile = setupWebpackDotenvFile
+  } = {}
+) => {
   const dotenvWebpackSettings = [];
 
   try {
     if (env) {
-      dotenvWebpackSettings.push(setupWebpackDotenvFile(path.resolve(directory, `.env.${env}.local`)));
-      dotenvWebpackSettings.push(setupWebpackDotenvFile(path.resolve(directory, `.env.${env}`)));
+      dotenvWebpackSettings.push(aliasSetupWebpackDotenvFile(path.resolve(directory, `.env.${env}.local`)));
+      dotenvWebpackSettings.push(aliasSetupWebpackDotenvFile(path.resolve(directory, `.env.${env}`)));
     }
 
-    dotenvWebpackSettings.push(setupWebpackDotenvFile(path.resolve(directory, '.env.local')));
-    dotenvWebpackSettings.push(setupWebpackDotenvFile(path.resolve(directory, '.env')));
+    dotenvWebpackSettings.push(aliasSetupWebpackDotenvFile(path.resolve(directory, '.env.local')));
+    dotenvWebpackSettings.push(aliasSetupWebpackDotenvFile(path.resolve(directory, '.env')));
   } catch (e) {
-    consoleMessage.warn(`setupWebpackDotenvFilesForEnv: ${e.message}`);
+    aliasConsoleMessage.warn(`setupWebpackDotenvFilesForEnv: ${e.message}`);
   }
 
   return dotenvWebpackSettings;
@@ -98,30 +109,41 @@ const setDotenvParam = (params = []) => {
  * @param {boolean} [params.setBuildDefaults=true]
  * @param {boolean} [params.isMessaging=false]
  * @param {boolean} [params.setExposedParams=false] Ignore the potential for dotenv parameter overlap and attempt to set non-prefixed configuration parameters if not already set.
+ * @param {object} settings
+ * @param {object} settings.consoleMessage
+ * @param {Function} settings.setDotenvParam
+ * @param {Function} settings.setupDotenvFile
  * @returns {object}
  */
-const setupDotenvFilesForEnv = ({
-  env,
-  relativePath = OPTIONS.contextPath,
-  dotenvNamePrefix = 'BUILD',
-  setBuildDefaults = true,
-  isMessaging = false,
-  setExposedParams = false
-} = {}) => {
+const setupDotenvFilesForEnv = (
+  {
+    env,
+    relativePath = OPTIONS.contextPath,
+    dotenvNamePrefix = 'BUILD',
+    setBuildDefaults = true,
+    isMessaging = false,
+    setExposedParams = false
+  } = {},
+  {
+    consoleMessage: aliasConsoleMessage = consoleMessage,
+    setDotenvParam: aliasSetDotenvParam = setDotenvParam,
+    setupDotenvFile: aliasSetupDotenvFile = setupDotenvFile
+  } = {}
+) => {
   if (isMessaging) {
-    consoleMessage.info(`Parsing dotenv files at: ${relativePath}`);
+    aliasConsoleMessage.info(`Parsing dotenv files at: ${relativePath}`);
   }
 
   try {
     if (env) {
-      setupDotenvFile(path.resolve(relativePath, `.env.${env}.local`));
-      setupDotenvFile(path.resolve(relativePath, `.env.${env}`));
+      aliasSetupDotenvFile(path.resolve(relativePath, `.env.${env}.local`));
+      aliasSetupDotenvFile(path.resolve(relativePath, `.env.${env}`));
     }
 
-    setupDotenvFile(path.resolve(relativePath, '.env.local'));
-    setupDotenvFile(path.resolve(relativePath, '.env'));
+    aliasSetupDotenvFile(path.resolve(relativePath, '.env.local'));
+    aliasSetupDotenvFile(path.resolve(relativePath, '.env'));
   } catch (e) {
-    consoleMessage.warn(`setupDotenvFilesForEnv: ${e.message}`);
+    aliasConsoleMessage.warn(`setupDotenvFilesForEnv: ${e.message}`);
   }
 
   if (setBuildDefaults) {
@@ -163,13 +185,13 @@ const setupDotenvFilesForEnv = ({
 
     if (!process.env.NODE_ENV && env) {
       if (isMessaging) {
-        consoleMessage.info(`Setting NODE_ENV: ${env}`);
+        aliasConsoleMessage.info(`Setting NODE_ENV: ${env}`);
       }
 
       process.env.NODE_ENV = env;
     }
 
-    setDotenvParam([
+    aliasSetDotenvParam([
       { param: `_${dotenvNamePrefix}_APP_INDEX_PREFIX`, value: APP_INDEX_PREFIX },
       { param: `_${dotenvNamePrefix}_DIST_DIR`, value: DIST_DIR },
       { param: `_${dotenvNamePrefix}_ENV`, value: process.env.NODE_ENV },
@@ -185,7 +207,7 @@ const setupDotenvFilesForEnv = ({
     ]);
 
     if (setExposedParams) {
-      setDotenvParam([
+      aliasSetDotenvParam([
         { param: `APP_INDEX_PREFIX`, value: APP_INDEX_PREFIX, ignoreIfSet: true },
         { param: `DIST_DIR`, value: DIST_DIR, ignoreIfSet: true },
         { param: `HOST`, value: HOST, ignoreIfSet: true },

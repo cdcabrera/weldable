@@ -1,5 +1,29 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Logger should allow multiple console methods: error 1`] = `
+[
+  [
+    "[31merror message[0m",
+  ],
+]
+`;
+
+exports[`Logger should allow multiple console methods: info 1`] = `
+[
+  [
+    "[34minfo message[0m",
+  ],
+]
+`;
+
+exports[`Logger should allow multiple console methods: warn 1`] = `
+[
+  [
+    "[33mwarn message[0m",
+  ],
+]
+`;
+
 exports[`Logger should return specific properties: specific properties 1`] = `
 {
   "color": {
