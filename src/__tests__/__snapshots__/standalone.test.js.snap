@@ -73,7 +73,7 @@ exports[`standalone should attempt to createStandalonePackageJson for multiple l
       "[34m    * dotenv-webpack@^8.1.0[0m",
     ],
     [
-      "[34m    * webpack-merge@^5.10.0[0m",
+      "[34m    * webpack-merge@^6.0.1[0m",
     ],
     [
       "[34m    * copy-webpack-plugin@^12.0.2[0m",
@@ -150,13 +150,13 @@ exports[`standalone should attempt to createStandalonePackageJson for multiple l
       "[34m    * webpack-dev-server@^5.0.4[0m",
     ],
     [
-      "[34m    * @babel/core@7.24.7[0m",
+      "[34m    * @babel/core@7.24.8[0m",
     ],
     [
       "[34m    * babel-loader@^9.1.3[0m",
     ],
     [
-      "[34m    * @babel/preset-env@^7.24.7[0m",
+      "[34m    * @babel/preset-env@^7.24.8[0m",
     ],
     [
       "[34m    * dotenv@^16.4.5[0m",
@@ -168,7 +168,7 @@ exports[`standalone should attempt to createStandalonePackageJson for multiple l
       "[34m    * dotenv-webpack@^8.1.0[0m",
     ],
     [
-      "[34m    * webpack-merge@^5.10.0[0m",
+      "[34m    * webpack-merge@^6.0.1[0m",
     ],
     [
       "[34m    * copy-webpack-plugin@^12.0.2[0m",
@@ -261,7 +261,7 @@ exports[`standalone should attempt to createStandalonePackageJson for multiple l
       "[34m    * dotenv-webpack@^8.1.0[0m",
     ],
     [
-      "[34m    * webpack-merge@^5.10.0[0m",
+      "[34m    * webpack-merge@^6.0.1[0m",
     ],
     [
       "[34m    * copy-webpack-plugin@^12.0.2[0m",
@@ -360,7 +360,7 @@ exports[`standalone should attempt to createStandalonePackageJson for multiple l
       "[34m    * dotenv-webpack@^8.1.0[0m",
     ],
     [
-      "[34m    * webpack-merge@^5.10.0[0m",
+      "[34m    * webpack-merge@^6.0.1[0m",
     ],
     [
       "[34m    * copy-webpack-plugin@^12.0.2[0m",
