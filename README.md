@@ -57,6 +57,8 @@ For in-depth use of `weldable` see our [DOCS](./DOCS.md).
                                                                                                            [string] [choices: "none", "js", "ts"] [default: "js"]
   -s, --stats         Stats output level for NodeJS API
                           [string] [choices: "errors-only", "errors-warnings", "minimal", "none", "normal", "verbose", "detailed", "summary"] [default: "normal"]
+      --standalone    Standalone webpack configuration. Output weldable webpack config functions and update package.json so you can do whatever you want.
+                                                                                                                                       [boolean] [default: false]
       --statsFile     Output JSON webpack bundle stats. Use the default, or a relative project path and filename [./stats.json]                          [string]
       --tsconfig      Generate a base tsconfig from NPM @tsconfig/[base]. An existing tsconfig.json will override this option, see tsconfig-opt. This option can
                       be run without running webpack.  [string] [choices: "", "create-react-app", "node18", "node20", "react-native", "recommended", "strictest"]

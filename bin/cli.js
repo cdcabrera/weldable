@@ -15,6 +15,7 @@ const {
   loader,
   stats,
   statsFile,
+  standalone: isStandalone,
   tsconfig: baseTsConfig,
   'tsconfig-opt': tsConfigOptions
 } = yargs
@@ -24,6 +25,16 @@ const {
   .version('version', packageJson.version)
   .alias('v', 'version')
   .wrap(yargs.terminalWidth())
+  .check(({ standalone, extend, env, stats, statsFile, ['tsconfig-opt']: tsconfigOpt } = {}) => {
+    // ignore most options with standalone
+    if (
+      standalone === true &&
+      (extend?.length || env !== 'production' || stats !== 'normal' || statsFile || tsconfigOpt)
+    ) {
+      return 'Only "loader" and "tsconfig" options can be used with "standalone".';
+    }
+    return true;
+  })
   .option('e', {
     alias: 'env',
     describe: 'Use a default configuration type if NODE_ENV is not set to the available choices.',
@@ -45,6 +56,12 @@ const {
     type: 'string',
     choices: ['errors-only', 'errors-warnings', 'minimal', 'none', 'normal', 'verbose', 'detailed', 'summary'],
     default: 'normal'
+  })
+  .option('standalone', {
+    describe:
+      'Standalone webpack configuration. Output weldable webpack config functions and update package.json so you can do whatever you want.',
+    type: 'boolean',
+    default: false
   })
   .option('statsFile', {
     describe:
@@ -89,6 +106,11 @@ OPTIONS._set = {
     return extendedConfigs?.map(configPath => path.join(this.contextPath, configPath));
   },
   dotenv: function () {
+    // skip generating dotenv with standalone
+    if (isStandalone) {
+      return {};
+    }
+
     if (process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'production') {
       this.nodeEnv = process.env.NODE_ENV;
     } else if (!process.env.NODE_ENV) {
@@ -107,6 +129,10 @@ OPTIONS._set = {
     return (loader === 'ts' && isBaseTsConfig) || isBaseTsConfig;
   },
   isCreateTsConfigOnly: function () {
+    // skip generating only a tsconfig
+    if (isStandalone) {
+      return false;
+    }
     const isBaseTsConfig = typeof baseTsConfig === 'string';
     return (loader !== 'ts' && isBaseTsConfig) || false;
   },
@@ -116,6 +142,7 @@ OPTIONS._set = {
   isRegenTsConfig: function () {
     return tsConfigOptions === 'regen';
   },
+  isStandalone,
   loader,
   stats,
   statsFile: function () {

@@ -31,6 +31,10 @@ describe('Global', () => {
     removeFixture(file);
   });
 
+  it('should attempt to run commands', () => {
+    expect(global.runCmd('echo "lorem ipsum"')).toMatchSnapshot('createFile');
+  });
+
   it('should set a one-time mutable OPTIONS object', () => {
     const { OPTIONS } = global;
     OPTIONS.lorem = 'et all';

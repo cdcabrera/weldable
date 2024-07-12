@@ -1,0 +1,904 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`standalone should attempt to createStandaloneBabelConfig for js loaders: file does not exist 1`] = `
+{
+  "mockConsoleInfo": [
+    [
+      "[34m  Adding babel configuration...[0m",
+    ],
+  ],
+  "mockConsoleWarn": [],
+  "mockCreateFileCalls": [
+    [
+      "module.exports = {};
+",
+      {
+        "filename": "babel.config.js",
+      },
+    ],
+  ],
+}
+`;
+
+exports[`standalone should attempt to createStandaloneBabelConfig for js loaders: file exists 1`] = `
+{
+  "mockConsoleInfo": [
+    [
+      "[34m  Adding babel configuration...[0m",
+    ],
+  ],
+  "mockConsoleWarn": [
+    [
+      "[33m    babel.config.js already exists, ignoring[0m",
+    ],
+  ],
+  "mockCreateFileCalls": [],
+}
+`;
+
+exports[`standalone should attempt to createStandalonePackageJson for multiple loaders: file exists 1`] = `
+{
+  "mockConsoleInfo": [
+    [
+      "[34m  Adding package.json...[0m",
+    ],
+    [
+      "[34m  Adding package.json scripts...[0m",
+    ],
+    [
+      "[34m    $ npm run standalone:build[0m",
+    ],
+    [
+      "[34m    $ npm run standalone:start[0m",
+    ],
+    [
+      "[34m  Adding package.json developer dependencies...[0m",
+    ],
+    [
+      "[34m    * webpack@^5.92.1[0m",
+    ],
+    [
+      "[34m    * webpack-cli@^5.1.4[0m",
+    ],
+    [
+      "[34m    * webpack-dev-server@^5.0.4[0m",
+    ],
+    [
+      "[34m    * dotenv@^16.4.5[0m",
+    ],
+    [
+      "[34m    * dotenv-expand@^11.0.6[0m",
+    ],
+    [
+      "[34m    * dotenv-webpack@^8.1.0[0m",
+    ],
+    [
+      "[34m    * webpack-merge@^5.10.0[0m",
+    ],
+    [
+      "[34m    * copy-webpack-plugin@^12.0.2[0m",
+    ],
+    [
+      "[34m    * css-minimizer-webpack-plugin@^7.0.0[0m",
+    ],
+    [
+      "[34m    * html-webpack-plugin@^5.6.0[0m",
+    ],
+    [
+      "[34m    * html-replace-webpack-plugin@^2.6.0[0m",
+    ],
+    [
+      "[34m    * mini-css-extract-plugin@^2.9.0[0m",
+    ],
+    [
+      "[34m    * mini-svg-data-uri@^1.4.4[0m",
+    ],
+    [
+      "[34m    * terser-webpack-plugin@^5.3.10[0m",
+    ],
+    [
+      "[34m    * css-loader@^7.1.2[0m",
+    ],
+  ],
+  "mockConsoleWarn": [
+    [
+      "[33m    package.json already exists, ignoring[0m",
+    ],
+  ],
+  "mockCreateFileCalls": [
+    [
+      "{
+  "scripts": {
+    "standalone:build": "export NODE_ENV=production; webpack --config ./webpack.config.js",
+    "standalone:start": "export NODE_ENV=development; webpack serve --config ./webpack.config.js"
+  }
+}
+",
+      {
+        "filename": "package.json",
+      },
+    ],
+  ],
+}
+`;
+
+exports[`standalone should attempt to createStandalonePackageJson for multiple loaders: loader js 1`] = `
+{
+  "mockConsoleInfo": [
+    [
+      "[34m  Adding package.json...[0m",
+    ],
+    [
+      "[34m  Adding package.json scripts...[0m",
+    ],
+    [
+      "[34m    $ npm run standalone:build[0m",
+    ],
+    [
+      "[34m    $ npm run standalone:start[0m",
+    ],
+    [
+      "[34m  Adding package.json developer dependencies...[0m",
+    ],
+    [
+      "[34m    * webpack@^5.92.1[0m",
+    ],
+    [
+      "[34m    * webpack-cli@^5.1.4[0m",
+    ],
+    [
+      "[34m    * webpack-dev-server@^5.0.4[0m",
+    ],
+    [
+      "[34m    * @babel/core@7.24.7[0m",
+    ],
+    [
+      "[34m    * babel-loader@^9.1.3[0m",
+    ],
+    [
+      "[34m    * @babel/preset-env@^7.24.7[0m",
+    ],
+    [
+      "[34m    * dotenv@^16.4.5[0m",
+    ],
+    [
+      "[34m    * dotenv-expand@^11.0.6[0m",
+    ],
+    [
+      "[34m    * dotenv-webpack@^8.1.0[0m",
+    ],
+    [
+      "[34m    * webpack-merge@^5.10.0[0m",
+    ],
+    [
+      "[34m    * copy-webpack-plugin@^12.0.2[0m",
+    ],
+    [
+      "[34m    * css-minimizer-webpack-plugin@^7.0.0[0m",
+    ],
+    [
+      "[34m    * html-webpack-plugin@^5.6.0[0m",
+    ],
+    [
+      "[34m    * html-replace-webpack-plugin@^2.6.0[0m",
+    ],
+    [
+      "[34m    * mini-css-extract-plugin@^2.9.0[0m",
+    ],
+    [
+      "[34m    * mini-svg-data-uri@^1.4.4[0m",
+    ],
+    [
+      "[34m    * terser-webpack-plugin@^5.3.10[0m",
+    ],
+    [
+      "[34m    * css-loader@^7.1.2[0m",
+    ],
+  ],
+  "mockConsoleWarn": [],
+  "mockCreateFileCalls": [
+    [
+      "
+{
+  "name": "temporary-app-name",
+  "version": "0.1.0"
+}
+",
+      {
+        "filename": "package.json",
+      },
+    ],
+    [
+      "{
+  "scripts": {
+    "standalone:build": "export NODE_ENV=production; webpack --config ./webpack.config.js",
+    "standalone:start": "export NODE_ENV=development; webpack serve --config ./webpack.config.js"
+  }
+}
+",
+      {
+        "filename": "package.json",
+      },
+    ],
+  ],
+}
+`;
+
+exports[`standalone should attempt to createStandalonePackageJson for multiple loaders: loader none 1`] = `
+{
+  "mockConsoleInfo": [
+    [
+      "[34m  Adding package.json...[0m",
+    ],
+    [
+      "[34m  Adding package.json scripts...[0m",
+    ],
+    [
+      "[34m    $ npm run standalone:build[0m",
+    ],
+    [
+      "[34m    $ npm run standalone:start[0m",
+    ],
+    [
+      "[34m  Adding package.json developer dependencies...[0m",
+    ],
+    [
+      "[34m    * webpack@^5.92.1[0m",
+    ],
+    [
+      "[34m    * webpack-cli@^5.1.4[0m",
+    ],
+    [
+      "[34m    * webpack-dev-server@^5.0.4[0m",
+    ],
+    [
+      "[34m    * dotenv@^16.4.5[0m",
+    ],
+    [
+      "[34m    * dotenv-expand@^11.0.6[0m",
+    ],
+    [
+      "[34m    * dotenv-webpack@^8.1.0[0m",
+    ],
+    [
+      "[34m    * webpack-merge@^5.10.0[0m",
+    ],
+    [
+      "[34m    * copy-webpack-plugin@^12.0.2[0m",
+    ],
+    [
+      "[34m    * css-minimizer-webpack-plugin@^7.0.0[0m",
+    ],
+    [
+      "[34m    * html-webpack-plugin@^5.6.0[0m",
+    ],
+    [
+      "[34m    * html-replace-webpack-plugin@^2.6.0[0m",
+    ],
+    [
+      "[34m    * mini-css-extract-plugin@^2.9.0[0m",
+    ],
+    [
+      "[34m    * mini-svg-data-uri@^1.4.4[0m",
+    ],
+    [
+      "[34m    * terser-webpack-plugin@^5.3.10[0m",
+    ],
+    [
+      "[34m    * css-loader@^7.1.2[0m",
+    ],
+  ],
+  "mockConsoleWarn": [],
+  "mockCreateFileCalls": [
+    [
+      "
+{
+  "name": "temporary-app-name",
+  "version": "0.1.0"
+}
+",
+      {
+        "filename": "package.json",
+      },
+    ],
+    [
+      "{
+  "scripts": {
+    "standalone:build": "export NODE_ENV=production; webpack --config ./webpack.config.js",
+    "standalone:start": "export NODE_ENV=development; webpack serve --config ./webpack.config.js"
+  }
+}
+",
+      {
+        "filename": "package.json",
+      },
+    ],
+  ],
+}
+`;
+
+exports[`standalone should attempt to createStandalonePackageJson for multiple loaders: loader ts 1`] = `
+{
+  "mockConsoleInfo": [
+    [
+      "[34m  Adding package.json...[0m",
+    ],
+    [
+      "[34m  Adding package.json scripts...[0m",
+    ],
+    [
+      "[34m    $ npm run standalone:build[0m",
+    ],
+    [
+      "[34m    $ npm run standalone:start[0m",
+    ],
+    [
+      "[34m  Adding package.json developer dependencies...[0m",
+    ],
+    [
+      "[34m    * webpack@^5.92.1[0m",
+    ],
+    [
+      "[34m    * webpack-cli@^5.1.4[0m",
+    ],
+    [
+      "[34m    * webpack-dev-server@^5.0.4[0m",
+    ],
+    [
+      "[34m    * ts-loader@^9.5.1[0m",
+    ],
+    [
+      "[34m    * typescript@^5.5.3[0m",
+    ],
+    [
+      "[34m    * dotenv@^16.4.5[0m",
+    ],
+    [
+      "[34m    * dotenv-expand@^11.0.6[0m",
+    ],
+    [
+      "[34m    * dotenv-webpack@^8.1.0[0m",
+    ],
+    [
+      "[34m    * webpack-merge@^5.10.0[0m",
+    ],
+    [
+      "[34m    * copy-webpack-plugin@^12.0.2[0m",
+    ],
+    [
+      "[34m    * css-minimizer-webpack-plugin@^7.0.0[0m",
+    ],
+    [
+      "[34m    * html-webpack-plugin@^5.6.0[0m",
+    ],
+    [
+      "[34m    * html-replace-webpack-plugin@^2.6.0[0m",
+    ],
+    [
+      "[34m    * mini-css-extract-plugin@^2.9.0[0m",
+    ],
+    [
+      "[34m    * mini-svg-data-uri@^1.4.4[0m",
+    ],
+    [
+      "[34m    * terser-webpack-plugin@^5.3.10[0m",
+    ],
+    [
+      "[34m    * css-loader@^7.1.2[0m",
+    ],
+  ],
+  "mockConsoleWarn": [],
+  "mockCreateFileCalls": [
+    [
+      "
+{
+  "name": "temporary-app-name",
+  "version": "0.1.0"
+}
+",
+      {
+        "filename": "package.json",
+      },
+    ],
+    [
+      "{
+  "scripts": {
+    "standalone:build": "export NODE_ENV=production; webpack --config ./webpack.config.js",
+    "standalone:start": "export NODE_ENV=development; webpack serve --config ./webpack.config.js"
+  }
+}
+",
+      {
+        "filename": "package.json",
+      },
+    ],
+  ],
+}
+`;
+
+exports[`standalone should attempt to createStandaloneSrcIndexFile: file does not exist 1`] = `
+{
+  "mockConsoleInfo": [
+    [
+      "[34m  Adding src/index.ts...[0m",
+    ],
+  ],
+  "mockConsoleWarn": [],
+  "mockCreateFileCalls": [],
+}
+`;
+
+exports[`standalone should attempt to createStandaloneSrcIndexFile: file exists 1`] = `
+{
+  "mockConsoleInfo": [
+    [
+      "[34m  Adding src/index.js...[0m",
+    ],
+  ],
+  "mockConsoleWarn": [
+    [
+      "[33m    Existing index exists, ignoring
+    * index.ts
+    * index.tsx
+    * index.mts
+    * index.cts
+    * index.js
+    * index.jsx
+    * index.mjs
+    * index.cjs[0m",
+    ],
+  ],
+  "mockCreateFileCalls": [],
+}
+`;
+
+exports[`standalone should attempt to createStandaloneTsConfig: file does not exist 1`] = `
+{
+  "mockConsoleInfo": [
+    [
+      "[34m  Adding tsconfig.json...[0m",
+    ],
+  ],
+  "mockConsoleWarn": [],
+  "mockCreateFileCalls": [],
+}
+`;
+
+exports[`standalone should attempt to createStandaloneTsConfig: file exists 1`] = `
+{
+  "mockConsoleInfo": [
+    [
+      "[34m  Adding tsconfig.json...[0m",
+    ],
+  ],
+  "mockConsoleWarn": [
+    [
+      "[33m    tsconfig.json already exists, ignoring[0m",
+    ],
+  ],
+  "mockCreateFileCalls": [],
+}
+`;
+
+exports[`standalone should attempt to createStandaloneWebpackConfig: file does not exist 1`] = `
+{
+  "mockConsoleInfo": [
+    [
+      "[34m  Adding webpack configuration...[0m",
+    ],
+  ],
+  "mockConsoleWarn": [],
+  "mockCreateFileCalls": [
+    [
+      "const fs = require('fs');
+const path = require('path');
+const setupDotenv = require('dotenv');
+const { expand: dotenvExpand } = require('dotenv-expand');
+const { merge } = require('webpack-merge');
+const CopyPlugin = require('copy-webpack-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlReplaceWebpackPlugin = require('html-replace-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const SvgToMiniDataURI = require('mini-svg-data-uri');
+const TerserJSPlugin = require('terser-webpack-plugin');
+const cssLoaderResolve = require.resolve('css-loader');
+
+
+/**
+ * Set globals
+ */
+const contextPath = process.cwd();
+const loader = 'undefined';
+const consoleMessage = console;
+const jsFileExtensions = ['js', 'jsx', 'mjs', 'cjs'];
+const tsFileExtensions = ['ts', 'tsx', 'mts', 'cts'];
+
+/**
+ * Set dependency injected options
+ */
+const OPTIONS = {
+  nodeEnv: undefined,
+  contextPath,
+  dotenv: undefined,
+  loader
+};
+
+/**
+ * Set dotenv functions
+ */
+const setDotenvParam = () => '<setDotenvParam />';
+
+const setupWebpackDotenvFile = () => '<setupWebpackDotenvFile />';
+
+const setupWebpackDotenvFilesForEnv = () => '<setupWebpackDotenvFilesForEnv />';
+
+const setupDotenvFile = () => '<setupDotenvFileForEnv />';
+
+const setupDotenvFilesForEnv = () => '<setupDotenvFileForEnv />';
+
+/**
+ * Create dotenv params
+ */
+const dotenv = setupDotenvFilesForEnv({ env: process.env.NODE_ENV || 'production' });
+
+/**
+ * Set dotenv dependency injected options
+ */
+ OPTIONS.nodeEnv = dotenv.NODE_ENV;
+ OPTIONS.dotenv = dotenv;
+
+/**
+ * Set preprocess loader webpack configuration
+ */
+const preprocessLoader = () => '<preprocessLoaderNone />';
+
+/**
+ * Set common webpack configuration
+ */
+const common = () => '<common />';
+
+/**
+ * Set development webpack configuration
+ */
+const development = () => '<development />';
+
+/**
+ * Set production webpack configuration
+ */
+const production = () => '<production />';
+
+/**
+ * Create a webpack configuration. Modify and/or add your own configurations with "webpack merge".
+ */
+module.exports = merge(
+  common(),
+  preprocessLoader(),
+  (OPTIONS.nodeEnv === 'development' && development()) || production()
+);
+",
+      {
+        "filename": "webpack.config.js",
+      },
+    ],
+  ],
+}
+`;
+
+exports[`standalone should attempt to createStandaloneWebpackConfig: file exists 1`] = `
+{
+  "mockConsoleInfo": [
+    [
+      "[34m  Adding webpack configuration...[0m",
+    ],
+  ],
+  "mockConsoleWarn": [
+    [
+      "[33m    webpack.config.js already exists, ignoring
+    If you want weldable to create a webpack config you'll need to remove/rename the file and rerun the option[0m",
+    ],
+  ],
+  "mockCreateFileCalls": [],
+}
+`;
+
+exports[`standalone should produce consistent content output: content 1`] = `
+[
+  "module.exports = {};
+",
+  "
+{
+  "name": "temporary-app-name",
+  "version": "0.1.0"
+}
+",
+  "
+(() => {
+  const body = document.querySelector('BODY');
+  const div = document.createElement('div');
+  div.innerText = 'Hello world!';
+  body?.appendChild(div);
+})();
+",
+  "
+const fs = require('fs');
+const path = require('path');
+const setupDotenv = require('dotenv');
+const { expand: dotenvExpand } = require('dotenv-expand');
+const { merge } = require('webpack-merge');
+const CopyPlugin = require('copy-webpack-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlReplaceWebpackPlugin = require('html-replace-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const SvgToMiniDataURI = require('mini-svg-data-uri');
+const TerserJSPlugin = require('terser-webpack-plugin');
+const cssLoaderResolve = require.resolve('css-loader');
+const babelLoaderResolve = require.resolve('babel-loader');
+const babelPresetEnvResolve = require.resolve('@babel/preset-env');
+
+/**
+ * Set globals
+ */
+const contextPath = process.cwd();
+const loader = 'js';
+const consoleMessage = console;
+const jsFileExtensions = ['js', 'jsx', 'mjs', 'cjs'];
+const tsFileExtensions = ['ts', 'tsx', 'mts', 'cts'];
+
+/**
+ * Set dependency injected options
+ */
+const OPTIONS = {
+  nodeEnv: undefined,
+  contextPath,
+  dotenv: undefined,
+  loader
+};
+
+/**
+ * Set dotenv functions
+ */
+const setDotenvParam = () => '<setDotenvParam />';
+
+const setupWebpackDotenvFile = () => '<setupWebpackDotenvFile />';
+
+const setupWebpackDotenvFilesForEnv = () => '<setupWebpackDotenvFilesForEnv />';
+
+const setupDotenvFile = () => '<setupDotenvFileForEnv />';
+
+const setupDotenvFilesForEnv = () => '<setupDotenvFileForEnv />';
+
+/**
+ * Create dotenv params
+ */
+const dotenv = setupDotenvFilesForEnv({ env: process.env.NODE_ENV || 'production' });
+
+/**
+ * Set dotenv dependency injected options
+ */
+ OPTIONS.nodeEnv = dotenv.NODE_ENV;
+ OPTIONS.dotenv = dotenv;
+
+/**
+ * Set preprocess loader webpack configuration
+ */
+const preprocessLoader = () => '<preprocessLoader />';
+
+/**
+ * Set common webpack configuration
+ */
+const common = () => '<common />';
+
+/**
+ * Set development webpack configuration
+ */
+const development = () => '<development />';
+
+/**
+ * Set production webpack configuration
+ */
+const production = () => '<production />';
+
+/**
+ * Create a webpack configuration. Modify and/or add your own configurations with "webpack merge".
+ */
+module.exports = merge(
+  common(),
+  preprocessLoader(),
+  (OPTIONS.nodeEnv === 'development' && development()) || production()
+);
+",
+  "
+const fs = require('fs');
+const path = require('path');
+const setupDotenv = require('dotenv');
+const { expand: dotenvExpand } = require('dotenv-expand');
+const { merge } = require('webpack-merge');
+const CopyPlugin = require('copy-webpack-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlReplaceWebpackPlugin = require('html-replace-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const SvgToMiniDataURI = require('mini-svg-data-uri');
+const TerserJSPlugin = require('terser-webpack-plugin');
+const cssLoaderResolve = require.resolve('css-loader');
+const tsLoaderResolve = require.resolve('ts-loader');
+
+/**
+ * Set globals
+ */
+const contextPath = process.cwd();
+const loader = 'ts';
+const consoleMessage = console;
+const jsFileExtensions = ['js', 'jsx', 'mjs', 'cjs'];
+const tsFileExtensions = ['ts', 'tsx', 'mts', 'cts'];
+
+/**
+ * Set dependency injected options
+ */
+const OPTIONS = {
+  nodeEnv: undefined,
+  contextPath,
+  dotenv: undefined,
+  loader
+};
+
+/**
+ * Set dotenv functions
+ */
+const setDotenvParam = () => '<setDotenvParam />';
+
+const setupWebpackDotenvFile = () => '<setupWebpackDotenvFile />';
+
+const setupWebpackDotenvFilesForEnv = () => '<setupWebpackDotenvFilesForEnv />';
+
+const setupDotenvFile = () => '<setupDotenvFileForEnv />';
+
+const setupDotenvFilesForEnv = () => '<setupDotenvFileForEnv />';
+
+/**
+ * Create dotenv params
+ */
+const dotenv = setupDotenvFilesForEnv({ env: process.env.NODE_ENV || 'production' });
+
+/**
+ * Set dotenv dependency injected options
+ */
+ OPTIONS.nodeEnv = dotenv.NODE_ENV;
+ OPTIONS.dotenv = dotenv;
+
+/**
+ * Set preprocess loader webpack configuration
+ */
+const preprocessLoader = () => '<preprocessLoaderTs />';
+
+/**
+ * Set common webpack configuration
+ */
+const common = () => '<common />';
+
+/**
+ * Set development webpack configuration
+ */
+const development = () => '<development />';
+
+/**
+ * Set production webpack configuration
+ */
+const production = () => '<production />';
+
+/**
+ * Create a webpack configuration. Modify and/or add your own configurations with "webpack merge".
+ */
+module.exports = merge(
+  common(),
+  preprocessLoader(),
+  (OPTIONS.nodeEnv === 'development' && development()) || production()
+);
+",
+  "
+const fs = require('fs');
+const path = require('path');
+const setupDotenv = require('dotenv');
+const { expand: dotenvExpand } = require('dotenv-expand');
+const { merge } = require('webpack-merge');
+const CopyPlugin = require('copy-webpack-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlReplaceWebpackPlugin = require('html-replace-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const SvgToMiniDataURI = require('mini-svg-data-uri');
+const TerserJSPlugin = require('terser-webpack-plugin');
+const cssLoaderResolve = require.resolve('css-loader');
+
+
+/**
+ * Set globals
+ */
+const contextPath = process.cwd();
+const loader = 'none';
+const consoleMessage = console;
+const jsFileExtensions = ['js', 'jsx', 'mjs', 'cjs'];
+const tsFileExtensions = ['ts', 'tsx', 'mts', 'cts'];
+
+/**
+ * Set dependency injected options
+ */
+const OPTIONS = {
+  nodeEnv: undefined,
+  contextPath,
+  dotenv: undefined,
+  loader
+};
+
+/**
+ * Set dotenv functions
+ */
+const setDotenvParam = () => '<setDotenvParam />';
+
+const setupWebpackDotenvFile = () => '<setupWebpackDotenvFile />';
+
+const setupWebpackDotenvFilesForEnv = () => '<setupWebpackDotenvFilesForEnv />';
+
+const setupDotenvFile = () => '<setupDotenvFileForEnv />';
+
+const setupDotenvFilesForEnv = () => '<setupDotenvFileForEnv />';
+
+/**
+ * Create dotenv params
+ */
+const dotenv = setupDotenvFilesForEnv({ env: process.env.NODE_ENV || 'production' });
+
+/**
+ * Set dotenv dependency injected options
+ */
+ OPTIONS.nodeEnv = dotenv.NODE_ENV;
+ OPTIONS.dotenv = dotenv;
+
+/**
+ * Set preprocess loader webpack configuration
+ */
+const preprocessLoader = () => '<preprocessLoaderNone />';
+
+/**
+ * Set common webpack configuration
+ */
+const common = () => '<common />';
+
+/**
+ * Set development webpack configuration
+ */
+const development = () => '<development />';
+
+/**
+ * Set production webpack configuration
+ */
+const production = () => '<production />';
+
+/**
+ * Create a webpack configuration. Modify and/or add your own configurations with "webpack merge".
+ */
+module.exports = merge(
+  common(),
+  preprocessLoader(),
+  (OPTIONS.nodeEnv === 'development' && development()) || production()
+);
+",
+]
+`;
+
+exports[`standalone should return specific properties: specific properties 1`] = `
+{
+  "createStandaloneBabelConfig": [Function],
+  "createStandalonePackageJson": [Function],
+  "createStandaloneSrcIndexFile": [Function],
+  "createStandaloneTsConfig": [Function],
+  "createStandaloneWebpackConfig": [Function],
+  "outputStandaloneBabelConfig": [Function],
+  "outputStandalonePackageJson": [Function],
+  "outputStandaloneSrcIndexFile": [Function],
+  "outputStandaloneWebpackConfig": [Function],
+  "standalone": [Function],
+}
+`;

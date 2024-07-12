@@ -10,6 +10,8 @@
 </dd>
 <dt><a href="#module_Logger">Logger</a></dt>
 <dd></dd>
+<dt><a href="#module_standalone">standalone</a></dt>
+<dd></dd>
 <dt><a href="#module_Typescript">Typescript</a></dt>
 <dd></dd>
 <dt><a href="#module_webpack">webpack</a></dt>
@@ -158,6 +160,7 @@ dotenv parameters are string based, failed or missing dotenv parameters return a
     * [~isPromise(obj)](#module_Global..isPromise) ⇒ <code>boolean</code>
     * [~dynamicImport(file)](#module_Global..dynamicImport) ⇒ <code>Promise.&lt;any&gt;</code>
     * [~createFile(contents, options)](#module_Global..createFile) ⇒ <code>Object</code>
+    * [~runCmd(cmd, settings)](#module_Global..runCmd) ⇒ <code>string</code>
 
 <a name="module_Global..jsFileExtensions"></a>
 
@@ -267,6 +270,28 @@ Create a file with a fallback name based on hashed contents.
     </tr>  </tbody>
 </table>
 
+<a name="module_Global..runCmd"></a>
+
+### Global~runCmd(cmd, settings) ⇒ <code>string</code>
+Execute a command
+
+**Kind**: inner method of [<code>Global</code>](#module_Global)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>cmd</td><td><code>string</code></td>
+    </tr><tr>
+    <td>settings</td><td><code>object</code></td>
+    </tr><tr>
+    <td>settings.errorMessage</td><td><code>string</code></td>
+    </tr>  </tbody>
+</table>
+
 <a name="module_Init"></a>
 
 ## Init
@@ -289,6 +314,8 @@ Organize package functionality.
     <td>options</td><td><code>object</code></td>
     </tr><tr>
     <td>options.isCreateTsConfigOnly</td><td><code>boolean</code></td>
+    </tr><tr>
+    <td>options.isStandalone</td><td><code>boolean</code></td>
     </tr>  </tbody>
 </table>
 
@@ -312,6 +339,259 @@ Console output colors
 Convenience wrapper for preset console messaging and colors.
 
 **Kind**: inner constant of [<code>Logger</code>](#module_Logger)  
+<a name="module_standalone"></a>
+
+## standalone
+
+* [standalone](#module_standalone)
+    * [~createStandaloneTsConfig(aliasOptions, CreateTsConfig)](#module_standalone..createStandaloneTsConfig)
+    * [~outputStandaloneSrcIndexFile()](#module_standalone..outputStandaloneSrcIndexFile) ⇒ <code>string</code>
+    * [~createStandaloneSrcIndexFile(options, settings)](#module_standalone..createStandaloneSrcIndexFile)
+    * [~outputStandaloneWebpackConfig(options, settings)](#module_standalone..outputStandaloneWebpackConfig) ⇒ <code>string</code>
+    * [~createStandaloneWebpackConfig(options, settings)](#module_standalone..createStandaloneWebpackConfig)
+    * [~outputStandalonePackageJson()](#module_standalone..outputStandalonePackageJson) ⇒ <code>string</code>
+    * [~createStandalonePackageJson(options, settings)](#module_standalone..createStandalonePackageJson)
+    * [~outputStandaloneBabelConfig()](#module_standalone..outputStandaloneBabelConfig) ⇒ <code>string</code>
+    * [~createStandaloneBabelConfig(options, settings)](#module_standalone..createStandaloneBabelConfig)
+    * [~standalone(settings)](#module_standalone..standalone)
+
+<a name="module_standalone..createStandaloneTsConfig"></a>
+
+### standalone~createStandaloneTsConfig(aliasOptions, CreateTsConfig)
+Create a basic standalone tsconfig if isCreateTsConfig is false.
+This can be overridden with CLI options, or if a tsconfig already exists.
+
+**Kind**: inner method of [<code>standalone</code>](#module_standalone)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>aliasOptions</td><td><code>object</code></td>
+    </tr><tr>
+    <td>aliasOptions.isCreateTsConfig</td><td><code>boolean</code></td>
+    </tr><tr>
+    <td>aliasOptions.loader</td><td><code>string</code></td>
+    </tr><tr>
+    <td>CreateTsConfig</td><td><code>function</code></td>
+    </tr>  </tbody>
+</table>
+
+<a name="module_standalone..outputStandaloneSrcIndexFile"></a>
+
+### standalone~outputStandaloneSrcIndexFile() ⇒ <code>string</code>
+Output a basic index file.
+
+**Kind**: inner method of [<code>standalone</code>](#module_standalone)  
+<a name="module_standalone..createStandaloneSrcIndexFile"></a>
+
+### standalone~createStandaloneSrcIndexFile(options, settings)
+Create a src/index file for webpack app entry.
+
+**Kind**: inner method of [<code>standalone</code>](#module_standalone)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>options</td><td><code>object</code></td>
+    </tr><tr>
+    <td>options.contextPath</td><td><code>string</code></td>
+    </tr><tr>
+    <td>options.loader</td><td><code>string</code></td>
+    </tr><tr>
+    <td>settings</td><td><code>object</code></td>
+    </tr><tr>
+    <td>settings.filename</td><td><code>string</code></td>
+    </tr><tr>
+    <td>settings.createFile</td><td><code>function</code></td>
+    </tr><tr>
+    <td>settings.outputStandaloneSrcIndexFile</td><td><code>function</code></td>
+    </tr>  </tbody>
+</table>
+
+<a name="module_standalone..outputStandaloneWebpackConfig"></a>
+
+### standalone~outputStandaloneWebpackConfig(options, settings) ⇒ <code>string</code>
+Output a file complete webpack configuration
+
+**Kind**: inner method of [<code>standalone</code>](#module_standalone)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>options</td><td><code>object</code></td>
+    </tr><tr>
+    <td>options.loader</td><td><code>string</code></td>
+    </tr><tr>
+    <td>settings</td><td><code>object</code></td>
+    </tr><tr>
+    <td>settings.common</td><td><code>function</code></td>
+    </tr><tr>
+    <td>settings.development</td><td><code>function</code></td>
+    </tr><tr>
+    <td>settings.preprocessLoaderJs</td><td><code>function</code></td>
+    </tr><tr>
+    <td>settings.preprocessLoaderTs</td><td><code>function</code></td>
+    </tr><tr>
+    <td>settings.preprocessLoaderNone</td><td><code>function</code></td>
+    </tr><tr>
+    <td>settings.production</td><td><code>function</code></td>
+    </tr><tr>
+    <td>settings.setDotenvParam</td><td><code>function</code></td>
+    </tr><tr>
+    <td>settings.setupWebpackDotenvFile</td><td><code>function</code></td>
+    </tr><tr>
+    <td>settings.setupWebpackDotenvFilesForEnv</td><td><code>function</code></td>
+    </tr><tr>
+    <td>settings.setupDotenvFile</td><td><code>function</code></td>
+    </tr><tr>
+    <td>settings.setupDotenvFilesForEnv</td><td><code>function</code></td>
+    </tr>  </tbody>
+</table>
+
+<a name="module_standalone..createStandaloneWebpackConfig"></a>
+
+### standalone~createStandaloneWebpackConfig(options, settings)
+Update package.json, and conditionally a babel config, in the consuming project root.
+
+**Kind**: inner method of [<code>standalone</code>](#module_standalone)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>options</td><td><code>object</code></td>
+    </tr><tr>
+    <td>options.contextPath</td><td><code>string</code></td>
+    </tr><tr>
+    <td>settings</td><td><code>object</code></td>
+    </tr><tr>
+    <td>settings.filename</td><td><code>string</code></td>
+    </tr><tr>
+    <td>settings.createFile</td><td><code>function</code></td>
+    </tr><tr>
+    <td>settings.outputStandaloneWebpackConfig</td><td><code>function</code></td>
+    </tr>  </tbody>
+</table>
+
+<a name="module_standalone..outputStandalonePackageJson"></a>
+
+### standalone~outputStandalonePackageJson() ⇒ <code>string</code>
+Output a basic package.json
+
+**Kind**: inner method of [<code>standalone</code>](#module_standalone)  
+<a name="module_standalone..createStandalonePackageJson"></a>
+
+### standalone~createStandalonePackageJson(options, settings)
+Update package.json, and conditionally a babel config, in the consuming project root.
+
+**Kind**: inner method of [<code>standalone</code>](#module_standalone)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>options</td><td><code>object</code></td>
+    </tr><tr>
+    <td>options.contextPath</td><td><code>string</code></td>
+    </tr><tr>
+    <td>options.loader</td><td><code>string</code></td>
+    </tr><tr>
+    <td>settings</td><td><code>object</code></td>
+    </tr><tr>
+    <td>settings.createFile</td><td><code>function</code></td>
+    </tr><tr>
+    <td>settings.packageFileName</td><td><code>string</code></td>
+    </tr><tr>
+    <td>settings.outputStandalonePackageJson</td><td><code>function</code></td>
+    </tr><tr>
+    <td>settings.runCmd</td><td><code>function</code></td>
+    </tr><tr>
+    <td>settings.webpackFileName</td><td><code>string</code></td>
+    </tr>  </tbody>
+</table>
+
+<a name="module_standalone..outputStandaloneBabelConfig"></a>
+
+### standalone~outputStandaloneBabelConfig() ⇒ <code>string</code>
+Output a basic babel config file.
+
+**Kind**: inner method of [<code>standalone</code>](#module_standalone)  
+<a name="module_standalone..createStandaloneBabelConfig"></a>
+
+### standalone~createStandaloneBabelConfig(options, settings)
+Create a basic babel config
+
+**Kind**: inner method of [<code>standalone</code>](#module_standalone)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>options</td><td><code>object</code></td>
+    </tr><tr>
+    <td>options.contextPath</td><td><code>string</code></td>
+    </tr><tr>
+    <td>options.loader</td><td><code>string</code></td>
+    </tr><tr>
+    <td>settings</td><td><code>object</code></td>
+    </tr><tr>
+    <td>settings.createFile</td><td><code>function</code></td>
+    </tr><tr>
+    <td>settings.filename</td><td><code>string</code></td>
+    </tr><tr>
+    <td>settings.outputStandaloneBabelConfig</td><td><code>function</code></td>
+    </tr>  </tbody>
+</table>
+
+<a name="module_standalone..standalone"></a>
+
+### standalone~standalone(settings)
+Organize and output a basic webpack configuration.
+
+**Kind**: inner method of [<code>standalone</code>](#module_standalone)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>settings</td><td><code>object</code></td>
+    </tr><tr>
+    <td>settings.createStandaloneBabelConfig</td><td><code>function</code></td>
+    </tr><tr>
+    <td>settings.createStandaloneSrcIndexFile</td><td><code>function</code></td>
+    </tr><tr>
+    <td>settings.createStandaloneTsConfig</td><td><code>function</code></td>
+    </tr><tr>
+    <td>settings.createStandalonePackageJson</td><td><code>function</code></td>
+    </tr><tr>
+    <td>settings.createStandaloneWebpackConfig</td><td><code>function</code></td>
+    </tr>  </tbody>
+</table>
+
 <a name="module_Typescript"></a>
 
 ## Typescript
