@@ -55,49 +55,49 @@ exports[`standalone should attempt to createStandalonePackageJson for multiple l
       "[34m  Adding package.json developer dependencies...[0m",
     ],
     [
-      "[34m    * webpack@^5.92.1[0m",
+      "[34m    * webpack@X.X.X[0m",
     ],
     [
-      "[34m    * webpack-cli@^5.1.4[0m",
+      "[34m    * webpack-cli@X.X.X[0m",
     ],
     [
-      "[34m    * webpack-dev-server@^5.0.4[0m",
+      "[34m    * webpack-dev-server@X.X.X[0m",
     ],
     [
-      "[34m    * dotenv@^16.4.5[0m",
+      "[34m    * dotenv@X.X.X[0m",
     ],
     [
-      "[34m    * dotenv-expand@^11.0.6[0m",
+      "[34m    * dotenv-expand@X.X.X[0m",
     ],
     [
-      "[34m    * dotenv-webpack@^8.1.0[0m",
+      "[34m    * dotenv-webpack@X.X.X[0m",
     ],
     [
-      "[34m    * webpack-merge@^6.0.1[0m",
+      "[34m    * webpack-merge@X.X.X[0m",
     ],
     [
-      "[34m    * copy-webpack-plugin@^12.0.2[0m",
+      "[34m    * copy-webpack-plugin@X.X.X[0m",
     ],
     [
-      "[34m    * css-minimizer-webpack-plugin@^7.0.0[0m",
+      "[34m    * css-minimizer-webpack-plugin@X.X.X[0m",
     ],
     [
-      "[34m    * html-webpack-plugin@^5.6.0[0m",
+      "[34m    * html-webpack-plugin@X.X.X[0m",
     ],
     [
-      "[34m    * html-replace-webpack-plugin@^2.6.0[0m",
+      "[34m    * html-replace-webpack-plugin@X.X.X[0m",
     ],
     [
-      "[34m    * mini-css-extract-plugin@^2.9.0[0m",
+      "[34m    * mini-css-extract-plugin@X.X.X[0m",
     ],
     [
-      "[34m    * mini-svg-data-uri@^1.4.4[0m",
+      "[34m    * mini-svg-data-uri@X.X.X[0m",
     ],
     [
-      "[34m    * terser-webpack-plugin@^5.3.10[0m",
+      "[34m    * terser-webpack-plugin@X.X.X[0m",
     ],
     [
-      "[34m    * css-loader@^7.1.2[0m",
+      "[34m    * css-loader@X.X.X[0m",
     ],
   ],
   "mockConsoleWarn": [
@@ -141,58 +141,58 @@ exports[`standalone should attempt to createStandalonePackageJson for multiple l
       "[34m  Adding package.json developer dependencies...[0m",
     ],
     [
-      "[34m    * webpack@^5.92.1[0m",
+      "[34m    * webpack@X.X.X[0m",
     ],
     [
-      "[34m    * webpack-cli@^5.1.4[0m",
+      "[34m    * webpack-cli@X.X.X[0m",
     ],
     [
-      "[34m    * webpack-dev-server@^5.0.4[0m",
+      "[34m    * webpack-dev-server@X.X.X[0m",
     ],
     [
-      "[34m    * @babel/core@7.24.8[0m",
+      "[34m    * @babel/core@X.X.X[0m",
     ],
     [
-      "[34m    * babel-loader@^9.1.3[0m",
+      "[34m    * babel-loader@X.X.X[0m",
     ],
     [
-      "[34m    * @babel/preset-env@^7.24.8[0m",
+      "[34m    * @babel/preset-env@X.X.X[0m",
     ],
     [
-      "[34m    * dotenv@^16.4.5[0m",
+      "[34m    * dotenv@X.X.X[0m",
     ],
     [
-      "[34m    * dotenv-expand@^11.0.6[0m",
+      "[34m    * dotenv-expand@X.X.X[0m",
     ],
     [
-      "[34m    * dotenv-webpack@^8.1.0[0m",
+      "[34m    * dotenv-webpack@X.X.X[0m",
     ],
     [
-      "[34m    * webpack-merge@^6.0.1[0m",
+      "[34m    * webpack-merge@X.X.X[0m",
     ],
     [
-      "[34m    * copy-webpack-plugin@^12.0.2[0m",
+      "[34m    * copy-webpack-plugin@X.X.X[0m",
     ],
     [
-      "[34m    * css-minimizer-webpack-plugin@^7.0.0[0m",
+      "[34m    * css-minimizer-webpack-plugin@X.X.X[0m",
     ],
     [
-      "[34m    * html-webpack-plugin@^5.6.0[0m",
+      "[34m    * html-webpack-plugin@X.X.X[0m",
     ],
     [
-      "[34m    * html-replace-webpack-plugin@^2.6.0[0m",
+      "[34m    * html-replace-webpack-plugin@X.X.X[0m",
     ],
     [
-      "[34m    * mini-css-extract-plugin@^2.9.0[0m",
+      "[34m    * mini-css-extract-plugin@X.X.X[0m",
     ],
     [
-      "[34m    * mini-svg-data-uri@^1.4.4[0m",
+      "[34m    * mini-svg-data-uri@X.X.X[0m",
     ],
     [
-      "[34m    * terser-webpack-plugin@^5.3.10[0m",
+      "[34m    * terser-webpack-plugin@X.X.X[0m",
     ],
     [
-      "[34m    * css-loader@^7.1.2[0m",
+      "[34m    * css-loader@X.X.X[0m",
     ],
   ],
   "mockConsoleWarn": [],
@@ -243,49 +243,49 @@ exports[`standalone should attempt to createStandalonePackageJson for multiple l
       "[34m  Adding package.json developer dependencies...[0m",
     ],
     [
-      "[34m    * webpack@^5.92.1[0m",
+      "[34m    * webpack@X.X.X[0m",
     ],
     [
-      "[34m    * webpack-cli@^5.1.4[0m",
+      "[34m    * webpack-cli@X.X.X[0m",
     ],
     [
-      "[34m    * webpack-dev-server@^5.0.4[0m",
+      "[34m    * webpack-dev-server@X.X.X[0m",
     ],
     [
-      "[34m    * dotenv@^16.4.5[0m",
+      "[34m    * dotenv@X.X.X[0m",
     ],
     [
-      "[34m    * dotenv-expand@^11.0.6[0m",
+      "[34m    * dotenv-expand@X.X.X[0m",
     ],
     [
-      "[34m    * dotenv-webpack@^8.1.0[0m",
+      "[34m    * dotenv-webpack@X.X.X[0m",
     ],
     [
-      "[34m    * webpack-merge@^6.0.1[0m",
+      "[34m    * webpack-merge@X.X.X[0m",
     ],
     [
-      "[34m    * copy-webpack-plugin@^12.0.2[0m",
+      "[34m    * copy-webpack-plugin@X.X.X[0m",
     ],
     [
-      "[34m    * css-minimizer-webpack-plugin@^7.0.0[0m",
+      "[34m    * css-minimizer-webpack-plugin@X.X.X[0m",
     ],
     [
-      "[34m    * html-webpack-plugin@^5.6.0[0m",
+      "[34m    * html-webpack-plugin@X.X.X[0m",
     ],
     [
-      "[34m    * html-replace-webpack-plugin@^2.6.0[0m",
+      "[34m    * html-replace-webpack-plugin@X.X.X[0m",
     ],
     [
-      "[34m    * mini-css-extract-plugin@^2.9.0[0m",
+      "[34m    * mini-css-extract-plugin@X.X.X[0m",
     ],
     [
-      "[34m    * mini-svg-data-uri@^1.4.4[0m",
+      "[34m    * mini-svg-data-uri@X.X.X[0m",
     ],
     [
-      "[34m    * terser-webpack-plugin@^5.3.10[0m",
+      "[34m    * terser-webpack-plugin@X.X.X[0m",
     ],
     [
-      "[34m    * css-loader@^7.1.2[0m",
+      "[34m    * css-loader@X.X.X[0m",
     ],
   ],
   "mockConsoleWarn": [],
@@ -336,55 +336,55 @@ exports[`standalone should attempt to createStandalonePackageJson for multiple l
       "[34m  Adding package.json developer dependencies...[0m",
     ],
     [
-      "[34m    * webpack@^5.92.1[0m",
+      "[34m    * webpack@X.X.X[0m",
     ],
     [
-      "[34m    * webpack-cli@^5.1.4[0m",
+      "[34m    * webpack-cli@X.X.X[0m",
     ],
     [
-      "[34m    * webpack-dev-server@^5.0.4[0m",
+      "[34m    * webpack-dev-server@X.X.X[0m",
     ],
     [
-      "[34m    * ts-loader@^9.5.1[0m",
+      "[34m    * ts-loader@X.X.X[0m",
     ],
     [
-      "[34m    * typescript@^5.5.3[0m",
+      "[34m    * typescript@X.X.X[0m",
     ],
     [
-      "[34m    * dotenv@^16.4.5[0m",
+      "[34m    * dotenv@X.X.X[0m",
     ],
     [
-      "[34m    * dotenv-expand@^11.0.6[0m",
+      "[34m    * dotenv-expand@X.X.X[0m",
     ],
     [
-      "[34m    * dotenv-webpack@^8.1.0[0m",
+      "[34m    * dotenv-webpack@X.X.X[0m",
     ],
     [
-      "[34m    * webpack-merge@^6.0.1[0m",
+      "[34m    * webpack-merge@X.X.X[0m",
     ],
     [
-      "[34m    * copy-webpack-plugin@^12.0.2[0m",
+      "[34m    * copy-webpack-plugin@X.X.X[0m",
     ],
     [
-      "[34m    * css-minimizer-webpack-plugin@^7.0.0[0m",
+      "[34m    * css-minimizer-webpack-plugin@X.X.X[0m",
     ],
     [
-      "[34m    * html-webpack-plugin@^5.6.0[0m",
+      "[34m    * html-webpack-plugin@X.X.X[0m",
     ],
     [
-      "[34m    * html-replace-webpack-plugin@^2.6.0[0m",
+      "[34m    * html-replace-webpack-plugin@X.X.X[0m",
     ],
     [
-      "[34m    * mini-css-extract-plugin@^2.9.0[0m",
+      "[34m    * mini-css-extract-plugin@X.X.X[0m",
     ],
     [
-      "[34m    * mini-svg-data-uri@^1.4.4[0m",
+      "[34m    * mini-svg-data-uri@X.X.X[0m",
     ],
     [
-      "[34m    * terser-webpack-plugin@^5.3.10[0m",
+      "[34m    * terser-webpack-plugin@X.X.X[0m",
     ],
     [
-      "[34m    * css-loader@^7.1.2[0m",
+      "[34m    * css-loader@X.X.X[0m",
     ],
   ],
   "mockConsoleWarn": [],
