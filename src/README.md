@@ -568,6 +568,8 @@ Update package.json, and conditionally a babel config, in the consuming project 
     </tr><tr>
     <td>settings.createFile</td><td><code>function</code></td>
     </tr><tr>
+    <td>settings.isTestMode</td><td><code>boolean</code></td>
+    </tr><tr>
     <td>settings.packageFileName</td><td><code>string</code></td>
     </tr><tr>
     <td>settings.outputStandalonePackageJson</td><td><code>function</code></td>

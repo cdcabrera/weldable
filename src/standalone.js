@@ -294,6 +294,7 @@ const outputStandalonePackageJson = () => `
  * @param {object} settings
  * @param {object} settings.consoleMessage
  * @param {Function} settings.createFile
+ * @param {boolean} settings.isTestMode
  * @param {string} settings.packageFileName
  * @param {Function} settings.outputStandalonePackageJson
  * @param {Function} settings.runCmd
@@ -304,6 +305,7 @@ const createStandalonePackageJson = (
   {
     consoleMessage: aliasConsoleMessage = consoleMessage,
     createFile: aliasCreateFile = createFile,
+    isTestMode = process.env.NODE_ENV === 'test',
     packageFileName = 'package.json',
     outputStandalonePackageJson: aliasOutputStandalonePackageJson = outputStandalonePackageJson,
     runCmd: aliasRunCmd = runCmd,
@@ -361,7 +363,7 @@ const createStandalonePackageJson = (
 
   [...webpackResources, ...preprocessLoaderResources, ...baseConfigResources].forEach(resource => {
     if (dependencies[resource]) {
-      aliasConsoleMessage.info(`    * ${resource}@${dependencies[resource]}`);
+      aliasConsoleMessage.info(`    * ${resource}@${(isTestMode && 'X.X.X') || dependencies[resource]}`);
       aliasRunCmd(`cd ${contextPath} && npm install ${resource}@${dependencies[resource]} --save-dev`);
     }
   });
