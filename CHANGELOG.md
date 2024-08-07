@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.1.1](https://github.com/cdcabrera/weldable/compare/16450a35d88e80522fa99c5c0b810381ed7b16f1...eb31dbb366a2f20ce295025dcb07661b6d739677) (2024-08-07)
+
+
+### Tests
+* **snapshots** ignore package versions ([#81](https://github.com/cdcabrera/weldable/pull/81)) ([f012239](https://github.com/cdcabrera/weldable/commit/f012239e318a87a7ee2fef62f83ff6641dfce24d))
+
+### Documentation
+*  cli standalone option guide ([#73](https://github.com/cdcabrera/weldable/pull/73)) ([d4df79d](https://github.com/cdcabrera/weldable/commit/d4df79d323f8392230e8d8ad709d29708e8fa7b9))
+
+### Builds
+* **nodejs** add checks for 22.x ([#82](https://github.com/cdcabrera/weldable/pull/82)) ([eb31dbb](https://github.com/cdcabrera/weldable/commit/eb31dbb366a2f20ce295025dcb07661b6d739677))
+* **deps** @babel/preset-env from 7.24.8 to 7.25.3 ([#78](https://github.com/cdcabrera/weldable/pull/78)) ([fd7d3da](https://github.com/cdcabrera/weldable/commit/fd7d3da2c1531476a36fe31c818fdcfee5015088))
+* **deps** bump webpack from 5.92.1 to 5.93.0 ([#79](https://github.com/cdcabrera/weldable/pull/79)) ([77a6b39](https://github.com/cdcabrera/weldable/commit/77a6b39130fd48874ecbc9a6ce869c1fbb73175f))
+* **deps** typescript from 5.5.3 to 5.5.4 ([#76](https://github.com/cdcabrera/weldable/pull/76)) ([805e87d](https://github.com/cdcabrera/weldable/commit/805e87d6719124a8097be939698a9eebf5d8c481))
+* **deps-dev** bump group with 5 updates ([#75](https://github.com/cdcabrera/weldable/pull/75)) ([0d40f40](https://github.com/cdcabrera/weldable/commit/0d40f40efc28493af2d6aeaa8b6ddc1a97be7a46))
+
 ## [3.1.0](https://github.com/cdcabrera/weldable/compare/948ebec876bfea2a9f9528c3763bda42bfef5952...737359a0571097477770edb988848d20ce4cdc4d) (2024-07-12)
 
 
