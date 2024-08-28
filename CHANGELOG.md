@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.1.2](https://github.com/cdcabrera/weldable/compare/f6afb864a823d406d5416f35d4d5a7d88295f0c7...8c5c10cb428dd1188389031819cf7eae7f0f3655) (2024-08-28)
+
+
+### Builds
+* **deps** bump group with 10 updates ([#84](https://github.com/cdcabrera/weldable/pull/84)) ([8c5c10c](https://github.com/cdcabrera/weldable/commit/8c5c10cb428dd1188389031819cf7eae7f0f3655))
+* **deps-dev** npm-check-updates from 16.14.20 to 17.0.3 ([#83](https://github.com/cdcabrera/weldable/pull/83)) ([c9c3f7e](https://github.com/cdcabrera/weldable/commit/c9c3f7e3b57a25f2948acdf2e303d62a49d01f55))
+
 ## [3.1.1](https://github.com/cdcabrera/weldable/compare/16450a35d88e80522fa99c5c0b810381ed7b16f1...eb31dbb366a2f20ce295025dcb07661b6d739677) (2024-08-07)
 
 
