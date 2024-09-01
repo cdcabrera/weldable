@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.1.3](https://github.com/cdcabrera/weldable/compare/b63bea8e541b84118dd68b4e7cafab61d202ffc5...8a57fb059da924117bca56cefda8c03f1d8bfc31) (2024-09-01)
+
+
+### Builds
+* **deps** lock reset ([#90](https://github.com/cdcabrera/weldable/pull/90)) ([8a57fb0](https://github.com/cdcabrera/weldable/commit/8a57fb059da924117bca56cefda8c03f1d8bfc31))
+*  increase dependabot frequency ([#85](https://github.com/cdcabrera/weldable/pull/85)) ([ca69b30](https://github.com/cdcabrera/weldable/commit/ca69b30f7246e3c5cee700204fd4b527b6748f42))
+
 ## [3.1.2](https://github.com/cdcabrera/weldable/compare/f6afb864a823d406d5416f35d4d5a7d88295f0c7...8c5c10cb428dd1188389031819cf7eae7f0f3655) (2024-08-28)
 
 
