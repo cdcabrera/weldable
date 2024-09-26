@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.1.4](https://github.com/cdcabrera/weldable/compare/820b0aab3dc27f14a685e80778aabe5ebb6dced2...e09b798414ff7e387c98a5af491172f6faa571a9) (2024-09-26)
+
+
+### Builds
+* **deps** bump group with 3 updates ([#103](https://github.com/cdcabrera/weldable/pull/103)) ([e09b798](https://github.com/cdcabrera/weldable/commit/e09b798414ff7e387c98a5af491172f6faa571a9))
+* **deps-dev** bump group with 3 updates ([#98](https://github.com/cdcabrera/weldable/pull/98)) ([5c0a7d2](https://github.com/cdcabrera/weldable/commit/5c0a7d22a03d6f332013b0e8cb66411c1561f31e))
+* **deps-dev** bump group with 2 updates ([#94](https://github.com/cdcabrera/weldable/pull/94)) ([4a90e9d](https://github.com/cdcabrera/weldable/commit/4a90e9d35bad0548595f2c5c21ea94aa20959446))
+* **deps-dev** bump group with 2 updates ([#91](https://github.com/cdcabrera/weldable/pull/91)) ([838b69f](https://github.com/cdcabrera/weldable/commit/838b69f6a43d2f7c657c475ea9476ba10d2f0c48))
+
 ## [3.1.3](https://github.com/cdcabrera/weldable/compare/b63bea8e541b84118dd68b4e7cafab61d202ffc5...8a57fb059da924117bca56cefda8c03f1d8bfc31) (2024-09-01)
 
 
