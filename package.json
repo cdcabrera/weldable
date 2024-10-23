@@ -104,7 +104,7 @@
     "terser-webpack-plugin": "^5.3.10",
     "ts-loader": "^9.5.1",
     "tsconfig-paths-webpack-plugin": "^4.1.0",
-    "tslib": "^2.7.0",
+    "tslib": "^2.8.0",
     "typescript": "^5.6.3",
     "webpack": "^5.95.0",
     "webpack-bundle-analyzer": "^4.10.2",
