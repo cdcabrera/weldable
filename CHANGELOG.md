@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.2.1](https://github.com/cdcabrera/weldable/compare/7754a9db2c099ed6db42bcaa73a6150ead9abcbc...4bed7eb05d5e666302e4547cf49f26bd70935a7d) (2024-11-14)
+
+
+### Builds
+* **deps-dev** bump group with 2 updates ([#131](https://github.com/cdcabrera/weldable/pull/131)) ([4bed7eb](https://github.com/cdcabrera/weldable/commit/4bed7eb05d5e666302e4547cf49f26bd70935a7d))
+* **deps** bump webpack from 5.95.0 to 5.96.1 ([#129](https://github.com/cdcabrera/weldable/pull/129)) ([248946c](https://github.com/cdcabrera/weldable/commit/248946cdb3a34d4af14fdabafa47c04122b16fe1))
+* **deps** patch group with 4 updates ([#128](https://github.com/cdcabrera/weldable/pull/128)) ([31e1416](https://github.com/cdcabrera/weldable/commit/31e141611edfbd2c1a549adf91d5ebc9b431e123))
+* **deps-dev** bump group with 3 updates ([#127](https://github.com/cdcabrera/weldable/pull/127)) ([ae2b74d](https://github.com/cdcabrera/weldable/commit/ae2b74d19f67424b311d00bc7974bedf9a0bc146))
+* **deps** bump @babel/preset-env from 7.25.9 to 7.26.0 ([#126](https://github.com/cdcabrera/weldable/pull/126)) ([c1ab375](https://github.com/cdcabrera/weldable/commit/c1ab3755519c7cb0ece649efd0e8e54d14a51c67))
+* **deps** bump @babel/core from 7.25.9 to 7.26.0 ([#125](https://github.com/cdcabrera/weldable/pull/125)) ([abd8008](https://github.com/cdcabrera/weldable/commit/abd8008c49515a3ec51f4c86373923a3ff78eca8))
+* **deps** patch group with 2 updates ([#124](https://github.com/cdcabrera/weldable/pull/124)) ([402988e](https://github.com/cdcabrera/weldable/commit/402988ee76839fb501582895157b5d27ab7fd031))
+* **deps-dev** npm-check-updates from 17.1.4 to 17.1.9 ([#123](https://github.com/cdcabrera/weldable/pull/123)) ([71223be](https://github.com/cdcabrera/weldable/commit/71223bec183a8fc651d342d1b7647bb6a608638c))
+
 ## [3.2.0](https://github.com/cdcabrera/weldable/compare/d3aa98d766d256c1aae7b8e5ecb8b322c459044c...1a7ca4ba52cb5220205dd3cc7b282dd04e657fac) (2024-10-23)
 ⚠ sass-loader may contain breaking changes, see [#100](https://github.com/cdcabrera/weldable/pull/100)
 
