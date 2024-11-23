@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.2.2](https://github.com/cdcabrera/weldable/compare/ef101b3f887667de24cbb8357fb2040aa2926087...2a703c86af5f7cb9c0692af04de51c65c2fc7953) (2024-11-23)
+
+
+### Builds
+* **deps** lock reset ([#137](https://github.com/cdcabrera/weldable/pull/137)) ([2a703c8](https://github.com/cdcabrera/weldable/commit/2a703c86af5f7cb9c0692af04de51c65c2fc7953))
+* **deps** tsconfig-paths-webpack-plugin from 4.1.0 to 4.2.0 ([#134](https://github.com/cdcabrera/weldable/pull/134)) ([7fade2c](https://github.com/cdcabrera/weldable/commit/7fade2c1ae7ed65037d3015c5586a32a74fac762))
+* **deps** bump sass from 1.80.6 to 1.81.0 ([#136](https://github.com/cdcabrera/weldable/pull/136)) ([5b0b370](https://github.com/cdcabrera/weldable/commit/5b0b37014b2d808a82f7241e9c443d4073cdf4fc))
+* **deps-dev** bump group with 2 updates ([#132](https://github.com/cdcabrera/weldable/pull/132)) ([c9c16c9](https://github.com/cdcabrera/weldable/commit/c9c16c9277db8625b083bf577d2fc06f5a1b231b))
+
 ## [3.2.1](https://github.com/cdcabrera/weldable/compare/7754a9db2c099ed6db42bcaa73a6150ead9abcbc...4bed7eb05d5e666302e4547cf49f26bd70935a7d) (2024-11-14)
 
 
