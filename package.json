@@ -93,7 +93,7 @@
     "eslint-webpack-plugin": "^4.2.0",
     "html-replace-webpack-plugin": "^2.6.0",
     "html-webpack-plugin": "^5.6.3",
-    "less": "^4.2.0",
+    "less": "^4.2.1",
     "less-loader": "^12.2.0",
     "mini-css-extract-plugin": "^2.9.2",
     "mini-svg-data-uri": "^1.4.4",
