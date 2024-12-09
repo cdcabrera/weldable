@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.2.3](https://github.com/cdcabrera/weldable/compare/9784342de4c87256e1fb8e492bf9b2e7e9ede0ca...6f2e14d67d699070e81e60c6024f5583dd28c311) (2024-12-09)
+
+
+### Builds
+* **deps** lock reset ([#144](https://github.com/cdcabrera/weldable/pull/144)) ([6f2e14d](https://github.com/cdcabrera/weldable/commit/6f2e14d67d699070e81e60c6024f5583dd28c311))
+* **deps-dev** bump prettier from 3.4.1 to 3.4.2 ([#143](https://github.com/cdcabrera/weldable/pull/143)) ([820a6b4](https://github.com/cdcabrera/weldable/commit/820a6b4a6d041c4af10803e5a9cc0d3c498b4ac8))
+* **deps** bump group with 4 updates ([#142](https://github.com/cdcabrera/weldable/pull/142)) ([b4e4d2c](https://github.com/cdcabrera/weldable/commit/b4e4d2c63865104acbba93613c5c91a1bd79440f))
+* **deps-dev** bump group with 4 updates ([#140](https://github.com/cdcabrera/weldable/pull/140)) ([dfb087e](https://github.com/cdcabrera/weldable/commit/dfb087e7d755bed4438783b54eb034446091b40b))
+* **deps** bump less from 4.2.0 to 4.2.1 ([#139](https://github.com/cdcabrera/weldable/pull/139)) ([c03742a](https://github.com/cdcabrera/weldable/commit/c03742a59970099ee7e72493931388ad5fe19254))
+* **deps-dev** bump changelog-light from 2.0.3 to 2.0.4 ([#138](https://github.com/cdcabrera/weldable/pull/138)) ([ba32a48](https://github.com/cdcabrera/weldable/commit/ba32a481eeb0efacf967e63b107c930c25ccf444))
+
 ## [3.2.2](https://github.com/cdcabrera/weldable/compare/ef101b3f887667de24cbb8357fb2040aa2926087...2a703c86af5f7cb9c0692af04de51c65c2fc7953) (2024-11-23)
 
 
