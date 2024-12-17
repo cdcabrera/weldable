@@ -98,7 +98,7 @@
     "mini-css-extract-plugin": "^2.9.2",
     "mini-svg-data-uri": "^1.4.4",
     "rimraf": "^5.0.9",
-    "sass": "^1.82.0",
+    "sass": "^1.83.0",
     "sass-loader": "^16.0.4",
     "style-loader": "^4.0.0",
     "terser-webpack-plugin": "^5.3.11",
