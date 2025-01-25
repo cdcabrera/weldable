@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.2.4](https://github.com/cdcabrera/weldable/compare/bf4ea43cd2f20fd63c11bfee1ae6a53e135c11fd...db5be3ff6f31dabc74ba0e1858d9911b1cc0c223) (2025-01-25)
+
+
+### Builds
+* **deps-dev** bump group with 4 updates ([#160](https://github.com/cdcabrera/weldable/pull/160)) ([db5be3f](https://github.com/cdcabrera/weldable/commit/db5be3ff6f31dabc74ba0e1858d9911b1cc0c223))
+* **deps** bump group with 4 updates ([#156](https://github.com/cdcabrera/weldable/pull/156)) ([e1b2d4e](https://github.com/cdcabrera/weldable/commit/e1b2d4e0475c5152b7c7ac7c2c3e5e17f160b01b))
+* **deps-dev** bump the group with 2 updates ([#154](https://github.com/cdcabrera/weldable/pull/154)) ([7a76e22](https://github.com/cdcabrera/weldable/commit/7a76e22df0521570ffeb85255ef397b5fe72a52f))
+* **deps** bump webpack-dev-server from 5.1.0 to 5.2.0 ([#150](https://github.com/cdcabrera/weldable/pull/150)) ([c369565](https://github.com/cdcabrera/weldable/commit/c369565686b76c525dc43c43424888dbe007ea50))
+* **deps-dev** bump group with 2 updates ([#149](https://github.com/cdcabrera/weldable/pull/149)) ([ef06be0](https://github.com/cdcabrera/weldable/commit/ef06be05836d40fb02a5beaf5ac3493f320611cf))
+* **deps** bump sass from 1.82.0 to 1.83.0 ([#147](https://github.com/cdcabrera/weldable/pull/147)) ([555162d](https://github.com/cdcabrera/weldable/commit/555162dd7462c957c9deb5a964d37bf2c7f26040))
+* **deps** terser-webpack-plugin from 5.3.10 to 5.3.11 ([#146](https://github.com/cdcabrera/weldable/pull/146)) ([128365b](https://github.com/cdcabrera/weldable/commit/128365b4679d9a67f61701f77dbc6e3e0258af94))
+* **deps-dev** bump group with 2 updates ([#145](https://github.com/cdcabrera/weldable/pull/145)) ([92226d6](https://github.com/cdcabrera/weldable/commit/92226d6cda644bf9b1e115b3d7852f4f88c4a549))
+
 ## [3.2.3](https://github.com/cdcabrera/weldable/compare/9784342de4c87256e1fb8e492bf9b2e7e9ede0ca...6f2e14d67d699070e81e60c6024f5583dd28c311) (2024-12-09)
 
 
