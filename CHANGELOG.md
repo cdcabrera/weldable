@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.1.0](https://github.com/cdcabrera/weldable/compare/58e3dab1961af65426a4f049c4904bbd1e7d29b6...7e2c4d522f9350360c49c2fe8c3772044cab4532) (2025-03-17)
+⚠ copy-webpack-plugin may contain breaking changes, see [#185](https://github.com/cdcabrera/weldable/pull/185)
+
+### Builds
+* **deps** lock reset ([#188](https://github.com/cdcabrera/weldable/pull/188)) ([7e2c4d5](https://github.com/cdcabrera/weldable/commit/7e2c4d522f9350360c49c2fe8c3772044cab4532))
+* **deps** bump group with 3 updates ([#187](https://github.com/cdcabrera/weldable/pull/187)) ([e76a141](https://github.com/cdcabrera/weldable/commit/e76a1411361e5de6afb216a460432a76c74947a3))
+* **deps** bump copy-webpack-plugin from 12.0.2 to 13.0.0 ([#185](https://github.com/cdcabrera/weldable/pull/185)) ([d2cf754](https://github.com/cdcabrera/weldable/commit/d2cf7542e2960bea18c0884cedc5d76496a513c1))
+*  dependabot group names ([#184](https://github.com/cdcabrera/weldable/pull/184)) ([738f3b8](https://github.com/cdcabrera/weldable/commit/738f3b8b6b54f6b53b93c554e7db277fb1d9bd9b))
+* **deps-dev** bump group with 2 updates ([#183](https://github.com/cdcabrera/weldable/pull/183)) ([8a1b544](https://github.com/cdcabrera/weldable/commit/8a1b54435a7674a15d2058655c106ffe730b8de8))
+* **deps** bump group with 2 updates ([#180](https://github.com/cdcabrera/weldable/pull/180)) ([a18d47c](https://github.com/cdcabrera/weldable/commit/a18d47c7477cf26407d7e4b74a50f4dd15da0431))
+* **deps** bump typescript from 5.7.3 to 5.8.2 ([#178](https://github.com/cdcabrera/weldable/pull/178)) ([3610a93](https://github.com/cdcabrera/weldable/commit/3610a937a5dd47fc9c82b903fddeb4df06d01f2d))
+* **deps** bump group with 2 updates ([#177](https://github.com/cdcabrera/weldable/pull/177)) ([b59c8e3](https://github.com/cdcabrera/weldable/commit/b59c8e389f0086a20b90c1467ecbee301a63ad9e))
+* **deps-dev** bump prettier from 3.5.2 to 3.5.3 ([#176](https://github.com/cdcabrera/weldable/pull/176)) ([204828e](https://github.com/cdcabrera/weldable/commit/204828e643eee00c187861e8b6a6d3723d542ac4))
+* **deps-dev** bump group with 3 updates ([#173](https://github.com/cdcabrera/weldable/pull/173)) ([637cf99](https://github.com/cdcabrera/weldable/commit/637cf9943e22eb8019de7844d90ff616920a5c90))
+* **deps-dev** bump eslint-config-prettier from 9.1.0 to 10.0.2 ([#175](https://github.com/cdcabrera/weldable/pull/175)) ([32c154e](https://github.com/cdcabrera/weldable/commit/32c154ed499b86ae9b6dc9861372b08ba32b1ac1))
+
 ## [4.0.0](https://github.com/cdcabrera/weldable/compare/4dbb41202a24aff272c7e2dba82ccc1ca430c4c5...9a3edac8078a91d80333357f8a30fc2d9c7f2147) (2025-02-20)
 ⚠ BREAKING CHANGES see [#151](https://github.com/cdcabrera/weldable/pull/151) and
 ⚠ sass may also contain breaking changes see [#171](https://github.com/cdcabrera/weldable/pull/171)
