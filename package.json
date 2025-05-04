@@ -18,7 +18,7 @@
     "webpack"
   ],
   "engines": {
-    "node": ">=18.12.0"
+    "node": ">=20.0.0"
   },
   "files": [
     "lib/",
