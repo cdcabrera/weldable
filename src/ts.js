@@ -54,7 +54,6 @@ const createTsConfig = (
 
   if (isMergeTsConfig) {
     try {
-      // eslint-disable-next-line global-require
       currentConfig = require(currentConfigPath);
     } catch (e) {
       if (isMessaging) {
@@ -65,7 +64,6 @@ const createTsConfig = (
 
   if (baseTsConfig) {
     try {
-      // eslint-disable-next-line global-require
       presetConfig = require(`@tsconfig/${baseTsConfig}/${configFilename}`);
     } catch (e) {
       if (isMessaging) {

@@ -27,7 +27,6 @@ const setupWebpackDotenvFile = (filePath, { consoleMessage: aliasConsoleMessage 
   }
 
   try {
-    // eslint-disable-next-line
     const DotEnv = require('dotenv-webpack');
     return new DotEnv(settings);
   } catch (e) {

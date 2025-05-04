@@ -80,7 +80,6 @@ const dynamicImport = async file => {
     if (process.env._WELDABLE_TEST === 'true') {
       result = require(file);
     } else {
-      // eslint-disable-next-line node/no-unsupported-features/es-syntax
       result = await import(file);
     }
   } catch (e) {

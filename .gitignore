@@ -21,5 +21,6 @@ dependency-update-log.txt
 .docs
 !.env
 .fixtures
+.archive
 __fixtures__/tsconfig*
 __fixtures__/dist
