@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file.
 
+## [5.0.0](https://github.com/cdcabrera/weldable/compare/6c775b5b1cf4aaf52211e4b7e5dc9f622d340456...03c1a73dc34bbcc2cb4357620b27302ec626b793) (2025-05-27)
+⚠ BREAKING CHANGES,
+⚠ sass may contain breaking changes see [#211](https://github.com/cdcabrera/weldable/pull/211), and
+⚠ babel-loader may also contain breaking changes see [#182](https://github.com/cdcabrera/weldable/pull/182)
+
+### Continuous Integrations
+*  npm publish workflow ([#215](https://github.com/cdcabrera/weldable/pull/215)) ([03c1a73](https://github.com/cdcabrera/weldable/commit/03c1a73dc34bbcc2cb4357620b27302ec626b793))
+
+### Chores
+* **lib** package license ([#203](https://github.com/cdcabrera/weldable/pull/203)) ([31acde8](https://github.com/cdcabrera/weldable/commit/31acde8a7047be102018ae426c7cb2656e628120))
+
+### Builds
+* **deps** bump @babel/core from 7.26.10 to 7.27.3 ([#206](https://github.com/cdcabrera/weldable/pull/206)) ([fa4409b](https://github.com/cdcabrera/weldable/commit/fa4409b1eecd6cdd8aca01da7b135f1fa5c4dbe9))
+* **deps** bump webpack from 5.99.8 to 5.99.9 ([#214](https://github.com/cdcabrera/weldable/pull/214)) ([7a0599f](https://github.com/cdcabrera/weldable/commit/7a0599f4d81b5bb08e583b1c334e6bd1f64b5df3))
+* **deps-dev** bump cspell from 9.0.1 to 9.0.2 ([#213](https://github.com/cdcabrera/weldable/pull/213)) ([428ca74](https://github.com/cdcabrera/weldable/commit/428ca74c9b795b21f0e2cd4633add0ff3f4be9e6))
+* **deps** bump sass from 1.87.0 to 1.88.0 ([#211](https://github.com/cdcabrera/weldable/pull/211)) ([a06ef76](https://github.com/cdcabrera/weldable/commit/a06ef76eafc93f0f5e42666702754e1e2ec7f222))
+* **deps-dev** bump dev group with 6 updates ([#212](https://github.com/cdcabrera/weldable/pull/212)) ([cd6ac9a](https://github.com/cdcabrera/weldable/commit/cd6ac9a8c83f126307b4fac6a03021b979185969))
+* **deps** bump the prod group with 2 updates ([#210](https://github.com/cdcabrera/weldable/pull/210)) ([244f016](https://github.com/cdcabrera/weldable/commit/244f016fc5bdce95eb3f20a7564cd62add00ef7b))
+* **deps-dev** npm-check-updates from 17.1.18 to 18.0.1 ([#208](https://github.com/cdcabrera/weldable/pull/208)) ([c6d7105](https://github.com/cdcabrera/weldable/commit/c6d7105baa38b98ba6f2c193ca1b939751cd3f45))
+* **deps-dev** bump cspell from 8.19.4 to 9.0.0 ([#207](https://github.com/cdcabrera/weldable/pull/207)) ([826b405](https://github.com/cdcabrera/weldable/commit/826b405811bd31d5bf2f6b14c26b90f022d790a1))
+* **deps** babel-loader from 9.2.1 to 10.0.0 ([#182](https://github.com/cdcabrera/weldable/pull/182)) ([8bd8226](https://github.com/cdcabrera/weldable/commit/8bd8226b8877e79b01ce06e1cf2b387de7557479))
+* ⚠ **deps-dev** move to eslint 9 ([#204](https://github.com/cdcabrera/weldable/pull/204)) ([592347e](https://github.com/cdcabrera/weldable/commit/592347e66787bd82d9462633f3d2737f83561023))
+* ⚠ **nodejs** remove 18 support ([#165](https://github.com/cdcabrera/weldable/pull/165)) ([fa393a0](https://github.com/cdcabrera/weldable/commit/fa393a070546f76b78843967b01d052c94eb9e84))
+
 ## [4.1.1](https://github.com/cdcabrera/weldable/compare/56fdfc39aa50bd5e5a82d878b0c4b8cf3073dad7...234ff0db925585a4b12a0a21f0f224b75ba47db8) (2025-05-04)
 
 
