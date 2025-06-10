@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [5.0.1](https://github.com/cdcabrera/weldable/compare/08258b5b1fbaed670f239ff4cd85c064d529b93d...c98407342a43bd4791aa7b3e35a22c0b5af98162) (2025-06-10)
+
+
+### Builds
+* **deps-dev** eslint-plugin-jest from 28.12.0 to 28.13.0 ([#221](https://github.com/cdcabrera/weldable/pull/221)) ([c984073](https://github.com/cdcabrera/weldable/commit/c98407342a43bd4791aa7b3e35a22c0b5af98162))
+* **deps** bump the prod group with 3 updates ([#222](https://github.com/cdcabrera/weldable/pull/222)) ([a4f7307](https://github.com/cdcabrera/weldable/commit/a4f7307999a25a205fbc36491b12042577d1742f))
+* **deps-dev** bump the dev group with 6 updates ([#218](https://github.com/cdcabrera/weldable/pull/218)) ([5e17e55](https://github.com/cdcabrera/weldable/commit/5e17e5596a0a5d6be0e5d3c3e31a6a552fb9e2aa))
+* **deps** bump the prod group with 3 updates ([#219](https://github.com/cdcabrera/weldable/pull/219)) ([8ce8c13](https://github.com/cdcabrera/weldable/commit/8ce8c1365df06f10a18e056dfae3f90c7a7cbdc1))
+* **deps** bump group with 9 updates ([#217](https://github.com/cdcabrera/weldable/pull/217)) ([8685d38](https://github.com/cdcabrera/weldable/commit/8685d3811a729cac8d783256c694188c9c6df5ae))
+
 ## [5.0.0](https://github.com/cdcabrera/weldable/compare/6c775b5b1cf4aaf52211e4b7e5dc9f622d340456...03c1a73dc34bbcc2cb4357620b27302ec626b793) (2025-05-27)
 ⚠ BREAKING CHANGES,
 ⚠ sass may contain breaking changes see [#211](https://github.com/cdcabrera/weldable/pull/211), and
