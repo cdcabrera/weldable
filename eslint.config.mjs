@@ -5,7 +5,7 @@ import importPlugin from 'eslint-plugin-import';
 import jestPlugin from 'eslint-plugin-jest';
 import jsdocPlugin from 'eslint-plugin-jsdoc';
 import nodePlugin from 'eslint-plugin-n';
-import prettierPlugin from 'eslint-plugin-prettier/recommended'; // per docs prettier/recommended includes eslint-config-prettier
+import prettierPlugin from 'eslint-plugin-prettier/recommended';
 
 export default [
   includeIgnoreFile(join(process.cwd(), '.gitignore')),
