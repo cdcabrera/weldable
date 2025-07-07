@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
+## [5.0.2](https://github.com/cdcabrera/weldable/compare/d5183b0fb93324c2aac6c99109d20465d63ce8a9...70181852028de0a85a61139ccf90982bf66960df) (2025-07-07)
+
+
+### Builds
+* **deps** lock reset ([#234](https://github.com/cdcabrera/weldable/pull/234)) ([7018185](https://github.com/cdcabrera/weldable/commit/70181852028de0a85a61139ccf90982bf66960df))
+* **deps-dev** add eslint-config-prettier ([#233](https://github.com/cdcabrera/weldable/pull/233)) ([2163fc7](https://github.com/cdcabrera/weldable/commit/2163fc7ad820b51957fe61aa873ea54d3ad325d2))
+* **deps** bump the prod group with 2 updates ([#232](https://github.com/cdcabrera/weldable/pull/232)) ([8cc8424](https://github.com/cdcabrera/weldable/commit/8cc8424c830cd653f5240d1af570fa0c2959ac23))
+* **deps-dev** bump the dev group with 6 updates ([#231](https://github.com/cdcabrera/weldable/pull/231)) ([3edd0c4](https://github.com/cdcabrera/weldable/commit/3edd0c47cba669867e911d1e365d2ea34ef31edf))
+* **deps** bump the prod group with 3 updates ([#230](https://github.com/cdcabrera/weldable/pull/230)) ([746f8ef](https://github.com/cdcabrera/weldable/commit/746f8ef43ddc9a15b365430c6608e0d6eea320a3))
+* **deps-dev** bump dev group with 2 updates ([#228](https://github.com/cdcabrera/weldable/pull/228)) ([f0848b0](https://github.com/cdcabrera/weldable/commit/f0848b000ecdbf65d02c5a32ed245e6ca09752a1))
+* **deps-dev** bump dev group with 7 updates ([#227](https://github.com/cdcabrera/weldable/pull/227)) ([964d6a6](https://github.com/cdcabrera/weldable/commit/964d6a67c53b11643d00a4fda9281f24d7ded38d))
+* **deps** @tsconfig/node20 from 20.1.5 to 20.1.6 ([#226](https://github.com/cdcabrera/weldable/pull/226)) ([1cd716c](https://github.com/cdcabrera/weldable/commit/1cd716c126460ace4466f5ea3e68ba6c5d151f45))
+
 ## [5.0.1](https://github.com/cdcabrera/weldable/compare/08258b5b1fbaed670f239ff4cd85c064d529b93d...c98407342a43bd4791aa7b3e35a22c0b5af98162) (2025-06-10)
 
 
