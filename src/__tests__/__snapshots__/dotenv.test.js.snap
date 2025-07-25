@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`dotenv should attempt to load and instantiate the dotenv-webpack package: setupWebpackDotenvFile 1`] = `
 Dotenv {

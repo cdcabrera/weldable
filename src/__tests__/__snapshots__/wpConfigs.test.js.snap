@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`webpackConfigs should return a common configuration object: common dev and prod hashes, code snapshots 1`] = `
 [
