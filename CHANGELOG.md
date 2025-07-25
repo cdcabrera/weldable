@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [5.0.3](https://github.com/cdcabrera/weldable/compare/7293a7300a90267aab8d6f7dabc3f519a255bc39...3497e0ced9e8401110b36cec5e3bd3e5d136abb9) (2025-07-25)
+
+
+### Builds
+* **deps** lock reset ([#244](https://github.com/cdcabrera/weldable/pull/244)) ([3497e0c](https://github.com/cdcabrera/weldable/commit/3497e0ced9e8401110b36cec5e3bd3e5d136abb9))
+* **deps** bump webpack from 5.99.9 to 5.100.2 ([#242](https://github.com/cdcabrera/weldable/pull/242)) ([b2d781b](https://github.com/cdcabrera/weldable/commit/b2d781ba2d76da433d3a3818334a8f75f33eb2cd))
+* **deps-dev** bump the dev group with 3 updates ([#238](https://github.com/cdcabrera/weldable/pull/238)) ([32eda6f](https://github.com/cdcabrera/weldable/commit/32eda6ff16a762fce76e35378f4d6ecd9f051ce0))
+* **deps** bump @babel/core from 7.27.7 to 7.28.0 ([#237](https://github.com/cdcabrera/weldable/pull/237)) ([f19bdae](https://github.com/cdcabrera/weldable/commit/f19bdae2ff859425c0473c2a27314991d51f3018))
+* **deps-dev** eslint-plugin-jest from 28.14.0 to 29.0.1 ([#229](https://github.com/cdcabrera/weldable/pull/229)) ([02bcf1a](https://github.com/cdcabrera/weldable/commit/02bcf1a4574c36d57625004d216787b259c30cba))
+* **deps-dev** changelog-light from 3.0.0 to 3.0.1 ([#236](https://github.com/cdcabrera/weldable/pull/236)) ([f2507b0](https://github.com/cdcabrera/weldable/commit/f2507b082129346312750755e892a809604e6d17))
+
 ## [5.0.2](https://github.com/cdcabrera/weldable/compare/d5183b0fb93324c2aac6c99109d20465d63ce8a9...70181852028de0a85a61139ccf90982bf66960df) (2025-07-07)
 
 
