@@ -1,5 +1,5 @@
-const wpConfigs = require('../wpConfigs');
 const path = require('path');
+const wpConfigs = require('../wpConfigs');
 const { OPTIONS } = require('../global');
 
 describe('webpackConfigs', () => {
@@ -39,6 +39,7 @@ describe('webpackConfigs', () => {
       });
 
       const devOutput = method();
+
       devSnapshot = cleanConfigurationPaths(devOutput);
       mockDevClear();
     }
@@ -54,6 +55,7 @@ describe('webpackConfigs', () => {
       });
 
       const prodOutput = method();
+
       prodSnapshot = cleanConfigurationPaths(prodOutput);
       mockProdClear();
     }

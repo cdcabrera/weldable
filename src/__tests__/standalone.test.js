@@ -1,5 +1,5 @@
-const standalone = require('../standalone');
 const fs = require('node:fs');
+const standalone = require('../standalone');
 
 jest.mock('../dotenv', () => ({
   setDotenvParam: () => '<setDotenvParam />',
@@ -27,6 +27,7 @@ describe('standalone', () => {
     const consoleWarn = jest.spyOn(console, 'warn').mockImplementation((...args) => args);
     const mockFileExists = jest.spyOn(fs, 'existsSync').mockImplementation(() => isMockFileExists);
     const mockReadFile = jest.spyOn(fs, 'readFileSync').mockImplementation(readFileMock);
+
     method({ mockCreateFile: createFile, mockRunCmd: runCmd });
 
     const output = {
@@ -40,6 +41,7 @@ describe('standalone', () => {
     consoleWarn.mockClear();
     mockReadFile.mockClear();
     mockFileExists.mockClear();
+
     return output;
   };
 
@@ -181,6 +183,7 @@ describe('standalone', () => {
     ).toMatchSnapshot('file exists');
 
     const mockCreateFile = jest.fn();
+
     expect(
       snapshotChecks(
         () =>

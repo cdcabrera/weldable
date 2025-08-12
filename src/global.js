@@ -39,7 +39,9 @@ const errorMessageHandler = errors => {
     }
 
     const updatedEntries = [];
+
     Object.entries(err).forEach(([key, value]) => updatedEntries.push(`${key}: ${value}`));
+
     return updatedEntries.join('\n');
   };
 
@@ -49,7 +51,9 @@ const errorMessageHandler = errors => {
 
   if (Array.isArray(errors)) {
     const updatedErrors = [];
+
     errors.forEach(err => updatedErrors.push(parseErrorObject(err)));
+
     return updatedErrors;
   }
 
@@ -76,6 +80,7 @@ const isPromise = obj => /^\[object (Promise|Async|AsyncFunction)]/.test(Object.
  */
 const dynamicImport = async file => {
   let result;
+
   try {
     if (process.env._WELDABLE_TEST === 'true') {
       result = require(file);
@@ -177,6 +182,7 @@ const OPTIONS = {
     Object.entries(obj).forEach(([key, value]) => {
       if (typeof value === 'function') {
         this[key] = value.call(this);
+
         return;
       }
 

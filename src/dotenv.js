@@ -28,6 +28,7 @@ const setupWebpackDotenvFile = (filePath, { consoleMessage: aliasConsoleMessage 
 
   try {
     const DotEnv = require('dotenv-webpack');
+
     return new DotEnv(settings);
   } catch (e) {
     aliasConsoleMessage.warn(`Failed loading dotenv-webpack package: ${e.message}`);
@@ -79,6 +80,7 @@ const setupWebpackDotenvFilesForEnv = (
  */
 const setupDotenvFile = filePath => {
   const dotenvInitial = setupDotenv.config({ path: filePath });
+
   dotenvExpand(dotenvInitial);
 };
 
@@ -172,6 +174,7 @@ const setupDotenvFilesForEnv = (
     );
 
     let STATIC_DIR = process.env[`${dotenvNamePrefix}_STATIC_DIR`] || process.env.STATIC_DIR || '';
+
     STATIC_DIR = (STATIC_DIR && path.resolve(relativePath, STATIC_DIR)) || STATIC_DIR;
 
     // Build Extras - Display name, HTML title
@@ -207,17 +210,17 @@ const setupDotenvFilesForEnv = (
 
     if (setExposedParams) {
       aliasSetDotenvParam([
-        { param: `APP_INDEX_PREFIX`, value: APP_INDEX_PREFIX, ignoreIfSet: true },
-        { param: `DIST_DIR`, value: DIST_DIR, ignoreIfSet: true },
-        { param: `HOST`, value: HOST, ignoreIfSet: true },
-        { param: `HTML_INDEX_DIR`, value: HTML_INDEX_DIR, ignoreIfSet: true },
-        { param: `OPEN_PATH`, value: OPEN_PATH, ignoreIfSet: true },
-        { param: `PORT`, value: PORT, ignoreIfSet: true },
-        { param: `PUBLIC_PATH`, value: PUBLIC_PATH, ignoreIfSet: true },
-        { param: `RELATIVE_DIRNAME`, value: relativePath, ignoreIfSet: true },
-        { param: `SRC_DIR`, value: SRC_DIR, ignoreIfSet: true },
-        { param: `STATIC_DIR`, value: STATIC_DIR, ignoreIfSet: true },
-        { param: `UI_NAME`, value: UI_NAME, ignoreIfSet: true }
+        { param: 'APP_INDEX_PREFIX', value: APP_INDEX_PREFIX, ignoreIfSet: true },
+        { param: 'DIST_DIR', value: DIST_DIR, ignoreIfSet: true },
+        { param: 'HOST', value: HOST, ignoreIfSet: true },
+        { param: 'HTML_INDEX_DIR', value: HTML_INDEX_DIR, ignoreIfSet: true },
+        { param: 'OPEN_PATH', value: OPEN_PATH, ignoreIfSet: true },
+        { param: 'PORT', value: PORT, ignoreIfSet: true },
+        { param: 'PUBLIC_PATH', value: PUBLIC_PATH, ignoreIfSet: true },
+        { param: 'RELATIVE_DIRNAME', value: relativePath, ignoreIfSet: true },
+        { param: 'SRC_DIR', value: SRC_DIR, ignoreIfSet: true },
+        { param: 'STATIC_DIR', value: STATIC_DIR, ignoreIfSet: true },
+        { param: 'UI_NAME', value: UI_NAME, ignoreIfSet: true }
       ]);
     }
   }

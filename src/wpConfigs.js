@@ -158,9 +158,11 @@ const common = (
   entry: {
     app: (() => {
       let entryFiles;
+
       try {
         const fileExtensions = [...aliasTsFileExtensions, ...aliasJsFileExtensions];
         const entryFilesSet = new Set([...fileExtensions.map(ext => path.join(SRC_DIR, `${APP_INDEX_PREFIX}.${ext}`))]);
+
         entryFiles = Array.from(entryFilesSet).filter(file => fs.existsSync(file));
 
         if (!entryFiles.length) {
@@ -225,6 +227,7 @@ const common = (
     }),
     ...(() => {
       const staticFile = path.join(HTML_INDEX_DIR, 'index.html');
+
       if (fs.existsSync(staticFile)) {
         return [
           new HtmlWebpackPlugin({
@@ -239,6 +242,7 @@ const common = (
           ])
         ];
       }
+
       return [
         new HtmlWebpackPlugin({
           ...(UI_NAME && { title: UI_NAME })
@@ -269,6 +273,7 @@ const common = (
         );
       } catch (e) {
         aliasConsoleMessage.error(`webpack.common.js copy plugin error: ${e.message}`);
+
         return [];
       }
     })()
@@ -335,6 +340,7 @@ const development = (
     watchFiles: {
       paths: (() => {
         const updatedPaths = new Set();
+
         if (SRC_DIR) {
           updatedPaths.add(path.basename(SRC_DIR));
         }
@@ -346,6 +352,7 @@ const development = (
         if (STATIC_DIR) {
           updatedPaths.add(path.basename(STATIC_DIR));
         }
+
         return Array.from(updatedPaths).map(value => path.join(value, '**', '*'));
       })()
     }

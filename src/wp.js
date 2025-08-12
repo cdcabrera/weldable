@@ -64,7 +64,7 @@ const createWpConfig = async (
     // Filter initial file results for fulfilled and actual values
     const filteredResults = result.filter(({ status, value }, index) => {
       const isFulfilled = status === 'fulfilled';
-      const isValue = !!value;
+      const isValue = Boolean(value);
 
       if (!isFulfilled || !isValue) {
         aliasConsoleMessage.warn(`Error loading, ${extendedConfigs[index]}`);
@@ -91,7 +91,7 @@ const createWpConfig = async (
       ...parsedResults
         .filter(({ status, value }) => {
           const isFulfilled = status === 'fulfilled';
-          const isValue = !!value;
+          const isValue = Boolean(value);
 
           return isFulfilled && isValue;
         })
@@ -130,6 +130,7 @@ const startWpErrorStatsHandler = (
 ) => {
   if (err) {
     aliasConsoleMessage.error('Production build errors...', aliasErrorMessageHandler(err));
+
     return;
   }
 
@@ -148,6 +149,7 @@ const startWpErrorStatsHandler = (
       'Production compile errors...',
       ...((Array.isArray(compileErrors) && compileErrors) || [compileErrors])
     );
+
     return;
   }
 
@@ -194,7 +196,9 @@ const startWp = async (
     aliasConsoleMessage.info('Development starting....');
     const compiler = aliasWebpack(webpackConfig);
     const server = new AliasWebpackDevServer(webpackConfig.devServer, compiler);
+
     await server.start();
+
     return;
   }
 

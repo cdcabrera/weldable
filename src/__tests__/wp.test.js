@@ -45,6 +45,7 @@ describe('webpack', () => {
     });
 
     const js = await wp.createWpConfig({ nodeEnv: 'development' });
+
     mockClearJs();
 
     const { mockClear: mockClearTs } = mockObjectProperty(OPTIONS, {
@@ -55,6 +56,7 @@ describe('webpack', () => {
     });
 
     const ts = await wp.createWpConfig({ nodeEnv: 'development' });
+
     mockClearTs();
 
     expect({
@@ -89,6 +91,7 @@ describe('webpack', () => {
     const basic = await wp.createWpConfig({ nodeEnv: 'development' });
     const startDevServer = jest.fn();
     const webpackDevServer = jest.fn().mockImplementation(() => ({ start: startDevServer }));
+
     await wp.startWp(basic, { nodeEnv: 'development' }, { WebpackDevServer: webpackDevServer });
 
     expect(webpackDevServer).toHaveBeenCalledTimes(1);
@@ -107,6 +110,7 @@ describe('webpack', () => {
 
     const basic = await wp.createWpConfig({ nodeEnv: 'production' });
     const webpack = jest.fn();
+
     await wp.startWp(basic, { nodeEnv: 'production' }, { webpack });
 
     expect(webpack).toHaveBeenCalledTimes(1);

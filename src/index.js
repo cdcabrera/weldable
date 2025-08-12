@@ -35,6 +35,7 @@ const weldable = async (
 ) => {
   if (isStandalone) {
     aliasStandalone();
+
     return;
   }
 
@@ -45,6 +46,7 @@ const weldable = async (
   }
 
   const webpackConfig = await aliasCreateWpConfig();
+
   aliasCleanDist();
   await aliasStartWp(webpackConfig);
 };

@@ -46,6 +46,7 @@ const createTsConfig = (
     if (isMessaging) {
       aliasConsoleMessage.info(`Ignoring ${configFilename}`);
     }
+
     return undefined;
   }
 

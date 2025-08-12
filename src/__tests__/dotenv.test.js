@@ -19,6 +19,7 @@ describe('dotenv', () => {
     expect(
       results.map(params => {
         const { path: filePath, ...rest } = params.config;
+
         return { ...rest, path: path.basename(filePath) };
       })
     ).toMatchSnapshot('setupWebpackDotenvFilesForEnv');
@@ -40,6 +41,7 @@ describe('dotenv', () => {
     const { dir, removeFixture } = generateFixture(`${dotenvParamName}=${content}`, { filename: '.env.test', ext: '' });
 
     const result = dotenv.setupDotenvFilesForEnv({ env: 'test', relativePath: dir });
+
     expect(result[dotenvParamName]).toBe(content);
     removeFixture();
   });
