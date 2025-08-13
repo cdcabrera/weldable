@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## [5.0.4](https://github.com/cdcabrera/weldable/compare/c02faf0b7ee577167a325c5f83aa2267a0f2988c...8b404db36be539642dcb22f9b0040135774ffd7b) (2025-08-13)
+
+
+### Builds
+* **deps-dev** bump the dev group with 5 updates ([#248](https://github.com/cdcabrera/weldable/pull/248)) ([8b404db](https://github.com/cdcabrera/weldable/commit/8b404db36be539642dcb22f9b0040135774ffd7b))
+* **deps** mini-css-extract-plugin from 2.9.2 to 2.9.4 ([#247](https://github.com/cdcabrera/weldable/pull/247)) ([14a10cd](https://github.com/cdcabrera/weldable/commit/14a10cd7a1d1c6ff54fb9cd4ba6ff0dc3a37bf99))
+* **deps-dev** bump jest from 29.7.0 to 30.0.5 ([#243](https://github.com/cdcabrera/weldable/pull/243)) ([81c3c43](https://github.com/cdcabrera/weldable/commit/81c3c4343798b162fd5be4b5c4ad4042e6fe64f3))
+
 ## [5.0.3](https://github.com/cdcabrera/weldable/compare/7293a7300a90267aab8d6f7dabc3f519a255bc39...3497e0ced9e8401110b36cec5e3bd3e5d136abb9) (2025-07-25)
 
 
