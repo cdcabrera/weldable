@@ -163,8 +163,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const SvgToMiniDataURI = require('mini-svg-data-uri');
 const TerserJSPlugin = require('terser-webpack-plugin');
 const cssLoaderResolve = require.resolve('css-loader');
-${(loader === 'js' && 'const babelLoaderResolve = require.resolve(\'babel-loader\');') || (loader === 'ts' && 'const tsLoaderResolve = require.resolve(\'ts-loader\');') || ''}
-${(loader === 'js' && 'const babelPresetEnvResolve = require.resolve(\'@babel/preset-env\');\n') || ''}
+${(loader === 'js' && `const babelLoaderResolve = require.resolve('babel-loader');`) || (loader === 'ts' && `const tsLoaderResolve = require.resolve('ts-loader');`) || ''}
+${(loader === 'js' && `const babelPresetEnvResolve = require.resolve('@babel/preset-env');\n`) || ''}
 /**
  * Set globals
  */
