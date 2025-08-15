@@ -41,6 +41,7 @@ const createStandaloneTsConfig = (
 
   if (fs.existsSync(path.join(contextPath, configFilename))) {
     aliasConsoleMessage.warn(`    ${configFilename} already exists, ignoring`);
+
     return;
   }
 
@@ -100,6 +101,7 @@ const createStandaloneSrcIndexFile = (
       `    Existing ${filename} exists, ignoring`,
       `    * ${allExistingIndexFiles.join('\n    * ')}`
     );
+
     return;
   }
 
@@ -257,6 +259,7 @@ const createStandaloneWebpackConfig = (
   } = {}
 ) => {
   const filePath = path.join(contextPath, filename);
+
   aliasConsoleMessage.info('  Adding webpack configuration...');
 
   if (fs.existsSync(filePath)) {
@@ -348,6 +351,7 @@ const createStandalonePackageJson = (
   aliasConsoleMessage.info(`  Adding ${packageFileName} scripts...`);
 
   const consumerPackageJson = JSON.parse(fs.readFileSync(consumerPackageJsonPath, 'utf-8'));
+
   consumerPackageJson.scripts ??= {};
   consumerPackageJson.scripts['standalone:build'] = `export NODE_ENV=production; webpack --config ./${webpackFileName}`;
   consumerPackageJson.scripts['standalone:start'] =
@@ -374,7 +378,7 @@ const createStandalonePackageJson = (
  *
  * @returns {string}
  */
-const outputStandaloneBabelConfig = () => `module.exports = {};\n`;
+const outputStandaloneBabelConfig = () => 'module.exports = {};\n';
 
 /**
  * Create a basic babel config
@@ -405,6 +409,7 @@ const createStandaloneBabelConfig = (
 
   if (fs.existsSync(path.join(contextPath, filename))) {
     aliasConsoleMessage.warn(`    ${filename} already exists, ignoring`);
+
     return;
   }
 

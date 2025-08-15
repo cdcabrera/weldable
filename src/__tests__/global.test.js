@@ -27,6 +27,7 @@ describe('Global', () => {
     const { contents, dir, file } = global.createFile('lorem ipsum', {
       dir: './.fixtures'
     });
+
     expect({ contents, dir, file }).toMatchSnapshot('createFile');
     removeFixture(file);
   });
@@ -37,6 +38,7 @@ describe('Global', () => {
 
   it('should set a one-time mutable OPTIONS object', () => {
     const { OPTIONS } = global;
+
     OPTIONS.lorem = 'et all';
     OPTIONS.dolor = 'magna';
     OPTIONS._set = {

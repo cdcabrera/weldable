@@ -33,6 +33,7 @@ const {
     ) {
       return 'Only "loader" and "tsconfig" options can be used with "standalone".';
     }
+
     return true;
   })
   .option('e', {
@@ -126,6 +127,7 @@ OPTIONS._set = {
   },
   isCreateTsConfig: function () {
     const isBaseTsConfig = typeof baseTsConfig === 'string';
+
     return (loader === 'ts' && isBaseTsConfig) || isBaseTsConfig;
   },
   isCreateTsConfigOnly: function () {
@@ -134,6 +136,7 @@ OPTIONS._set = {
       return false;
     }
     const isBaseTsConfig = typeof baseTsConfig === 'string';
+
     return (loader !== 'ts' && isBaseTsConfig) || false;
   },
   isMergeTsConfig: function () {
