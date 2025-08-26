@@ -117,7 +117,7 @@
     "@cdcabrera/eslint-config-toolkit": "^0.1.0",
     "changelog-light": "^3.0.1",
     "cspell": "^9.1.5",
-    "eslint": "^9.33.0",
+    "eslint": "^9.34.0",
     "jest": "^30.0.5",
     "jsdoc-to-markdown": "^9.1.1",
     "lodash": "^4.17.21",
