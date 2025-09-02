@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [5.0.5](https://github.com/cdcabrera/weldable/compare/c124cb1ab1a9cd268bc8ccfba5a25226e6286a8b...b778a65a62b9714935f44cf2bd9e676846ab6c82) (2025-09-02)
+
+
+### Builds
+* **deps-dev** bump the dev group with 4 updates ([#254](https://github.com/cdcabrera/weldable/pull/254)) ([b778a65](https://github.com/cdcabrera/weldable/commit/b778a65a62b9714935f44cf2bd9e676846ab6c82))
+* **deps** bump the prod group with 2 updates ([#253](https://github.com/cdcabrera/weldable/pull/253)) ([fe4f1de](https://github.com/cdcabrera/weldable/commit/fe4f1de82977772ad06a5ad88fd37945c0b57423))
+* **deps-dev** bump eslint from 9.33.0 to 9.34.0 ([#252](https://github.com/cdcabrera/weldable/pull/252)) ([236f552](https://github.com/cdcabrera/weldable/commit/236f552a86558366e6390a4519ae34826130ce7d))
+* **deps** bump prod group with 5 updates ([#251](https://github.com/cdcabrera/weldable/pull/251)) ([eba2d20](https://github.com/cdcabrera/weldable/commit/eba2d200b9b86aa7297240d401df8d835e6f70b5))
+* **deps-dev** migrate to eslint-config-toolkit ([#250](https://github.com/cdcabrera/weldable/pull/250)) ([6b81ab0](https://github.com/cdcabrera/weldable/commit/6b81ab0c5a2c4ed1f3d88ea25e49f45841a0f6b2))
+
 ## [5.0.4](https://github.com/cdcabrera/weldable/compare/c02faf0b7ee577167a325c5f83aa2267a0f2988c...8b404db36be539642dcb22f9b0040135774ffd7b) (2025-08-13)
 
 
