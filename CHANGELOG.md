@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file.
 
+## [5.0.6](https://github.com/cdcabrera/weldable/compare/8d79fae310fa967b144a0ed924ea5ec139490387...617148eea955aa5db88d3b9c7bdde5e3c2ec8bbe) (2025-11-10)
+
+
+### Chores
+* **lib** package license ([#257](https://github.com/cdcabrera/weldable/pull/257)) ([6e7a71a](https://github.com/cdcabrera/weldable/commit/6e7a71aab2a261e42ef7c217dc99679d2353204c))
+
+### Builds
+* **deps** bump prod group with 6 updates ([#277](https://github.com/cdcabrera/weldable/pull/277)) ([617148e](https://github.com/cdcabrera/weldable/commit/617148eea955aa5db88d3b9c7bdde5e3c2ec8bbe))
+* **deps** bump actions/setup-node from 5 to 6 ([#278](https://github.com/cdcabrera/weldable/pull/278)) ([8b3e525](https://github.com/cdcabrera/weldable/commit/8b3e525458269cef7d1dcc80fff43babe1a4a5cc))
+* **deps-dev** bump dev group with 2 updates ([#274](https://github.com/cdcabrera/weldable/pull/274)) ([d4acf4f](https://github.com/cdcabrera/weldable/commit/d4acf4f034cac87b639d44c8fb12ecc6ec634c19))
+*  add nodejs 24 check ([#275](https://github.com/cdcabrera/weldable/pull/275)) ([addea26](https://github.com/cdcabrera/weldable/commit/addea26e162983767319388b3e612d6f6ce1cc14))
+*  dependabot, packages cooldown ([#273](https://github.com/cdcabrera/weldable/pull/273)) ([04360cc](https://github.com/cdcabrera/weldable/commit/04360cc9b1b255d9ac96d781ed68a37721bb61c5))
+* **deps** bump actions/setup-node from 4 to 5 ([#270](https://github.com/cdcabrera/weldable/pull/270)) ([0a22e4d](https://github.com/cdcabrera/weldable/commit/0a22e4ddaf729f60b888d95a435cf384b1806ff8))
+* **deps** bump actions/github-script from 7 to 8 ([#269](https://github.com/cdcabrera/weldable/pull/269)) ([d7d29ec](https://github.com/cdcabrera/weldable/commit/d7d29ec60c004edeca0b145006cd0481daeccbb7))
+* **deps-dev** npm-check-updates from 18.1.0 to 18.1.1 ([#264](https://github.com/cdcabrera/weldable/pull/264)) ([fafe7e3](https://github.com/cdcabrera/weldable/commit/fafe7e3f6ef6c205e08a30d706ebf797f35e5482))
+* **deps-dev** bump the dev group with 5 updates ([#261](https://github.com/cdcabrera/weldable/pull/261)) ([c6f43d5](https://github.com/cdcabrera/weldable/commit/c6f43d55f4f019247b6ab5e3a699e3f18b29e2ec))
+* **deps** bump actions/upload-pages-artifact from 3 to 4 ([#258](https://github.com/cdcabrera/weldable/pull/258)) ([47149a8](https://github.com/cdcabrera/weldable/commit/47149a8b8e572412eca1382cbbb7af67d629f4d2))
+* **deps** bump actions/checkout from 4 to 5 ([#259](https://github.com/cdcabrera/weldable/pull/259)) ([6759361](https://github.com/cdcabrera/weldable/commit/67593618b5af34859d779678b57cfff2abc9af91))
+
 ## [5.0.5](https://github.com/cdcabrera/weldable/compare/c124cb1ab1a9cd268bc8ccfba5a25226e6286a8b...b778a65a62b9714935f44cf2bd9e676846ab6c82) (2025-09-02)
 
 
