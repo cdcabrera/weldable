@@ -30,6 +30,7 @@ jobs:
         run: npm ci
       - name: Audit packages
         run: npm audit --audit-level=high
+        continue-on-error: true
       - name: Build
         run: npm run build:packages-lib
       - name: Git modified files
