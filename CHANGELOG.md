@@ -2,7 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## [5.0.8](https://github.com/cdcabrera/weldable/compare/9d2d09f291bdfa4c626a9aa72d661214f5a95d9a...b3d95c6c3abcf859446c6a8af9e3d50a2b4fbca5) (2026-01-03)
+
+
+### Continuous Integrations
+*  move to latest npm ([#298](https://github.com/cdcabrera/weldable/pull/298)) ([b3d95c6](https://github.com/cdcabrera/weldable/commit/b3d95c6c3abcf859446c6a8af9e3d50a2b4fbca5))
+
 ## [5.0.7](https://github.com/cdcabrera/weldable/compare/fb628e9c489be622e4b40c3e3d9f9049ea261539...927f9738476cc1f62c47f5c66efcd3a53d350fcf) (2026-01-03)
+⚠ sass may contain breaking changes see [#268](https://github.com/cdcabrera/weldable/pull/268)
 
 
 ### Continuous Integrations
