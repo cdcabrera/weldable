@@ -116,8 +116,8 @@
   "devDependencies": {
     "@cdcabrera/eslint-config-toolkit": "^0.3.0",
     "changelog-light": "^3.0.4",
-    "cspell": "^9.3.2",
-    "eslint": "^9.39.1",
+    "cspell": "^9.4.0",
+    "eslint": "^9.39.2",
     "jest": "^30.2.0",
     "jsdoc-to-markdown": "^9.1.3",
     "lodash": "^4.17.21",
