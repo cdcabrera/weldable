@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file.
 
+## [5.0.7](https://github.com/cdcabrera/weldable/compare/fb628e9c489be622e4b40c3e3d9f9049ea261539...927f9738476cc1f62c47f5c66efcd3a53d350fcf) (2026-01-03)
+
+
+### Continuous Integrations
+*  move publishing ([#297](https://github.com/cdcabrera/weldable/pull/297)) ([927f973](https://github.com/cdcabrera/weldable/commit/927f9738476cc1f62c47f5c66efcd3a53d350fcf))
+
+### Builds
+* **deps** bump prod group with 3 updates ([#295](https://github.com/cdcabrera/weldable/pull/295)) ([6d2eaa6](https://github.com/cdcabrera/weldable/commit/6d2eaa662414d576052760447b26f5e0c8abefe9))
+* **deps-dev** bump dev group with 2 updates ([#291](https://github.com/cdcabrera/weldable/pull/291)) ([b4c5c82](https://github.com/cdcabrera/weldable/commit/b4c5c826011d583e3b40cd76aeb009a7d2e736f1))
+* **deps** bump actions/cache from 4 to 5 ([#292](https://github.com/cdcabrera/weldable/pull/292)) ([cb5714b](https://github.com/cdcabrera/weldable/commit/cb5714b412dfb248ea8b3efcdacfa461d78d72f7))
+* **deps** bump actions/checkout from 5 to 6 ([#293](https://github.com/cdcabrera/weldable/pull/293)) ([928936e](https://github.com/cdcabrera/weldable/commit/928936e1d6b22f38682b7b423117e3b2b5ac7135))
+* **deps-dev** bump dev group with 4 updates ([#284](https://github.com/cdcabrera/weldable/pull/284)) ([2251d71](https://github.com/cdcabrera/weldable/commit/2251d71d685e89f732b366a4d0df2093a03e2582))
+*  relax audit check ([#287](https://github.com/cdcabrera/weldable/pull/287)) ([ea9b1a2](https://github.com/cdcabrera/weldable/commit/ea9b1a2b982f9d533662e10ced409ba6aa17c7e9))
+* **deps-dev** bump dev group with 3 updates ([#280](https://github.com/cdcabrera/weldable/pull/280)) ([7da33fc](https://github.com/cdcabrera/weldable/commit/7da33fc943066b62ea2e566607cbd00686cadb71))
+* **deps** bump prod group with 5 updates ([#281](https://github.com/cdcabrera/weldable/pull/281)) ([ad11442](https://github.com/cdcabrera/weldable/commit/ad114421d5bdc8c73b23ac44a520eda4ba7dc92f))
+* **deps** bump sass from 1.90.0 to 1.93.2 ([#268](https://github.com/cdcabrera/weldable/pull/268)) ([a7e3a31](https://github.com/cdcabrera/weldable/commit/a7e3a31aac025fbf3a136283ec10629429c7b1ad))
+
 ## [5.0.6](https://github.com/cdcabrera/weldable/compare/8d79fae310fa967b144a0ed924ea5ec139490387...617148eea955aa5db88d3b9c7bdde5e3c2ec8bbe) (2025-11-10)
 
 
