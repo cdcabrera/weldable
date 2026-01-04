@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [5.0.9](https://github.com/cdcabrera/weldable/compare/49c6a30c7b039fbc37f2fbbf427d7b07e3b553ed...e3937e2cc7968ac545630061f34ecd53e33125da) (2026-01-04)
+
+
+### Continuous Integrations
+*  npm publishing, remove matrix ([#300](https://github.com/cdcabrera/weldable/pull/300)) ([e3937e2](https://github.com/cdcabrera/weldable/commit/e3937e2cc7968ac545630061f34ecd53e33125da))
+
 ## [5.0.8](https://github.com/cdcabrera/weldable/compare/9d2d09f291bdfa4c626a9aa72d661214f5a95d9a...b3d95c6c3abcf859446c6a8af9e3d50a2b4fbca5) (2026-01-03)
 
 
