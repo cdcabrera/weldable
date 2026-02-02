@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+## [5.0.10](https://github.com/cdcabrera/weldable/compare/7309613e7ca99f06c4f8736bd32a97af38ee3f40...fde622a9b407c1f96f755f142a59562093ded0a3) (2026-02-02)
+
+
+### Chores
+* **lib** package license ([#309](https://github.com/cdcabrera/weldable/pull/309)) ([fde622a](https://github.com/cdcabrera/weldable/commit/fde622a9b407c1f96f755f142a59562093ded0a3))
+
+### Builds
+* **deps** bump less from 4.4.2 to 4.5.1 ([#302](https://github.com/cdcabrera/weldable/pull/302)) ([e239d75](https://github.com/cdcabrera/weldable/commit/e239d751da1ed0391e88ab5fc850846994247d42))
+* **deps** lock update ([#308](https://github.com/cdcabrera/weldable/pull/308)) ([7c55810](https://github.com/cdcabrera/weldable/commit/7c55810616a071bce2a6f222937884c48e1252d9))
+*  pin deps, ignore scripts ([#307](https://github.com/cdcabrera/weldable/pull/307)) ([18665bb](https://github.com/cdcabrera/weldable/commit/18665bb87e0e567cbac6f62c75f20117ece1d3e9))
+* **deps-dev** bump cspell from 9.4.0 to 9.6.0 ([#306](https://github.com/cdcabrera/weldable/pull/306)) ([ec24ffc](https://github.com/cdcabrera/weldable/commit/ec24ffcba96c124f58d41b0481f3eb1e8e86f275))
+* **deps-dev** bump dev group with 3 updates ([#305](https://github.com/cdcabrera/weldable/pull/305)) ([3d83a81](https://github.com/cdcabrera/weldable/commit/3d83a81d436c492a016596642d0152ae039794d0))
+* **deps** bump rimraf from 6.0.1 to 6.1.2 ([#304](https://github.com/cdcabrera/weldable/pull/304)) ([b77b67d](https://github.com/cdcabrera/weldable/commit/b77b67d7bd936eb7e05924e66a1582017026f369))
+* **deps-dev** npm-check-updates from 18.1.1 to 19.2.0 ([#303](https://github.com/cdcabrera/weldable/pull/303)) ([aecf2f5](https://github.com/cdcabrera/weldable/commit/aecf2f5d7dbd15e3fc1c464d89ea6000b4a4b459))
+
 ## [5.0.9](https://github.com/cdcabrera/weldable/compare/49c6a30c7b039fbc37f2fbbf427d7b07e3b553ed...e3937e2cc7968ac545630061f34ecd53e33125da) (2026-01-04)
 
 
