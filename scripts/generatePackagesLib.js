@@ -25,12 +25,15 @@ const loadPackages = async (packageDependencies = dependencies) => {
     let license;
     try {
       const licenseFile = path.resolve(__dirname, '..', 'node_modules', keys[index], 'LICENSE');
-      const altLicense = path.resolve(__dirname, '..', 'node_modules', keys[index], 'LICENSE.txt');
+      const altLicenseTxt = path.resolve(__dirname, '..', 'node_modules', keys[index], 'LICENSE.txt');
+      const altLicenseMd = path.resolve(__dirname, '..', 'node_modules', keys[index], 'LICENSE.md');
 
       if (existsSync(licenseFile)) {
         license = readFileSync(licenseFile, 'utf-8');
-      } else if (existsSync(altLicense)) {
-        license = readFileSync(altLicense, 'utf-8');
+      } else if (existsSync(altLicenseTxt)) {
+        license = readFileSync(altLicenseTxt, 'utf-8');
+      } else if (existsSync(altLicenseMd)) {
+        license = readFileSync(altLicenseMd, 'utf-8');
       }
 
       if (!license) {
