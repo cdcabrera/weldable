@@ -704,10 +704,9 @@ exports[`webpackConfigs should return a development configuration object: develo
       {
         "_sortedModulesCache": {},
         "options": {
-          "filename": "[name].bundle.css",
           "ignoreOrder": false,
           "runtime": true,
-          "chunkFilename": "[name].bundle.css"
+          "filename": "[name].bundle.css"
         },
         "runtimeOptions": {
           "linkType": "text/css"
@@ -783,10 +782,9 @@ exports[`webpackConfigs should return a development configuration object: develo
       {
         "_sortedModulesCache": {},
         "options": {
-          "filename": "[name].bundle.css",
           "ignoreOrder": false,
           "runtime": true,
-          "chunkFilename": "[name].bundle.css"
+          "filename": "[name].bundle.css"
         },
         "runtimeOptions": {
           "linkType": "text/css"
@@ -862,10 +860,9 @@ exports[`webpackConfigs should return a development configuration object: develo
       {
         "_sortedModulesCache": {},
         "options": {
-          "filename": "[name].bundle.css",
           "ignoreOrder": false,
           "runtime": true,
-          "chunkFilename": "[name].bundle.css"
+          "filename": "[name].bundle.css"
         },
         "runtimeOptions": {
           "linkType": "text/css"
@@ -1124,10 +1121,10 @@ exports[`webpackConfigs should return a production configuration object: product
       {
         "_sortedModulesCache": {},
         "options": {
-          "filename": "[name].[contenthash:8].css",
           "ignoreOrder": false,
           "runtime": true,
-          "chunkFilename": "[name].[contenthash:8].chunk.css"
+          "chunkFilename": "[name].[contenthash:8].chunk.css",
+          "filename": "[name].[contenthash:8].css"
         },
         "runtimeOptions": {
           "linkType": "text/css"
@@ -1225,10 +1222,10 @@ exports[`webpackConfigs should return a production configuration object: product
       {
         "_sortedModulesCache": {},
         "options": {
-          "filename": "[name].[contenthash:8].css",
           "ignoreOrder": false,
           "runtime": true,
-          "chunkFilename": "[name].[contenthash:8].chunk.css"
+          "chunkFilename": "[name].[contenthash:8].chunk.css",
+          "filename": "[name].[contenthash:8].css"
         },
         "runtimeOptions": {
           "linkType": "text/css"
@@ -1326,10 +1323,10 @@ exports[`webpackConfigs should return a production configuration object: product
       {
         "_sortedModulesCache": {},
         "options": {
-          "filename": "[name].[contenthash:8].css",
           "ignoreOrder": false,
           "runtime": true,
-          "chunkFilename": "[name].[contenthash:8].chunk.css"
+          "chunkFilename": "[name].[contenthash:8].chunk.css",
+          "filename": "[name].[contenthash:8].css"
         },
         "runtimeOptions": {
           "linkType": "text/css"

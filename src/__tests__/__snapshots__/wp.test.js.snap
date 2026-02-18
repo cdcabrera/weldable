@@ -134,10 +134,9 @@ exports[`webpack should create a basic webpack config: basic configurations 1`] 
       {
         "_sortedModulesCache": {},
         "options": {
-          "filename": "[name].bundle.css",
           "ignoreOrder": false,
           "runtime": true,
-          "chunkFilename": "[name].bundle.css"
+          "filename": "[name].bundle.css"
         },
         "runtimeOptions": {
           "linkType": "text/css"
@@ -308,10 +307,10 @@ exports[`webpack should create a basic webpack config: basic configurations 1`] 
       {
         "_sortedModulesCache": {},
         "options": {
-          "filename": "[name].[contenthash:8].css",
           "ignoreOrder": false,
           "runtime": true,
-          "chunkFilename": "[name].[contenthash:8].chunk.css"
+          "chunkFilename": "[name].[contenthash:8].chunk.css",
+          "filename": "[name].[contenthash:8].css"
         },
         "runtimeOptions": {
           "linkType": "text/css"
