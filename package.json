@@ -32,18 +32,18 @@
   "scripts": {
     "build:packages-lib": "node ./scripts/generatePackagesLib.js",
     "build:deps": "bash ./scripts/dependencies.sh --doctor -u --doctorTest \"npm run test:deps\"",
-    "build:docs": "run-s -l test:docs docs:md",
+    "build:docs": "npm run test:docs && npm run docs:md",
     "docs:md": "node ./scripts/readme.docs.js",
     "release": "changelog",
     "start": "export _WELDABLE_DEV=true; ./bin/cli.js",
-    "test": "run-s -l test:lint test:spell* test:ci",
+    "test": "npm run test:lint && npm run test:spell && npm run test:spell-docs && npm run test:ci",
     "test:ci": "export CI=true; export _WELDABLE_TEST=true; jest --collectCoverage --coverageReporters=\"lcov\" --coverageReporters=\"json-summary\"",
     "test:clearCache": "jest --clearCache",
-    "test:coverage": "run-s test:ci test:coverageSummary",
+    "test:coverage": "npm run test:ci && npm run test:coverageSummary",
     "test:coverageSummary": "node ./scripts/actions.coverage.js",
-    "test:deps": "run-s test",
-    "test:dev": "eslint ./bin ./src; run-s test:spell test:local",
-    "test:docs": "run-s test:spell test:lint",
+    "test:deps": "npm test",
+    "test:dev": "eslint ./bin ./src; npm run test:spell && npm run test:local",
+    "test:docs": "npm run test:spell && npm run test:lint",
     "test:integration": "export _WELDABLE_TEST=true; jest --roots=./tests",
     "test:integration-dev": "export _WELDABLE_TEST=true; jest --roots=./tests --watchAll",
     "test:lint": "eslint ./bin ./src eslint.config.mjs",
@@ -121,7 +121,6 @@
     "jest": "^30.2.0",
     "jsdoc-to-markdown": "^9.1.3",
     "lodash": "^4.17.21",
-    "npm-check-updates": "^19.3.2",
-    "npm-run-all": "^4.1.5"
+    "npm-check-updates": "^19.3.2"
   }
 }
