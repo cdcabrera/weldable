@@ -1,6 +1,6 @@
 {
   "name": "weldable",
-  "version": "5.0.10",
+  "version": "5.0.11",
   "description": "A webpack configuration tool.",
   "author": "cdcabrera",
   "license": "MIT",

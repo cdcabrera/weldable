@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file.
 
+## [5.0.11](https://github.com/cdcabrera/weldable/compare/0a98e5103a2ae205526f2309ad7d301b8c2e93c1...226d139251e4b2005bf7096ee506675991b8cf19) (2026-03-06)
+⚠ sass may contain breaking changes see [#313](https://github.com/cdcabrera/weldable/pull/313)
+
+### Chores
+* **lib** package license ([#327](https://github.com/cdcabrera/weldable/pull/327)) ([226d139](https://github.com/cdcabrera/weldable/commit/226d139251e4b2005bf7096ee506675991b8cf19))
+
+### Builds
+* **deps** lock update ([#326](https://github.com/cdcabrera/weldable/pull/326)) ([cdc268f](https://github.com/cdcabrera/weldable/commit/cdc268ffb448ba962261e83f99c0d2926c2a2e8f))
+* **deps** bump prod group with 4 updates ([#325](https://github.com/cdcabrera/weldable/pull/325)) ([bb554fc](https://github.com/cdcabrera/weldable/commit/bb554fc16702ca5aefcc4f215cc2b0d100611ee3))
+* **deps** bump @babel/core from 7.28.6 to 7.29.0 ([#323](https://github.com/cdcabrera/weldable/pull/323)) ([1b9ad24](https://github.com/cdcabrera/weldable/commit/1b9ad242ecae3d3ae9d9a2dcab9b19ce6e05905e))
+* **deps-dev** remove npm-check-updates ([#321](https://github.com/cdcabrera/weldable/pull/321)) ([3f963a6](https://github.com/cdcabrera/weldable/commit/3f963a6f68e0dbf5d5bea9b3262d9349bb4bc6d0))
+* **deps-dev** remove npm-run-all ([#320](https://github.com/cdcabrera/weldable/pull/320)) ([dfccab5](https://github.com/cdcabrera/weldable/commit/dfccab57980bc43d79aed771f9c18dcf91e2aaa9))
+* **deps** @babel/preset-env from 7.28.6 to 7.29.0 ([#319](https://github.com/cdcabrera/weldable/pull/319)) ([6362e00](https://github.com/cdcabrera/weldable/commit/6362e007e3fc57ab0f5cd4131c90e379e7806140))
+* **deps** @babel/plugin-transform-runtime 7.28.5 to 7.29.0 ([#318](https://github.com/cdcabrera/weldable/pull/318)) ([a743c13](https://github.com/cdcabrera/weldable/commit/a743c1305fdc5ba5a3e2eac7f87535a9a643c106))
+* **deps** mini-css-extract-plugin from 2.9.4 to 2.10.0 ([#312](https://github.com/cdcabrera/weldable/pull/312)) ([29335c7](https://github.com/cdcabrera/weldable/commit/29335c7a11ca1e5a2af061d6cfcc35a905216140))
+* **deps** bump prod group with 2 updates ([#317](https://github.com/cdcabrera/weldable/pull/317)) ([af7b0d6](https://github.com/cdcabrera/weldable/commit/af7b0d62a96d38807db816085053d33af8930341))
+* **deps** bump css-loader from 7.1.2 to 7.1.3 ([#316](https://github.com/cdcabrera/weldable/pull/316)) ([9edd991](https://github.com/cdcabrera/weldable/commit/9edd991c0ced6478f4251d9c5e91d06a9ad83491))
+* **deps-dev** bump dev group with 3 updates ([#315](https://github.com/cdcabrera/weldable/pull/315)) ([3da27ff](https://github.com/cdcabrera/weldable/commit/3da27ff460be5d3cd3b72d9188f7312beaa2c477))
+* **deps** bump sass from 1.93.2 to 1.97.2 ([#313](https://github.com/cdcabrera/weldable/pull/313)) ([3dc8622](https://github.com/cdcabrera/weldable/commit/3dc862259e56ff2d3ac1275b5a62f58e58834bfd))
+* **deps** lock update ([#314](https://github.com/cdcabrera/weldable/pull/314)) ([fe3523c](https://github.com/cdcabrera/weldable/commit/fe3523ce645752f1699bba7dfa942eff06cd584b))
+* **deps** bump prod group with 4 updates ([#311](https://github.com/cdcabrera/weldable/pull/311)) ([0315d51](https://github.com/cdcabrera/weldable/commit/0315d5147be50b9be7d2dde0c97c96c46c5069eb))
+
 ## [5.0.10](https://github.com/cdcabrera/weldable/compare/7309613e7ca99f06c4f8736bd32a97af38ee3f40...fde622a9b407c1f96f755f142a59562093ded0a3) (2026-02-02)
 
 
