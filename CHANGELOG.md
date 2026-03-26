@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+## [5.0.12](https://github.com/cdcabrera/weldable/compare/e21001cd05a5ec04c984d874d06bd2241a3c0395...75c3b0b40f1a453988f6a759a5ccd7589e8d76c1) (2026-03-26)
+⚠ copy-webpack-plugin requires minimum `Node.js` version `20.9.0` see [#338](https://github.com/cdcabrera/weldable/pull/338)
+
+### Chores
+*  license badge ([#329](https://github.com/cdcabrera/weldable/pull/329)) ([7b357dd](https://github.com/cdcabrera/weldable/commit/7b357dd4fc5164d121a3a1e7944936045767050c))
+
+### Builds
+* **deps** bump copy-webpack-plugin from 13.0.1 to 14.0.0 ([#338](https://github.com/cdcabrera/weldable/pull/338)) ([75c3b0b](https://github.com/cdcabrera/weldable/commit/75c3b0b40f1a453988f6a759a5ccd7589e8d76c1))
+* **deps** lock update ([#337](https://github.com/cdcabrera/weldable/pull/337)) ([deb8fe2](https://github.com/cdcabrera/weldable/commit/deb8fe2d0139492557861f824bd9e76b87710079))
+* **deps-dev** bump eslint from 9.39.2 to 9.39.4 ([#336](https://github.com/cdcabrera/weldable/pull/336)) ([e2a49f2](https://github.com/cdcabrera/weldable/commit/e2a49f28d2dcfe79cfbbc2b8e353188631470f44))
+* **deps-dev** bump dev group with 3 updates ([#334](https://github.com/cdcabrera/weldable/pull/334)) ([5837b5d](https://github.com/cdcabrera/weldable/commit/5837b5d50cf50dad189f25a926046259afe4d077))
+* **deps** bump prod group with 3 updates ([#333](https://github.com/cdcabrera/weldable/pull/333)) ([c827849](https://github.com/cdcabrera/weldable/commit/c827849fd40b337fbf44c5d47cbcfebb61648884))
+* **deps-dev** bump dev group with 2 updates ([#330](https://github.com/cdcabrera/weldable/pull/330)) ([299cd91](https://github.com/cdcabrera/weldable/commit/299cd91a45addeb2ac8a341d54de9e627186008d))
+
 ## [5.0.11](https://github.com/cdcabrera/weldable/compare/0a98e5103a2ae205526f2309ad7d301b8c2e93c1...226d139251e4b2005bf7096ee506675991b8cf19) (2026-03-06)
 ⚠ sass may contain breaking changes see [#313](https://github.com/cdcabrera/weldable/pull/313)
 
