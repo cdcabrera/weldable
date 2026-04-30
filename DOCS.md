@@ -4,7 +4,7 @@
 <summary><h3 style="display: inline-block">Tooling requirements</h3></summary>
 
 The basic use requirements:
-* [NodeJS version 20+](https://nodejs.org/)
+* [NodeJS version 22+](https://nodejs.org/)
 * NPM
   > There appear to be dependency mapping issues with `Yarn` v1.x.x lock files, `Typescript` and `webpack`, and specific dependencies
   > using ES modules. If you do decide to use [Yarn](https://yarnpkg.com) use the latest version.
