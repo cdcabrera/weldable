@@ -74,7 +74,7 @@ const {
     describe:
       'Generate a base tsconfig from NPM @tsconfig/[base]. An existing tsconfig.json will override this option, see tsconfig-opt. This option can be run without running webpack.',
     type: 'string',
-    choices: ['', 'create-react-app', 'node18', 'node20', 'react-native', 'recommended', 'strictest']
+    choices: ['', 'create-react-app', 'node20', 'node22', 'node24', 'react-native', 'recommended', 'strictest']
   })
   .option('tsconfig-opt', {
     describe: 'Regenerate or merge a tsconfig',

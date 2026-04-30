@@ -4,7 +4,7 @@
 <summary><h3 style="display: inline-block">Tooling requirements</h3></summary>
 
 The basic use requirements:
-* [NodeJS version 18+](https://nodejs.org/)
+* [NodeJS version 20+](https://nodejs.org/)
 * NPM
   > There appear to be dependency mapping issues with `Yarn` v1.x.x lock files, `Typescript` and `webpack`, and specific dependencies
   > using ES modules. If you do decide to use [Yarn](https://yarnpkg.com) use the latest version.
@@ -282,7 +282,7 @@ $ weldable -h
 | -s, --stats    | Stats output level for NodeJS API                                                                                                                                                                                                                   | string                    | errors-only, errors-warnings, minimal, none, normal, verbose, detailed, summary | normal       |
 | --standalone   | Standalone webpack configuration. Output weldable webpack config functions and update package.json so you can do whatever you want.                                                                                                                 | boolean                   |                                                                                 |              |
 | --statsFile    | Output JSON webpack bundle stats for use with "webpack-bundle-analyzer". Use the default or enter a relative path and filename                                                                                                                      | string                    |                                                                                 | ./stats.json |
-| --tsconfig     | Generate a base tsconfig from one of the available NPM @tsconfig/[base]. An existing tsconfig.json will override this option, see "tsconfig-opt". This option can be run without running webpack.                                                   | string                    | create-react-app, node18, node20, react-native, recommended, strictest          |              |
+| --tsconfig     | Generate a base tsconfig from one of the available NPM @tsconfig/[base]. An existing tsconfig.json will override this option, see "tsconfig-opt". This option can be run without running webpack.                                                   | string                    | create-react-app, node20, node22, node24, react-native, recommended, strictest  |              |
 | --tsconfig-opt | Regenerate or merge a tsconfig. Useful if a tsconfig already exists. Requires the use of "tsconfig" option                                                                                                                                          | string                    | merge, regen                                                                    | regen        |
 | -x, --extend   | Extend, or override, the default configs with your own relative path webpack configs using webpack merge. Configuration can be a callback that returns a webpack config object, available dotenv parameters are returned as the callback parameter. | string \| Array\<string\> |                                                                                 |              |
 | -h, --help     |                                                                                                                                                                                                                                                     | boolean                   |                                                                                 |              |
@@ -381,8 +381,9 @@ const aPackage = packages.[PACKAGE_NAME];
 | @babel/preset-env               | babelPresetEnv, babelPresetEnvResolve                           |
 | @babel/preset-react             | babelPresetReact, babelPresetReactResolve                       |
 | @tsconfig/create-react-app      | N/A                                                             |
-| @tsconfig/node18                | N/A                                                             |
 | @tsconfig/node20                | N/A                                                             |
+| @tsconfig/node22                | N/A                                                             |
+| @tsconfig/node24                | N/A                                                             |
 | @tsconfig/react-native          | N/A                                                             |
 | @tsconfig/recommended           | N/A                                                             |
 | @tsconfig/strictest             | N/A                                                             |
