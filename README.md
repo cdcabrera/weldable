@@ -61,7 +61,8 @@ For in-depth use of `weldable` see our [DOCS](./DOCS.md).
                                                                                                                                        [boolean] [default: false]
       --statsFile     Output JSON webpack bundle stats. Use the default, or a relative project path and filename [./stats.json]                          [string]
       --tsconfig      Generate a base tsconfig from NPM @tsconfig/[base]. An existing tsconfig.json will override this option, see tsconfig-opt. This option can
-                      be run without running webpack.  [string] [choices: "", "create-react-app", "node18", "node20", "react-native", "recommended", "strictest"]
+                      be run without running webpack.
+                                             [string] [choices: "", "create-react-app", "node20", "node22", "node24", "react-native", "recommended", "strictest"]
       --tsconfig-opt  Regenerate or merge a tsconfig                                                                         [string] [choices: "merge", "regen"]
   -x, --extend        Extend, or override, the default configs with your own relative path webpack configs using webpack merge.                           [array]
   -h, --help          Show help                                                                                                                         [boolean]
