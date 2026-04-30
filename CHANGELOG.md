@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file.
 
+## [5.0.13](https://github.com/cdcabrera/weldable/compare/28d9e57d80ea0685c06af50a6f6dce113c45d433...81b628240b257fe1f1116a306169b4b0bc77c8a6) (2026-04-30)
+
+
+### Continuous Integrations
+*  coverage perms ([#352](https://github.com/cdcabrera/weldable/pull/352)) ([81b6282](https://github.com/cdcabrera/weldable/commit/81b628240b257fe1f1116a306169b4b0bc77c8a6))
+*  workflow perms ([#350](https://github.com/cdcabrera/weldable/pull/350)) ([05b9300](https://github.com/cdcabrera/weldable/commit/05b930071b8ccc13d68cc91c7a45d6bbd708c2e0))
+
+### Builds
+* **deps** lock update ([#349](https://github.com/cdcabrera/weldable/pull/349)) ([9bfc917](https://github.com/cdcabrera/weldable/commit/9bfc9172355fbef3324f325c2929fc9d99ed3f60))
+* **deps** bump prod group with 2 updates ([#347](https://github.com/cdcabrera/weldable/pull/347)) ([261be4b](https://github.com/cdcabrera/weldable/commit/261be4bd0d3033b5340100be71ebf6c88dcb9b30))
+* **deps-dev** bump lodash from 4.17.23 to 4.18.1 ([#345](https://github.com/cdcabrera/weldable/pull/345)) ([cb41c9a](https://github.com/cdcabrera/weldable/commit/cb41c9a365bf7ddecb95233168e02513b2ddb758))
+* **deps-dev** bump dev group with 2 updates ([#344](https://github.com/cdcabrera/weldable/pull/344)) ([64e26d7](https://github.com/cdcabrera/weldable/commit/64e26d77194face4a937d44cc8183a06fd341c7a))
+* **deps** terser-webpack-plugin from 5.3.17 to 5.4.0 ([#343](https://github.com/cdcabrera/weldable/pull/343)) ([2f3e092](https://github.com/cdcabrera/weldable/commit/2f3e092f4d4b652f82f7a1f786c98f9e2205b659))
+* **deps** bump prod group with 3 updates ([#341](https://github.com/cdcabrera/weldable/pull/341)) ([9d0adbf](https://github.com/cdcabrera/weldable/commit/9d0adbfa6793b43ef7c0670ff05be8546b4f08e2))
+* **deps** lock update ([#340](https://github.com/cdcabrera/weldable/pull/340)) ([c3b74d6](https://github.com/cdcabrera/weldable/commit/c3b74d680d2ebe049a893c9f4d83a478a7bb520b))
+
 ## [5.0.12](https://github.com/cdcabrera/weldable/compare/e21001cd05a5ec04c984d874d06bd2241a3c0395...75c3b0b40f1a453988f6a759a5ccd7589e8d76c1) (2026-03-26)
 ⚠ copy-webpack-plugin requires minimum `Node.js` version `20.9.0` see [#338](https://github.com/cdcabrera/weldable/pull/338)
 
