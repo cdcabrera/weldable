@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
+## [6.0.0](https://github.com/cdcabrera/weldable/compare/130d9d5429dc276dafb72566fb767e285a73a0b5...b7a0736f34c4d0b2be9528676070eb5bc3d0e74d) (2026-06-26)
+⚠ BREAKING CHANGES
+
+### Builds
+* **deps** lock update ([#367](https://github.com/cdcabrera/weldable/pull/367)) ([b7a0736](https://github.com/cdcabrera/weldable/commit/b7a0736f34c4d0b2be9528676070eb5bc3d0e74d))
+* **deps** bump prod group with 4 updates ([#366](https://github.com/cdcabrera/weldable/pull/366)) ([318bddc](https://github.com/cdcabrera/weldable/commit/318bddc83f80f9b0a15eb70c57e5ecc8b200392a))
+* **deps** bump actions/checkout from 6 to 6.0.2 ([#364](https://github.com/cdcabrera/weldable/pull/364)) ([293a489](https://github.com/cdcabrera/weldable/commit/293a489389552ad189e15bd753449de3b194bff8))
+* **deps** bump actions/configure-pages from 5 to 6 ([#365](https://github.com/cdcabrera/weldable/pull/365)) ([d18a4d5](https://github.com/cdcabrera/weldable/commit/d18a4d5beeb189fdcf594ce7694140c24eb5e2b5))
+* **deps** bump actions/upload-pages-artifact from 4 to 5 ([#356](https://github.com/cdcabrera/weldable/pull/356)) ([5075915](https://github.com/cdcabrera/weldable/commit/5075915a4ad06450250ec1c73b351b0611ff543c))
+* **deps** bump actions/github-script from 8 to 9 ([#355](https://github.com/cdcabrera/weldable/pull/355)) ([2e63a3b](https://github.com/cdcabrera/weldable/commit/2e63a3bd45eba1d07892bb335a8bd93f06819483))
+* ⚠ **nodejs** remove 20 support ([#353](https://github.com/cdcabrera/weldable/pull/353)) ([72e8a12](https://github.com/cdcabrera/weldable/commit/72e8a120694cf8cb33373d36c3a10d7498b5ed7a))
+* ⚠ **deps** add tsconfig node 22, 24 options, drop 18 ([#354](https://github.com/cdcabrera/weldable/pull/354)) ([bd1ba74](https://github.com/cdcabrera/weldable/commit/bd1ba74ae8949520d4bde21002fa1d965ba8750b))
+
 ## [5.0.13](https://github.com/cdcabrera/weldable/compare/28d9e57d80ea0685c06af50a6f6dce113c45d433...81b628240b257fe1f1116a306169b4b0bc77c8a6) (2026-04-30)
 
 
