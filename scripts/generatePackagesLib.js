@@ -15,21 +15,24 @@ const { createFile, dynamicImport } = require('../src/global');
 const loadPackages = async (packageDependencies = dependencies) => {
   const keys = Object.keys(packageDependencies);
   const results = await Promise.allSettled(
-    keys.map(arg => {
-      return dynamicImport(arg);
-    })
+    keys.map(arg => dynamicImport(arg))
   );
 
   const packages = {};
+
   results.forEach((obj, index) => {
     let license;
+
     try {
       const licenseFile = path.resolve(__dirname, '..', 'node_modules', keys[index], 'LICENSE');
+      const licenseFileMit = path.resolve(__dirname, '..', 'node_modules', keys[index], 'LICENSE-MIT');
       const altLicenseTxt = path.resolve(__dirname, '..', 'node_modules', keys[index], 'LICENSE.txt');
       const altLicenseMd = path.resolve(__dirname, '..', 'node_modules', keys[index], 'LICENSE.md');
 
       if (existsSync(licenseFile)) {
         license = readFileSync(licenseFile, 'utf-8');
+      } else if (existsSync(licenseFileMit)) {
+        license = readFileSync(licenseFileMit, 'utf-8');
       } else if (existsSync(altLicenseTxt)) {
         license = readFileSync(altLicenseTxt, 'utf-8');
       } else if (existsSync(altLicenseMd)) {
@@ -95,6 +98,7 @@ const createPackagesExport = async () => {
 
   // Create package js file
   const str = [];
+
   Object.entries(updatedPackages).forEach(([key, { key: value, resolve }]) => {
     str.push(
       `const ${resolve} = require.resolve('${value}');`,
@@ -113,6 +117,7 @@ const createPackagesExport = async () => {
 
   // Create license file
   const licenseStr = [];
+
   Object.entries(updatedPackages).forEach(([, { key: value, license }]) => {
     licenseStr.push(`\n${license}\n//package ${value}`);
   });
