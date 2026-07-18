@@ -338,6 +338,7 @@ exports[`webpack should create a basic webpack config: basic configurations 1`] 
         {
           "options": {
             "test": {},
+            "extractComments": true,
             "parallel": true,
             "minimizer": {
               "options": {
