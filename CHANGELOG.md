@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+## [6.0.1](https://github.com/cdcabrera/weldable/compare/0324aedc7a7977c1f6a0f7d724432a94a461e96a...11433e0b1d4c1c90fdb3acb174ac5017b258dbcc) (2026-07-18)
+
+
+### Builds
+* **deps** lock update ([#378](https://github.com/cdcabrera/weldable/pull/378)) ([11433e0](https://github.com/cdcabrera/weldable/commit/11433e0b1d4c1c90fdb3acb174ac5017b258dbcc))
+* **deps** bump postcss from 8.5.15 to 8.5.16 ([#377](https://github.com/cdcabrera/weldable/pull/377)) ([7cf0ed1](https://github.com/cdcabrera/weldable/commit/7cf0ed116544435fed820337769adc826a557d45))
+* **deps** bump actions/checkout from 6.0.2 to 7.0.0 ([#370](https://github.com/cdcabrera/weldable/pull/370)) ([1fff1d0](https://github.com/cdcabrera/weldable/commit/1fff1d021bacc3fd2ebf2bce9481f2d814ba9b93))
+* **deps** bump webpack-dev-server from 5.2.4 to 5.2.5 ([#376](https://github.com/cdcabrera/weldable/pull/376)) ([a00d433](https://github.com/cdcabrera/weldable/commit/a00d433588c6e4f5ee19ad523f0e45718412622f))
+* **deps** add minimizer-webpack-plugin 5.6.1 ([#374](https://github.com/cdcabrera/weldable/pull/374)) ([81224e2](https://github.com/cdcabrera/weldable/commit/81224e264ea8114153b8eb897ca9cedc172c05c9))
+* **deps** css-minimizer-webpack-plugin from 7.0.4 to 8.0.0 ([#373](https://github.com/cdcabrera/weldable/pull/373)) ([1097013](https://github.com/cdcabrera/weldable/commit/109701373168d15056ebf643766a2d763f9d8716))
+* **deps** lock update ([#372](https://github.com/cdcabrera/weldable/pull/372)) ([96b6360](https://github.com/cdcabrera/weldable/commit/96b63602bb4aa31a85968013004e4a00044de077))
+* **deps** bump actions/deploy-pages from 4 to 5 ([#369](https://github.com/cdcabrera/weldable/pull/369)) ([39327ad](https://github.com/cdcabrera/weldable/commit/39327ad9dd0af8838b32c9e4732c3f12c9498504))
+* **deps-dev** @cdcabrera/eslint-config-toolkit from 0.5.2 to 0.5.3 ([#371](https://github.com/cdcabrera/weldable/pull/371)) ([37ed645](https://github.com/cdcabrera/weldable/commit/37ed645243ab5e4428fe392701ad4054f6b41d27))
+
 ## [6.0.0](https://github.com/cdcabrera/weldable/compare/130d9d5429dc276dafb72566fb767e285a73a0b5...b7a0736f34c4d0b2be9528676070eb5bc3d0e74d) (2026-06-26)
 ⚠ BREAKING CHANGES
 
