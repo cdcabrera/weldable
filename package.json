@@ -95,7 +95,7 @@
     "html-replace-webpack-plugin": "2.6.0",
     "html-webpack-plugin": "5.6.6",
     "less": "4.5.1",
-    "less-loader": "12.3.2",
+    "less-loader": "13.0.0",
     "mini-css-extract-plugin": "2.10.2",
     "mini-svg-data-uri": "1.4.4",
     "minimizer-webpack-plugin": "5.6.1",
