@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file.
 
+## [6.0.3](https://github.com/cdcabrera/weldable/compare/65912df0b002674fb0c12f08fb5ec11a31234e6d...0bcb3d3d3a0e80d3995116b482b04d713d566b6f) (2026-08-30)
+⚠ **Potential breaking changes**
+- sass may contain breaking changes see [#407](https://github.com/cdcabrera/weldable/pull/407)
+- sass-loader may contain breaking changes see [#391](https://github.com/cdcabrera/weldable/pull/391)
+- less-loader may contain breaking changes see [#380](https://github.com/cdcabrera/weldable/pull/380)
+
+### Builds
+* **deps** lock update ([#413](https://github.com/cdcabrera/weldable/pull/413)) ([0bcb3d3](https://github.com/cdcabrera/weldable/commit/0bcb3d3d3a0e80d3995116b482b04d713d566b6f))
+* **deps** bump the prod group with 2 updates ([#409](https://github.com/cdcabrera/weldable/pull/409)) ([c9a90d4](https://github.com/cdcabrera/weldable/commit/c9a90d4dd43ae6777864d4aa58213243231c6aa6))
+* **deps** bump sass from 1.97.3 to 1.102.0 ([#407](https://github.com/cdcabrera/weldable/pull/407)) ([37e4eea](https://github.com/cdcabrera/weldable/commit/37e4eea1795300d5fb56a838319bc4af9ef1012b))
+* **deps** bump the prod group with 2 updates ([#408](https://github.com/cdcabrera/weldable/pull/408)) ([d2af4dc](https://github.com/cdcabrera/weldable/commit/d2af4dc87bf9634227524c49e74ea73d89a40d7a))
+* **deps** bump babel-loader from 10.0.0 to 10.1.1 ([#405](https://github.com/cdcabrera/weldable/pull/405)) ([bd9dead](https://github.com/cdcabrera/weldable/commit/bd9dead7702f264625a4a28861237db448a528fd))
+* **deps** bump sass-loader from 16.0.7 to 17.0.0 ([#391](https://github.com/cdcabrera/weldable/pull/391)) ([0882ffe](https://github.com/cdcabrera/weldable/commit/0882ffec85152329cc340d03ec54aca2f084d992))
+* **deps** bump less-loader from 12.3.2 to 13.0.0 ([#380](https://github.com/cdcabrera/weldable/pull/380)) ([63b2521](https://github.com/cdcabrera/weldable/commit/63b2521659ed71d6e408113f8fc69e151873c590))
+* **deps** bump postcss from 8.5.23 to 8.5.25 ([#402](https://github.com/cdcabrera/weldable/pull/402)) ([64f5fdd](https://github.com/cdcabrera/weldable/commit/64f5fdd8bf2e4ac620562bdd94a6dc02abfa578a))
+
 ## [6.0.2](https://github.com/cdcabrera/weldable/compare/754f75ddfa5c132bbbc40669c7a46798cc7e3b74...27b33f66d503e9e1e24096ee11578d398021150f) (2026-08-07)
 
 
