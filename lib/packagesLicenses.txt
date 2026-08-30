@@ -200,7 +200,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //package css-minimizer-webpack-plugin
 
 
-Copyright (c) Ben Briggs <beneb.info@gmail.com> (http://beneb.info)
+Copyright (c) Ben Briggs <beneb.info@gmail.com> (https://beneb.info)
 
 Permission is hereby granted, free of charge, to any person
 obtaining a copy of this software and associated documentation
@@ -2414,7 +2414,7 @@ xml license:
 
 The MIT License
 
-Copyright (c) 2006-2025 Lukas Renggli.
+Copyright (c) 2006-2026 Lukas Renggli.
 All rights reserved.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
