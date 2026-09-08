@@ -156,10 +156,10 @@ const setupDotenv = require('dotenv');
 const { expand: dotenvExpand } = require('dotenv-expand');
 const { merge } = require('webpack-merge');
 const CopyPlugin = require('copy-webpack-plugin');
-const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlReplaceWebpackPlugin = require('html-replace-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const MimimizerPlugin = require('minimizer-webpack-plugin');
 const SvgToMiniDataURI = require('mini-svg-data-uri');
 const TerserJSPlugin = require('terser-webpack-plugin');
 const cssLoaderResolve = require.resolve('css-loader');
@@ -327,11 +327,11 @@ const createStandalonePackageJson = (
     'dotenv-webpack',
     'webpack-merge',
     'copy-webpack-plugin',
-    'css-minimizer-webpack-plugin',
     'html-webpack-plugin',
     'html-replace-webpack-plugin',
     'mini-css-extract-plugin',
     'mini-svg-data-uri',
+    'minimizer-webpack-plugin',
     'terser-webpack-plugin',
     'css-loader'
   ];

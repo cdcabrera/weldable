@@ -79,9 +79,6 @@ exports[`standalone should attempt to createStandalonePackageJson for multiple l
       "[34m    * copy-webpack-plugin@X.X.X[0m",
     ],
     [
-      "[34m    * css-minimizer-webpack-plugin@X.X.X[0m",
-    ],
-    [
       "[34m    * html-webpack-plugin@X.X.X[0m",
     ],
     [
@@ -92,6 +89,9 @@ exports[`standalone should attempt to createStandalonePackageJson for multiple l
     ],
     [
       "[34m    * mini-svg-data-uri@X.X.X[0m",
+    ],
+    [
+      "[34m    * minimizer-webpack-plugin@X.X.X[0m",
     ],
     [
       "[34m    * terser-webpack-plugin@X.X.X[0m",
@@ -174,9 +174,6 @@ exports[`standalone should attempt to createStandalonePackageJson for multiple l
       "[34m    * copy-webpack-plugin@X.X.X[0m",
     ],
     [
-      "[34m    * css-minimizer-webpack-plugin@X.X.X[0m",
-    ],
-    [
       "[34m    * html-webpack-plugin@X.X.X[0m",
     ],
     [
@@ -187,6 +184,9 @@ exports[`standalone should attempt to createStandalonePackageJson for multiple l
     ],
     [
       "[34m    * mini-svg-data-uri@X.X.X[0m",
+    ],
+    [
+      "[34m    * minimizer-webpack-plugin@X.X.X[0m",
     ],
     [
       "[34m    * terser-webpack-plugin@X.X.X[0m",
@@ -267,9 +267,6 @@ exports[`standalone should attempt to createStandalonePackageJson for multiple l
       "[34m    * copy-webpack-plugin@X.X.X[0m",
     ],
     [
-      "[34m    * css-minimizer-webpack-plugin@X.X.X[0m",
-    ],
-    [
       "[34m    * html-webpack-plugin@X.X.X[0m",
     ],
     [
@@ -280,6 +277,9 @@ exports[`standalone should attempt to createStandalonePackageJson for multiple l
     ],
     [
       "[34m    * mini-svg-data-uri@X.X.X[0m",
+    ],
+    [
+      "[34m    * minimizer-webpack-plugin@X.X.X[0m",
     ],
     [
       "[34m    * terser-webpack-plugin@X.X.X[0m",
@@ -366,9 +366,6 @@ exports[`standalone should attempt to createStandalonePackageJson for multiple l
       "[34m    * copy-webpack-plugin@X.X.X[0m",
     ],
     [
-      "[34m    * css-minimizer-webpack-plugin@X.X.X[0m",
-    ],
-    [
       "[34m    * html-webpack-plugin@X.X.X[0m",
     ],
     [
@@ -379,6 +376,9 @@ exports[`standalone should attempt to createStandalonePackageJson for multiple l
     ],
     [
       "[34m    * mini-svg-data-uri@X.X.X[0m",
+    ],
+    [
+      "[34m    * minimizer-webpack-plugin@X.X.X[0m",
     ],
     [
       "[34m    * terser-webpack-plugin@X.X.X[0m",
@@ -496,10 +496,10 @@ const setupDotenv = require('dotenv');
 const { expand: dotenvExpand } = require('dotenv-expand');
 const { merge } = require('webpack-merge');
 const CopyPlugin = require('copy-webpack-plugin');
-const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlReplaceWebpackPlugin = require('html-replace-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const MimimizerPlugin = require('minimizer-webpack-plugin');
 const SvgToMiniDataURI = require('mini-svg-data-uri');
 const TerserJSPlugin = require('terser-webpack-plugin');
 const cssLoaderResolve = require.resolve('css-loader');
@@ -627,10 +627,10 @@ const setupDotenv = require('dotenv');
 const { expand: dotenvExpand } = require('dotenv-expand');
 const { merge } = require('webpack-merge');
 const CopyPlugin = require('copy-webpack-plugin');
-const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlReplaceWebpackPlugin = require('html-replace-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const MimimizerPlugin = require('minimizer-webpack-plugin');
 const SvgToMiniDataURI = require('mini-svg-data-uri');
 const TerserJSPlugin = require('terser-webpack-plugin');
 const cssLoaderResolve = require.resolve('css-loader');
@@ -716,10 +716,10 @@ const setupDotenv = require('dotenv');
 const { expand: dotenvExpand } = require('dotenv-expand');
 const { merge } = require('webpack-merge');
 const CopyPlugin = require('copy-webpack-plugin');
-const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlReplaceWebpackPlugin = require('html-replace-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const MimimizerPlugin = require('minimizer-webpack-plugin');
 const SvgToMiniDataURI = require('mini-svg-data-uri');
 const TerserJSPlugin = require('terser-webpack-plugin');
 const cssLoaderResolve = require.resolve('css-loader');
@@ -804,10 +804,10 @@ const setupDotenv = require('dotenv');
 const { expand: dotenvExpand } = require('dotenv-expand');
 const { merge } = require('webpack-merge');
 const CopyPlugin = require('copy-webpack-plugin');
-const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlReplaceWebpackPlugin = require('html-replace-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const MimimizerPlugin = require('minimizer-webpack-plugin');
 const SvgToMiniDataURI = require('mini-svg-data-uri');
 const TerserJSPlugin = require('terser-webpack-plugin');
 const cssLoaderResolve = require.resolve('css-loader');
