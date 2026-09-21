@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [6.0.4](https://github.com/cdcabrera/weldable/compare/2d34be5f042d98bb17ae715e2efe41abd81c1f72...28aaa43ccf98f408e147322a0d82c9c845d6c157) (2026-09-21)
+
+
+### Chores
+* **lib** package license ([#415](https://github.com/cdcabrera/weldable/pull/415)) ([3c381a1](https://github.com/cdcabrera/weldable/commit/3c381a1f81d0aa7dbf628e3378ab48a159c3f448))
+
+### Builds
+* **deps** lock update ([#420](https://github.com/cdcabrera/weldable/pull/420)) ([28aaa43](https://github.com/cdcabrera/weldable/commit/28aaa43ccf98f408e147322a0d82c9c845d6c157))
+* **deps-dev** bump jest from 30.4.2 to 30.5.1 ([#419](https://github.com/cdcabrera/weldable/pull/419)) ([17a278d](https://github.com/cdcabrera/weldable/commit/17a278d50dce88166c57d8356a9cbd21f847a2d5))
+* **deps** bump the prod group with 2 updates ([#417](https://github.com/cdcabrera/weldable/pull/417)) ([855bf0f](https://github.com/cdcabrera/weldable/commit/855bf0f50d78af37898aa3904f8b3b623ac39c24))
+* **deps** bump cssnano from 8.0.5 to 8.0.6 ([#416](https://github.com/cdcabrera/weldable/pull/416)) ([0e832b7](https://github.com/cdcabrera/weldable/commit/0e832b70438b27969c354346b5415ce3ed4c4487))
+
 ## [6.0.3](https://github.com/cdcabrera/weldable/compare/65912df0b002674fb0c12f08fb5ec11a31234e6d...0bcb3d3d3a0e80d3995116b482b04d713d566b6f) (2026-08-30)
 ⚠ **Potential breaking changes**
 - sass may contain breaking changes see [#407](https://github.com/cdcabrera/weldable/pull/407)
