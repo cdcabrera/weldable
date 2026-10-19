@@ -1059,6 +1059,7 @@ exports[`webpackConfigs should return a production configuration object: product
         {
           "options": {
             "test": {},
+            "extractComments": true,
             "parallel": true,
             "minimizer": {
               "options": {
@@ -1160,6 +1161,7 @@ exports[`webpackConfigs should return a production configuration object: product
         {
           "options": {
             "test": {},
+            "extractComments": true,
             "parallel": true,
             "minimizer": {
               "options": {
@@ -1261,6 +1263,7 @@ exports[`webpackConfigs should return a production configuration object: product
         {
           "options": {
             "test": {},
+            "extractComments": true,
             "parallel": true,
             "minimizer": {
               "options": {

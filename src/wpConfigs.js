@@ -1,10 +1,10 @@
 const fs = require('fs');
 const path = require('path');
 const CopyPlugin = require('copy-webpack-plugin');
-const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlReplaceWebpackPlugin = require('html-replace-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const MimimizerPlugin = require('minimizer-webpack-plugin');
 const SvgToMiniDataURI = require('mini-svg-data-uri');
 const TerserJSPlugin = require('terser-webpack-plugin');
 const { babelLoaderResolve, babelPresetEnvResolve, cssLoaderResolve, tsLoaderResolve } = require('../lib/packages');
@@ -377,7 +377,7 @@ const development = (
  * @param {object} settings
  * @param {Function} settings.setupWebpackDotenvFilesForEnv
  * @returns {{mode: string, devtool: undefined, output: {chunkFilename: string, filename: string},
- *     optimization: {minimize: boolean, runtimeChunk: string, minimizer: Array<any|CssMinimizerPlugin>,
+ *     optimization: {minimize: boolean, runtimeChunk: string, minimizer: Array<any|MimimizerPlugin>,
  *     splitChunks: {chunks: string, cacheGroups: {vendor: {test: RegExp, chunks: string, name: string}}}},
  *     plugins: Array}}
  */
@@ -397,7 +397,8 @@ const production = (
       new TerserJSPlugin({
         parallel: true
       }),
-      new CssMinimizerPlugin({
+      new MimimizerPlugin({
+        minify: MimimizerPlugin.cssnanoMinify,
         minimizerOptions: {
           preset: ['default', { mergeLonghand: false }]
         }
