@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [6.0.5](https://github.com/cdcabrera/weldable/compare/44e552463ba9d2fa8f4469e66d55b790c1e1ed9e...787f5cba7a2a5a76b40f1f2b6a230689d88f0c80) (2026-11-05)
+
+
+### Builds
+* **deps** lock update ([#432](https://github.com/cdcabrera/weldable/pull/432)) ([787f5cb](https://github.com/cdcabrera/weldable/commit/787f5cba7a2a5a76b40f1f2b6a230689d88f0c80))
+* **deps** lock update ([#430](https://github.com/cdcabrera/weldable/pull/430)) ([4ad9035](https://github.com/cdcabrera/weldable/commit/4ad903519f0cb976635cbbcc225d89498dbf2c21))
+* **deps-dev** bump jest from 30.5.1 to 30.5.2 ([#426](https://github.com/cdcabrera/weldable/pull/426)) ([0b060a6](https://github.com/cdcabrera/weldable/commit/0b060a655ba0d8e318dbca02f55dff3f09c7c7b8))
+* **deps** webpack-bundle-analyzer from 5.3.2 to 5.3.3 ([#424](https://github.com/cdcabrera/weldable/pull/424)) ([d2362e6](https://github.com/cdcabrera/weldable/commit/d2362e67f115d624ea6440dc3e6da1d89a3ebcd6))
+* **deps** bump the prod group with 3 updates ([#422](https://github.com/cdcabrera/weldable/pull/422)) ([bcb3461](https://github.com/cdcabrera/weldable/commit/bcb34611f9645b8a0d59775d434e4413a47327df))
+
 ## [6.0.4](https://github.com/cdcabrera/weldable/compare/2d34be5f042d98bb17ae715e2efe41abd81c1f72...28aaa43ccf98f408e147322a0d82c9c845d6c157) (2026-09-21)
 
 
