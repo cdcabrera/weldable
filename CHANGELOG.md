@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file.
 
+## [6.0.6](https://github.com/cdcabrera/weldable/compare/6e807118a3bae8be23ad2b3767eeb798b4404d78...b1097dcf70dfb83c31a0a7f9091f7c3a05e12f30) (2026-11-24)
+
+
+### Tests
+*  correct sequence for clean paths regex ([#439](https://github.com/cdcabrera/weldable/pull/439)) ([b907d6b](https://github.com/cdcabrera/weldable/commit/b907d6b8b97b29d8ca6e98dcb6153dd1089d7da3))
+
+### Chores
+* **lib** package license ([#445](https://github.com/cdcabrera/weldable/pull/445)) ([b1097dc](https://github.com/cdcabrera/weldable/commit/b1097dcf70dfb83c31a0a7f9091f7c3a05e12f30))
+
+### Builds
+* **deps-dev** bump dev group with 2 updates ([#444](https://github.com/cdcabrera/weldable/pull/444)) ([fd78d8c](https://github.com/cdcabrera/weldable/commit/fd78d8c435195ce83ab09b9514ad02889049c9c1))
+* **deps** bump prod group with 9 typescript updates ([#443](https://github.com/cdcabrera/weldable/pull/443)) ([591f686](https://github.com/cdcabrera/weldable/commit/591f686d66c04c38d55b17ab49de2fa45dbef5da))
+* **deps** bump prod group with 4 babel, yargs updates ([#442](https://github.com/cdcabrera/weldable/pull/442)) ([3a83dd0](https://github.com/cdcabrera/weldable/commit/3a83dd09b54b39402ecf205a69c54cae7120dbc9))
+* **deps** bump prod group with 5 style package updates ([#441](https://github.com/cdcabrera/weldable/pull/441)) ([3c054f9](https://github.com/cdcabrera/weldable/commit/3c054f99d2d97b7a9d71fcb62c91bdea5000855c))
+* **deps** bump prod group with 5 updates ([#440](https://github.com/cdcabrera/weldable/pull/440)) ([8a87958](https://github.com/cdcabrera/weldable/commit/8a8795808ead80f3c9b22b801227778431199619))
+* **deps** bump rimraf from 6.1.3 to 6.1.4 ([#437](https://github.com/cdcabrera/weldable/pull/437)) ([337016b](https://github.com/cdcabrera/weldable/commit/337016bea9fd5cde35407af16ad3da1b74ba4258))
+* **deps** bump postcss from 8.5.28 to 8.5.32 ([#434](https://github.com/cdcabrera/weldable/pull/434)) ([fb93cc2](https://github.com/cdcabrera/weldable/commit/fb93cc2561f7f6ca6396035d2d018abce1dbce21))
+
 ## [6.0.5](https://github.com/cdcabrera/weldable/compare/44e552463ba9d2fa8f4469e66d55b790c1e1ed9e...787f5cba7a2a5a76b40f1f2b6a230689d88f0c80) (2026-11-05)
 
 
