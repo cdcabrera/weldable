@@ -388,33 +388,37 @@ const aPackage = packages.[PACKAGE_NAME];
 | @tsconfig/recommended           | N/A                                                             |
 | @tsconfig/strictest             | N/A                                                             |
 | babel-loader                    | babelLoader, babelLoaderResolve                                 |
-| copy-webpack-plugin             | CopyWebpackPlugin, CopyWebpackPluginResolve                     |
+| copy-webpack-plugin             | CopyWebpackPlugin, copyWebpackPluginResolve                     |
 | css-loader                      | cssLoader, cssLoaderResolve                                     |
-| css-minimizer-webpack-plugin    | CssMinimizerWebpackPlugin, CssMinimizerWebpackPluginResolve     |
+| css-minimizer-webpack-plugin    | CssMinimizerWebpackPlugin, cssMinimizerWebpackPluginResolve     |
+| cssnano                         | cssnano, cssnanoResolve                                         |
 | dotenv                          | dotenv, dotenvResolve                                           |
 | dotenv-expand                   | dotenvExpand, dotenvExpandResolve                               |
 | dotenv-webpack                  | dotenvWebpack, dotenvWebpackResolve                             |
-| eslint-webpack-plugin           | EslintWebpackPlugin, EslintWebpackPluginResolve                 |
+| eslint-webpack-plugin           | EslintWebpackPlugin, eslintWebpackPluginResolve                 |
 | html-replace-webpack-plugin     | htmlReplaceWebpackPlugin, htmlReplaceWebpackPluginResolve       |
-| html-webpack-plugin             | HtmlWebpackPlugin, HtmlWebpackPluginResolve                     |
+| html-webpack-plugin             | HtmlWebpackPlugin, htmlWebpackPluginResolve                     |
 | less                            | less, lessResolve                                               | 
 | less-loader                     | lessLoader, lessLoaderResolve                                   |
-| mini-css-extract-plugin         | MiniCssExtractPlugin, MiniCssExtractPluginResolve               |
+| mini-css-extract-plugin         | MiniCssExtractPlugin, miniCssExtractPluginResolve               |
 | mini-svg-data-uri               | miniSvgDataUri, miniSvgDataUriResolve                           |
+| minimizer-webpack-plugin        | MinimizerWebpackPlugin, minimizerWebpackPluginResolve           |
+| postcss                         | postcss, postcssResolve                                         |
 | rimraf                          | rimraf, rimrafResolve                                           |
 | sass                            | sass, sassResolve                                               |
 | sass-loader                     | sassLoader, sassLoaderResolve                                   |
 | style-loader                    | styleLoader, styleLoaderResolve                                 |
-| terser-webpack-plugin           | TerserWebpackPlugin, TerserWebpackPluginResolve                 |
+| terser-webpack-plugin           | TerserWebpackPlugin, terserWebpackPluginResolve                 |
 | ts-loader                       | tsLoader, tsLoaderResolve                                       |
 | tsconfig-paths-webpack-plugin   | tsconfigPathsWebpackPlugin, tsconfigPathsWebpackPluginResolve   |
 | tslib                           | tslib, tslibResolve                                             |
 | typescript                      | typescript, typescriptResolve                                   |
 | webpack                         | webpack, webpackResolve                                         |
 | webpack-bundle-analyzer         | webpackBundleAnalyzer, webpackBundleAnalyzerResolve             |
-| webpack-cli                     | WebpackCli, WebpackCliResolve                                   |
-| webpack-dev-server              | WebpackDevServer, WebpackDevServerResolve                       |
+| webpack-cli                     | WebpackCli, webpackCliResolve                                   |
+| webpack-dev-server              | WebpackDevServer, webpackDevServerResolve                       |
 | webpack-merge                   | webpackMerge, webpackMergeResolve                               |
+| yargs                           | yargs, yargsResolve                                             |
 
 An example webpack config rules loader using the provided `require.resolve`...
 ```

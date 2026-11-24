@@ -2,15 +2,26 @@
   "language": "en",
   "words": [
     "babel",
+    "cdcabrera",
     "chunkfixture",
     "codecov",
     "cmds",
+    "cssnano",
+    "destructures",
+    "devtool",
     "fnames",
+    "minimizer",
     "nocolor",
     "oneline",
     "preprocess",
     "regen",
+    "Renovate",
+    "semver",
     "stringifier",
-    "systemvars"
+    "systemvars",
+    "terser",
+    "tslib",
+    "unaliased",
+    "yargs"
   ]
 }
