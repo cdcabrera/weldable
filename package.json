@@ -117,10 +117,10 @@
     "yargs": "17.7.3"
   },
   "devDependencies": {
-    "@cdcabrera/eslint-config-toolkit": "^1.1.0",
-    "changelog-light": "^3.1.0",
-    "cspell": "^9.8.0",
-    "eslint": "^9.39.5",
+    "@cdcabrera/eslint-config-toolkit": "^2.0.0",
+    "changelog-light": "^4.0.3",
+    "cspell": "^10.4.1",
+    "eslint": "^10.15.0",
     "jest": "^30.5.2",
     "jsdoc-to-markdown": "^9.1.3",
     "lodash": "^4.18.1"

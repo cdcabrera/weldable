@@ -157,7 +157,7 @@ const startWpErrorStatsHandler = (
     const formattedStats = stats
       .toString(statsLevel)
       .split('\n')
-      .map(v => (!/^\s*/.test(v) && ` * ${v}`) || `  ${v}`)
+      .map(val => (!/^\s*/.test(val) && ` * ${val}`) || `  ${val}`)
       .join('\n');
 
     aliasConsoleMessage.log(

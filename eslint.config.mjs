@@ -16,7 +16,11 @@ export default [
       }
     },
     rules: {
-      '@stylistic/quotes': [2, 'single', { avoidEscape: true, allowTemplateLiterals: true }],
+      'id-length': ['error', {
+        min: 2,
+        properties: 'never',
+        exceptions: ['a', 'b', 'e', 'i', 'j', 'k', '_']
+      }],
       'import/no-dynamic-require': 0
     }
   }
