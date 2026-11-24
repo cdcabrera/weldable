@@ -58,7 +58,6 @@ exports[`Typescript should update a tsconfig with a subsequent merge: merged tem
       "allowSyntheticDefaultImports": true,
       "allowUnreachableCode": false,
       "allowUnusedLabels": false,
-      "checkJs": true,
       "esModuleInterop": true,
       "exactOptionalPropertyTypes": true,
       "isolatedModules": true,
