@@ -119,3 +119,9 @@ This project is influenced by [Create React App](https://github.com/facebook/cre
 
 ## Contributing
 Contributing? Guidelines can be found here [CONTRIBUTING.md](./CONTRIBUTING.md).
+
+### AI agent
+
+If you're using an AI assistant to help with development in this repository, please prompt it to `> review the repo guidelines` first to ensure it follows the project's conventions and best practices.
+
+Guidelines for user, agent, interaction can be found in [CONTRIBUTING.md](./CONTRIBUTING.md#ai-agent).

@@ -24,3 +24,8 @@ dependency-update-log.txt
 .archive
 __fixtures__/tsconfig*
 __fixtures__/dist
+
+# agent
+.agent
+reports/
+.output.txt

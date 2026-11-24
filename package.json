@@ -47,7 +47,7 @@
     "test:integration-dev": "export _WELDABLE_TEST=true; jest --roots=./tests --watchAll",
     "test:lint": "eslint ./bin ./src eslint.config.mjs",
     "test:local": "export _WELDABLE_TEST=true; jest --watch",
-    "test:spell-docs": "cspell ./README.md ./DOCS.md ./CONTRIBUTING.md --config ./cspell.config.json",
+    "test:spell-docs": "cspell ./README.md ./DOCS.md ./CONTRIBUTING.md './guidelines/**/*.md' --config ./cspell.config.json",
     "test:spell": "cspell './bin/**/*.js' './src/**/*.js' './tests/**/*.js' --config ./cspell.config.json"
   },
   "jest": {
