@@ -336,8 +336,19 @@ exports[`webpack should create a basic webpack config: basic configurations 1`] 
           }
         },
         {
+          "rawOptions": {
+            "minimizerOptions": {
+              "preset": [
+                "default",
+                {
+                  "mergeLonghand": false
+                }
+              ]
+            }
+          },
           "options": {
             "test": {},
+            "extractComments": true,
             "parallel": true,
             "minimizer": {
               "options": {

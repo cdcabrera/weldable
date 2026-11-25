@@ -1057,8 +1057,19 @@ exports[`webpackConfigs should return a production configuration object: product
           }
         },
         {
+          "rawOptions": {
+            "minimizerOptions": {
+              "preset": [
+                "default",
+                {
+                  "mergeLonghand": false
+                }
+              ]
+            }
+          },
           "options": {
             "test": {},
+            "extractComments": true,
             "parallel": true,
             "minimizer": {
               "options": {
@@ -1158,8 +1169,19 @@ exports[`webpackConfigs should return a production configuration object: product
           }
         },
         {
+          "rawOptions": {
+            "minimizerOptions": {
+              "preset": [
+                "default",
+                {
+                  "mergeLonghand": false
+                }
+              ]
+            }
+          },
           "options": {
             "test": {},
+            "extractComments": true,
             "parallel": true,
             "minimizer": {
               "options": {
@@ -1259,8 +1281,19 @@ exports[`webpackConfigs should return a production configuration object: product
           }
         },
         {
+          "rawOptions": {
+            "minimizerOptions": {
+              "preset": [
+                "default",
+                {
+                  "mergeLonghand": false
+                }
+              ]
+            }
+          },
           "options": {
             "test": {},
+            "extractComments": true,
             "parallel": true,
             "minimizer": {
               "options": {
