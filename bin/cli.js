@@ -6,6 +6,8 @@ const packageJson = require('../package');
 const { weldable, OPTIONS } = require('../src');
 const { setupDotenvFilesForEnv } = require('../src/dotenv');
 
+const yargsInstance = yargs();
+
 /**
  * Setup yargs
  */
@@ -18,13 +20,13 @@ const {
   standalone: isStandalone,
   tsconfig: baseTsConfig,
   'tsconfig-opt': tsConfigOptions
-} = yargs
+} = yargsInstance
   .usage('Use a webpack configuration for development and production.\n\nUsage: weldable [options]')
   .help('help')
   .alias('h', 'help')
   .version('version', packageJson.version)
   .alias('v', 'version')
-  .wrap(yargs.terminalWidth())
+  .wrap(yargsInstance.terminalWidth())
   .check(({ standalone, extend, env, stats, statsFile, ['tsconfig-opt']: tsconfigOpt } = {}) => {
     // ignore most options with standalone
     if (
