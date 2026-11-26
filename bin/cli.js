@@ -6,7 +6,7 @@ const packageJson = require('../package');
 const { weldable, OPTIONS } = require('../src');
 const { setupDotenvFilesForEnv } = require('../src/dotenv');
 
-const yargsInstance = yargs();
+const yargsInstance = yargs(process.argv.slice(2));
 
 /**
  * Setup yargs
